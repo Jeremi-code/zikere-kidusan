@@ -1,14 +1,7 @@
-/**
- * Ethiopian Calendar (የኢትዮጵያ ዘመን አቆጣጠር) Utility
- * 
- * Provides conversion between Gregorian and Ethiopian calendars,
- * Ethiopian month names, Ge'ez numerals, and today's date calculation.
- */
-
 export interface EthiopianDate {
   year: number
-  month: number // 1 to 13
-  day: number   // 1 to 30 (or 1 to 5/6 for Pagumen)
+  month: number
+  day: number
   monthName: string
   monthNameEn: string
   geezDay: string
@@ -23,7 +16,6 @@ export interface EthiopianMonthInfo {
   totalDays: (year: number) => number
 }
 
-// The 13 Ethiopian Months
 export const ETHIOPIAN_MONTHS: EthiopianMonthInfo[] = [
   { id: 1,  nameAm: 'መስከረም', nameEn: 'Meskerem', totalDays: () => 30 },
   { id: 2,  nameAm: 'ጥቅምት',  nameEn: 'Tikimt',   totalDays: () => 30 },
@@ -40,10 +32,6 @@ export const ETHIOPIAN_MONTHS: EthiopianMonthInfo[] = [
   { id: 13, nameAm: 'ጳጉሜን',  nameEn: 'Pagumen',  totalDays: (year) => (year % 4 === 3 ? 6 : 5) },
 ]
 
-/**
- * Converts an integer into Ge'ez numerals (የግዕዝ ቁጥሮች)
- * e.g., 1 -> ፩, 23 -> ፳፫, 2019 -> ፳፻፲፱
- */
 export function numberToGeez(num: number): string {
   if (num <= 0) return num.toString()
 
@@ -56,7 +44,6 @@ export function numberToGeez(num: number): string {
     60: '፷', 70: '፸', 80: '፹', 90: '፺'
   }
 
-  // Handle numbers 1 - 99
   if (num < 10) return ones[num]
   if (num < 100) {
     const t = Math.floor(num / 10) * 10
@@ -64,7 +51,6 @@ export function numberToGeez(num: number): string {
     return (tens[t] || '') + (o > 0 ? ones[o] : '')
   }
 
-  // Handle numbers 100 - 9999
   const hundred = '፻'
   const tenThousand = '፼'
 
@@ -83,9 +69,6 @@ export function numberToGeez(num: number): string {
   return prefix + suffix
 }
 
-/**
- * Calculates Julian Day Number (JDN) from Gregorian date.
- */
 function gregorianToJDN(year: number, month: number, day: number): number {
   const a = Math.floor((14 - month) / 12)
   const y = year + 4800 - a
@@ -93,9 +76,6 @@ function gregorianToJDN(year: number, month: number, day: number): number {
   return day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045
 }
 
-/**
- * Converts Julian Day Number to Ethiopian date.
- */
 function jdnToEthiopian(jdn: number): { year: number; month: number; day: number } {
   const r = (jdn - 1723856) % 1461
   const n = (r % 365) + 365 * Math.floor(r / 1460)
@@ -105,9 +85,6 @@ function jdnToEthiopian(jdn: number): { year: number; month: number; day: number
   return { year, month, day }
 }
 
-/**
- * Converts a JS Date object (Gregorian) to EthiopianDate.
- */
 export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
   const gYear = date.getFullYear()
   const gMonth = date.getMonth() + 1
@@ -132,9 +109,6 @@ export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
   }
 }
 
-/**
- * Gets today's date in the Ethiopian Calendar.
- */
 export function getTodayEthiopian(): EthiopianDate {
   return gregorianToEthiopian(new Date())
 }

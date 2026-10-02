@@ -36,7 +36,6 @@ function prevDay() {
 
 <template>
   <header class="bg-amber-900 text-amber-50 shadow-md">
-    <!-- Top Bar -->
     <div class="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-full bg-amber-800 flex items-center justify-center border border-amber-700">
@@ -48,7 +47,6 @@ function prevDay() {
         </div>
       </div>
 
-      <!-- Year Badge -->
       <div class="text-right">
         <span class="inline-block px-2.5 py-1 bg-amber-800/80 rounded-md text-xs font-semibold text-amber-200 border border-amber-700/60">
           {{ currentDate.year }} ዓ.ም ({{ currentDate.geezYear }})
@@ -56,7 +54,6 @@ function prevDay() {
       </div>
     </div>
 
-    <!-- Date Navigation Bar -->
     <div class="bg-amber-950/60 border-t border-amber-800/50 px-4 py-3">
       <div class="max-w-2xl mx-auto flex items-center justify-between">
         <button 

@@ -22,15 +22,12 @@ function handleSelectDate({ month, day }: { month: number; day: number }) {
 
 <template>
   <div class="min-h-screen bg-amber-50/40 text-stone-900 flex flex-col font-sans">
-    <!-- Header with Date Navigator -->
     <CalendarHeader 
       :current-date="currentDate" 
       @select-date="handleSelectDate"
     />
 
-    <!-- Main Content Area -->
     <main class="flex-1 max-w-2xl w-full mx-auto p-4 space-y-4">
-      <!-- Date Banner Card -->
       <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200/70">
         <div class="flex items-center justify-between text-xs text-amber-800 font-medium mb-2">
           <span class="flex items-center gap-1.5">
@@ -51,7 +48,6 @@ function handleSelectDate({ month, day }: { month: number; day: number }) {
         </p>
       </div>
 
-      <!-- Quick Info / Upcoming Features -->
       <div class="grid grid-cols-2 gap-3 text-stone-700">
         <div class="bg-white p-4 rounded-xl border border-amber-100 shadow-sm flex items-start gap-3">
           <BookOpen class="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
@@ -71,7 +67,6 @@ function handleSelectDate({ month, day }: { month: number; day: number }) {
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="py-4 text-center text-xs text-stone-500 border-t border-amber-200/40">
       መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ
     </footer>
