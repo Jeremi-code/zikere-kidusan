@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ETHIOPIAN_MONTHS, type EthiopianDate } from '../lib/ethiopianCalendar'
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { bookmarks } from '../lib/preferences'
+import { Calendar, ChevronLeft, ChevronRight, Search, Settings, Bookmark } from 'lucide-vue-next'
 
 const props = defineProps<{
   currentDate: EthiopianDate
@@ -8,6 +9,10 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'select-date', date: { month: number; day: number }): void
+  (e: 'open-date-picker'): void
+  (e: 'open-search'): void
+  (e: 'open-bookmarks'): void
+  (e: 'open-settings'): void
 }>()
 
 function nextDay() {
@@ -36,25 +41,49 @@ function prevDay() {
 
 <template>
   <header class="bg-amber-900 text-amber-50 shadow-md">
-    <div class="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-amber-800 flex items-center justify-center border border-amber-700">
+    <div class="max-w-2xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-800 flex items-center justify-center border border-amber-700/80 shadow-xs">
           <Calendar class="w-5 h-5 text-amber-200" />
         </div>
         <div>
-          <h1 class="text-xl font-bold tracking-wide">መጽሐፈ ስንክሳር</h1>
-          <p class="text-xs text-amber-200/80">ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</p>
+          <h1 class="text-lg sm:text-xl font-bold tracking-wide">መጽሐፈ ስንክሳር</h1>
+          <p class="text-[11px] text-amber-200/80">ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</p>
         </div>
       </div>
 
-      <div class="text-right">
-        <span class="inline-block px-2.5 py-1 bg-amber-800/80 rounded-md text-xs font-semibold text-amber-200 border border-amber-700/60">
-          {{ currentDate.year }} ዓ.ም ({{ currentDate.geezYear }})
-        </span>
+      <div class="flex items-center gap-1">
+        <button
+          @click="emit('open-search')"
+          class="p-2 rounded-xl text-amber-200 hover:bg-amber-800 transition-colors"
+          title="ፈልግ (Search)"
+        >
+          <Search class="w-5 h-5" />
+        </button>
+
+        <button
+          @click="emit('open-bookmarks')"
+          class="p-2 rounded-xl text-amber-200 hover:bg-amber-800 transition-colors relative"
+          title="የተቀመጡ (Bookmarks)"
+        >
+          <Bookmark class="w-5 h-5" />
+          <span 
+            v-if="bookmarks.length" 
+            class="absolute top-1 right-1 w-2 h-2 rounded-full bg-amber-300"
+          />
+        </button>
+
+        <button
+          @click="emit('open-settings')"
+          class="p-2 rounded-xl text-amber-200 hover:bg-amber-800 transition-colors"
+          title="ማስተካከያ (Settings)"
+        >
+          <Settings class="w-5 h-5" />
+        </button>
       </div>
     </div>
 
-    <div class="bg-amber-950/60 border-t border-amber-800/50 px-4 py-3">
+    <div class="bg-amber-950/60 border-t border-amber-800/50 px-4 py-2.5 sm:py-3">
       <div class="max-w-2xl mx-auto flex items-center justify-between">
         <button 
           @click="prevDay"
@@ -64,16 +93,22 @@ function prevDay() {
           <ChevronLeft class="w-5 h-5" />
         </button>
 
-        <div class="text-center">
-          <div class="text-2xl font-bold text-amber-100 flex items-center justify-center gap-2">
+        <button
+          @click="emit('open-date-picker')"
+          class="text-center px-3 py-1 rounded-xl hover:bg-amber-800/40 transition-colors cursor-pointer group"
+          title="ቀን ይምረጡ (Select Date)"
+        >
+          <div class="text-xl sm:text-2xl font-bold text-amber-100 flex items-center justify-center gap-2 group-hover:text-amber-200">
             <span>{{ currentDate.monthName }}</span>
             <span class="text-amber-300 font-serif">{{ currentDate.geezDay }}</span>
-            <span class="text-sm font-normal text-amber-300/70">({{ currentDate.day }})</span>
+            <span class="text-xs sm:text-sm font-normal text-amber-300/70">({{ currentDate.day }})</span>
           </div>
-          <div class="text-xs text-amber-300/70 mt-0.5">
-            {{ currentDate.monthNameEn }} {{ currentDate.day }}
+          <div class="text-[11px] text-amber-300/70 mt-0.5 flex items-center justify-center gap-1.5">
+            <span>{{ currentDate.monthNameEn }} {{ currentDate.day }}</span>
+            <span>•</span>
+            <span>{{ currentDate.year }} ዓ.ም</span>
           </div>
-        </div>
+        </button>
 
         <button 
           @click="nextDay"
