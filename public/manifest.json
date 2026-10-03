@@ -1,0 +1,17 @@
+{
+  "name": "መጽሐፈ ስንክሳር — Synaxarium",
+  "short_name": "ስንክሳር",
+  "description": "የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን መጽሐፈ ስንክሳር - ዕለታዊ የቅዱሳን ታሪክና በዓላት",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#78350f",
+  "theme_color": "#78350f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
