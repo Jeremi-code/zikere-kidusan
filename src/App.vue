@@ -1,10 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { getTodayEthiopian, ETHIOPIAN_MONTHS, numberToGeez, type EthiopianDate } from './lib/ethiopianCalendar'
+import { synaxariumData } from './data/synaxariumData'
+import type { SynaxariumEntry } from './lib/types'
+import { currentTheme, applyThemeToDocument } from './lib/preferences'
 import CalendarHeader from './components/CalendarHeader.vue'
-import { BookOpen, Sparkles, Heart } from 'lucide-vue-next'
+import DailyReadingCard from './components/DailyReadingCard.vue'
+import EthiopianDatePicker from './components/EthiopianDatePicker.vue'
+import SearchModal from './components/SearchModal.vue'
+import BookmarksDrawer from './components/BookmarksDrawer.vue'
+import SettingsModal from './components/SettingsModal.vue'
 
+const allReadings = synaxariumData as SynaxariumEntry[]
 const currentDate = ref<EthiopianDate>(getTodayEthiopian())
+
+const isDatePickerOpen = ref(false)
+const isSearchOpen = ref(false)
+const isBookmarksOpen = ref(false)
+const isSettingsOpen = ref(false)
+
+onMounted(() => {
+  applyThemeToDocument(currentTheme.value)
+})
 
 function handleSelectDate({ month, day }: { month: number; day: number }) {
   const monthInfo = ETHIOPIAN_MONTHS[month - 1]
@@ -18,57 +35,60 @@ function handleSelectDate({ month, day }: { month: number; day: number }) {
     formatted: `${monthInfo.nameAm} ${numberToGeez(day)} (${day}) ቀን ${currentDate.value.year} ዓ.ም`
   }
 }
+
+const currentReading = computed(() => {
+  return allReadings.find(
+    (e) => e.month === currentDate.value.month && e.day === currentDate.value.day
+  )
+})
 </script>
 
 <template>
-  <div class="min-h-screen bg-amber-50/40 text-stone-900 flex flex-col font-sans">
+  <div class="min-h-screen bg-stone-100 text-stone-900 flex flex-col font-sans transition-colors duration-150">
     <CalendarHeader 
       :current-date="currentDate" 
       @select-date="handleSelectDate"
+      @open-date-picker="isDatePickerOpen = true"
+      @open-search="isSearchOpen = true"
+      @open-bookmarks="isBookmarksOpen = true"
+      @open-settings="isSettingsOpen = true"
     />
 
     <main class="flex-1 max-w-2xl w-full mx-auto p-4 space-y-4">
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200/70">
-        <div class="flex items-center justify-between text-xs text-amber-800 font-medium mb-2">
-          <span class="flex items-center gap-1.5">
-            <Sparkles class="w-4 h-4 text-amber-600" />
-            የዕለቱ መታሰቢያ
-          </span>
-          <span class="bg-amber-100/80 px-2 py-0.5 rounded-full text-amber-900">
-            {{ currentDate.formatted }}
-          </span>
-        </div>
-
-        <h2 class="text-xl font-bold text-stone-900 mb-2">
-          እንኳን ለቅዱሳን አበው ዓመታዊና ወርሃዊ መታሰቢያ በዓል በሰላም አደረሳችሁ!
-        </h2>
-
-        <p class="text-stone-600 text-sm leading-relaxed">
-          በዚህ ዕለት የሚታሰቡ የቅዱሳን፣ የጻድቃን፣ የሰማዕታትና የመላእክት ዝክረ ታሪክ እና ምስባክ በቅርቡ ይቀርባል።
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3 text-stone-700">
-        <div class="bg-white p-4 rounded-xl border border-amber-100 shadow-sm flex items-start gap-3">
-          <BookOpen class="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-          <div>
-            <h3 class="text-sm font-semibold text-stone-800">ዜና ቅዱሳን</h3>
-            <p class="text-xs text-stone-500 mt-0.5">ገድላትና የህይወት ታሪክ</p>
-          </div>
-        </div>
-
-        <div class="bg-white p-4 rounded-xl border border-amber-100 shadow-sm flex items-start gap-3">
-          <Heart class="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-          <div>
-            <h3 class="text-sm font-semibold text-stone-800">ሰላምታና ምስባክ</h3>
-            <p class="text-xs text-stone-500 mt-0.5">የዕለቱ የግዕዝ ማሕሌት</p>
-          </div>
-        </div>
-      </div>
+      <DailyReadingCard 
+        :entry="currentReading" 
+        :date-label="currentDate.formatted"
+      />
     </main>
 
-    <footer class="py-4 text-center text-xs text-stone-500 border-t border-amber-200/40">
-      መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ
+    <footer class="py-5 text-center text-xs text-stone-500 border-t border-stone-200">
+      <p>መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</p>
+      <p class="mt-1 text-stone-400">ከዝክረ ቅዱሳን ማኅበረ ቅዱስ ዳዊት (@zikirekdusn) የተወሰደ</p>
     </footer>
+
+    <EthiopianDatePicker
+      :is-open="isDatePickerOpen"
+      :current-date="currentDate"
+      @close="isDatePickerOpen = false"
+      @select="handleSelectDate"
+    />
+
+    <SearchModal
+      :is-open="isSearchOpen"
+      :all-readings="allReadings"
+      @close="isSearchOpen = false"
+      @select="handleSelectDate"
+    />
+
+    <BookmarksDrawer
+      :is-open="isBookmarksOpen"
+      @close="isBookmarksOpen = false"
+      @select="handleSelectDate"
+    />
+
+    <SettingsModal
+      :is-open="isSettingsOpen"
+      @close="isSettingsOpen = false"
+    />
   </div>
 </template>
