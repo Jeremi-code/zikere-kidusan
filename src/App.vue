@@ -1,18 +1,36 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { getTodayEthiopian, ETHIOPIAN_MONTHS, numberToGeez, type EthiopianDate } from './lib/ethiopianCalendar'
+import { 
+  getTodayEthiopian, 
+  ETHIOPIAN_MONTHS, 
+  numberToGeez, 
+  ethiopianToJDN, 
+  getWeekdayFromJDN, 
+  type EthiopianDate 
+} from './lib/ethiopianCalendar'
 import { synaxariumData } from './data/synaxariumData'
 import type { SynaxariumEntry } from './lib/types'
-import { currentTheme, applyThemeToDocument } from './lib/preferences'
+import { 
+  currentTheme, 
+  currentLanguage, 
+  applyThemeToDocument, 
+  isBookmarked, 
+  toggleBookmarkItem 
+} from './lib/preferences'
 import CalendarHeader from './components/CalendarHeader.vue'
+import WeekCalendarStrip from './components/WeekCalendarStrip.vue'
 import DailyReadingCard from './components/DailyReadingCard.vue'
+import FloatingBottomDock from './components/FloatingBottomDock.vue'
 import EthiopianDatePicker from './components/EthiopianDatePicker.vue'
 import SearchModal from './components/SearchModal.vue'
 import BookmarksDrawer from './components/BookmarksDrawer.vue'
 import SettingsModal from './components/SettingsModal.vue'
+import EthiopianCross from './components/EthiopianCross.vue'
+import HaragDivider from './components/HaragDivider.vue'
 
 const allReadings = synaxariumData as SynaxariumEntry[]
 const currentDate = ref<EthiopianDate>(getTodayEthiopian())
+const isCopied = ref(false)
 
 const isDatePickerOpen = ref(false)
 const isSearchOpen = ref(false)
@@ -23,17 +41,30 @@ onMounted(() => {
   applyThemeToDocument(currentTheme.value)
 })
 
-function handleSelectDate({ month, day }: { month: number; day: number }) {
+function handleSelectDate({ year, month, day }: { year?: number; month: number; day: number }) {
+  const targetYear = year ?? currentDate.value.year
   const monthInfo = ETHIOPIAN_MONTHS[month - 1]
+  const jdn = ethiopianToJDN(targetYear, month, day)
+  const weekday = getWeekdayFromJDN(jdn)
+
   currentDate.value = {
-    ...currentDate.value,
+    year: targetYear,
     month,
     day,
     monthName: monthInfo.nameAm,
     monthNameEn: monthInfo.nameEn,
     geezDay: numberToGeez(day),
-    formatted: `${monthInfo.nameAm} ${numberToGeez(day)} (${day}) ቀን ${currentDate.value.year} ዓ.ም`
+    geezYear: numberToGeez(targetYear),
+    formatted: `${monthInfo.nameAm} ${numberToGeez(day)} (${day}) ቀን ${targetYear} ዓ.ም`,
+    weekdayNameAm: weekday.nameAm,
+    weekdayNameEn: weekday.nameEn,
+    weekdayShortAm: weekday.shortAm,
+    weekdayShortEn: weekday.shortEn
   }
+}
+
+function jumpToToday() {
+  currentDate.value = getTodayEthiopian()
 }
 
 const currentReading = computed(() => {
@@ -41,30 +72,86 @@ const currentReading = computed(() => {
     (e) => e.month === currentDate.value.month && e.day === currentDate.value.day
   )
 })
+
+const readingIsBookmarked = computed(() => {
+  if (!currentReading.value) return false
+  return isBookmarked(currentReading.value.month, currentReading.value.day)
+})
+
+function handleToggleBookmark() {
+  if (!currentReading.value) return
+  toggleBookmarkItem({
+    id: currentReading.value.id,
+    month: currentReading.value.month,
+    day: currentReading.value.day,
+    title: currentReading.value.title,
+    titleEn: currentReading.value.titleEn,
+    dateLabel: currentDate.value.formatted
+  })
+}
+
+function handleCopyReading() {
+  if (!currentReading.value) return
+  const text = `${currentDate.value.formatted}\n\n${currentReading.value.title}\n\n${currentReading.value.story}`
+  navigator.clipboard.writeText(text)
+  isCopied.value = true
+  setTimeout(() => {
+    isCopied.value = false
+  }, 2000)
+}
+
+function handleToggleLanguage() {
+  currentLanguage.value = currentLanguage.value === 'am' ? 'en' : 'am'
+}
 </script>
 
 <template>
-  <div class="min-h-screen bg-stone-100 text-stone-900 flex flex-col font-sans transition-colors duration-150">
+  <div class="min-h-screen flex flex-col font-ethiopic-serif transition-colors duration-200 pb-24 sm:pb-28">
     <CalendarHeader 
       :current-date="currentDate" 
-      @select-date="handleSelectDate"
       @open-date-picker="isDatePickerOpen = true"
       @open-search="isSearchOpen = true"
       @open-bookmarks="isBookmarksOpen = true"
       @open-settings="isSettingsOpen = true"
     />
 
-    <main class="flex-1 max-w-2xl w-full mx-auto p-4 space-y-4">
+    <main class="flex-1 max-w-2xl w-full mx-auto px-3.5 sm:px-4 py-4 space-y-4 sm:space-y-5">
+      <WeekCalendarStrip
+        :current-date="currentDate"
+        @select-date="handleSelectDate"
+        @open-full-picker="isDatePickerOpen = true"
+        @jump-today="jumpToToday"
+      />
+
       <DailyReadingCard 
         :entry="currentReading" 
         :date-label="currentDate.formatted"
       />
     </main>
 
-    <footer class="py-5 text-center text-xs text-stone-500 border-t border-stone-200">
-      <p>መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</p>
-      <p class="mt-1 text-stone-400">ከዝክረ ቅዱሳን ማኅበረ ቅዱስ ዳዊት (@zikirekdusn) የተወሰደ</p>
+    <footer class="mt-8 py-8 px-4 text-center text-xs text-stone-500 border-t border-amber-900/15 dark:border-amber-800/30 bg-amber-50/40 dark:bg-black/40">
+      <div class="flex items-center justify-center gap-2 mb-2 text-amber-800 dark:text-amber-400 opacity-90">
+        <EthiopianCross variant="lalibela" :size="18" />
+        <span class="font-bold tracking-wider font-ethiopic-serif">መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</span>
+        <EthiopianCross variant="lalibela" :size="18" />
+      </div>
+      <HaragDivider variant="compact" />
+      <p class="mt-2 text-stone-500 dark:text-stone-400 font-ethiopic-serif text-[11px]">
+        ስብሐት ለእግዚአብሔር ወለወላዲቱ ድንግል ማርያም ወለመስቀሉ ክቡር
+      </p>
     </footer>
+
+    <FloatingBottomDock
+      :is-bookmarked="readingIsBookmarked"
+      :current-language="currentLanguage"
+      :is-copied="isCopied"
+      @toggle-bookmark="handleToggleBookmark"
+      @toggle-language="handleToggleLanguage"
+      @copy="handleCopyReading"
+      @open-settings="isSettingsOpen = true"
+      @open-search="isSearchOpen = true"
+      @jump-today="jumpToToday"
+    />
 
     <EthiopianDatePicker
       :is-open="isDatePickerOpen"
