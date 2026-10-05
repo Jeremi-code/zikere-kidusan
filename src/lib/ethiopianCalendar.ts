@@ -7,6 +7,10 @@ export interface EthiopianDate {
   geezDay: string
   geezYear: string
   formatted: string
+  weekdayNameAm?: string
+  weekdayNameEn?: string
+  weekdayShortAm?: string
+  weekdayShortEn?: string
 }
 
 export interface EthiopianMonthInfo {
@@ -14,6 +18,21 @@ export interface EthiopianMonthInfo {
   nameAm: string
   nameEn: string
   totalDays: (year: number) => number
+}
+
+export interface DayChipInfo {
+  year: number
+  month: number
+  day: number
+  geezDay: string
+  dayNameAm: string
+  dayNameEn: string
+  dayShortAm: string
+  dayShortEn: string
+  monthNameAm: string
+  monthNameEn: string
+  isToday: boolean
+  isSelected: boolean
 }
 
 export const ETHIOPIAN_MONTHS: EthiopianMonthInfo[] = [
@@ -30,6 +49,16 @@ export const ETHIOPIAN_MONTHS: EthiopianMonthInfo[] = [
   { id: 11, nameAm: 'ሐምሌ',   nameEn: 'Hamle',    totalDays: () => 30 },
   { id: 12, nameAm: 'ነሐሴ',   nameEn: 'Nehase',   totalDays: () => 30 },
   { id: 13, nameAm: 'ጳጉሜን',  nameEn: 'Pagumen',  totalDays: (year) => (year % 4 === 3 ? 6 : 5) },
+]
+
+export const ETHIOPIAN_WEEKDAYS = [
+  { id: 0, nameAm: 'እሑድ', shortAm: 'እሑድ', nameEn: 'Sunday', shortEn: 'Sun' },
+  { id: 1, nameAm: 'ሰኞ', shortAm: 'ሰኞ', nameEn: 'Monday', shortEn: 'Mon' },
+  { id: 2, nameAm: 'ማክሰኞ', shortAm: 'ማክሰ', nameEn: 'Tuesday', shortEn: 'Tue' },
+  { id: 3, nameAm: 'ረቡዕ', shortAm: 'ረቡዕ', nameEn: 'Wednesday', shortEn: 'Wed' },
+  { id: 4, nameAm: 'ሐሙስ', shortAm: 'ሐሙስ', nameEn: 'Thursday', shortEn: 'Thu' },
+  { id: 5, nameAm: 'ዓርብ', shortAm: 'ዓርብ', nameEn: 'Friday', shortEn: 'Fri' },
+  { id: 6, nameAm: 'ቅዳሜ', shortAm: 'ቅዳሜ', nameEn: 'Saturday', shortEn: 'Sat' },
 ]
 
 export function numberToGeez(num: number): string {
@@ -85,6 +114,15 @@ function jdnToEthiopian(jdn: number): { year: number; month: number; day: number
   return { year, month, day }
 }
 
+export function ethiopianToJDN(year: number, month: number, day: number): number {
+  return 1723856 + 365 * year + Math.floor(year / 4) + 30 * (month - 1) + day - 1
+}
+
+export function getWeekdayFromJDN(jdn: number) {
+  const dayIndex = (jdn + 1) % 7
+  return ETHIOPIAN_WEEKDAYS[dayIndex] || ETHIOPIAN_WEEKDAYS[0]
+}
+
 export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
   const gYear = date.getFullYear()
   const gMonth = date.getMonth() + 1
@@ -92,6 +130,7 @@ export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
 
   const jdn = gregorianToJDN(gYear, gMonth, gDay)
   const { year, month, day } = jdnToEthiopian(jdn)
+  const weekday = getWeekdayFromJDN(jdn)
 
   const monthInfo = ETHIOPIAN_MONTHS[month - 1] || ETHIOPIAN_MONTHS[0]
   const geezDay = numberToGeez(day)
@@ -105,10 +144,50 @@ export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
     monthNameEn: monthInfo.nameEn,
     geezDay,
     geezYear,
-    formatted: `${monthInfo.nameAm} ${geezDay} (${day}) ቀን ${year} ዓ.ም`
+    formatted: `${monthInfo.nameAm} ${geezDay} (${day}) ቀን ${year} ዓ.ም`,
+    weekdayNameAm: weekday.nameAm,
+    weekdayNameEn: weekday.nameEn,
+    weekdayShortAm: weekday.shortAm,
+    weekdayShortEn: weekday.shortEn
   }
 }
 
 export function getTodayEthiopian(): EthiopianDate {
   return gregorianToEthiopian(new Date())
+}
+
+export function getSurroundingDays(
+  currentYear: number,
+  currentMonth: number,
+  currentDay: number,
+  offsetRange: number = 3
+): DayChipInfo[] {
+  const currentJDN = ethiopianToJDN(currentYear, currentMonth, currentDay)
+  const today = getTodayEthiopian()
+  const todayJDN = ethiopianToJDN(today.year, today.month, today.day)
+
+  const chips: DayChipInfo[] = []
+  for (let offset = -offsetRange; offset <= offsetRange; offset++) {
+    const targetJDN = currentJDN + offset
+    const { year, month, day } = jdnToEthiopian(targetJDN)
+    const weekday = getWeekdayFromJDN(targetJDN)
+    const monthInfo = ETHIOPIAN_MONTHS[month - 1] || ETHIOPIAN_MONTHS[0]
+
+    chips.push({
+      year,
+      month,
+      day,
+      geezDay: numberToGeez(day),
+      dayNameAm: weekday.nameAm,
+      dayNameEn: weekday.nameEn,
+      dayShortAm: weekday.shortAm,
+      dayShortEn: weekday.shortEn,
+      monthNameAm: monthInfo.nameAm,
+      monthNameEn: monthInfo.nameEn,
+      isToday: targetJDN === todayJDN,
+      isSelected: offset === 0
+    })
+  }
+
+  return chips
 }
