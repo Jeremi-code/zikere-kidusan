@@ -76,8 +76,11 @@ watch(bookmarks, (val) => {
 
 export function applyThemeToDocument(theme: AppTheme) {
   const root = document.documentElement
-  root.classList.remove('theme-light', 'theme-sepia', 'theme-dark')
+  root.classList.remove('theme-light', 'theme-sepia', 'theme-dark', 'dark')
   root.classList.add(`theme-${theme}`)
+  if (theme === 'dark') {
+    root.classList.add('dark')
+  }
 }
 
 export function isBookmarked(month: number, day: number): boolean {
