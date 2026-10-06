@@ -1,14 +1,9 @@
 const CACHE_NAME = 'synaxarium-v2'
 const STATIC_ASSETS = [
   '/',
-  '/index.html',
-  '/manifest.json',
-  '/favicon.svg',
-  '/assets/art/harag_header.jpg',
-  '/assets/art/debre_berhan_cherub.jpg',
-  '/assets/art/biranna_parchment.jpg',
-  '/assets/art/sanctuary_arch.jpg',
-  '/assets/art/mary_christ_icon.jpg'
+  'index.html',
+  'manifest.json',
+  'favicon.svg'
 ]
 
 self.addEventListener('install', (event) => {
