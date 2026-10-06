@@ -18,61 +18,61 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="fixed bottom-4 sm:bottom-6 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
-    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-2 rounded-2xl reading-folio backdrop-blur-xl border-2 shadow-2xl transition-all max-w-fit manuscript-card">
+  <div class="fixed bottom-3 sm:bottom-6 inset-x-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none">
+    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-2 rounded-2xl floating-dock backdrop-blur-2xl border-2 transition-all max-w-fit">
       <button
         @click="emit('jump-today')"
-        class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-amber-950 dark:text-amber-200 hover:bg-amber-100/70 dark:hover:bg-amber-950/70 transition-all cursor-pointer font-ethiopic-serif"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold floating-dock-btn active:scale-95 transition-all cursor-pointer font-ethiopic-serif"
         title="ወደ ዛሬ ቀን (Jump to Today)"
       >
-        <Sparkles class="w-4 h-4 text-amber-600 dark:text-amber-400" />
-        <span class="hidden sm:inline">ዛሬ</span>
+        <Sparkles class="w-4 h-4 text-amber-600" />
+        <span class="font-bold">ዛሬ</span>
       </button>
 
-      <div class="w-px h-5 bg-amber-800/15 dark:bg-stone-700 mx-0.5"></div>
+      <div class="w-px h-5 floating-dock-divider mx-0.5"></div>
 
       <button
         @click="emit('open-search')"
-        class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-all cursor-pointer"
-        title="ፈልግ (Search)"
+        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
+        title="ፈልግ (Search Readings)"
       >
         <Search class="w-4 h-4" />
       </button>
 
       <button
         @click="emit('toggle-language')"
-        class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-stone-800 dark:text-stone-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-all cursor-pointer font-ethiopic-sans"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer font-ethiopic-sans active:scale-95 language-pill shadow-2xs"
         :title="currentLanguage === 'am' ? 'Switch to English' : 'ወደ አማርኛ ቀይር'"
       >
-        <Globe class="w-4 h-4 text-amber-600 dark:text-amber-400" />
-        <span class="text-[11px]">{{ currentLanguage === 'am' ? 'En' : 'አማ' }}</span>
+        <Globe class="w-4 h-4 text-current opacity-85" />
+        <span class="tracking-wide">{{ currentLanguage === 'am' ? 'English' : 'አማርኛ' }}</span>
       </button>
 
       <button
         @click="emit('toggle-bookmark')"
-        class="p-2 rounded-xl transition-all cursor-pointer"
+        class="p-2 rounded-xl transition-all cursor-pointer active:scale-95"
         :class="isBookmarked 
-          ? 'text-amber-600 dark:text-amber-400 bg-amber-100/70 dark:bg-amber-950/50' 
-          : 'text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800'"
-        :title="isBookmarked ? 'አስወግድ (Remove Bookmark)' : 'አስቀምጥ (Save Bookmark)'"
+          ? 'text-amber-700 bg-amber-200/80 font-bold shadow-2xs' 
+          : 'floating-dock-btn'"
+        :title="isBookmarked ? 'ዕልባት አስወግድ (Remove Bookmark)' : 'ዕልባት ያድርጉ (Save Bookmark)'"
       >
         <Bookmark class="w-4 h-4" :class="{ 'fill-current': isBookmarked }" />
       </button>
 
       <button
         @click="emit('copy')"
-        class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-all cursor-pointer"
+        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
         title="አጋራ ወይም ቅዳ (Share / Copy)"
       >
-        <Check v-if="isCopied" class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        <Check v-if="isCopied" class="w-4 h-4 text-emerald-600" />
         <Share2 v-else class="w-4 h-4" />
       </button>
 
-      <div class="w-px h-5 bg-amber-800/15 dark:bg-stone-700 mx-0.5"></div>
+      <div class="w-px h-5 floating-dock-divider mx-0.5"></div>
 
       <button
         @click="emit('open-settings')"
-        class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-all cursor-pointer"
+        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
         title="ማስተካከያ (Settings)"
       >
         <Settings class="w-4 h-4" />
@@ -80,3 +80,35 @@ const emit = defineEmits<{
     </nav>
   </div>
 </template>
+
+<style scoped>
+.floating-dock {
+  background-color: var(--dock-bg) !important;
+  border: 1.5px solid var(--dock-border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.floating-dock-btn {
+  color: var(--dock-btn) !important;
+}
+
+.floating-dock-btn:hover {
+  background-color: var(--dock-btn-hover) !important;
+  color: var(--gold-accent) !important;
+}
+
+.floating-dock-divider {
+  background-color: var(--dock-divider) !important;
+}
+
+.language-pill {
+  background-color: var(--pill-bg) !important;
+  color: var(--pill-text) !important;
+  border: 1.5px solid var(--pill-border) !important;
+}
+
+.language-pill:hover {
+  filter: brightness(0.95);
+}
+</style>
+

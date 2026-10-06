@@ -41,7 +41,7 @@ const emit = defineEmits<{
       <div class="flex items-center gap-1">
         <button
           @click="emit('open-search')"
-          class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-colors cursor-pointer"
+          class="p-2 rounded-xl header-btn transition-colors cursor-pointer active:scale-95"
           title="ፈልግ (Search)"
         >
           <Search class="w-4 h-4" />
@@ -49,7 +49,7 @@ const emit = defineEmits<{
 
         <button
           @click="emit('open-bookmarks')"
-          class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-colors relative cursor-pointer"
+          class="p-2 rounded-xl header-btn transition-colors relative cursor-pointer active:scale-95"
           title="የተቀመጡ (Bookmarks)"
         >
           <Bookmark class="w-4 h-4" />
@@ -61,7 +61,7 @@ const emit = defineEmits<{
 
         <button
           @click="emit('open-settings')"
-          class="p-2 rounded-xl text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-stone-800 transition-colors cursor-pointer"
+          class="p-2 rounded-xl header-btn transition-colors cursor-pointer active:scale-95"
           title="ማስተካከያ (Settings)"
         >
           <Settings class="w-4 h-4" />
@@ -70,3 +70,20 @@ const emit = defineEmits<{
     </div>
   </header>
 </template>
+
+<style scoped>
+.reading-folio {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+}
+
+.header-btn {
+  color: var(--dock-btn) !important;
+}
+
+.header-btn:hover {
+  background-color: var(--dock-btn-hover) !important;
+  color: var(--gold-accent) !important;
+}
+</style>
+
