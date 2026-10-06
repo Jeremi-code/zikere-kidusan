@@ -46,7 +46,7 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
 
       <div class="p-5 space-y-6">
         <div>
-          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 font-ethiopic-serif">
+          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 mb-2.5 flex items-center gap-1.5 font-ethiopic-serif">
             <BookOpen class="w-4 h-4 text-amber-700 dark:text-amber-400" />
             <span>ገጽታ (Theme)</span>
           </label>
@@ -68,7 +68,7 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 font-ethiopic-serif">
+          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 mb-2.5 flex items-center gap-1.5 font-ethiopic-serif">
             <Type class="w-4 h-4 text-amber-700 dark:text-amber-400" />
             <span>የፊደል መጠን (Font Size)</span>
           </label>

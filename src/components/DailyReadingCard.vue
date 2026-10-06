@@ -83,7 +83,7 @@ const readingTimeEstimate = computed(() => {
 
     <article class="reading-folio rounded-3xl p-5 sm:p-7 manuscript-card border-2 transition-all space-y-4">
       <div class="flex items-center justify-between pb-3 border-b folio-header-border">
-        <h3 class="text-sm font-bold font-ethiopic-serif rubric-text uppercase tracking-wider flex items-center gap-1.5">
+        <h3 class="text-sm font-bold font-ethiopic-serif rubric-text flex items-center gap-1.5">
           <BookOpen class="w-4 h-4" />
           <span>{{ currentLanguage === 'am' ? 'ዜና ቅዱሳን (መጽሐፈ ስንክሳር)' : 'Lives of the Saints (Synaxarium)' }}</span>
         </h3>

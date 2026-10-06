@@ -41,7 +41,7 @@ function nextDay() {
   <div class="w-full reading-folio rounded-3xl p-3 sm:p-4 border-2 shadow-xs manuscript-card">
     <div class="flex items-center justify-between mb-2.5 px-1">
       <div class="flex items-center gap-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-amber-950 dark:text-amber-200 font-ethiopic-serif flex items-center gap-1.5">
+        <span class="text-xs font-bold text-amber-950 dark:text-amber-200 font-ethiopic-serif flex items-center gap-1.5">
           <span>{{ currentDate.monthName }}</span>
           <span class="opacity-40">•</span>
           <span>{{ currentDate.year }} ዓ.ም</span>
@@ -89,7 +89,7 @@ function nextDay() {
               ? 'calendar-day-today'
               : 'calendar-day-normal'"
         >
-          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-tight font-ethiopic-serif opacity-85">
+          <span class="text-[10px] sm:text-xs font-semibold tracking-tight font-ethiopic-serif opacity-85">
             {{ d.dayShortAm }}
           </span>
 

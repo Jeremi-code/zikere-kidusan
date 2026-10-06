@@ -57,7 +57,7 @@ function jumpToToday() {
 
       <div class="p-4 sm:p-5 overflow-y-auto space-y-5">
         <div>
-          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 uppercase tracking-wider mb-2 font-ethiopic-serif">
+          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 mb-2 font-ethiopic-serif">
             ወራት (Months)
           </label>
           <div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 font-ethiopic-serif">
@@ -78,7 +78,7 @@ function jumpToToday() {
 
         <div>
           <div class="flex items-center justify-between mb-2">
-            <label class="text-xs font-bold text-amber-950 dark:text-amber-200 uppercase tracking-wider font-ethiopic-serif">
+            <label class="text-xs font-bold text-amber-950 dark:text-amber-200 font-ethiopic-serif">
               ቀናት (Days in {{ currentMonthInfo.nameAm }})
             </label>
             <span class="text-xs text-stone-500 font-latin-display">
