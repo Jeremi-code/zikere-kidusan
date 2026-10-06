@@ -68,15 +68,15 @@ function handleSelect(item: { month: number; day: number }) {
 
           <button
             @click="toggleBookmarkItem(item)"
-            class="p-1.5 rounded-xl text-stone-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-stone-800 transition-colors cursor-pointer"
-            title="አስወግድ"
+            class="p-1.5 rounded-xl text-stone-600 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-amber-950/60 transition-colors cursor-pointer"
+            title="አስወግድ (Remove)"
           >
             <Trash2 class="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-xs text-stone-500 text-center font-ethiopic-serif">
+      <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-xs text-stone-800 dark:text-stone-200 text-center font-ethiopic-serif font-bold">
         {{ bookmarks.length }} የተቀመጡ ቀናት
       </div>
     </div>

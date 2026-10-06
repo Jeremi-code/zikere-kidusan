@@ -57,8 +57,8 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
               @click="currentTheme = t.id"
               class="p-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer font-ethiopic-serif"
               :class="currentTheme === t.id 
-                ? 'bg-amber-800 dark:bg-amber-900 text-white border-amber-600 shadow-sm font-bold ring-2 ring-amber-400' 
-                : 'bg-amber-100/30 text-stone-800 border-amber-300/40 hover:bg-amber-100/70 dark:bg-stone-900/60 dark:text-stone-200 dark:border-stone-800'"
+                ? 'settings-btn-active' 
+                : 'settings-btn'"
             >
               <component :is="t.icon" class="w-5 h-5" />
               <span class="text-xs font-semibold">{{ t.label }}</span>
@@ -79,11 +79,11 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
               @click="currentFontSize = f.id"
               class="p-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer font-ethiopic-serif"
               :class="currentFontSize === f.id
-                ? 'bg-amber-800 dark:bg-amber-900 text-white border-amber-600 shadow-sm font-bold ring-2 ring-amber-400' 
-                : 'bg-amber-100/30 text-stone-800 border-amber-300/40 hover:bg-amber-100/70 dark:bg-stone-900/60 dark:text-stone-200 dark:border-stone-800'"
+                ? 'settings-btn-active' 
+                : 'settings-btn'"
             >
               <span class="text-xs">{{ f.label }}</span>
-              <span :class="f.preview" class="font-ethiopic-serif mt-1 font-bold text-amber-950 dark:text-amber-200">ሀ ለ ሐ</span>
+              <span :class="f.preview" class="font-ethiopic-serif mt-1 font-bold">ሀ ለ ሐ</span>
             </button>
           </div>
         </div>
@@ -92,7 +92,7 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
       <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-right">
         <button
           @click="emit('close')"
-          class="px-4 py-1.5 rounded-xl text-xs font-semibold text-stone-600 hover:bg-stone-200/70 transition-colors cursor-pointer font-ethiopic-serif"
+          class="px-4 py-1.5 rounded-xl text-xs font-bold done-btn transition-colors cursor-pointer font-ethiopic-serif"
         >
           ተጠናቋል (Done)
         </button>
@@ -100,3 +100,40 @@ const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
     </div>
   </div>
 </template>
+
+<style scoped>
+.reading-folio {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-card) !important;
+}
+
+.settings-btn {
+  background-color: var(--pill-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1.5px solid var(--border-card) !important;
+}
+
+.settings-btn:hover {
+  background-color: var(--dock-btn-hover) !important;
+}
+
+.settings-btn-active {
+  background-color: var(--btn-active-bg) !important;
+  color: var(--btn-active-text) !important;
+  border: 1.5px solid var(--btn-active-border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  font-weight: 700 !important;
+}
+
+.done-btn {
+  background-color: var(--pill-bg) !important;
+  color: var(--pill-text) !important;
+  border: 1.5px solid var(--pill-border) !important;
+}
+
+.done-btn:hover {
+  background-color: var(--dock-btn-hover) !important;
+}
+</style>
+

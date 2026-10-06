@@ -163,7 +163,7 @@ function handleSelect(entry: SynaxariumEntry) {
       <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-right">
         <button
           @click="emit('close')"
-          class="px-4 py-1.5 rounded-xl text-xs font-semibold text-stone-600 hover:bg-stone-200/70 transition-colors cursor-pointer font-ethiopic-serif"
+          class="px-4 py-1.5 rounded-xl text-xs font-bold text-stone-800 dark:text-stone-200 hover:bg-amber-100/70 dark:hover:bg-amber-950/60 transition-colors cursor-pointer font-ethiopic-serif"
         >
           ዝጋ (Close)
         </button>
