@@ -129,14 +129,14 @@ function handleToggleLanguage() {
       />
     </main>
 
-    <footer class="mt-8 py-8 px-4 text-center text-xs text-stone-500 border-t border-amber-900/15 dark:border-amber-800/30 bg-amber-50/40 dark:bg-black/40">
-      <div class="flex items-center justify-center gap-2 mb-2 text-amber-800 dark:text-amber-400 opacity-90">
+    <footer class="mt-8 py-8 px-4 text-center text-xs text-stone-700 dark:text-stone-300 border-t border-amber-900/15 dark:border-amber-800/30 bg-amber-50/40 dark:bg-black/40">
+      <div class="flex items-center justify-center gap-2 mb-2 text-amber-900 dark:text-amber-300 opacity-95">
         <EthiopianCross variant="lalibela" :size="18" />
         <span class="font-bold tracking-wider font-ethiopic-serif">መጽሐፈ ስንክሳር — ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</span>
         <EthiopianCross variant="lalibela" :size="18" />
       </div>
       <HaragDivider variant="compact" />
-      <p class="mt-2 text-stone-500 dark:text-stone-400 font-ethiopic-serif text-[11px]">
+      <p class="mt-2 text-stone-700 dark:text-stone-300 font-ethiopic-serif text-[11px] font-medium">
         ስብሐት ለእግዚአብሔር ወለወላዲቱ ድንግል ማርያም ወለመስቀሉ ክቡር
       </p>
     </footer>
