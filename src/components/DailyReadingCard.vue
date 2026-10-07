@@ -48,6 +48,21 @@ const storyDropCap = computed(() => {
   }
 })
 
+const displayScripture = computed(() => {
+  if (!props.entry) return undefined
+  if (currentLanguage.value === 'en') {
+    return props.entry.scriptureEn || props.entry.scripture
+  }
+  return props.entry.scripture || props.entry.scriptureEn
+})
+
+const displayAnnualFeasts = computed(() => {
+  if (!props.entry) return []
+  const feasts = currentLanguage.value === 'en' && props.entry.annualFeastsEn?.length
+    ? props.entry.annualFeastsEn
+    : props.entry.annualFeasts
+  return feasts || []
+})
 </script>
 
 <template>
@@ -68,6 +83,15 @@ const storyDropCap = computed(() => {
           <p v-if="displaySubtitle" class="hero-subtitle text-xs sm:text-sm font-medium font-ethiopic-serif italic">
             — {{ displaySubtitle }} —
           </p>
+          <div v-if="displayAnnualFeasts.length" class="flex flex-wrap gap-1.5 pt-2">
+            <span
+              v-for="(feast, idx) in displayAnnualFeasts"
+              :key="idx"
+              class="text-[11px] sm:text-xs px-2.5 py-0.5 rounded-full border bg-amber-500/10 border-amber-500/20 text-amber-900 dark:text-amber-200 font-ethiopic-serif font-medium"
+            >
+              {{ feast }}
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -85,6 +109,18 @@ const storyDropCap = computed(() => {
           {{ storyDropCap.initial }}
         </span>
         <span>{{ storyDropCap.rest }}</span>
+      </div>
+
+      <div 
+        v-if="displayScripture" 
+        class="scripture-card rounded-2xl p-4 sm:p-5 border shadow-2xs mt-4"
+      >
+        <p class="font-ethiopic-serif text-sm sm:text-base leading-relaxed italic">
+          «{{ displayScripture.verse }}»
+        </p>
+        <p class="text-xs sm:text-sm font-bold rubric-text mt-2 text-right font-ethiopic-serif">
+          — {{ displayScripture.reference }}
+        </p>
       </div>
 
       <HaragDivider variant="divider" />
