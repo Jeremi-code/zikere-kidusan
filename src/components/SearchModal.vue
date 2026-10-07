@@ -125,12 +125,12 @@ function handleSelect(entry: SynaxariumEntry) {
         <div v-if="!searchQuery" class="py-14 text-center text-stone-400 font-ethiopic-serif">
           <EthiopianCross variant="lalibela" :size="32" class="mx-auto mb-3 opacity-30 text-amber-800" />
           <p class="text-sm font-semibold text-stone-600 dark:text-stone-400">የቅዱሳን ስም፣ ገድል ወይም በዓል ጽፈው ይፈልጉ</p>
-          <p class="text-xs text-stone-400 mt-1 font-latin-display">Search commemorations in Amharic or English</p>
+          <p class="text-xs text-stone-400 mt-1 font-latin-body">Search commemorations in Amharic or English</p>
         </div>
 
         <div v-else-if="filteredResults.length === 0" class="py-14 text-center text-stone-400 font-ethiopic-serif">
           <p class="text-sm">ምንም አልተገኘም (No results found)</p>
-          <p class="text-xs text-stone-400 mt-1 font-latin-display">Try a different name or spelling</p>
+          <p class="text-xs text-stone-400 mt-1 font-latin-body">Try a different name or spelling</p>
         </div>
 
         <button

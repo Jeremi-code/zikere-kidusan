@@ -61,7 +61,7 @@ function handleSelect(item: { month: number; day: number }) {
             <h4 class="text-sm font-bold text-stone-900 dark:text-stone-100 mt-1.5 line-clamp-1 group-hover:text-amber-900 dark:group-hover:text-amber-300">
               {{ item.title }}
             </h4>
-            <p v-if="item.titleEn" class="text-xs text-stone-500 dark:text-stone-400 line-clamp-1 mt-0.5 font-latin-display">
+            <p v-if="item.titleEn" class="text-xs text-stone-500 dark:text-stone-400 line-clamp-1 mt-0.5 font-latin-body">
               {{ item.titleEn }}
             </p>
           </button>

@@ -29,10 +29,10 @@ const emit = defineEmits<{
             class="text-left cursor-pointer group flex items-baseline gap-2"
           >
             <h1 class="text-base sm:text-lg font-bold font-ethiopic-serif text-stone-900 dark:text-amber-100 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors">
-              ስንክሳር
+              ዝክረ ቅዱሳን
             </h1>
-            <span class="text-xs font-semibold text-amber-800 dark:text-amber-400 font-latin-display">
-              Synaxarium
+            <span class="text-xs sm:text-sm font-semibold text-amber-800 dark:text-amber-400 font-latin-body">
+              Zikere Kidusan
             </span>
           </button>
         </div>

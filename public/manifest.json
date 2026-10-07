@@ -1,7 +1,7 @@
 {
-  "name": "መጽሐፈ ስንክሳር — Synaxarium",
-  "short_name": "ስንክሳር",
-  "description": "የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን መጽሐፈ ስንክሳር - ዕለታዊ የቅዱሳን ታሪክና በዓላት",
+  "name": "ዝክረ ቅዱሳን — Zikere Kidusan",
+  "short_name": "ዝክረ ቅዱሳን",
+  "description": "ዝክረ ቅዱሳን — የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን የቅዱሳን መታሰቢያና ታሪክ (Zikere Kidusan — Commemorating the Saints)",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#78350f",
