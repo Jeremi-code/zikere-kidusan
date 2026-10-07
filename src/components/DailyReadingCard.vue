@@ -48,26 +48,17 @@ const storyDropCap = computed(() => {
   }
 })
 
-const readingTimeEstimate = computed(() => {
-  const words = displayStory.value.split(/\s+/).length
-  const minutes = Math.max(1, Math.ceil(words / 130))
-  return `${minutes} ደቂቃ ንባብ`
-})
 </script>
 
 <template>
   <div v-if="entry" class="space-y-4 sm:space-y-5">
     <section class="hero-spotlight rounded-3xl p-5 sm:p-7 relative overflow-hidden shadow-lg border-2 transition-all">
       <div class="relative z-10 space-y-3.5">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center">
           <div class="hero-pill-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-md shadow-2xs font-ethiopic-serif">
             <EthiopianCross variant="lalibela" :size="14" />
             <span>{{ dateLabel }}</span>
           </div>
-
-          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full hero-pill-badge border font-ethiopic-sans">
-            {{ readingTimeEstimate }}
-          </span>
         </div>
 
         <div class="space-y-1.5 pt-1">
