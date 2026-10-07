@@ -63,6 +63,14 @@ const displayAnnualFeasts = computed(() => {
     : props.entry.annualFeasts
   return feasts || []
 })
+
+const displayMonthlyFeasts = computed(() => {
+  if (!props.entry) return []
+  const feasts = currentLanguage.value === 'en' && props.entry.monthlyFeastsEn?.length
+    ? props.entry.monthlyFeastsEn
+    : props.entry.monthlyFeasts
+  return feasts || []
+})
 </script>
 
 <template>
@@ -83,18 +91,63 @@ const displayAnnualFeasts = computed(() => {
           <p v-if="displaySubtitle" class="hero-subtitle text-xs sm:text-sm font-medium font-ethiopic-serif italic">
             — {{ displaySubtitle }} —
           </p>
-          <div v-if="displayAnnualFeasts.length" class="flex flex-wrap gap-1.5 pt-2">
-            <span
-              v-for="(feast, idx) in displayAnnualFeasts"
-              :key="idx"
-              class="text-[11px] sm:text-xs px-2.5 py-0.5 rounded-full border bg-amber-500/10 border-amber-500/20 text-amber-900 dark:text-amber-200 font-ethiopic-serif font-medium"
-            >
-              {{ feast }}
-            </span>
-          </div>
         </div>
       </div>
     </section>
+
+    <div v-if="displayAnnualFeasts.length || displayMonthlyFeasts.length" class="space-y-4 sm:space-y-5">
+      <section 
+        v-if="displayAnnualFeasts.length" 
+        class="annual-card rounded-3xl p-5 sm:p-6 border-2 shadow-xs space-y-3 transition-all"
+      >
+        <div class="flex items-center justify-between pb-2.5 border-b border-rose-900/10 dark:border-rose-800/20">
+          <h3 class="text-sm sm:text-base font-bold font-ethiopic-serif flex items-center gap-2 text-rose-950 dark:text-rose-100">
+            <EthiopianCross variant="lalibela" :size="16" class="text-rose-700 dark:text-rose-400" />
+            <span>{{ currentLanguage === 'am' ? 'ዓመታዊ በዓላት' : 'Annual Feasts' }}</span>
+          </h3>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-600/10 dark:bg-rose-400/10 text-rose-900 dark:text-rose-300 font-ethiopic-serif font-semibold border border-rose-900/10 dark:border-rose-700/20">
+            {{ displayAnnualFeasts.length }} {{ currentLanguage === 'am' ? 'በዓላት' : 'Feasts' }}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+          <div
+            v-for="(feast, idx) in displayAnnualFeasts"
+            :key="idx"
+            class="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/70 dark:bg-stone-900/40 border border-rose-900/10 dark:border-rose-800/20 text-xs sm:text-sm font-ethiopic-serif shadow-2xs"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-600 dark:bg-rose-400 shrink-0" />
+            <span class="font-medium text-stone-900 dark:text-stone-100">{{ feast }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section 
+        v-if="displayMonthlyFeasts.length" 
+        class="monthly-card rounded-3xl p-5 sm:p-6 border-2 shadow-xs space-y-3 transition-all"
+      >
+        <div class="flex items-center justify-between pb-2.5 border-b border-amber-900/10 dark:border-amber-800/25">
+          <h3 class="text-sm sm:text-base font-bold font-ethiopic-serif flex items-center gap-2 text-amber-950 dark:text-amber-100">
+            <EthiopianCross variant="lalibela" :size="16" class="text-amber-700 dark:text-amber-400" />
+            <span>{{ currentLanguage === 'am' ? `የዕለቱ ወርሃዊ በዓላት (${entry.day} ቀን)` : `Monthly Feasts of Day ${entry.day}` }}</span>
+          </h3>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-600/10 dark:bg-amber-400/10 text-amber-900 dark:text-amber-300 font-ethiopic-serif font-semibold border border-amber-900/10 dark:border-amber-700/20">
+            {{ displayMonthlyFeasts.length }} {{ currentLanguage === 'am' ? 'በዓላት' : 'Feasts' }}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+          <div
+            v-for="(feast, idx) in displayMonthlyFeasts"
+            :key="idx"
+            class="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/70 dark:bg-stone-900/40 border border-amber-900/10 dark:border-amber-800/20 text-xs sm:text-sm font-ethiopic-serif shadow-2xs"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-600 dark:bg-amber-400 shrink-0" />
+            <span class="font-medium text-stone-900 dark:text-stone-100">{{ feast }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <article class="reading-folio rounded-3xl p-5 sm:p-7 manuscript-card border-2 transition-all space-y-4">
       <div class="pb-3 border-b folio-header-border">
