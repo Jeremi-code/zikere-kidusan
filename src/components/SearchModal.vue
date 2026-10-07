@@ -153,8 +153,8 @@ function handleSelect(entry: SynaxariumEntry) {
             <h4 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 mt-1 truncate group-hover:text-amber-900 dark:group-hover:text-amber-300">
               {{ entry.title }}
             </h4>
-            <p v-if="entry.annualFeasts && entry.annualFeasts.length" class="text-xs text-stone-500 dark:text-stone-400 mt-0.5 truncate">
-              {{ entry.annualFeasts.join(', ') }}
+            <p v-if="searchFilter === 'monthly' ? (entry.monthlyFeasts && entry.monthlyFeasts.length) : (entry.annualFeasts && entry.annualFeasts.length)" class="text-xs text-stone-500 dark:text-stone-400 mt-0.5 truncate">
+              {{ (searchFilter === 'monthly' ? entry.monthlyFeasts : entry.annualFeasts).join(', ') }}
             </p>
           </div>
         </button>
