@@ -13,13 +13,13 @@ const props = defineProps<{
 const fontSizeClass = computed(() => {
   switch (currentFontSize.value) {
     case 'sm':
-      return 'text-sm sm:text-base leading-relaxed sm:leading-loose'
+      return 'text-[15px] sm:text-base leading-[2.1] sm:leading-[2.2]'
     case 'lg':
-      return 'text-lg sm:text-xl leading-loose'
+      return 'text-[19px] sm:text-[21px] leading-[2.3] sm:leading-[2.4]'
     case 'xl':
-      return 'text-xl sm:text-2xl leading-loose'
+      return 'text-[22px] sm:text-[25px] leading-[2.4] sm:leading-[2.5]'
     default:
-      return 'text-base sm:text-lg leading-loose'
+      return 'text-[17px] sm:text-[18px] leading-[2.2] sm:leading-[2.3]'
   }
 })
 
@@ -43,12 +43,26 @@ const displayStory = computed(() => {
   return String(val)
 })
 
+const storyParagraphs = computed(() => {
+  const story = displayStory.value.trim()
+  if (!story) return []
+  return story.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+})
+
+const firstParagraph = computed(() => {
+  return storyParagraphs.value[0] || ''
+})
+
+const subsequentParagraphs = computed(() => {
+  return storyParagraphs.value.slice(1)
+})
+
 const storyDropCap = computed(() => {
-  const story = (displayStory.value || '').trim()
-  if (!story) return { initial: '', rest: '' }
+  const first = firstParagraph.value
+  if (!first) return { initial: '', rest: '' }
   return {
-    initial: story.charAt(0),
-    rest: story.slice(1)
+    initial: first.charAt(0),
+    rest: first.slice(1)
   }
 })
 
@@ -155,11 +169,21 @@ const displayMonthlyFeasts = computed(() => {
         <HaragDivider variant="compact" />
       </header>
 
-      <div class="font-ethiopic-serif story-text whitespace-pre-line text-justify leading-loose" :class="fontSizeClass">
-        <span class="float-left text-4xl sm:text-5xl font-bold rubric-text mr-2.5 leading-none font-ethiopic-serif">
-          {{ storyDropCap.initial }}
-        </span>
-        <span>{{ storyDropCap.rest }}</span>
+      <div class="font-ethiopic-serif story-text space-y-5 sm:space-y-6 text-left" :class="fontSizeClass">
+        <p v-if="firstParagraph" class="story-paragraph">
+          <span class="float-left text-5xl sm:text-6xl font-black rubric-text mr-3 mb-1 leading-none font-ethiopic-serif drop-cap-shadow">
+            {{ storyDropCap.initial }}
+          </span>
+          <span>{{ storyDropCap.rest }}</span>
+        </p>
+
+        <p 
+          v-for="(para, pIdx) in subsequentParagraphs" 
+          :key="pIdx"
+          class="story-paragraph"
+        >
+          {{ para }}
+        </p>
       </div>
 
       <div 
@@ -204,6 +228,20 @@ const displayMonthlyFeasts = computed(() => {
 
 .story-text {
   color: var(--text-primary) !important;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+}
+
+.story-paragraph {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  word-spacing: 0.05em;
+  letter-spacing: 0.01em;
+}
+
+.drop-cap-shadow {
+  filter: drop-shadow(0 2px 4px rgba(153, 27, 27, 0.2));
 }
 
 .rubric-text {

@@ -157,9 +157,14 @@ function handleToggleLanguage() {
         <span class="font-bold tracking-wider font-ethiopic-serif">ዝክረ ቅዱሳን ዘኦርቶዶክስ ተዋሕዶ</span>
         <EthiopianCross variant="lalibela" :size="18" />
       </div>
-      <HaragDivider variant="compact" />
-      <p class="mt-2 text-stone-700 dark:text-stone-300 font-ethiopic-serif text-[11px] font-medium">
-        ስብሐት ለእግዚአብሔር ወለወላዲቱ ድንግል ማርያም ወለመስቀሉ ክቡር
+      <p class="mt-2 text-stone-900 dark:text-stone-200 font-ethiopic-serif text-xs font-bold leading-relaxed tracking-wide">
+        «ፍቅር ያጌብረኒ ከመ እንግር ዜናሆሙ ለቅዱሳን»
+      </p>
+      <p class="mt-0.5 text-stone-600 dark:text-stone-400 font-ethiopic-serif text-[11px] font-medium leading-normal">
+        «የቅዱሳንን ክብር (ዜና) እናገር ዘንድ ፍቅር ያስገድደኛል»
+      </p>
+      <p class="mt-0.5 text-amber-900/80 dark:text-amber-400/80 font-ethiopic-serif text-[10px] font-semibold">
+        — አባ ጊዮርጊስ ዘጋስጫ (መጽሐፈ ምሥጢር)
       </p>
     </footer>
 
