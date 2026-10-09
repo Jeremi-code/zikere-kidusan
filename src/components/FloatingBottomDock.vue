@@ -10,7 +10,7 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'toggle-bookmark'): void
   (e: 'toggle-language'): void
-  (e: 'copy'): void
+  (e: 'share'): void
   (e: 'open-settings'): void
   (e: 'open-search'): void
   (e: 'jump-today'): void
@@ -60,7 +60,7 @@ const emit = defineEmits<{
       </button>
 
       <button
-        @click="emit('copy')"
+        @click="emit('share')"
         class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
         title="አጋራ ወይም ቅዳ (Share / Copy)"
       >

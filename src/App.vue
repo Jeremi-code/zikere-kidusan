@@ -90,14 +90,36 @@ function handleToggleBookmark() {
   })
 }
 
-function handleCopyReading() {
+async function handleShareReading() {
   if (!currentReading.value) return
-  const text = `${currentDate.value.formatted}\n\n${currentReading.value.title}\n\n${currentReading.value.story}`
-  navigator.clipboard.writeText(text)
-  isCopied.value = true
-  setTimeout(() => {
-    isCopied.value = false
-  }, 2000)
+
+  const isAmharic = currentLanguage.value === 'am'
+  const title = isAmharic ? currentReading.value.title : currentReading.value.titleEn
+  const story = isAmharic ? currentReading.value.story : (currentReading.value.storyEn || currentReading.value.story)
+
+  const shareText = `❖ ${title}\n📅 ${currentDate.value.formatted}\n\n${story}`
+
+  if (typeof navigator !== 'undefined' && navigator.share) {
+    try {
+      await navigator.share({
+        title,
+        text: shareText
+      })
+      return
+    } catch (err: any) {
+      if (err.name === 'AbortError') return
+    }
+  }
+
+  try {
+    await navigator.clipboard.writeText(shareText)
+    isCopied.value = true
+    setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 function handleToggleLanguage() {
@@ -147,7 +169,7 @@ function handleToggleLanguage() {
       :is-copied="isCopied"
       @toggle-bookmark="handleToggleBookmark"
       @toggle-language="handleToggleLanguage"
-      @copy="handleCopyReading"
+      @share="handleShareReading"
       @open-settings="isSettingsOpen = true"
       @open-search="isSearchOpen = true"
       @jump-today="jumpToToday"
