@@ -15308,5 +15308,1847 @@
         "verse": "እንዲህም አላቸው፦ ወደ ዓለም ሁሉ ሂዱ፥ ወንጌልንም ለፍጥረት ሁሉ ስበኩ።"
       }
     }
+  },
+  {
+    "id": "ginbot-1",
+    "month": 9,
+    "day": 1,
+    "date": {
+      "en": "Ginbot 1",
+      "am": "ግንቦት 1"
+    },
+    "title": {
+      "en": "Nativity of our Holy Lady the Virgin Mary, Mother of God (Lideta)",
+      "am": "የእመቤታችን የቅድስት ድንግል ማርያም የልደቷ ታላቅ በዓል (ልደት)"
+    },
+    "annual_feasts": {
+      "en": [
+        "The Radiant Nativity of our Lady, the Two-Fold Virgin Mary, Mother of God (Theotokos)"
+      ],
+      "am": [
+        "አምላክን የወለደች የእመቤታችን የቅድስት ድንግል ማርያም የተባረከ የልደቷ በዓል"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Nativity of the Virgin Mary",
+        "Archangel Raguel",
+        "St. Elijah the Prophet",
+        "St. Eutychus the Apostle"
+      ],
+      "am": [
+        "ልደታ ለማርያም ድንግል",
+        "ቅዱስ ራጉኤል ሊቀ መላእክት",
+        "ቅዱስ ኤልያስ ነቢይ",
+        "ቅዱስ ኡቲኮስ ሐዋርያ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this radiant first day of the blessed month of Ginbot, the holy Church celebrates with cosmic joy the Nativity of our pure Lady, the Virgin Mary, Mother of God, through whom the Light of the world dawned upon humanity to abolish the ancient sorrow of Eve.",
+        "Born in Nazareth of the righteous elders Joachim and Hanna after decades of barrenness, her conception was announced by the Archangel Gabriel as an answer to fervent tears and unceasing prayer. Pure from her mother's womb and chosen before the foundation of the world, she was destined to become the living Ark of the New Covenant, the golden censor, and the immaculate palace of the Word.",
+        "Her birth brought joy to angels and hope to mankind, for by her entrance into the world the dawn of our redemption began. Foretold by the prophets as the rod of Jesse that would bud with divine fruit, she grew in holiness and obedience, preparing to receive the King of glory within her virginal womb without seed of man.",
+        "May the birth of the Holy Virgin Mary fill our homes with heavenly joy, sanctify our hearts, and obtain for us the endless mercy and salvation of her beloved Son Jesus Christ forever. Amen."
+      ],
+      "am": [
+        "በዚህች በተባረከች በመጀመሪያዋ የግንቦት ወር ዕለት ቅድስት ቤተ ክርስቲያን የሰው ልጆች ድነት የተጀመረባትን፣ የሔዋንን ኀዘን ያስወገደችውን የአምላክ እናት የእመቤታችንን የቅድስት ድንግል ማርያምን የተባረከ ልደት በታላቅ ምስጋናና ደስታ ታከብራለች።",
+        "ጻድቃን አረጋውያን ኢያቄምና ሐና ለብዙ ዓመታት መካን ሆነው በዕንባና በጸሎት ሲማልዱ፣ የመላእክት አለቃ ቅዱስ ገብርኤል መጥቶ መወለዷን አበሠራቸው። ዓለም ሳይፈጠር የተመረጠች፣ ከማሕፀን ጀምሮ በቅድስና የታተመች ንጽሕት ድንግል ሆና ተወለደች፤ እርሷም እውነተኛይቱ የወርቅ ማዕጠንትና ዘላለማዊው የእግዚአብሔር ቃል የሚያድርባት ቅድስተ ቅዱሳን ማደሪያ ሆነች።",
+        "የእርሷ ወደዚህ ዓለም መምጣት ለመላእክት ሰማያዊ ደስታን፣ ለሰው ልጆችም ታላቅ ተስፋን አመጣ። ነቢያት አስቀድመው ያዩላት የሕይወትን ፍሬ ያፈራች የዕሴይ በትር እርሷ ናት፤ በትሕትናና በንጽሕና እያደገች ያለ ዘርዐ ብእሲ የክብርን ንጉሥ ለማኅፀኗ እንግዳ ታደርግ ዘንድ ተዘጋጀች።",
+        "የእመቤታችን የቅድስት ድንግል ማርያም የልደቷ በረከት በቤታችን ላይ ሰማያዊ ሰላምን ያምጣልን፤ ልባችንን በቅድስና ያብራልን፤ የተወደደው ልጇ የጌታችን የኢየሱስ ክርስቶስ ቸርነትና ምሕረት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Luke 1:28",
+        "verse": "Having come in, the angel said to her, “Rejoice, you highly favored one! The Lord is with you. Blessed are you among women!”"
+      },
+      "am": {
+        "reference": "ሉቃ. 1:28",
+        "verse": "መልአኩም ወደ ርሷ ገብቶ፦ ደስ ይበልሽ፥ ጸጋ የሞላብሽ ሆይ፥ ጌታ ከአንቺ ጋራ ነው፤ አንቺ ከሴቶች መካከል የተባረክሽ ነሽ አላት።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-2",
+    "month": 9,
+    "day": 2,
+    "date": {
+      "en": "Ginbot 2",
+      "am": "ግንቦት 2"
+    },
+    "title": {
+      "en": "Repose of Righteous Job the Patient, Abba Theodore Disciple of Saint Pachomius, and Twenty-Two Martyrs",
+      "am": "የትዕግሥት አርአያ የጻድቁ ኢዮብ ዕረፍት፣ የአባ ጳኵሚስ ደቀ መዝሙር የአባ ቴዎድሮስ ዕረፍት እና የሀያ ሁለት ሰማዕታት መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Job the Righteous, Model of Undaunted Patience and Faith in God",
+        "Abba Theodore, Abbot of Tabenna and Beloved Disciple of Saint Pachomius",
+        "Twenty-Two Holy Martyrs Crowned with Abba Esi"
+      ],
+      "am": [
+        "በፈተናው ሁሉ እግዚአብሔርን ያመሰገነው የትዕግሥት አባት ጻድቁ ኢዮብ",
+        "የማኅበረ ደብረ ተበና አበምኔትና የአባ ጳኵሚስ ደቀ መዝሙር አባ ቴዎድሮስ",
+        "ከአባ እሲ ጋር በሰማዕትነት የከበሩ ሀያ ሁለት ቅዱሳን ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Archangel Uriel",
+        "St. Theodore the Martyr",
+        "Abba Paul the First Hermit",
+        "Abba John the Righteous"
+      ],
+      "am": [
+        "ቅዱስ ዑራኤል ሊቀ መላእክት",
+        "ቅዱስ ቴዎድሮስ ሰማዕት",
+        "አባ ጳውሊ ቀዳሜ ገዳማውያን",
+        "አባ ዮሐንስ ጻድቅ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the righteous Job the patient, renowned across generations as the sublime exemplar of enduring faith. We also celebrate the departure of the venerable father Abba Theodore, chief disciple of Saint Pachomius the Great, and twenty-two martyrs crowned with Abba Esi.",
+        "Righteous Job lived blamelessly in the land of Uz, offering continual sacrifices for his children and feeding the poor. Tested by the enemy with the loss of all his children, vast wealth, and afflicted with festering sores from head to foot, he bowed down in the dust and cried out: 'The Lord gave, and the Lord hath taken away; blessed be the Name of the Lord!' Through unshakeable patience he silenced the adversary, and God restored him twofold in wealth, gave him sons and daughters, and granted him long life.",
+        "On this day also departed Abba Theodore, who joined the communal monastery of Saint Pachomius in his youth. Excelling in humility, obedience, and ascetic wisdom, he was appointed to shepherd the cenobitic brotherhood after Pachomius, guiding thousands of monks toward celestial virtue. We likewise remember twenty-two martyrs who offered their blood for Christ.",
+        "Through the patience of righteous Job, the pastoral wisdom of Abba Theodore, and the crowns of the martyrs, may our Lord Jesus Christ grant us endurance through tribulations and everlasting rest. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የትዕግሥትና የእውነተኛ እምነት አርአያ የሆነውን የጻድቁን የኢዮብን ዕረፍት በታላቅ አክብሮት ታስባለች። ደግሞም የማኅበር አባት የታላቁ አባ ጳኵሚስ ዋና ደቀ መዝሙር የነበረውን የከበረ አባት አባ ቴዎድሮስን፣ እንዲሁም ከአባ እሲ ጋር የተጋደሉትን ሀያ ሁለት ሰማዕታት በጸሎት ታከብራለች።",
+        "ጻድቁ ኢዮብ በዑፅ ምድር ያለ ነቀፋ የሚኖር፣ ድሆችን የሚመግብና ስለ ልጆቹ ሁልጊዜ መሥዋዕት የሚያቀርብ ቅን ሰው ነበረ። ልጆቹንና ሀብቱን ሁሉ በአንዲት ቀን ቢያጣም፣ በሰውነቱም ላይ ከባድ የቊስል ደዌ ቢመጣበት፣ ‘እግዚአብሔር ሰጠ፣ እግዚአብሔር ነሣ፤ የእግዚአብሔር ስም የተባረከ ይሁን’ እያለ ፈጣሪውን አመሰገነ እንጂ በከንፈሩ አልበደለም። እግዚአብሔርም ትዕግሥቱን አይቶ የቀደመውን ሀብቱን ዕጥፍ አድርጎ ሰጠው፤ መልካም ልጆችንም አድሎት በሰላም አረፈ።",
+        "በዚህችም ቀን የአባ ጳኵሚስን ገዳማዊ ሥርዓት በመከተል በታዛዥነትና በትሕትና ያደገው፣ በኋላም በሺህ የሚቆጠሩ መነኰሳትን በመልካም ምግባር የመራው አበምኔት አባ ቴዎድሮስ አረፈ። እንዲሁም ስለ ክርስቶስ ስም የተጋደሉትን ሀያ ሁለቱን ቅዱሳን ሰማዕታት እናስባለን።",
+        "የትዕግሥት መምህር የጻድቁ የኢዮብ ተጋድሎ፣ የአበምኔቱ የአባ ቴዎድሮስ ገዳማዊ በረከትና እረኝነት፣ እንዲሁም የቅዱሳን ሰማዕታት ሁሉ ጸሎትና አማላጅነት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "James 5:11",
+        "verse": "Behold, we call them blessed who endured. You have heard of the perseverance of Job, and have seen the Lord in the outcome, and how the Lord is full of compassion and mercy."
+      },
+      "am": {
+        "reference": "ያዕ. 5:11",
+        "verse": "እንሆ፥ በትዕግሥት የጸኑትን ብፁዓን እንላቸዋለን፤ ኢዮብ እንደ ታገሠ ሰምታችኋል፥ ጌታም እንደ ፈጸመለት አይታችኋል፤ ጌታ እጅግ የሚምር የሚራራም ነውና።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-3",
+    "month": 9,
+    "day": 3,
+    "date": {
+      "en": "Ginbot 3",
+      "am": "ግንቦት 3"
+    },
+    "title": {
+      "en": "Repose of Saint Jason the Apostle, Martyrdom of Abba Besoy of Balget, and Queen Walatta Maryam",
+      "am": "የሐዋርያው የቅዱስ ኢያሶን ዕረፍት፣ የባልጌቱ የአባ ብሶይ ሰማዕትነት እና የንግሥት ወለተ ማርያም መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Jason the Apostle, One of the Seventy Disciples, Bishop of Tarsus",
+        "Abba Besoy of Balget, Victorious Martyr of Egypt",
+        "Queen Walatta Maryam, Mother of King Wanag Sagad (Dawit II)"
+      ],
+      "am": [
+        "ከሰባ ሁለቱ አርድእት አንዱና የጠርሴስ ኤጲስቆጶስ ቅዱስ ኢያሶን ሐዋርያ",
+        "ከባልጌት አገር የሆነው ተጋዳዩ ሰማዕት አባ ብሶይ",
+        "የንጉሥ ወናግ ሰገድ (ዳዊት) እናት የተባረከች ንግሥት ወለተ ማርያም"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Presentation of the Virgin Mary",
+        "Saints Joachim and Anna",
+        "St. Zena Markos",
+        "St. Cyril the Pillar of Faith"
+      ],
+      "am": [
+        "በዓታ ለማርያም ድንግል",
+        "ቅዱሳን ኢያቄም ወሐና",
+        "ቅዱስ ዜና ማርቆስ",
+        "ቅዱስ ቄርሎስ ዓምደ ሃይማኖት"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed departure of Saint Jason the Apostle, one of the Seventy-two disciples whom our Lord chose and sent forth. We also celebrate the triumphant martyrdom of Abba Besoy of Balget, and remember the pious Ethiopian Queen Walatta Maryam.",
+        "Saint Jason received the Holy Spirit at Pentecost and accompanied the Apostle Paul in his apostolic travels. In Thessalonica, he opened his home to shelter Paul and Silas; when a mob assaulted his dwelling, Jason was dragged before the magistrates, enduring persecution and fines with joy for Christ's sake. Consecrated bishop of Tarsus, he proclaimed the Gospel across Cilicia and the island of Corfu, building sanctuaries and leading many pagans to baptism before departing peacefully to the Lord.",
+        "On this day also, Abba Besoy of Balget offered his life for the Savior in Egypt. Enduring brutal scourgings and rackings under pagan magistrates with serene fortitude, he refused to burn incense to false gods, confessing the Trinity until he was crowned by the sword. We likewise remember the devout Queen Walatta Maryam who lived in piety and charity.",
+        "Through the apostolic prayers of Saint Jason, the blood of Abba Besoy, and the piety of Queen Walatta Maryam, may our Lord Jesus Christ preserve us in steadfast faith forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን ከላካቸው ከሰባ ሁለቱ አርድእት አንዱ የሆነውን የከበረ ሐዋርያ ቅዱስ ኢያሶንን ዕረፍት ታከብራለች። ደግሞም በግብፅ የተጋደለውን የባልጌቱን ሰማዕት አባ ብሶይን፣ እንዲሁም በበጎ ምግባር ያጌጠችውን የኢትዮጵያ ንግሥት ወለተ ማርያምን በጸሎት ታስባለች።",
+        "ቅዱስ ኢያሶን በበዓለ ኀምሳ የመንፈስ ቅዱስን ጸጋ ከተቀበለ በኋላ ከሐዋርያው ቅዱስ ጳውሎስ ጋር ወንጌልን ሰበከ። በተሰሎንቄ ሳለ ቅዱስ ጳውሎስን በቤቱ ተቀብሎ አስተናገደ፤ ሰዎችም ሊገድሏቸው በመጡ ጊዜ እርሱ ራሱን አሳልፎ ሰጥቶ ስለ ወንጌል መከራን ተቀበለ። በኋላም በጠርሴስና በቆርፉ ደሴት ኤጲስቆጶስ ሆኖ ተሹሞ አብያተ ክርስቲያናትን አነጸ፤ ብዙዎችንም ወደ እውነተኛው እምነት አምጥቶ በሰላም አረፈ።",
+        "በዚህችም ቀን በከሃዲው መኰንን ፊት ለጣዖት አንሠዋም በማለት የክርስቶስን አምላክነት የመሰከረውና አንገቱን ለሰይፍ የሰጠው የባልጌቱ አባ ብሶይ ይታሰባል። እንዲሁም በጾምና በጸሎት፣ ለድሆችም በምጽዋት በመትጋት እግዚአብሔርን ያገለገለችው የተባረከችው ንግሥት ወለተ ማርያም በዚህች ዕለት አረፈች።",
+        "የሐዋርያው የቅዱስ ኢያሶን ጸሎትና ሐዋርያዊ በረከት፣ የሰማዕቱ የአባ ብሶይ ተጋድሎና የንግሥት ወለተ ማርያም ምልጃ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Romans 16:21",
+        "verse": "Timothy, my fellow worker, greets you, as do Lucius, Jason, and Sosipater, my relatives."
+      },
+      "am": {
+        "reference": "ሮሜ. 16:21",
+        "verse": "ዐብሮኝ የሚሠራ ጢሞቴዎስ ዘመዶቼም ሉቂዮስና ኢያሶን ሱሲጴጥሮስም ሰላምታ ያቀርቡላችኋል።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-4",
+    "month": 9,
+    "day": 4,
+    "date": {
+      "en": "Ginbot 4",
+      "am": "ግንቦት 4"
+    },
+    "title": {
+      "en": "Repose of Pope John II of Alexandria, and Martyrdom of Saint Sosima and Saint Noda",
+      "am": "የ፳፱ኛው የእስክንድርያ ሊቀ ጳጳሳት የአባ ዮሐንስ ዕረፍት እና የቅዱሳን ሶሲማና ኖዳ ሰማዕትነት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Abba John II (the Monophysite), 29th Pope and Patriarch of Alexandria",
+        "Saints Sosima and Noda (Sinoda), Devout Servants of Saint Victor, Crowned Martyrs"
+      ],
+      "am": [
+        "፳፱ኛው የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ዮሐንስ",
+        "የተባረከው የቅዱስ ፊቅጦር አገልጋዮች የነበሩት ቅዱሳን ሶሲማና ኖዳ ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. John the Evangelist",
+        "St. Andrew the Apostle",
+        "St. Sophia and her Daughters"
+      ],
+      "am": [
+        "ቅዱስ ዮሐንስ ወንጌላዊ",
+        "ቅዱስ እንድርያስ ሐዋርያ",
+        "ቅድስት ሶፍያ ወአዋልዳ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of our holy father Abba John II, twenty-ninth Pope and Patriarch of the see of Saint Mark in Alexandria. We also celebrate the triumphant crowns of Saint Sosima and Saint Noda, faithful servants of the glorious martyr Saint Victor.",
+        "Abba John was a solitary monk of Scetis who spent his early years in prayer, fasting, and reading the holy scriptures. Chosen against his personal wishes to ascend the patriarchal throne of Alexandria, he shepherded the flock with steadfast devotion during seasons of intense ecclesiastical controversy, defending the orthodox confession of Saint Cyril and Saint Dioscorus that our Lord Jesus Christ is one incarnate nature of God the Word.",
+        "He labored tirelessly to provide for widows, orphans, and the destitute, using patriarchal revenues to build hospices and ransom captives before departing in peace to the eternal kingdom. On this day also, Sosima and Noda, inspired by the faith of their master Saint Victor, boldly confessed Christ before pagan magistrates, refusing to sacrifice to idols, and received the martyr's crown.",
+        "Through the pastoral vigilance of Patriarch John II, and the triumphant witness of Saints Sosima and Noda, may our Lord Jesus Christ preserve His Church in unity and truth forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የክርስቶስን መንጋ በኦርቶዶክስ እምነት የመራውን ሀያ ዘጠነኛውን የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ዮሐንስን በክብር ታስባለች። ደግሞም የታላቁ ሰማዕት የቅዱስ ፊቅጦር ታማኝ አገልጋዮች የነበሩትን የቅዱሳን ሶሲማንና ኖዳን ሰማዕትነት ታከብራለች።",
+        "ይህም ቅዱስ አባት አባ ዮሐንስ በገዳመ አስቄጥስ በጾምና በጸሎት፣ ቅዱሳት መጻሕፍትንም በማንበብ በብሕትውና ይኖር የነበረ ደግ አባት ነበረ። ወደ ሊቀ ጵጵስናው መንበር በተመረጠ ጊዜ፣ የቅዱስ ቄርሎስንና የቅዱስ ዲዮስቆሮስን ተዋሕዶ እምነት በጽናት ጠበቀ፤ ጌታችን ኢየሱስ ክርስቶስ አንድ ባሕርይ እንደሆነ ያለ ማወላወል አስተማረ።",
+        "የቤተ ክርስቲያኑን ገንዘብ ለድሆችና ለችግረኞች በማከፋፈል፣ የታመሙትን በማስታመም መንጋውን በሐዋርያዊ ፍቅር አገለገለ፤ ዘመኑንም ፈጽሞ በሰላም አረፈ። በዚችም ቀን የጌታቸውን የቅዱስ ፊቅጦርን አርአያ ተከትለው በከሃዲው መኰንን ፊት በክርስቶስ ያመኑትና አንገታቸውን ለሰይፍ የሰጡት ቅዱሳን ሶሲማና ኖዳ የሰማዕትነት አክሊል ተቀበሉ።",
+        "የፓትርያርክ አባ ዮሐንስ እረኝነትና ጸሎት፣ የሰማዕታቱ የሶሲማና የኖዳ በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 13:7",
+        "verse": "Remember your leaders, men who spoke to you the word of God, and considering the results of their conduct, imitate their faith."
+      },
+      "am": {
+        "reference": "ዕብ. 13:7",
+        "verse": "የእግዚአብሔርን ቃል የተናገሯችሁን ዋኖቻችሁን ዐስቡ፥ የኑሯቸውንም ፍሬ እየተመለከታችሁ በእምነታቸው ምሰሏቸው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-5",
+    "month": 9,
+    "day": 5,
+    "date": {
+      "en": "Ginbot 5",
+      "am": "ግንቦት 5"
+    },
+    "title": {
+      "en": "Martyrdom of the Holy Prophet Jeremiah, Son of Hilkiah the Priest",
+      "am": "የካህኑ የኬልቅዩ ልጅ የታላቁ ቅዱስ ነቢይ ኤርምያስ ሰማዕትነት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Jeremiah the Great Prophet, Son of Hilkiah the Priest, Weeping Prophet and Victorious Martyr"
+      ],
+      "am": [
+        "የካህኑ የኬልቅዩ ልጅ ስለ እስራኤል ያለቀሰው ታላቁ ቅዱስ ነቢይ ኤርምያስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Peter Chief of Apostles",
+        "Abune Gebre Menfes Kidus",
+        "St. John Chrysostom",
+        "St. Philip the Apostle"
+      ],
+      "am": [
+        "ቅዱስ ጴጥሮስ ሊቀ ሐዋርያት",
+        "አቡነ ገብረ መንፈስ ቅዱስ",
+        "ቅዱስ ዮሐንስ አፈወርቅ",
+        "ቅዱስ ፊልጶስ ሐዋርያ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed martyrdom of the great prophet Jeremiah, son of Hilkiah the priest from Anathoth, who was sanctified from his mother's womb to be a prophet unto the nations.",
+        "Called in his early youth to proclaim the divine word, Jeremiah wept bitterly over the impending destruction of Jerusalem and the desolation of Solomon's Temple, earning the title of the weeping prophet. He endured beating, stocks, imprisonment in a miry pit, and continual mockery from false prophets and ungodly kings, yet never wavered in proclaiming the righteous judgments of God.",
+        "He foretold the seventy years of Babylonian captivity, the slaughter of the innocents in Bethlehem, and the establishment of the New Covenant written upon human hearts through the blood of Christ. Carried into Egypt by rebellious Jewish remnants after the fall of Jerusalem, he rebuked their renewed idolatry at Tahpanhes, where the enraged populace stoned him to death, sealing his prophetic life with martyr glory.",
+        "Through the prophetic tears, fiery intercessions, and martyrdom of the holy Prophet Jeremiah, may the Lord grant us brokenness of heart for our sins and preserve us in His eternal covenant forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ከእናቱ ማሕፀን ጀምሮ ለአሕዛብ ነቢይ ይሆን ዘንድ የተቀደሰውን፣ የካህኑን የኬልቅዩን ልጅ የታላቁን ነቢይ የቅዱስ ኤርምያስን የሰማዕትነት ፍጻሜ በታላቅ ክብር ታከብራለች።",
+        "ነቢዩ ኤርምያስ በታናሽነቱ ለእግዚአብሔር አገልግሎት ተጠርቶ፣ ስለ ቅድስት ከተማ ስለ ኢየሩሳሌም መፍረስና ስለ ሰሎሞን ቤተ መቅደስ መቃጠል ቀንና ሌሊት እያለቀሰ ‘የሚያለቅሰው ነቢይ’ ተባለ። በሐሰተኞች ነቢያትና በከሀድያን ነገሥታት እጅ ግርፋትን፣ እስራትንና በጭቃ ጉድጓድ ውስጥ መጣልን ታገሠ፤ ነገር ግን የእግዚአብሔርን እውነተኛ ቃል ከመናገር ከቶ ወደ ኋላ አላለም።",
+        "የሰባ ዓመቱን የባቢሎን ምርኮ፣ በቤተልሔም የሕፃናትን መገደል፣ እንዲሁም በክርስቶስ ደም በሰው ልብ ላይ የሚጻፈውን አዲሱን ኪዳን አስቀድሞ በትንቢት ተናገረ። ኢየሩሳሌም ከጠፋች በኋላ ወደ ግብፅ ምድር በሄደ ጊዜ፣ ሕዝቡን ስለ ጣዖት አምልኮታቸው በመገሠጹ በድንጋይ ወግረው ገደሉት፤ እርሱም ተጋድሎውን በሰማዕትነት አክሊል ፈጸመ።",
+        "የታላቁ ነቢይ የቅዱስ ኤርምያስ ቅዱስ ዕንባና ጸሎት፣ የእውነተኛው ትንቢቱ ቃልና የሰማዕትነት በረከቱ ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:37",
+        "verse": "They were stoned. They were sawn apart. They were tempted. They were slain with the sword. They went around in sheep skins and in goat skins; being destitute, afflicted, ill-treated—"
+      },
+      "am": {
+        "reference": "ዕብ. 11:37",
+        "verse": "በድንጋይ ተወግረው ሞቱ፥ ተፈተኑ፥ በመጋዝ ተሰነጠቁ፥ በሰይፍ ተገድለው ሞቱ፥ ሁሉን እያጡ መከራን እየተቀበሉ እየተጨነቁ የበግና የፍየል ሌጦ ለብሰው ዞሩ፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-6",
+    "month": 9,
+    "day": 6,
+    "date": {
+      "en": "Ginbot 6",
+      "am": "ግንቦት 6"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Isaac of Defra, Saint Macarius of Alexandria, Saint Salome, and Saint Pelagia and Her Four Sons",
+      "am": "የዳፍራው የቅዱስ ይስሐቅ ሰማዕትነት፣ የእስክንድርያው ቀሲስ አባ መቃርስ፣ የቅድስት ሰሎሜ እና የቅድስት ድላጂና የልጆቿ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Isaac of Defra, Victorious Martyr of Egypt under Diocletian",
+        "Abba Macarius of Alexandria, Ascetic Priest and Desert Luminary",
+        "Saint Salome the Recluse, Model of Virginal Purity and Holiness",
+        "Saint Pelagia (Dilagi) and Her Four Sons, Crowned Martyrs of Esna"
+      ],
+      "am": [
+        "በዲዮቅልጥያኖስ ዘመን የተጋደለው የዳፍራው ሰማዕት ቅዱስ ይስሐቅ",
+        "የእስክንድርያ ቄስ የከበረ አባት አባ መቃርስ",
+        "ንጽሕናንና ድንግልናን ገንዘብ ያደረገች ተሐራሚት ቅድስት ሰሎሜ",
+        "ቅድስት ድላጂና አራቱ ልጆቿ በእስና የተጋደሉ የከበሩ ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Holy Mount Qusqwam",
+        "St. Arsema the Virgin Martyr",
+        "St. Basil of Caesarea",
+        "St. Marina"
+      ],
+      "am": [
+        "ቅድስት ደብረ ቁስቋም",
+        "ቅድስት አርሴማ ድንግል",
+        "ቅዱስ ባስልዮስ ዘቂሣርያ",
+        "ቅድስት መሪና"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of Saint Isaac of Defra, the falling asleep of the ascetic priest Abba Macarius of Alexandria, the pure departure of Saint Salome the recluse, and the crowns of Saint Pelagia and her four sons.",
+        "Saint Isaac of Defra was born in Egypt of pious parents. Renouncing the world in his youth, he boldly confessed Christ before the pagan prefect Culcianus. Enduring horrific rackings, boiling pitch, and the shedding of his blood, he remained preserved by an angel of the Lord until he finished his testimony under the sword, ascending to heavenly joy.",
+        "On this day also, Abba Macarius the Alexandrian priest fell asleep in holiness after decades of austere vigil in Scetis, subduing all bodily passions through contemplative prayer. We likewise remember the devout recluse Saint Salome who preserved angelic virginity, and Saint Pelagia who encouraged her four young sons to receive martyrdom rather than bow to idols.",
+        "Through the martyrdom of Saint Isaac, the prayers of Abba Macarius, the purity of Saint Salome, and the crowns of Saint Pelagia and her sons, may our Lord preserve His holy Church forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን በግብፅ የተጋደለውን የዳፍራውን የከበረ ሰማዕት ቅዱስ ይስሐቅን፣ በገዳመ አስቄጥስ በታላቅ ተጋድሎ ያበራውን የእስክንድርያውን ቄስ አባ መቃርስን፣ ንጽሕት ድንግል የነበረችውን እናታችንን ቅድስት ሰሎሜን፣ እንዲሁም ቅድስት ድላጂንና አራቱን ልጆቿን በጸሎት ታስባለች።",
+        "ቅዱስ ይስሐቅ በግብፅ አገር ከከበሩ ክርስቲያን ወላጆች ተወልዶ በታናሽነቱ ዓለምን ናቀ፤ በከሃዲው መኰንን ፊትም በድፍረት ቆሞ ክርስቶስን መሰከረ። በመንኰራኵር መሠቃየትንና የፈላ ቅጥራን በላዩ ላይ መፍሰሱን በጽናት ታገሠ፤ የእግዚአብሔርም መልአክ አዳነው፤ በመጨረሻም አንገቱን ለሰይፍ ሰጥቶ የሰማዕትነትን አክሊል ተቀበለ።",
+        "በዚህችም ቀን በታላቅ ጾምና ጸሎት ምእመናንን ሲያገለግል የኖረው የእስክንድርያው ቀሲስ አባ መቃርስ በሰላም አረፈ። እንዲሁም ድንግልናዋንና ቅድስናዋን ጠብቃ የኖረችው ተሐራሚት ቅድስት ሰሎሜ፣ እና አራቱን ሕፃናት ልጆቿን ስለ ክርስቶስ ፍቅር ለሰማዕትነት ያበቃችው ቅድስት ድላጂ ይታሰባሉ።",
+        "የሰማዕቱ የቅዱስ ይስሐቅ ተጋድሎ፣ የቀሲስ አባ መቃርስ ጸሎት፣ የቅድስት ሰሎሜ ንጽሕናና የቅድስት ድላጂ በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:37",
+        "verse": "They were stoned. They were sawn apart. They were tempted. They were slain with the sword. They went around in sheep skins and in goat skins; being destitute, afflicted, ill-treated—"
+      },
+      "am": {
+        "reference": "ዕብ. 11:37",
+        "verse": "በድንጋይ ተወግረው ሞቱ፥ ተፈተኑ፥ በመጋዝ ተሰነጠቁ፥ በሰይፍ ተገድለው ሞቱ፥ ሁሉን እያጡ መከራን እየተቀበሉ እየተጨነቁ የበግና የፍየል ሌጦ ለብሰው ዞሩ፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-7",
+    "month": 9,
+    "day": 7,
+    "date": {
+      "en": "Ginbot 7",
+      "am": "ግንቦት 7"
+    },
+    "title": {
+      "en": "Repose of Saint Athanasius the Apostolic, 20th Pope and Patriarch of Alexandria",
+      "am": "ሐዋርያዊው ታላቁ ቅዱስ አትናቴዎስ ፳ኛው የእስክንድርያ ሊቀ ጳጳሳት ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Athanasius the Apostolic, 20th Pope of Alexandria, Pillar of Orthodoxy and Champion of Nicaea"
+      ],
+      "am": [
+        "የኦርቶዶክስ ተዋሕዶ እምነት ዓምድና የኒቂያ ሻምፒዮን ሐዋርያዊው ቅዱስ አትናቴዎስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "The Holy Trinity",
+        "Abba Giyorgis of Gascha",
+        "Abba Sinoda of Denderah",
+        "St. Athanasius the Apostolic"
+      ],
+      "am": [
+        "ቅድስት ሥላሴ",
+        "አባ ጊዮርጊስ ዘጋስጫ",
+        "አባ ሲኖዳ ዘደንድራ",
+        "ቅዱስ አትናቴዎስ ሐዋርያዊ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the peerless Doctor of the Church, our holy father Abba Athanasius the Apostolic, twentieth Pope and Patriarch of Alexandria, who stood as an unshakable pillar against the Arian heresy.",
+        "Consecrated deacon by Pope Alexander, the youthful Athanasius accompanied his patriarch to the First Ecumenical Council of Nicaea in 325 AD. There he confounded Arius with profound theological clarity, demonstrating from holy scripture that the Son of God is consubstantial with the Father, true God of true God, begotten and not made. Elevated to the patriarchal throne, he shepherded the Church for forty-six years.",
+        "Enduring five unjust banishments and seventeen years of exile under heretical emperors, Athanasius stood against the entire empire, earning the timeless title 'Athanasius contra mundum.' He hid in tombs, dwelt among desert monks, wrote immortal treatises on the Incarnation of the Word and the life of Saint Anthony, and returned triumphantly to finish his course in peace.",
+        "Through the apostolic wisdom, steadfast confession, and prayers of Saint Athanasius the Great, may our Lord preserve the Orthodox faith inviolate in all our sanctuaries forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የኦርቶዶክስ ተዋሕዶ እምነት ዓምድ የሆነውን፣ ሃያኛውን የእስክንድርያ ሊቀ ጳጳሳት ሐዋርያዊውን ታላቁን ቅዱስ አትናቴዎስን ዕረፍት በታላቅ ክብርና ምስጋና ታስባለች።",
+        "ቅዱስ አትናቴዎስ በፓትርያርክ አባ እለእስክንድሮስ እጅ ዲያቆን ሆኖ ተሹሞ፣ በ፫፻፳፭ ዓ.ም በኒቂያ በተደረገው የመጀመሪያው ዓለም አቀፍ ጉባኤ ላይ ከአባቱ ጋር ተገኘ። በዚያም አርዮስን በቅዱሳት መጻሕፍት አስረድቶ አሳፈረው፤ ወልድ ዋሕድ ከአብ ጋር በመለኮቱ አንድ እንደሆነና ያልተፈጠረ እውነተኛ አምላክ መሆኑን አጸና። ወደ ሊቀ ጵጵስናው መንበር ከተመረጠም በኋላ ለ፵፮ ዓመታት መንጋውን በሐዋርያዊ ጽናት ጠበቀ።",
+        "በከሀድያን ነገሥታት ምክንያት አምስት ጊዜ ከሀገሩ ተሰደደ፤ ዐሥራ ሰባት ዓመታት በስደት በዋሻና በመቃብር ውስጥ ኖረ፤ ነገር ግን እምነቱን ቅንጣት ታህል ሳይለውጥ ‘አትናቴዎስ በዓለም ላይ ብቻውን ቢቆምም እውነት ከእርሱ ጋር ናት’ ተባለ። የቅዱስ እንጦንስን ገድልና ስለ መለኮት ሰው መሆን ድንቅ መጻሕፍትን ጽፎ በመጨረሻ በሰላም አረፈ።",
+        "የሐዋርያዊው የቅዱስ አትናቴዎስ ትምህርትና ተጋድሎ፣ ንጹሕ እምነቱና ጸሎቱ ቤተ ክርስቲያናችንን ከኑፋቄ ሁሉ ይጠብቅልን፤ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 13:7",
+        "verse": "Remember your leaders, men who spoke to you the word of God, and considering the results of their conduct, imitate their faith."
+      },
+      "am": {
+        "reference": "ዕብ. 13:7",
+        "verse": "የእግዚአብሔርን ቃል የተናገሯችሁን ዋኖቻችሁን ዐስቡ፥ የኑሯቸውንም ፍሬ እየተመለከታችሁ በእምነታቸው ምሰሏቸው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-8",
+    "month": 9,
+    "day": 8,
+    "date": {
+      "en": "Ginbot 8",
+      "am": "ግንቦት 8"
+    },
+    "title": {
+      "en": "Feast of the Holy Ascension of our Lord Jesus Christ, Repose of Abba Daniel of Scetis, and Saint John of Senhut",
+      "am": "የጌታችን የመድኃኒታችን የኢየሱስ ክርስቶስ የዕርገቱ መታሰቢያ፣ የአስቄጥሱ አበምኔት የአባ ዳንኤል ዕረፍት እና የስንሑቱ ቅዱስ ዮሐንስ ሰማዕትነት"
+    },
+    "annual_feasts": {
+      "en": [
+        "The Holy and Glorious Ascension of our Lord, God, and Savior Jesus Christ into Heaven",
+        "Abba Daniel, Abbot of the Desert of Scetis, Spiritual Father of Monks",
+        "Saint John of Senhut and Two Hundred and Twenty-Four Martyrs Crowned with Him",
+        "Saint Maximus the Martyr and Fighter for Christ"
+      ],
+      "am": [
+        "ክብር ባለቤት ጌታችን አምላካችንና መድኃኒታችን ኢየሱስ ክርስቶስ በክብር ወደ ሰማይ ያረገበት ታላቅ በዓል",
+        "የገዳመ አስቄጥስ አበምኔትና የመነኰሳት አባት ታላቁ አባ ዳንኤል",
+        "የስንሑቱ ቅዱስ ዮሐንስና ከእርሱ ጋር የተጋደሉ ሁለት መቶ ሀያ አራት ቅዱሳን ሰማዕታት",
+        "ተጋዳዩ ሰማዕት ቅዱስ መክሲሞስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "The Four Living Creatures (Cherubim)",
+        "Abba Kiros the Righteous",
+        "Moses the Prophet",
+        "Abba John Kama"
+      ],
+      "am": [
+        "አርባዕቱ እንስሳ (ኪሩቤል)",
+        "አባ ኪሮስ ጻድቅ",
+        "ሙሴ ሊቀ ነቢያት",
+        "አባ ዮሐንስ ካማ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this exalted feast day, the holy Church celebrates the glorious Ascension of our Lord, God, and Savior Jesus Christ into the heavens forty days after His triumphant Resurrection. We also commemorate the blessed falling asleep of Abba Daniel, abbot of the desert of Scetis, the martyrdom of Saint John of Senhut with two hundred and twenty-four companions, and Saint Maximus.",
+        "Leading His disciples out as far as Bethany upon the Mount of Olives, our Savior lifted up His holy hands and blessed them. As He blessed them, He ascended into heaven in a cloud of light while they looked on, sitting down at the right hand of the Father in our glorified human nature. Two angels clothed in white assured the apostles that this same Jesus will return in like manner on the clouds of heaven with power and great glory.",
+        "On this day also departed Abba Daniel of Scetis, renowned throughout Egypt for wisdom, hospitality, and sheltering wandering hermits, including Saint Anastasia the Patrician. We likewise honor the youthful martyr John of Senhut and two hundred and twenty-four believers who joyfully shed their blood for Christ.",
+        "May the blessing of Christ our ascending King lift our hearts above earthly desires, and may the prayers of Abba Daniel and the holy martyrs accompany us all the days of our life. Amen."
+      ],
+      "am": [
+        "በዚህች ታላቅና የተቀደሰች ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን፣ አምላካችንና መድኃኒታችን ኢየሱስ ክርስቶስ ከትንሣኤው በአርባኛው ቀን በክብር ወደ ሰማያት ያረገበትን የዕርገቱን በዓል በታላቅ ምስጋና ታከብራለች። ደግሞም የአስቄጥስ ገዳም አበምኔት የነበረውን የታላቁን አባ ዳንኤልን ዕረፍት፣ እንዲሁም የስንሑቱን ቅዱስ ዮሐንስንና ከእርሱ ጋር የተጋደሉትን ሁለት መቶ ሀያ አራት ሰማዕታትን በጸሎት ታስባለች።",
+        "ጌታችን ደቀ መዛሙርቱን ይዞ ወደ ደብረ ዘይት ወጣ፤ ቅዱሳን እጆቹንም አንሥቶ ባረካቸው። ሲባርካቸውም እያዩት በደመና ወደ ሰማይ ዐረገ፤ የሰውነታችንንም ባሕርይ ይዞ በአብ ቀኝ ተቀመጠ። ነጫጭ ልብስ የለበሱ ሁለት መላእክትም ‘ይህ ወደ ሰማይ ያረገው ኢየሱስ፣ ወደ ሰማይ ሲሄድ እንዳያችሁት እንዲሁ በክብር ይመጣል’ ብለው አጽናኗቸው።",
+        "በዚህችም ቀን በታላቅ መንፈሳዊ ጥበብና እንግዳን በመቀበል ያበራው፣ ቅድስት አናስጣስያን በዋሻ ውስጥ የሰወራት የገዳመ አስቄጥስ አበምኔት አባ ዳንኤል አረፈ። እንዲሁም ስለ ክርስቶስ ስም አንገታቸውን ለሰይፍ የሰጡት የስንሑቱ ቅዱስ ዮሐንስና ከእርሱ ጋር የነበሩት ሁለት መቶ ሀያ አራት ሰማዕታት የክብር አክሊል ተቀበሉ።",
+        "በክብር ወደ ሰማያት ያረገው የጌታችን የኢየሱስ ክርስቶስ ሰላምና በረከት፣ የአባ ዳንኤልና የቅዱሳን ሰማዕታት ሁሉ ጸሎት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Acts 1:9",
+        "verse": "When he had said these things, as they were looking, he was taken up, and a cloud received him out of their sight."
+      },
+      "am": {
+        "reference": "ሐዋ. 1:9",
+        "verse": "ይህንም ከተናገረ በኋላ እነርሱ እያዩት ከፍ ከፍ አለ፤ ደመናም ከዐይናቸው ሰውራ ተቀበለችው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-9",
+    "month": 9,
+    "day": 9,
+    "date": {
+      "en": "Ginbot 9",
+      "am": "ግንቦት 9"
+    },
+    "title": {
+      "en": "Repose of the Holy Empress Helena, Mother of Saint Constantine, and Saint Silvanus",
+      "am": "የጻድቁ ንጉሥ የቈስጠንጢኖስ እናት የቅድስት ንግሥት ዕሌኒ ዕረፍት እና የቅዱስ ስልዋኖስ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Helena the Empress, Mother of Constantine the Great, Equal-to-the-Apostles and Discoverer of the True Cross",
+        "Saints Baydar and Silvanus, Devout Witnesses for Christ"
+      ],
+      "am": [
+        "የንጉሥ ቈስጠንጢኖስ እናት ቅድስት ንግሥት ዕሌኒ የጌታችንን መስቀል ያገኘች ሐዋርያዊት እናት",
+        "ቅዱሳን በይደርና ስልዋኖስ ታማኝ ምስክሮች"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Thomas the Apostle",
+        "St. Stephen the Protomartyr",
+        "Abba Antony the Father of Monks",
+        "St. Justina"
+      ],
+      "am": [
+        "ቅዱስ ቶማስ ሐዋርያ",
+        "ቅዱስ እስጢፋኖስ ቀዳሜ ሰማዕት",
+        "አባ እንጦንዮስ አበ መነኮሳት",
+        "ቅድስት ዮስቴና"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the devout and God-loving Empress Helena, mother of Emperor Constantine the Great, Equal-to-the-Apostles, through whose holy zeal the True Cross of our Lord Jesus Christ was unearthed in Jerusalem. We also remember the holy servants Baydar and Silvanus.",
+        "Empress Helena embraced the Christian faith with burning love, dedicating her imperial wealth to feeding the poor, clothing the naked, and liberating prisoners. Guided by a heavenly vision in her eightieth year, she traveled to Jerusalem, consulted the elders of the city, and through prayer, fasting, and the fragrant smoke of incense, discovered the buried Life-Giving Cross of the Savior upon the hill of Golgotha.",
+        "She erected magnificent basilicas over the Holy Sepulchre, the Mount of Olives, and the cave of the Nativity in Bethlehem. She served the holy virgins of Jerusalem with her own hands at table, donning the garments of a humble servant. Having fulfilled her divine mission, she departed in peace to Christ, leaving a legacy of faith that illuminated the entire Christian world.",
+        "Through the prayers, humility, and imperial piety of the holy Empress Helena, may the wood of the Holy Cross defend us from every adversary and guide our souls into eternal life. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የጻድቁ ንጉሥ የቈስጠንጢኖስ እናት የሆነችውን፣ የጌታችንን ሕይወት ሰጪ መስቀል በኢየሩሳሌም ቆፍራ ያወጣችውን የተባረከችውን ቅድስት ንግሥት ዕሌኒን ዕረፍት በታላቅ ምስጋና ታስባለች። ደግሞም ቅዱሳን በይደርንና ስልዋኖስን በጸሎት ታከብራለች።",
+        "ቅድስት ዕሌኒ በክርስቶስ ፍቅር ልቧ የተቃጠለ ደግ እናት ነበረች፤ የንጉሥ ሀብቷንም ለድሆች፣ ለታረዙትና ለታሰሩት ምጽዋት አድርጋ ሰጠች። በሰማንያ ዓመቷም በመንፈስ ቅዱስ መሪነት ወደ ቅድስት ኢየሩሳሌም ሄደች፤ በጸሎትና በዕጣን ጢስ ምልክት ተመርታ የተቀበረውን የጌታችንን ቅዱስ መስቀል ከጎልጎታ ተራራ አወጣች።",
+        "በጌታችን መቃብር ላይ፣ በደብረ ዘይትና በቤተልሔም የልደት ዋሻ ላይ ድንቅ አብያተ ክርስቲያናትን አነጸች፤ በኢየሩሳሌም የነበሩ ደናግልንና መነኰሳትን በገዛ እጇ እንደ አገልጋይ ሆና አበላቻቸው። መልካም ተጋድሎዋን ከፈጸመች በኋላ በክብርና በሰላም ወደ ወደደችው ጌታ ሔደች።",
+        "የቅድስት ንግሥት ዕሌኒ ጸሎትና ትሕትና፣ የከበረው የጌታችን የመስቀሉ ኃይል ከሁላችን ከምእመናን ጋር ይሁን፤ አገራችንንና ቤተ ክርስቲያናችንን ይጠብቅልን፤ ለዘላለሙ አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Galatians 6:14",
+        "verse": "But far be it from me to boast, except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world."
+      },
+      "am": {
+        "reference": "ገላ. 6:14",
+        "verse": "ነገር ግን፥ ዓለም ለእኔ የተሰቀለበት እኔም ለዓለም የተሰቀልሁበት ከጌታችን ከኢየሱስ ክርስቶስ መስቀል በቀር ሌላ ትምክሕት ከእኔ ይራቅ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-10",
+    "month": 9,
+    "day": 10,
+    "date": {
+      "en": "Ginbot 10",
+      "am": "ግንቦት 10"
+    },
+    "title": {
+      "en": "Commemoration of the Three Holy Youths: Ananias, Azarias, and Misael, Saint Abraham the Carpenter, and Abba Nob",
+      "am": "የሠለስቱ ደቂቅ የአናንያ፣ አዛርያና ሚሳኤል መታሰቢያ፣ የጠራቢው የቅዱስ አብርሃም ሰማዕትነት እና የአባ ኖብ ማኅበር"
+    },
+    "annual_feasts": {
+      "en": [
+        "The Three Holy Youths (Ananias, Azarias, and Misael) Delivered from the Fiery Furnace",
+        "Saint Abraham the Carpenter (Craftsman) of Marqyas, Victorious Martyr",
+        "Consecration of the Church of Abba Misael, and Patriarch John",
+        "Three Hundred and Fifty-Eight Holy Martyrs Crowned with Abba Nob"
+      ],
+      "am": [
+        "ከሚነድደው የእሳት እቶን የዳኑት ሦስቱ ቅዱሳን ሕፃናት አናንያ፣ አዛርያና ሚሳኤል (ሠለስቱ ደቂቅ)",
+        "የመርቅያስ አገር ሰው ጠራቢው ቅዱስ አብርሃም ሰማዕት",
+        "የአባ ሚሳኤል ቤተ ክርስቲያን የከበረችበት መታሰቢያና ፓትርያርክ አባ ዮሐንስ",
+        "ከአባ ኖብ ጋር በሰማዕትነት የከበሩ ፫፻፶፰ (ሦስት መቶ ሃምሳ ስምንት) ቅዱሳን ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "The Holy Cross of Christ",
+        "Saints Sergius and Bacchus",
+        "St. James the Apostle",
+        "St. Tsedale Petros"
+      ],
+      "am": [
+        "ቅዱስ መስቀለ ክርስቶስ",
+        "ቅዱስ ሠርጊስ ወባኮስ",
+        "ቅዱስ ያዕቆብ ሐዋርያ",
+        "ቅዱስ ጸዳለ ጴጥሮስ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed memory of the Three Holy Youths—Ananias, Azarias, and Misael—who were cast into the midst of the burning fiery furnace in Babylon and delivered unharmed by the Son of God. We also celebrate the martyrdom of Saint Abraham the carpenter, the consecration of the church of Abba Misael, and three hundred and fifty-eight martyrs crowned with Abba Nob.",
+        "Taken captive into Babylon along with the Prophet Daniel, these three devout youths refused to bow down before King Nebuchadnezzar's towering golden colossus on the plain of Dura. Enraged, the king commanded the furnace to be heated seven times hotter than usual and had them cast bound into the roaring flames. But the angel of the Lord descended into the furnace, driving the fierce heat away and creating a moist, dewy breeze, while a Fourth Figure like the Son of God walked with them.",
+        "Untouched by flame, neither their hair singed nor the smell of fire on their garments, the youths sang the great canticle of cosmic praise, blessing the Lord across all creation. On this day also, Saint Abraham the craftsman in Egypt sealed his witness with martyr blood, and three hundred and fifty-eight believers alongside Abba Nob were crowned in glory.",
+        "Through the faith of the Three Holy Youths, the deliverance of the furnace, and the blood of Saint Abraham and Abba Nob's companions, may Christ extinguish the fires of temptation in our lives forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን በባቢሎን በሚነድደው የእሳት እቶን ውስጥ ተጥለው በእግዚአብሔር ልጅ ኃይል ያለምንም ጉዳት የዳኑትን የሦስቱን ቅዱሳን ሕፃናት የአናንያን፣ የአዛርያንና የሚሳኤልን (ሠለስቱ ደቂቅ) መታሰቢያ ታከብራለች። ደግሞም ጠራቢውን ቅዱስ አብርሃምን፣ የአባ ሚሳኤልን ቤተ ክርስቲያን መታሰቢያ፣ እንዲሁም ከአባ ኖብ ጋር የተጋደሉትን ፫፻፶፰ (ሦስት መቶ ሃምሳ ስምንት) ሰማዕታትን በጸሎት ታስባለች።",
+        "እነዚህ ሦስት ቅዱሳን ወጣቶች ከነቢዩ ዳንኤል ጋር በባቢሎን በምርኮ ሳሉ፣ ንጉሥ ናቡከደነጾር ላቆመው የወርቅ ምስል አንሰግድም አሉ። ንጉሡም ተቆጥቶ እቶኑ ሰባት እጥፍ እንዲነድድ ካደረገ በኋላ አስሮ ወደ እሳቱ ጣላቸው። የእግዚአብሔር መልአክ ግን ወርዶ እሳቱን አበረደው፤ እንደ ቀዝቃዛ ጠል አደረገላቸው፤ የእግዚአብሔርን ልጅ የሚመስል አራተኛውም አካል ከእነርሱ ጋር በእሳቱ መካከል ተመላለሰ።",
+        "የጠጕራቸው አንዲት ቅንጣት እንኳን ሳትቃጠል፣ የእሳቱም ሽታ ሳይነካቸው ሠለስቱ ደቂቅ ፍጥረታት ሁሉ እግዚአብሔርን እንዲያመሰግኑ ታላቅ የምስጋና ዝማሬ ዘመሩ። በዚችም ቀን ጠራቢው ቅዱስ አብርሃም ስለ ክርስቶስ ስም ሰማዕት ሆነ፤ ከአባ ኖብ ጋር የነበሩት ሦስት መቶ ሃምሳ ስምንት ሰማዕታትም የክብር አክሊል ተቀበሉ።",
+        "የሦስቱ ቅዱሳን ሕፃናት የእምነት ጽናትና ዝማሬ፣ የሰማዕቱ የቅዱስ አብርሃምና የአባ ኖብ ማኅበር በረከት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:34",
+        "verse": "quenched the power of fire, escaped the edge of the sword, from weakness were made strong, grew mighty in war, and caused foreign armies to flee."
+      },
+      "am": {
+        "reference": "ዕብ. 11:34",
+        "verse": "የአንበሳዎችን አፍ ዘጉ፥ የእሳትን ኀይል አጠፉ፥ ከሰይፍ ስለት አመለጡ፥ ከድካማቸው በረቱ፥ በጦርነት ኀይለኛዎች ሆኑ፥ የባዕድ ጭፍራዎችን አባረሩ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-11",
+    "month": 9,
+    "day": 11,
+    "date": {
+      "en": "Ginbot 11",
+      "am": "ግንቦት 11"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Theocleia Wife of Saint Justus, Saint Yared the Hymnographer, and Saint Arsema the Nun",
+      "am": "የቅዱስ ዮስጦስ ሚስት የቅድስት ታውክልያ ሰማዕትነት፣ የማኅሌት አባት የቅዱስ ያሬድ ዕረፍት እና የቅድስት አርሴማ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Theocleia, Wife of Saint Justus, Glorious Martyr of Antioch",
+        "Saint Yared the Melodist, Father of Ethiopian Sacred Music and Hymnody",
+        "Saint Arsema (Anasima) the Holy Nun and Fool-for-Christ",
+        "Abba Asher the Teacher of Bali, and Bishop Paphnutius"
+      ],
+      "am": [
+        "የከበረ ሰማዕት የቅዱስ ዮስጦስ ሚስት ቅድስት ታውክልያ ሰማዕት",
+        "እንደ ሱራፌል በሰማያዊ ዜማ ያመሰገነው የዜማ አባት ቅዱስ ያሬድ",
+        "ስለ መንግሥተ ሰማያት ራሷን ያዋረደች ቅድስት አርሴማ (አናሲማ) መነኰሳይት",
+        "የባሌው መምህር አባ አሴርና ኤጲስቆጶስ አባ በፍኑትዮስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Anna Mother of the Virgin Mary",
+        "St. Fasilides the Martyr",
+        "St. Yared the Hymnographer",
+        "Abba Paimon"
+      ],
+      "am": [
+        "ቅድስት ሐና እመ እግዝእትነ",
+        "ቅዱስ ፋሲለደስ ሰማዕት",
+        "ቅዱስ ያሬድ ማኅሌታይ",
+        "አባ ባይሞን ገዳማዊ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of Saint Theocleia, wife of the imperial martyr Saint Justus. We also celebrate the blessed repose of Saint Yared the great Ethiopian hymnographer, the hidden asceticism of Saint Arsema the nun, and the martyrdom of Abba Asher, teacher of Bali.",
+        "Saint Theocleia was of noble imperial lineage in Antioch. When Emperor Diocletian commanded the court to worship idols, she stood alongside her husband Justus and son Apoli in confessing the Crucified Lord. Exiled to Upper Egypt, she was separated from her loved ones and subjected to cruel beatings and imprisonments; yet her faith remained unshaken, and she finished her glorious course by the sword.",
+        "On this day also the Ethiopian Orthodox Church honors Saint Yared, whom the Holy Spirit inspired to compose the sacred chant—Diggwa, Tsome Diggwa, Mieraf, and Zik—in three heavenly melodies (Ge'ez, Ezel, and Araray), chanting like the Seraphim before kings and churches before his hidden departure. We likewise recall the holy nun Arsema who feigned folly for the kingdom of God.",
+        "Through the martyrdom of Saint Theocleia, the heavenly melodies of Saint Yared, and the prayers of Mother Arsema, may our Lord Jesus Christ tune our hearts to praise Him forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የታላቁ ሰማዕት የቅዱስ ዮስጦስ ሚስት የነበረችውን የከበረች ሰማዕት ቅድስት ታውክልያን በታላቅ ክብር ታስባለች። ደግሞም እንደ ሱራፌል በሰማያዊ ዜማ ያመሰገነውን የኢትዮጵያውን የዜማ አባት የቅዱስ ያሬድን ዕረፍት፣ እንዲሁም ቅድስት አርሴማንና የባሌውን መምህር አባ አሴርን በጸሎት ታከብራለች።",
+        "ቅድስት ታውክልያ በአንጾኪያ ከከበሩ የንጉሥ ዘመዶች ወገን ነበረች። ዲዮቅልጥያኖስ ጣዖታትን ባመለከ ጊዜ ከባሏ ከቅዱስ ዮስጦስና ከልጇ ከአቦሊ ጋር በክርስቶስ በድፍረት መሰከሩ። ወደ ላይኛው ግብፅም በግዞት ተወስዳ ከቤተሰቧ ተለይታ ታላቅ ግርፋትንና ሥቃይን በጽናት ታገሠች፤ በመጨረሻም አንገቷን ለሰይፍ ሰጥታ የሰማዕትነት አክሊል ተቀበለች።",
+        "በዚህችም ቀን መንፈስ ቅዱስ ገልጾለት ሦስቱን የዜማ ስልቶች (ግዕዝ፣ ዕዝልና አራራይ) ያዘጋጀው፣ ድጓንና ጾመ ድጓን ደርሶ በሰማያዊ ዝማሬ ቤተ ክርስቲያንን ያበራው ማኅሌታይ ቅዱስ ያሬድ አረፈ። እንዲሁም ስለ እግዚአብሔር ፍቅር ራሷን ዝቅ ያደረገችው ቅድስት አርሴማ መነኰሳይት በዚህች ዕለት ይታሰባለች።",
+        "የሰማዕቷ የቅድስት ታውክልያ ጽናት፣ የማኅሌታይ የቅዱስ ያሬድ ሰማያዊ በረከትና ዝማሬ፣ የቅድስት አርሴማም ጸሎት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:37",
+        "verse": "They were stoned. They were sawn apart. They were tempted. They were slain with the sword. They went around in sheep skins and in goat skins; being destitute, afflicted, ill-treated—"
+      },
+      "am": {
+        "reference": "ዕብ. 11:37",
+        "verse": "በድንጋይ ተወግረው ሞቱ፥ ተፈተኑ፥ በመጋዝ ተሰነጠቁ፥ በሰይፍ ተገድለው ሞቱ፥ ሁሉን እያጡ መከራን እየተቀበሉ እየተጨነቁ የበግና የፍየል ሌጦ ለብሰው ዞሩ፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-12",
+    "month": 9,
+    "day": 12,
+    "date": {
+      "en": "Ginbot 12",
+      "am": "ግንቦት 12"
+    },
+    "title": {
+      "en": "Commemoration of Saint Michael the Archangel, Apparition of the Cross of Light, and Repose of Saint John Chrysostom",
+      "am": "የቅዱስ ሚካኤል የመልአኩ መታሰቢያ፣ የብርሃን መስቀል በኢየሩሳሌም መገለጥ እና የታላቁ ቅዱስ ዮሐንስ አፈ ወርቅ ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Monthly Memorial of Saint Michael the Archangel, Who Transported Habakkuk to Babylon",
+        "Apparition of the Luminous Cross above Golgotha in Jerusalem under Emperor Constantius",
+        "Saint John Chrysostom (Golden-Mouthed), Patriarch of Constantinople and Doctor of the Church",
+        "Saint Minas the Deacon, Saint Stephen the Martyr, and Emperor Alexander of Ethiopia"
+      ],
+      "am": [
+        "ነቢዩ ዕንባቆምን በደመና ወደ ባቢሎን ያደረሰው የመላእክት አለቃ የቅዱስ ሚካኤል ወርሃዊ መታሰቢያ",
+        "በኢየሩሳሌም በጎልጎታ ላይ ከፀሐይ ይልቅ የሚያበራ የከበረ መስቀል በሰማይ የታየበት በዓል",
+        "የቊስጥንጥንያ ሊቀ ጳጳሳት ታላቁ የቤተ ክርስቲያን መምህር ቅዱስ ዮሐንስ አፈ ወርቅ",
+        "ዲያቆን ቅዱስ ሚናስ፣ ቅዱስ እስጢፋኖስ ሰማዕትና የኢትዮጵያ ንጉሥ እስክንድር"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Archangel Michael",
+        "St. John Chrysostom",
+        "Abba Samuel of Mount Qalmon"
+      ],
+      "am": [
+        "ቅዱስ ሚካኤል ሊቀ መላእክት",
+        "ቅዱስ ዮሐንስ አፈወርቅ",
+        "አባ ሳሙኤል ዘደብረ ቀልሞን"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church celebrates the monthly memorial of Saint Michael the Archangel, commemorating how God sent him to transport Habakkuk the prophet by the hair of his head with food to Daniel in the lions' den. We also celebrate the wondrous apparition of the Cross of Light over Golgotha in Jerusalem, and the departure of the golden-mouthed teacher Saint John Chrysostom.",
+        "In the days of Emperor Constantius, son of Constantine, at the third hour of the day on the feast of Pentecost, a luminous Cross appeared stretching across the heavens from Golgotha to the Mount of Olives, shining brighter than the midday sun. Multitudes of believers and pagans beheld this celestial portent for hours, hastening into the holy churches to glorify Christ and receive baptism, as recorded by Saint Cyril, Bishop of Jerusalem.",
+        "On this day also the Church commemorates Saint John Chrysostom, whose golden eloquence, ascetic austerity, and fearless defense of the poor illuminated Constantinople and the whole world. Enduring exile for righteousness' sake, he passed away praising God in all things. We likewise remember the righteous Emperor Alexander of Ethiopia, and Abba Abraham of Dabra Libanos.",
+        "May the intercession of Archangel Michael, the power of the Luminous Cross, and the golden teachings of Saint John Chrysostom preserve our souls in faith and truth forever. Amen."
+      ],
+      "am": [
+        "በዚህች የተቀደሰች ዕለት ቅድስት ቤተ ክርስቲያን ነቢዩ ዕንባቆምን በደመና ተሸክሞ ለነቢዩ ዳንኤል በአንበሶች ጉድጓድ ምግብ እንዲያደርስ የላከውን የታላቁን መልአክ የቅዱስ ሚካኤልን ወርሃዊ በዓል ታከብራለች። ደግሞም በኢየሩሳሌም በጎልጎታ ላይ ከፀሐይ ይልቅ የሚያበራ የመስቀል ብርሃን በሰማይ የታየበትን፣ እንዲሁም የታላቁን የቅዱስ ዮሐንስ አፈ ወርቅን ዕረፍት ታስባለች።",
+        "በንጉሥ ቈስጠንጢኖስ ልጅ በቈስጠንጥዮስ ዘመን በቀትር ጊዜ ከጎልጎታ አንሥቶ እስከ ደብረ ዘይት ድረስ የሚደርስ እጅግ የሚያበራ የመስቀል ምልክት በሰማይ ታየ፤ ብርሃኑም ከፀሐይ ይበልጥ ነበር። የከተማው ሰዎችና አረማውያን ሁሉ ይህን ተአምራት አይተው በታላቅ ፍርሃትና ደስታ ወደ ቤተ መቅደስ ሮጡ፤ በክርስቶስም አምነው ተጠመቁ፤ የኢየሩሳሌሙ ኤጲስቆጶስ ቅዱስ ቄርሎስም ይህንን ዜና ለዓለም አበሠረ።",
+        "በዚህችም ቀን በወርቃማ ትምህርቱና ለድሆች በነበረው ቅንዓት ቤተ ክርስቲያንን ያበራው፣ ስለ ጽድቅም ስደትን ታግሦ ‘ስለ ሁሉም ነገር እግዚአብሔር ይመስገን’ እያለ ያረፈው ቅዱስ ዮሐንስ አፈ ወርቅ ይታሰባል። እንዲሁም ጻድቁ የኢትዮጵያ ንጉሥ እስክንድርና የደብረ ሊባኖሱ መምህር አባ አብርሃም በዚች ቀን አረፉ።",
+        "የመላእክት አለቃ የቅዱስ ሚካኤል ጥበቃ፣ በሰማይ የታየው የከበረው የመስቀሉ ኃይልና የቅዱስ ዮሐንስ አፈ ወርቅ በረከት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 1:14",
+        "verse": "Aren’t they all serving spirits, sent out to do service for the sake of those who will inherit salvation?"
+      },
+      "am": {
+        "reference": "ዕብ. 1:14",
+        "verse": "ከቶ ለማን ብሏል? ሁሉ መዳንን ይወርሱ ዘንድ ስላላቸው ለማገዝ የሚላኩ የሚያገለግሉም መናፍስት አይደሉምን?"
+      }
+    }
+  },
+  {
+    "id": "ginbot-13",
+    "month": 9,
+    "day": 13,
+    "date": {
+      "en": "Ginbot 13",
+      "am": "ግንቦት 13"
+    },
+    "title": {
+      "en": "Repose of Saint Arsenius the Great, Tutor of Princes and Desert Ascetic",
+      "am": "የነገሥታት ልጆች መምህር የነበረው የታላቁ ቅዱስ አርሳንዮስ ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Arsenius the Great, Roman Senator, Tutor of Princes, and Father of Desert Solitude"
+      ],
+      "am": [
+        "የሮም መኰንን፣ የነገሥታት መምህርና የበረሃው ባሕታዊ ታላቁ ቅዱስ አርሳንዮስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "God the Father",
+        "Archangel Raphael",
+        "Tesfa Kristos the Righteous"
+      ],
+      "am": [
+        "እግዚአብሔር አብ",
+        "ቅዱስ ሩፋኤል ሊቀ መላእክት",
+        "ተስፋ ክርስቶስ ጻድቅ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the illustrious father and sage of the desert, Saint Arsenius the Great, who abandoned the splendor of the imperial palace to embrace angelic silence in the sands of Scetis.",
+        "A learned Roman senator, Arsenius was summoned by Emperor Theodosius the Great to tutor his royal sons, Arcadius and Honorius. Surrounded by imperial luxury, he heard a voice from heaven while praying: 'Arsenius, flee from men, and thou shalt be saved.' Obeying the divine call, he cast off his silk garments, sailed secretly to Alexandria, and entered the wilderness of Scetis under the direction of Abba John the Short.",
+        "In the desert, Arsenius practiced profound silence, prayer, and nocturnal weeping, keeping a cloth upon his breast to catch his continuous tears of compunction. Renowned for sayings of spiritual discernment, he often reminded his soul: 'Arsenius, remember why thou didst leave the world.' Having lived fifty-five years in the desert, shining like a flame of fire, he departed peacefully to Christ at the age of ninety-five.",
+        "Through the profound humility, sacred silence, and tears of Saint Arsenius the Great, may the Lord deliver our minds from worldly vanity and grant us quiet repentance forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የንጉሥ ቤተ መንግሥትን ክብርና ሀብት ንቆ ወደ ገዳመ አስቄጥስ የገባውን የታላቁን ባሕታዊ የቅዱስ አርሳንዮስን ዕረፍት በታላቅ ምስጋና ታከብራለች።",
+        "ቅዱስ አርሳንዮስ በሮም አገር እጅግ የተማረ መኰንን ነበረ፤ ንጉሥ ቴዎዶስዮስም ልጆቹን አርቃድዮስንና አኖሬዎስን እንዲያስተምር መረጠው። በታላቅ የዓለም ክብር ውስጥ ሳለ ግን ‘አርሳንዮስ ሆይ፣ ከሰዎች ሽሽ፤ ዝም በል፤ ትድናለህ’ የሚል ሰማያዊ ድምፅ ሰማ። ወዲያውኑ የሐር ልብሱን አውልቆ በስውር ወደ ግብፅ ሄደ፤ በገዳመ አስቄጥስም በአባ ዮሐንስ ሐጺር እጅ ገዳማዊ ሕይወትን ጀመረ።",
+        "በበረሃ ውስጥ ሳለ በዝምታና በጾም፣ በሌሊት ጸሎትና በዕንባ ተወስኖ ኖረ፤ ከዓይኑ የሚወርደው የዕንባ ፈሳሽ ደረቱን እስኪያበሰብስ ድረስ ስለ ኃጢአቱ ያለ ማቋረጥ ያለቅስ ነበር። ሁልጊዜም ነፍሱን ‘አርሳንዮስ ሆይ፣ ዓለምን ለምን እንደተውክ አስብ’ እያለ ይገሥጽ ነበር፤ ሃምሳ አምስት ዓመታት በበረሃ እንደ እሳት ነበልባል ሲያበራ ኖሮ በሰላም ወደ ጌታ ሔደ።",
+        "የታላቁ አባት የቅዱስ አርሳንዮስ ትሕትና፣ ቅዱስ ዝምታውና ዕንባው ከሁላችን ጋር ይሁን፤ እግዚአብሔርም ልባችንን ከከንቱ ዓለም ፈቃድ ያድነው፤ ለዘላለሙ አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Colossians 3:2",
+        "verse": "Set your mind on the things that are above, not on the things that are on the earth."
+      },
+      "am": {
+        "reference": "ቆላ. 3:2",
+        "verse": "በላይ ያለውን ዐስቡ እንጂ በምድር ያለውን አይደለም።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-14",
+    "month": 9,
+    "day": 14,
+    "date": {
+      "en": "Ginbot 14",
+      "am": "ግንቦት 14"
+    },
+    "title": {
+      "en": "Repose of Saint Pachomius the Great, Father of Cenobitic Monasticism, and Martyrdom of Abba Symmachus",
+      "am": "የማኅበር አባት የታላቁ አባ ጳኵሚስ ዕረፍት እና የፈርማው ሰማዕት የአባ ሲማኮስ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Pachomius the Great, Founder and Father of the Communal (Cenobitic) Monastic Order",
+        "Abba Symmachus of Farma, Victorious Martyr of Egypt"
+      ],
+      "am": [
+        "የገዳማዊ ማኅበር ሥርዓት መሥራችና አባት ታላቁ ቅዱስ አባ ጳኵሚስ",
+        "የፈርማው ተጋዳይ ሰማዕት አባ ሲማኮስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Abune Aregawi",
+        "St. Gebre Kristos the Bridegroom",
+        "Abba John the Silent"
+      ],
+      "am": [
+        "አቡነ አረጋዊ",
+        "ቅዱስ ገብረ ክርስቶስ መርዓዊ",
+        "አባ ዮሐንስ ጽምው"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of our holy father Abba Pachomius the Great, founder of cenobitic (communal) monasticism, whose angelic rule united thousands of monks in spiritual brotherhood. We also celebrate the triumphant martyrdom of Abba Symmachus of Farma.",
+        "Born in Upper Egypt of pagan parentage, Pachomius was drafted into the Roman legions. When Christian villagers ministered to the famished soldiers with selfless charity, Pachomius was deeply moved, vowed to serve the Christians' God, and received holy baptism upon his release. Seeking the anchorite Abba Palamon, he embraced severe fasting, vigils, and prayer in the desert of Tabenna.",
+        "An angel of the Lord appeared to Pachomius, giving him a bronze tablet inscribed with the monastic rule of communal life: shared meals, uniform attire, equal labor, and common liturgy. Pachomius founded nine monasteries for men and two for women, establishing spiritual brotherhoods that preserved monastic order for centuries. Having served his brethren in complete humility, he departed to Christ crowned with apostolic glory.",
+        "Through the fatherly prayers of Saint Pachomius the Great and the martyrdom of Abba Symmachus, may our Lord preserve our Christian communities in fraternal charity and peace forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን በሺህ የሚቆጠሩ መነኰሳትን በአንድ መንፈሳዊ ማኅበር የሰበሰበውን፣ የማኅበር ገዳማዊ ሥርዓት መሥራች የታላቁን አባ ጳኵሚስን ዕረፍት ታከብራለች። ደግሞም በግብፅ በፈርማ አገር ስለ ክርስቶስ ስም የተጋደለውን የሰማዕቱን የአባ ሲማኮስን መታሰቢያ ታስባለች።",
+        "አባ ጳኵሚስ በላዕላይ ግብፅ ከአረማውያን ወላጆች ተወለደ፤ በወጣትነቱም በሮም ሠራዊት ውስጥ ተመለመለ። ክርስቲያኖች ለተራቡ ወታደሮች በታላቅ ፍቅር ምግብ ሲያቀርቡ ባየ ጊዜ ልቡ ተነካ፤ ‘የእነዚህ ሰዎች አምላክ እውነተኛ ነው’ ብሎ ራሱን ለእግዚአብሔር ሰጠ፤ ከወታደርነትም ሲለቀቅ ተጠመቀ። ወደ አረጋዊው አባ ጰላሞን ሄዶ በጾምና በጸሎት ብርቱ ገድልን ጀመረ።",
+        "የእግዚአብሔርም መልአክ ተገልጦ የማኅበር ኑሮ ሥርዓት የተጻፈበትን የነሐስ ጽላት ሰጠው፤ እርሱም በደብረ ተበና ዘጠኝ የወንዶችና ሁለት የሴቶች ገዳማትን መሠረተ። መነኰሳቱ በአንድነት እንዲበሉ፣ እንዲጸልዩና እንዲሠሩ በማድረግ ገዳማዊ ሕይወትን አደራጀ። ወንድሞቹን ሁሉ በትሕትና ሲያገለግል ኖሮ በሰላም ወደ ወደደው ጌታ ሔደ።",
+        "የማኅበር አባት የታላቁ አባ ጳኵሚስ ጸሎትና አባታዊ በረከት፣ እንዲሁም የሰማዕቱ የአባ ሲማኮስ ተጋድሎ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 13:7",
+        "verse": "Remember your leaders, men who spoke to you the word of God, and considering the results of their conduct, imitate their faith."
+      },
+      "am": {
+        "reference": "ዕብ. 13:7",
+        "verse": "የእግዚአብሔርን ቃል የተናገሯችሁን ዋኖቻችሁን ዐስቡ፥ የኑሯቸውንም ፍሬ እየተመለከታችሁ በእምነታቸው ምሰሏቸው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-15",
+    "month": 9,
+    "day": 15,
+    "date": {
+      "en": "Ginbot 15",
+      "am": "ግንቦት 15"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Simon the Zealot (Nathanael) the Apostle, and Four Hundred Martyrs of Denderah",
+      "am": "የሐዋርያው የቅዱስ ስምዖን ቀነናዊ ሰማዕትነት እና የደንደራ አራት መቶ ቅዱሳን ሰማዕታት መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Simon the Zealot (the Canaanite / Nathanael), One of the Twelve Apostles, Crowned Martyr",
+        "Four Hundred Holy Martyrs Slain for Christ in the City of Denderah (Upper Egypt)",
+        "Saint Minas the Deacon and Anchorite, Abba Hor, and Abba Menas"
+      ],
+      "am": [
+        "ከዐሥራ ሁለቱ ሐዋርያት አንዱ የሆነው ቀነናዊው ቅዱስ ስምዖን (ናትናኤል) ሐዋርያና ሰማዕት",
+        "በላዕላይ ግብፅ በደንደራ ከተማ ስለ ክርስቶስ የተጋደሉ አራት መቶ ቅዱሳን ሰማዕታት",
+        "ዲያቆኑና ባሕታዊው ቅዱስ ሚናስ፣ አባ ሖርና አባ ሚናስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Saints Cyricus and Julitta (Kirkos & Iyeluta)",
+        "St. Ephrem the Syrian",
+        "St. Minas the Martyr"
+      ],
+      "am": [
+        "ቅዱስ ቂርቆስ ወኢየሉጣ",
+        "ቅዱስ ኤፍሬም ሶርያዊ",
+        "ቅዱስ ሚናስ ሰማዕት"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of Saint Simon the Zealot, one of the Twelve Holy Apostles of our Lord Jesus Christ. We also celebrate the triumphant crowns of four hundred believers martyred in the city of Denderah in Upper Egypt, and the memory of Saint Minas the deacon.",
+        "Saint Simon was numbered among the Twelve Apostles chosen by the Lord, surnamed the Zealot or the Canaanite for his ardent devotion to God. After receiving the Holy Spirit at Pentecost, he preached the Gospel of salvation across Egypt, Mauritania, North Africa, and Persia, working mighty miracles, healing the sick, and shattering demonic idols through the invocation of the Name of Jesus.",
+        "Reaching pagan lands where idol worship held sway, Saint Simon boldly proclaimed Christ's death and resurrection. The enraged heathen priests seized the glorious apostle, torturing him with scourges before he was sawn asunder, receiving the double crown of apostle and martyr. On this day also, four hundred believers in Denderah offered their lives in steadfast martyrdom.",
+        "Through the apostolic intercessions, fiery zeal, and martyrdom of Saint Simon, and the sacrifice of the four hundred martyrs of Denderah, may our Lord grant His Church peace and salvation forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ከዐሥራ ሁለቱ ቅዱሳን ሐዋርያት አንዱ የሆነውን የታላቁን ሐዋርያ የቀነናዊውን የቅዱስ ስምዖንን ሰማዕትነት ታከብራለች። ደግሞም በላዕላይ ግብፅ በደንደራ ከተማ ስለ ክርስቶስ ስም የተጋደሉትን የአራት መቶ ሰማዕታትን ክብር፣ እንዲሁም ዲያቆኑን ቅዱስ ሚናስን በጸሎት ታስባለች።",
+        "ቅዱስ ስምዖን ለእግዚአብሔር ባለው ታላቅ ቅንዓት ‘ቀነናዊው’ ተብሎ ተጠርቶ ከዐሥራ ሁለቱ ሐዋርያት ጋር ተቆጠረ። በበዓለ ኀምሳ የመንፈስ ቅዱስን ጸጋ ከተቀበለ በኋላ፣ በግብፅ፣ በሰሜን አፍሪካና በፋርስ አገሮች ወንጌልን ሰበከ፤ ድውያንን ፈወሰ፤ ጣዖታትንም በክርስቶስ ስም ሰባበረ።",
+        "ወደ አረማውያን አገር በደረሰ ጊዜ የክርስቶስን ትንሣኤ በድፍረት በመስበኩ፣ የጣዖት ካህናት ይዘው በጽኑ አሠቃዩት፤ በመጋዝም ሠንጥቀው ገደሉት፤ እርሱም የሐዋርያነትና የሰማዕትነትን አክሊል በአንድነት ተቀዳጀ። በዚችም ቀን በደንደራ ከተማ አራት መቶ ክርስቲያኖች በአንድነት ደማቸውን አፍስሰው ሰማዕታት ሆኑ።",
+        "የሐዋርያውና የሰማዕቱ የቅዱስ ስምዖን ጸሎትና ሐዋርያዊ በረከት፣ የደንደራው አራት መቶ ሰማዕታት ተጋድሎ ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Matthew 10:4",
+        "verse": "Simon the Zealot; and Judas Iscariot, who also betrayed him."
+      },
+      "am": {
+        "reference": "ማቴ. 10:4",
+        "verse": "ቀነናዊውም ስምዖን ደግሞም አሳልፎ የሰጠው የአስቆሮቱ ይሁዳ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-16",
+    "month": 9,
+    "day": 16,
+    "date": {
+      "en": "Ginbot 16",
+      "am": "ግንቦት 16"
+    },
+    "title": {
+      "en": "Commemoration of Jesus Son of Sirach, and Preaching of Saint John the Evangelist in Ephesus",
+      "am": "ጥበበኛ የኢየሱስ ወልደ ሲራክ መታሰቢያ እና የወንጌላዊው ቅዱስ ዮሐንስ በኤፌሶን የስብከቱ በዓል"
+    },
+    "annual_feasts": {
+      "en": [
+        "Jesus Son of Sirach, Sage of Jerusalem and Author of the Book of Ecclesiasticus",
+        "Preaching of Saint John the Evangelist and Theologian in Ephesus"
+      ],
+      "am": [
+        "የጥበብ መጽሐፍትን የጻፈው የኢየሩሳሌሙ ሰው ኢየሱስ ወልደ ሲራክ",
+        "ወንጌላዊው ቅዱስ ዮሐንስ በኤፌሶን ከተማ ያስተማረበት መታሰቢያ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Covenant of Mercy (Kidane Mehret)",
+        "Abune Salama Revealer of Light",
+        "St. Jacob of Serugh"
+      ],
+      "am": [
+        "ኪዳነ ምሕረት",
+        "አቡነ ሰላማ ከሣቴ ብርሃን",
+        "ቅዱስ ያዕቆብ ዘስሩግ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed sage Jesus, son of Sirach, son of Eleazar of Jerusalem, who poured forth divine wisdom and understanding from his heart. We also celebrate the apostolic preaching and arrival of Saint John the Evangelist and Theologian in the city of Ephesus.",
+        "Jesus son of Sirach was an illustrious teacher of righteousness in Jerusalem. Devoting his life to the contemplation of God's holy Law, he gathered divine precepts, moral instructions, and spiritual proverbs into the inspired Book of Sirach (Ecclesiasticus), teaching all generations to cultivate the fear of the Lord as the beginning of true wisdom, to honor parents, and to flee every root of sin.",
+        "On this day also, the Church recalls how Saint John the Apostle, after receiving the Holy Spirit and taking care of the holy Mother of God until her falling asleep, went forth to Ephesus in Asia. There he demolished the temple of the pagan goddess Artemis through fervent prayer, healed the sick, and established the holy Church in orthodox truth.",
+        "Through the wisdom of Jesus son of Sirach, and the apostolic prayers and theology of Saint John the Beloved, may our Lord Jesus Christ guide our footsteps in heavenly wisdom forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን መንፈሳዊ ጥበብንና እውቀትን ከልቡ ያፈለቀውን የኢየሩሳሌሙን ሰው የከበረ ኢየሱስ ወልደ ሲራክን መታሰቢያ ታስባለች። ደግሞም ወንጌላዊውና የነገረ መለኮት ምሥጢር ተናጋሪው ቅዱስ ዮሐንስ በኤፌሶን ከተማ ያስተማረበትን ሐዋርያዊ በዓል ታከብራለች።",
+        "ኢየሱስ ወልደ ሲራክ በኢየሩሳሌም የጽድቅንና የእውነተኛ ጥበብን መንገድ ያስተማረ ታላቅ መምህር ነበረ። የእግዚአብሔርን ሕግ በማጥናት ያገኘውን ሰማያዊ ምክር በመጽሐፈ ሲራክ ጽፎ ለሰው ልጆች ሁሉ ትምህርት አደረገ፤ እግዚአብሔርን መፍራት የጥበብ ሁሉ መጀመሪያ መሆኑን፣ ወላጆችን ማክበርና ከኃጢአት መራቅ ሕይወትን እንደሚያሰጥ አስተማረ።",
+        "በዚህችም ቀን ሐዋርያው ቅዱስ ዮሐንስ እመቤታችንን ካገለገለና ካረፈች በኋላ፣ ወደ እስያ አውራጃ ወደ ኤፌሶን ሄዶ ወንጌልን የሰበከበት ይታሰባል። በዚያም በአርጤምስ ቤተ መቅደስ የነበረውን ጣዖት በጸሎቱ ሰባበረ፤ ድውያንን ፈወሰ፤ ብዙዎችንም ወደ ክርስትና እምነት አምጥቶ አብያተ ክርስቲያናትን መሠረተ።",
+        "የኢየሱስ ወልደ ሲራክ ጥበብና ትምህርት፣ የወንጌላዊው የቅዱስ ዮሐንስ ጸሎትና ሐዋርያዊ በረከት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "1 John 1:1",
+        "verse": "That which was from the beginning, that which we have heard, that which we have seen with our eyes, that which we saw, and our hands touched, concerning the Word of life"
+      },
+      "am": {
+        "reference": "1ዮሐ. 1:1",
+        "verse": "ስለ ሕይወት ቃል ከመዠመሪያው የነበረውንና የሰማነውን በዐይኖቻችንም ያየነውን የተመለከትነውንም እጆቻችንም የዳሰሱትን እናወራለን፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-17",
+    "month": 9,
+    "day": 17,
+    "date": {
+      "en": "Ginbot 17",
+      "am": "ግንቦት 17"
+    },
+    "title": {
+      "en": "Repose of Saint Epiphanius the Great, Bishop of Salamis in Cyprus",
+      "am": "የቆጵሮስ ኤጲስቆጶስ የታላቁ ቅዱስ ኤጲፋንዮስ ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Epiphanius, Bishop of Salamis (Constantia) in Cyprus, Defender of Orthodoxy and Author of the Panarion"
+      ],
+      "am": [
+        "የቆጵሮስ ኤጲስቆጶስና የሃይማኖት አባት ታላቁ ቅዱስ ኤጲፋንዮስ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Stephen the Deacon",
+        "Abba Gerima",
+        "Abba Luke the Anchorite"
+      ],
+      "am": [
+        "ቅዱስ እስጢፋኖስ",
+        "አባ ገሪማ",
+        "አባ ሉቃስ ገዳማዊ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the illustrious hierarch, biblical scholar, and scourge of heresies, Saint Epiphanius, Bishop of Salamis in Cyprus.",
+        "Born in Palestine of Jewish parents, Epiphanius was moved toward the Christian faith when he beheld a holy monk named Lucian give his own mantle to a naked beggar. Baptized and trained in the monastic life by Saint Hilarion, Epiphanius founded a monastery in Judea, living thirty years in strict fasting, prayer, and mastery of five languages: Hebrew, Syriac, Egyptian, Greek, and Latin.",
+        "Consecrated Bishop of Salamis in Cyprus, Epiphanius served as a shining beacon of the Orthodox faith for thirty-six years. He wrote monumental works, notably the 'Panarion' (Medicine Chest) refuting eighty heresies, and treatises on the divine Incarnation and biblical weights and measures. Full of days, having guided the flock with boundless charity, he reposed peacefully aboard ship returning to Cyprus.",
+        "Through the profound learning, monastic virtues, and pastoral prayers of Saint Epiphanius the Great, may the Lord preserve His holy Church in undefiled faith forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የኑፋቄዎችን መርዝ ያጠፋውን፣ በቅድስናውና በሊቅነቱ የታወቀውን የቆጵሮስ ኤጲስቆጶስ ታላቁን ቅዱስ ኤጲፋንዮስን ዕረፍት በታላቅ ክብር ታከብራለች።",
+        "ቅዱስ ኤጲፋንዮስ በይሁዳ ምድር ከአይሁድ ወገን ተወለደ፤ ሉቅያኖስ የተባለ መነኰስ ልብሱን አውልቆ ለታረዘ ደሀ ሲሰጥ ባየ ጊዜ ልቡ ተነክቶ በክርስቶስ አመነና ተጠመቀ። በታላቁ አባ ሂላርዮን እጅ መንኩሶ በጾምና በጸሎት ለሠላሳ ዓመታት በገዳም ኖረ፤ ዕብራይስጥ፣ ሱርስት፣ ግብፅ፣ ግሪክና ላቲን የተባሉ አምስት ቋንቋዎችንም አወቀ።",
+        "በቆጵሮስ ደሴት በሰላሚና (ቈስጠንጥያ) ከተማ ኤጲስቆጶስ ሆኖ ተሹሞ ለ፴፮ ዓመታት መንጋውን በሐዋርያዊ ትጋትና ፍቅር ጠበቀ። ሰማንያ ኑፋቄዎችን የሚቃወም ‘ፓናሪዮን’ የተባለ ድንቅ መጽሐፍና ሌሎች የነገረ መለኮት ድርሰቶችን ጻፈ፤ ምእመናንንም በእውነተኛ ሃይማኖት አጽንቶ በመርከብ ላይ ሳለ በሰላም ወደ እግዚአብሔር ሔደ።",
+        "የታላቁ ሊቅ የቅዱስ ኤጲፋንዮስ ትምህርትና ተጋድሎ፣ ንጹሕ እምነቱና ጸሎቱ ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 13:7",
+        "verse": "Remember your leaders, men who spoke to you the word of God, and considering the results of their conduct, imitate their faith."
+      },
+      "am": {
+        "reference": "ዕብ. 13:7",
+        "verse": "የእግዚአብሔርን ቃል የተናገሯችሁን ዋኖቻችሁን ዐስቡ፥ የኑሯቸውንም ፍሬ እየተመለከታችሁ በእምነታቸው ምሰሏቸው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-18",
+    "month": 9,
+    "day": 18,
+    "date": {
+      "en": "Ginbot 18",
+      "am": "ግንቦት 18"
+    },
+    "title": {
+      "en": "Feast of the Descent of the Holy Spirit (Pentecost / Paraclete), Repose of Abba George, and Saint Sinoda",
+      "am": "መንፈስ ቅዱስ በሐዋርያት ላይ የወረደበት በዓለ ጰራቅሊጦስ (በዓለ ኀምሳ)፣ የአባ ገዐርጊ ዕረፍት እና የቅዱስ ሲኖዳ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Descent of the Holy Spirit (Paraclete) upon the Holy Apostles at Pentecost in the Upper Room of Zion",
+        "Abba George (Ga'argi), Companion of Abba Abraham, Ascetic of Egypt",
+        "Saint Sinoda the Martyr, Crowned Witness for Christ"
+      ],
+      "am": [
+        "መንፈስ ቅዱስ ጰራቅሊጦስ በጽርሐ ጽዮን በሐዋርያት ላይ በእሳት አምሳል የወረደበት በዓለ ኀምሳ",
+        "የአባ አብርሃም ባልንጀራ የነበረው ተጋዳዩ አባ ገዐርጊ",
+        "ስለ ክርስቶስ የተጋደለው የከበረ ሰማዕት ቅዱስ ሲኖዳ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Philip the Apostle",
+        "Abba Honorius",
+        "Abba Eustathius of Serbia"
+      ],
+      "am": [
+        "ቅዱስ ፊልጶስ ሐዋርያ",
+        "አባ አኖሬዎስ",
+        "አባ ኤውስጣቴዎስ ዘሰርቢያ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this most sacred and wondrous day, the holy Church celebrates the glorious Descent of the Holy Spirit the Paraclete upon the Holy Apostles on the day of Pentecost, ten days after the Ascension of our Lord Jesus Christ. We also commemorate the blessed departure of Abba George, companion of Abba Abraham, and the martyr Saint Sinoda.",
+        "As the disciples and the holy women were gathered with one accord in prayer in the upper room of Zion, suddenly there came a sound from heaven as of a rushing mighty wind, filling the whole house. Tongues like as of fire appeared and sat upon each of them, and they were all filled with the Holy Spirit, beginning to speak in diverse languages of the marvelous works of God.",
+        "By this outpouring, the Holy Spirit consecrated the Apostles to preach the Gospel to all nations, establishing the Church of Christ upon the earth. Three thousand souls were baptized on that day through the preaching of Peter. On this day also, the ascetic father Abba George finished his monastic combat in peace, and Saint Sinoda received the martyr's crown.",
+        "May the life-giving fire of the Holy Spirit renew our spirits, cleanse our hearts, and abide within the holy Church forever. Amen."
+      ],
+      "am": [
+        "በዚህች ታላቅና የተቀደሰች የበዓል ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን ከዐረገ በአሥረኛው ቀን፣ በበዓለ ኀምሳ መንፈስ ቅዱስ ጰራቅሊጦስ በቅዱሳን ሐዋርያት ላይ በእሳት አምሳል የወረደበትን ታላቅ በዓል በደስታ ታከብራለች። ደግሞም የአባ አብርሃም ባልንጀራ የነበረውን የአባ ገዐርጊን ዕረፍትና የሰማዕቱን የቅዱስ ሲኖዳን መታሰቢያ ታስባለች።",
+        "ሐዋርያትና ቅዱሳት አንስት በጽርሐ ጽዮን በአንድ ልብ ሆነው በጸሎት ተሰብስበው ሳሉ፣ ድንገት እንደ ዐውሎ ነፋስ ያለ ድምፅ ከሰማይ መጣና ቤቱን ሞላው። እንደ እሳት የተከፋፈሉ ልሳኖችም ታዩአቸው፤ በነፍስ ወከፋቸውም ላይ ተቀመጡ፤ ሁሉም በመንፈስ ቅዱስ ተሞልተው የእግዚአብሔርን ድንቅ ሥራ በልዩ ልዩ አገሮች ቋንቋዎች ተናገሩ።",
+        "በዚህም የመንፈስ ቅዱስ መውረድ ሐዋርያት ወንጌልን ለዓለም ሁሉ እንዲሰብኩ ሰማያዊ ኃይልን ተቀበሉ፤ ቅድስት ቤተ ክርስቲያንም በምድር ላይ ተመሠረተች፤ በዚያችም ዕለት በቅዱስ ጴጥሮስ ስብከት ሦስት ሺህ ሰዎች አምነው ተጠመቁ። በዚችም ቀን ተጋዳዩ አባት አባ ገዐርጊ በሰላም አረፈ፤ ሰማዕቱ ቅዱስ ሲኖዳም አክሊል ተቀበለ።",
+        "የመንፈስ ቅዱስ ሕይወት ሰጪ እሳት ልባችንን ያንጻልን፤ ነፍሳችንን በሰማያዊ ጸጋ ያድስልን፤ በረከቱና ሰላሙ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Acts 2:4",
+        "verse": "They were all filled with the Holy Spirit, and began to speak with other languages, as the Spirit gave them the ability to speak."
+      },
+      "am": {
+        "reference": "ሐዋ. 2:4",
+        "verse": "በሁሉም መንፈስ ቅዱስ ሞላባቸው፥ መንፈስም ይናገሩ ዘንድ እንደ ሰጣቸው በሌላ ልሳኖች ይናገሩ ዠመር።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-19",
+    "month": 9,
+    "day": 19,
+    "date": {
+      "en": "Ginbot 19",
+      "am": "ግንቦት 19"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Isidore of Antioch, Repose of Abba Isaac of Scetis, and Saint Joseph the Luminary",
+      "am": "የአንጾኪያው ታላቅ ሰማዕት የቅዱስ ኤስድሮስ ሰማዕትነት፣ የገዳማት ቄስ የአባ ይስሐቅ ዕረፍት እና የቅዱስ ዮሴፍ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Isidore of Antioch, Mighty Warrior, General, and Glorious Martyr of Christ",
+        "Eight Thousand Five Hundred and Seven Martyrs Crowned with Saint Isidore",
+        "Abba Isaac, Priest of the Monasteries of Scetis and Disciple of Saint Apollo",
+        "Abba Joseph, Light of the World, and Abuna Abiya Egzi'e"
+      ],
+      "am": [
+        "የአንጾኪያው ኃይለኛ ተጋዳይና ታላቅ ሰማዕት ቅዱስ ኤስድሮስ",
+        "ከቅዱስ ኤስድሮስ ጋር በሰማዕትነት የከበሩ ስምንት ሺህ አምስት መቶ ሰባት ቅዱሳን ሰማዕታት",
+        "የገዳመ አስቄጥስ አድባራት ቄስ የነበረው ተጋዳዩ አባ ይስሐቅ",
+        "የዓለም ብርሃን የተባለው አባ ዮሴፍና አቡነ ዓቢየ እግዚእ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Archangel Gabriel",
+        "Abune Zena Markos",
+        "Abba John the Righteous"
+      ],
+      "am": [
+        "ቅዱስ ገብርኤል ሊቀ መላእክት",
+        "አቡነ ዜና ማርቆስ",
+        "አባ ዮሐንስ ጻድቅ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of the mighty champion of Christ, Saint Isidore of Antioch, alongside eight thousand five hundred and seven believers who were crowned with him. We also remember the falling asleep of Abba Isaac, priest of Scetis, Abba Joseph the luminary, and Abuna Abiya Egzi'e.",
+        "Saint Isidore was a renowned commander in the Roman army, son of Prince Panteleon. When Emperor Diocletian mandated idolatrous sacrifice, Isidore threw off his armor, declared his unwavering allegiance to the King of Glory, and denounced the emperor's gods as helpless demons. Cast into prison and tortured with burning embers and the rack, he remained steadfast in Christ.",
+        "Taken to Egypt, Isidore's miraculous preservation from beasts and flames moved vast multitudes to faith: soldiers, magistrates, and citizens confessed Christ and were beheaded alongside him, numbering eight thousand five hundred and seven souls. Finally, Isidore received his crown by the sword. On this day also, the ascetic priest Abba Isaac completed his holy life in Scetis.",
+        "Through the mighty contest of Saint Isidore, the sacrifice of his multitude of companions, and the prayers of Abba Isaac and Abba Joseph, may our Lord Jesus Christ preserve us in fearless confession forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የአንጾኪያውን ኃይለኛ የጦር መኰንን የታላቁን ሰማዕት የቅዱስ ኤስድሮስንና ከእርሱ ጋር የተጋደሉትን ስምንት ሺህ አምስት መቶ ሰባት ሰማዕታት ክብር ታስባለች። ደግሞም የአስቄጥስ ገዳማት ቄስ የነበረውን አባ ይስሐቅን፣ የዓለም ብርሃን የተባለውን አባ ዮሴፍንና አቡነ ዓቢየ እግዚእን በጸሎት ታከብራለች።",
+        "ቅዱስ ኤስድሮስ የከበረው የመኰንኑ የጳንጠሌዎን ልጅ ሲሆን በሮም ሠራዊት ውስጥ ታላቅ የጦር አለቃ ነበረ። ዲዮቅልጥያኖስ ለጣዖታት እንዲሠዉ ባዘዘ ጊዜ፣ ኤስድሮስ ወታደራዊ ልብሱን ጥሎ በክርስቶስ በድፍረት መሰከረ፤ ጣዖታት ከንቱዎች መሆናቸውን በነገሥታቱ ፊት ተናገረ። ወደ ወህኒ ተጥሎ በእሳትና በብረት ቢሠቃይም እምነቱ አልተናወጠም።",
+        "ወደ ግብፅ አገርም በተወሰደ ጊዜ ያደረገውን ተአምራት አይተው ብዙ ወታደሮችና ሕዝቦች በክርስቶስ አመኑ፤ ስምንት ሺህ አምስት መቶ ሰባት ሰዎችም ከእርሱ ጋር አንገታቸውን ለሰይፍ ሰጥተው ሰማዕታት ሆኑ፤ በመጨረሻም እርሱ ራሱ የድል አክሊልን ተቀበለ። በዚችም ቀን በገዳመ አስቄጥስ በቅድስና ያገለገለውን ቄስ አባ ይስሐቅን እናስባለን።",
+        "የታላቁ ሰማዕት የቅዱስ ኤስድሮስ ጽናት፣ ከእርሱ ጋር የከበሩት የብዙ ሺህ ሰማዕታት በረከትና የአባ ይስሐቅ ጸሎት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:34",
+        "verse": "quenched the power of fire, escaped the edge of the sword, from weakness were made strong, grew mighty in war, and caused foreign armies to flee."
+      },
+      "am": {
+        "reference": "ዕብ. 11:34",
+        "verse": "የአንበሳዎችን አፍ ዘጉ፥ የእሳትን ኀይል አጠፉ፥ ከሰይፍ ስለት አመለጡ፥ ከድካማቸው በረቱ፥ በጦርነት ኀይለኛዎች ሆኑ፥ የባዕድ ጭፍራዎችን አባረሩ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-20",
+    "month": 9,
+    "day": 20,
+    "date": {
+      "en": "Ginbot 20",
+      "am": "ግንቦት 20"
+    },
+    "title": {
+      "en": "Repose of Saint Caleb (Elesbaan) King of Ethiopia, Abba Ammonius of Dabra Tona, and Abba Zatra Wangel",
+      "am": "ጻድቁ የኢትዮጵያ ንጉሥ ቅዱስ ካሌብ ዕረፍት፣ የደብረ ቶናው አባ አሞንዮስ እና የአበምኔት አባ ዘትረ ወንጌል መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Caleb (Kaleb / Elesbaan), Righteous King of Axum, Champion of the Christians of Najran and Monastic Hermit",
+        "Abba Ammonius of Dabra Tona, Ascetic Father",
+        "Abba Zatra Wangel, 16th Abbot of Dabra Libanos",
+        "Saints Hor, Darma, Heroda, and Zacharias the Martyrs"
+      ],
+      "am": [
+        "የናግራን ክርስቲያኖችን ያዳነውና መንግሥቱን ትቶ የመነኰሰው ጻድቁ የኢትዮጵያ ንጉሥ ቅዱስ ካሌብ",
+        "የደብረ ቶናው ተጋዳይ አባት አባ አሞንዮስ",
+        "፲፮ኛው የደብረ ሊባኖስ አበምኔት አባ ዘትረ ወንጌል",
+        "ቅዱሳን ሖር፣ ዳርማ፣ ሄሮዳና ዘካርያስ ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Building of the Church of Zion",
+        "St. Elisha the Prophet",
+        "St. Theobista"
+      ],
+      "am": [
+        "ሕንፀተ ቤተክርስቲያን (ጽዮን)",
+        "ቅዱስ ኤልሳዕ ነቢይ",
+        "ቅድስት ቴዎብስታ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of the righteous and God-fearing King Caleb (Elesbaan) of Ethiopia, conqueror of South Arabia and hermit of Abba Pantelewon. We also remember Abba Ammonius of Dabra Tona, and Abba Zatra Wangel, sixteenth abbot of Dabra Libanos.",
+        "King Caleb governed the Axumite Empire in righteousness, justice, and deep devotion to Christ. When the Jewish ruler Dhu Nuwas slaughtered thousands of Christian martyrs in Najran (Yemen), Caleb took up arms to deliver the oppressed faithful, vowing to surrender his crown if God granted him victory. Crossing the Red Sea, he vanquished the tyrant, restored Christian sanctuaries, and established peace throughout the region.",
+        "Fulfilling his solemn vow, King Caleb removed his royal crown and sent it to Jerusalem to be suspended over the Holy Sepulchre. He distributed his treasures to the poor, left the palace secretly by night, and shut himself within a solitary cell beside the monastery of Abba Pantelewon near Axum, living twenty years in fasting, bread and water, and continuous prayer until his peaceful departure.",
+        "Through the prayers, royal humility, and ascetic contest of Saint Caleb King of Ethiopia, and the blessings of Abba Zatra Wangel, may the Lord grant peace to our nation and salvation to our souls forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የናግራን ክርስቲያኖችን ከሞት ያዳነውንና መንግሥቱን ትቶ በብሕትውና የኖረውን ጻድቁን የኢትዮጵያ ንጉሥ ቅዱስ ካሌብን በታላቅ ክብር ታከብራለች። ደግሞም የደብረ ቶናውን አባ አሞንዮስን፣ እንዲሁም አሥራ ስድስተኛውን የደብረ ሊባኖስ አበምኔት አባ ዘትረ ወንጌልን በጸሎት ታስባለች።",
+        "ንጉሥ ካሌብ የአክሱምን መንግሥት በእውነተኛ ፍርድና በክርስቲያናዊ ቅድስና ይመራ ነበር። የአይሁድ ገዢ የነበረው ፊንሐስ በናግራን የነበሩ ክርስቲያኖችን በእሳት አቃጥሎ በገደላቸው ጊዜ፣ ካሌብ የተጨነቁትን ምእመናን ለማዳን ዘመተ፤ ድል ከነሣም ዘውዱን ጥሎ ለመመንኰስ ተሳለ። ባሕረ ኤርትራንም ተሻግሮ ከሃዲውን ድል ነሣ፤ አብያተ ክርስቲያናትንም አነጸ።",
+        "ስለቱን ለመፈጸም የከበረውን የንጉሥ ዘውዱን ወደ ኢየሩሳሌም ልኮ በጌታችን መቃብር ላይ እንዲሰቀል አደረገ፤ ሀብቱንም ለድሆች በትኖ በሌሊት ከአክሱም ቤተ መንግሥት ወጣ። በአባ ጰንጠሌዎን ገዳም አጠገብ በጠበበች ዋሻ ውስጥ ገብቶ ለሀያ ዓመታት በጾምና በጸሎት፣ ውኃና ጥቂት ዳቦ ብቻ እየቀመሰ በብሕትውና ኖሮ በሰላም አረፈ።",
+        "የጻድቁ ንጉሥ የቅዱስ ካሌብ ትሕትናና ጸሎት፣ የአባ ዘትረ ወንጌል በረከትና የሰማዕታት ሁሉ ምልጃ አገራችንን በሰላም ይጠብቅልን፤ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "1 Corinthians 15:58",
+        "verse": "Therefore, my beloved brothers, be steadfast, immovable, always abounding in the Lord’s work, because you know that your labor is not in vain in the Lord."
+      },
+      "am": {
+        "reference": "1ቆሮ. 15:58",
+        "verse": "ስለዚህ፥ የተወደዳችሁ ወንድሞቼ ሆይ፥ ድካማችሁ በጌታ ከንቱ እንዳይሆን ዐውቃችኋልና፥ የምትደላደሉ፥ የማትነቃነቁም፥ የጌታም ሥራ ሁል ጊዜ የሚበዛላችሁ ሁኑ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-21",
+    "month": 9,
+    "day": 21,
+    "date": {
+      "en": "Ginbot 21",
+      "am": "ግንቦት 21"
+    },
+    "title": {
+      "en": "Feast of our Holy Lady the Virgin Mary (Dabra Metmaq), Repose of Abba Martianus, and Abba Aaron the Syrian",
+      "am": "የእመቤታችን የቅድስት ድንግል ማርያም የደብረ ምጥማቅ በዓል፣ የአባ መርትያኖስ ዕረፍት እና የሶርያዊው አባ አሮን መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Apparition of our Lady the Virgin Mary at the Church of Dabra Metmaq in Egypt for Five Days",
+        "Abba Martianus the Ascetic and Victorious Hermit",
+        "Abba Aaron the Syrian, Ascetic Father and Fighter",
+        "Amos the Prophet, and Mardali"
+      ],
+      "am": [
+        "እመቤታችን ቅድስት ድንግል ማርያም በግብፅ በደብረ ምጥማቅ ቤተ ክርስቲያን ለአምስት ቀናት በግልጽ የታየችበት ታላቅ በዓል",
+        "ተጋዳዩ ባሕታዊ አባት አባ መርትያኖስ",
+        "ሶርያዊው ተጋዳይ አባት አባ አሮን",
+        "ነቢዩ አሞጽና መርዶላ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Our Lady Virgin Mary",
+        "St. Justina",
+        "Abune Amde Selassie"
+      ],
+      "am": [
+        "እግዝእትነ ማርያም ድንግል",
+        "ቅድስት ዮስቴና",
+        "አቡነ አምደ ሥላሴ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church celebrates with celestial joy the wondrous public apparition of our pure Lady, the Virgin Mary, Mother of God, at the sanctuary of Dabra Metmaq in Upper Egypt. We also commemorate the blessed departure of the ascetic Abba Martianus, Abba Aaron the Syrian, and the Prophet Amos.",
+        "At Dabra Metmaq, our Lady the Virgin Mary appeared visibly upon the dome of the church for five consecutive days, accompanied by choirs of luminous angels, the holy martyrs George, Mercurius, and Demetrius riding upon fiery horses, and a radiant host of saints. Thousands of Christians, Muslims, and pagans gathered from all lands, witnessing her maternal blessing, smelling celestial incense, and beholding miraculous healings across the multitudes.",
+        "On this day also, Abba Martianus passed into glory after enduring fierce spiritual combat in solitude and keeping his purity untarnished through fiery trials. We likewise remember Abba Aaron the Syrian who labored in strenuous prayer from youth, and Amos the herdsman prophet of Tekoa who proclaimed righteousness to Israel.",
+        "Through the glorious apparition and prayers of the Holy Virgin Mary at Dabra Metmaq, and the intercessions of Abba Martianus, may our Lord Jesus Christ grant peace, healing, and salvation to all faithful souls forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የአምላክ እናት እመቤታችን ቅድስት ድንግል ማርያም በላዕላይ ግብፅ በደብረ ምጥማቅ ቤተ ክርስቲያን ለአምስት ቀናት በግልጽ የታየችበትን ታላቅ የበዓል መታሰቢያ ታከብራለች። ደግሞም የተጋዳዩን አባት የአባ መርትያኖስን ዕረፍት፣ ሶርያዊውን አባ አሮንንና ነቢዩ አሞጽን በጸሎት ታስባለች።",
+        "በደብረ ምጥማቅ እመቤታችን በብርሃን ተከባ በቤተ ክርስቲያኑ ጉልላት ላይ ለሕዝቡ ሁሉ በግልጽ ታየች፤ ቅዱሳን መላእክትና የከበሩ ሰማዕታት ቅዱስ ጊዮርጊስ፣ መርቆሬዎስና ድሜጥሮስ በፈረሶቻቸው ላይ ሆነው ከእርሷ ጋር ተመላለሱ። ክርስቲያኖችና ሌሎችም አሕዛብ ተሰብስበው ይህን ድንቅ ክብር ተመለከቱ፤ የታመሙት ተፈወሱ፤ ሰማያዊ መዓዛም ቦታውን ሁሉ ሞላው።",
+        "በዚህችም ቀን በብሕትውናና በታላቅ ገድል የኖረው፣ ንጽሕናውን እንደ መልአክ ጠብቆ ያረፈው አባ መርትያኖስ ይታሰባል። እንዲሁም ከታናሽነቱ ጀምሮ በጾምና በጸሎት የተጋደለው ሶርያዊው አባ አሮን፣ እና በቴቁዔ የእግዚአብሔርን እውነተኛ ፍርድ ያስተማረው ነቢዩ አሞጽ በዚች ዕለት አረፉ።",
+        "በደብረ ምጥማቅ የተገለጠችው የእመቤታችን የቅድስት ድንግል ማርያም አማላጅነትና በረከት፣ የአባ መርትያኖስና የቅዱሳኑ ሁሉ ጸሎት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Luke 1:48",
+        "verse": "for he has looked at the humble state of his servant. For behold, from now on, all generations will call me blessed."
+      },
+      "am": {
+        "reference": "ሉቃ. 1:48",
+        "verse": "የባሪያዪቱን ውርደት ተመልክቷልና። እንሆም፥ ከዛሬ ዠምሮ ትውልድ ሁሉ፦ ብፅዕት ይሉኛል፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-22",
+    "month": 9,
+    "day": 22,
+    "date": {
+      "en": "Ginbot 22",
+      "am": "ግንቦት 22"
+    },
+    "title": {
+      "en": "Repose of Saint Andronicus the Apostle, One of the Seventy Disciples, and Saint Jacob the Easterner",
+      "am": "ከሰባ ሁለቱ አርድእት አንዱ የሆነው የሐዋርያው የቅዱስ እንድራኒቆስ ዕረፍት እና የምሥራቃዊው ያዕቆብ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Andronicus the Apostle, Kin of Saint Paul, Bishop of Pannonia",
+        "Saint Jacob Sharakawi (the Easterner), Ascetic and Confessor"
+      ],
+      "am": [
+        "የቅዱስ ጳውሎስ ዘመድና የፓኖኒያ ኤጲስቆጶስ ቅዱስ እንድራኒቆስ ሐዋርያ",
+        "ተጋዳዩ ጻድቅ ምሥራቃዊው ያዕቆብ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Archangel Uriel",
+        "St. Luke the Evangelist",
+        "St. Dexius"
+      ],
+      "am": [
+        "ቅዱስ ዑራኤል ሊቀ መላእክት",
+        "ቅዱስ ሉቃስ ወንጌላዊ",
+        "ቅዱስ ደቅስዮስ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of Saint Andronicus the Apostle, one of the Seventy-two disciples whom our Lord chose and sent forth before His face. We also celebrate the memory of the righteous ascetic Jacob the Easterner.",
+        "Saint Andronicus was a relative and fellow-prisoner of the holy Apostle Paul, who commended him in his Epistle to the Romans as 'of note among the apostles, who also were in Christ before me.' Filled with the Holy Spirit at Pentecost, Andronicus proclaimed the Gospel across pagan lands alongside his fellow-worker Junia, overthrowing demonic altars and casting out unclean spirits.",
+        "Consecrated Bishop of Pannonia, Andronicus labored diligently in teaching, baptizing multitudes, and establishing churches throughout Illyricum and the northern borders of the empire. Enduring cruel persecutions, beatings, and imprisonments with apostolic fortitude, he finished his earthly ministry in peace, entering the rest prepared for Christ's faithful laborers.",
+        "Through the apostolic intercessions and missionary labors of Saint Andronicus, and the prayers of Saint Jacob the Easterner, may the Lord grant His Church steadfast shepherds and everlasting salvation forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን ከላካቸው ከሰባ ሁለቱ አርድእት አንዱ የሆነውን የከበረ ሐዋርያ ቅዱስ እንድራኒቆስን ዕረፍት ታከብራለች። ደግሞም በገድልና በጽድቅ ያጌጠውን ተጋዳዩን አባት ምሥራቃዊውን ያዕቆብን በጸሎት ታስባለች።",
+        "ቅዱስ እንድራኒቆስ የሐዋርያው የቅዱስ ጳውሎስ ዘመድና በእስር ቤት አብሮት የነበረ ታማኝ አገልጋይ ነበረ፤ ቅዱስ ጳውሎስም በሮሜ መልእክቱ ‘በሐዋርያት መካከል የታወቁት፣ ከእኔም አስቀድመው በክርስቶስ የነበሩት’ ብሎ አመሰገነው። በበዓለ ኀምሳ መንፈስ ቅዱስን ተቀብሎ በአረማውያን አገሮች ወንጌልን ሰበከ፤ ጣዖታትንም በክርስቶስ ስም አፈረሰ።",
+        "በፓኖኒያ አገር ኤጲስቆጶስ ሆኖ ተሹሞ የእግዚአብሔርን ቃል አስተማረ፤ አብያተ ክርስቲያናትን መሠረተ፤ ብዙዎችንም ወደ እውነተኛው እምነት አምጥቶ አጠመቀ። በወንጌል አገልግሎቱ ብዙ መከራን፣ ግርፋትንና እስራትን በሐዋርያዊ ትዕግሥት ከተቀበለ በኋላ፣ ሩጫውን በድል ፈጽሞ በሰላም ወደ ጌታ ሔደ።",
+        "የሐዋርያው የቅዱስ እንድራኒቆስ ጸሎትና ሐዋርያዊ በረከት፣ የምሥራቃዊው የጻድቁ ያዕቆብ ምልጃና ተጋድሎ ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Romans 16:7",
+        "verse": "Greet Andronicus and Junia, my relatives and my fellow prisoners, who are notable among the apostles, who were also in Christ before me."
+      },
+      "am": {
+        "reference": "ሮሜ. 16:7",
+        "verse": "በሐዋርያት መካከል ስመ ጥሩዎች ለሆኑ፥ ደግሞም ክርስቶስን በማመን ለቀደሙኝ፥ ዐብረውኝም ለታሰሩ ለዘመዶቼ ለአንዲራኒቆንና ለዩልያን ሰላምታ አቅርቡልኝ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-23",
+    "month": 9,
+    "day": 23,
+    "date": {
+      "en": "Ginbot 23",
+      "am": "ግንቦት 23"
+    },
+    "title": {
+      "en": "Repose of Saint Julian the Apostle, Saint Epaphroditus of the Seventy Disciples, and Martyrdom of Saint Ensia",
+      "am": "የሐዋርያው የቅዱስ ዮልዮስ ዕረፍት፣ ከሰባ ሁለቱ አርድእት የአንዱ የአፍሮዲጡ መታሰቢያ እና የቅድስት አንስያ ሰማዕትነት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Julian (Julius) the Apostle, Disciple of our Lord Jesus Christ",
+        "Saint Epaphroditus (Aphroditus), One of the Seventy Disciples, Bishop of Philippi",
+        "Saint Ensia the Martyr, and Martyrs of the Company of Isidore"
+      ],
+      "am": [
+        "የጌታችን ታማኝ ደቀ መዝሙር ሐዋርያው ቅዱስ ዮልዮስ",
+        "ከሰባ ሁለቱ አርድእት አንዱና የፊልጵስዩስ ኤጲስቆጶስ ቅዱስ አፍሮዲጡ",
+        "ተጋዳይት ሰማዕት ቅድስት አንስያና ከእርሷ ጋር የከበሩ ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. George Prince of Martyrs",
+        "King David",
+        "King Solomon"
+      ],
+      "am": [
+        "ቅዱስ ጊዮርጊስ ሊቀ ሰማዕታት",
+        "ልበ አምላክ ቅዱስ ዳዊት",
+        "ቅዱስ ሰሎሞን ንጉሠ እሥራኤል"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of Saint Julian the Apostle, disciple of our Lord. We also celebrate the memory of Saint Epaphroditus, one of the Seventy-two disciples, the glorious crown of Saint Ensia the martyr, and the martyrs of the company of Isidore.",
+        "Saint Julian was numbered among the disciples who followed our Lord during His earthly ministry, witnessing His holy miracles, passion, and resurrection. Clothed with power from on high at Pentecost, he traveled into distant lands, proclaiming the kingdom of God, baptizing seekers, and confirming believers through signs and wonders before finishing his apostolic course.",
+        "On this day also the Church honors Saint Epaphroditus, whom Saint Paul designated as 'my brother, fellow-worker, and fellow-soldier, but your messenger, and minister to my need.' Serving faithfully as bishop of Philippi, he shepherded his flock through seasons of trial. We likewise remember Saint Ensia and her companions who shed their blood for Christ.",
+        "Through the apostolic prayers of Saint Julian, the shepherdly blessing of Saint Epaphroditus, and the blood of Saint Ensia, may our Lord preserve us in fervent charity and true faith forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የጌታችን ደቀ መዝሙር የነበረውን የከበረ ሐዋርያ ቅዱስ ዮልዮስን ዕረፍት ታከብራለች። ደግሞም ከሰባ ሁለቱ አርድእት አንዱ የሆነውን ቅዱስ አፍሮዲጡን፣ የተጋዳዪቱን ሰማዕት የቅድስት አንስያን ሰማዕትነት፣ እንዲሁም ከእርሷ ጋር የነበሩትን ሰማዕታት በጸሎት ታስባለች።",
+        "ቅዱስ ዮልዮስ ጌታችን በምድር ሲያስተምር ከተከተሉት ደቀ መዛሙርት አንዱ ነበረ፤ ተአምራቱን፣ ስቅለቱንና ትንሣኤውን በዓይኑ አየ። በበዓለ ኀምሳ መንፈስ ቅዱስን ከተቀበለ በኋላ ወደ ሩቅ አገሮች ሄዶ ወንጌልን ሰበከ፤ ድውያንን ፈወሰ፤ ምእመናንንም በእውነተኛ እምነት አጽንቶ ሐዋርያዊ አገልግሎቱን በሰላም ፈጸመ።",
+        "በዚህችም ቀን ሐዋርያው ቅዱስ ጳውሎስ ‘ወንድሜ፣ አብሮኝም የሚሠራ፣ ወታደርም የሆነ’ ብሎ ያመሰገነው የፊልጵስዩስ ኤጲስቆጶስ ቅዱስ አፍሮዲጡ ይታሰባል። እርሱም መንጋውን በታማኝነት ጠበቀ። እንዲሁም በከሃዲው መኰንን ፊት አንገቷን ለሰይፍ የሰጠችው የከበረች ሰማዕት ቅድስት አንስያ በዚች ቀን አክሊል ተቀበለች።",
+        "የሐዋርያው የቅዱስ ዮልዮስ ጸሎት፣ የኤጲስቆጶስ አፍሮዲጡ ሐዋርያዊ በረከትና የሰማዕቷ የቅድስት አንስያ ምልጃ ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Philippians 2:25",
+        "verse": "But I counted it necessary to send to you Epaphroditus, my brother, fellow worker, fellow soldier, and your apostle and servant of my need,"
+      },
+      "am": {
+        "reference": "ፊል. 2:25",
+        "verse": "ነገር ግን፥ ወንድሜንና ከእኔ ጋራ ዐብሮ ሠራተኛ ወታደርም የሚሆነውን፥ የእናንተ ግን መልእክተኛ የሆነውና የሚያስፈልገኝን የሚያገለግለውን አፍሮዲጡን እንድልክላችሁ በግድ ዐስባለሁ፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-24",
+    "month": 9,
+    "day": 24,
+    "date": {
+      "en": "Ginbot 24",
+      "am": "ግንቦት 24"
+    },
+    "title": {
+      "en": "Entry of our Lord Jesus Christ into the Land of Egypt, Repose of Prophet Habakkuk, and Saint Abkuelta",
+      "am": "ጌታችን ኢየሱስ ክርስቶስ ከእናቱ ጋር ወደ ግብፅ የገባበት በዓል፣ የነቢዩ ዕንባቆም ዕረፍት እና የሰማዕቱ አባ አብቍልታ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "The Holy Flight and Entry of our Lord Jesus Christ into the Land of Egypt with His Mother and Saint Joseph",
+        "Habakkuk the Prophet, One of the Twelve Minor Prophets",
+        "Abba Abkuelta the Priest, Victorious Martyr of Ensnas (Antinoe)",
+        "Eleazar the High Priest, Son of Aaron"
+      ],
+      "am": [
+        "ክብር ባለቤት ጌታችን ኢየሱስ ክርስቶስ ከእመቤታችን ከቅድስት ድንግል ማርያምና ከጻድቁ ዮሴፍ ጋር ወደ ግብፅ የገባበት ታላቅ በዓል",
+        "ከዐሥራ ሁለቱ ደቂቀ ነቢያት አንዱ የሆነው ቅዱስ ነቢይ ዕንባቆም",
+        "የእንጽናው ተጋዳይ ቀሲስ አባ አብቍልታ ሰማዕት",
+        "የአሮን ልጅ ሊቀ ካህናት አልዓዛር"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Abune Tekle Haymanot",
+        "St. Thomas of Marash",
+        "St. Agapitus"
+      ],
+      "am": [
+        "አቡነ ተክለ ሃይማኖት",
+        "ቅዱስ ቶማስ ዘመርዓስ",
+        "ቅዱስ አጋቢጦስ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this solemn and joyous feast day, the holy Church celebrates the historic arrival of our Lord, God, and Savior Jesus Christ into the land of Egypt, as an infant held in the arms of His pure Mother the Virgin Mary, guided by the righteous elder Joseph and Salome, in flight from the murderous sword of King Herod.",
+        "By His holy footsteps upon the soil of Egypt, our Savior fulfilled the ancient prophecy: 'Out of Egypt have I called My Son,' and 'Behold, the Lord rideth upon a swift cloud, and shall come into Egypt; and the idols of Egypt shall be moved at His presence.' Wherever the Holy Family arrived, the towering pagan idols fell and shattered upon the ground, while springs of living water gushed forth from dry rock to quench their thirst, sanctifying Egypt into a dwelling of hermits and monks.",
+        "On this day also, the holy Church commemorates the blessed falling asleep of the Prophet Habakkuk, who prophesied the mystery of the Incarnation upon Mount Paran and delivered bread to Daniel in the lions' den. We likewise remember the martyrdom of Abba Abkuelta the priest in Upper Egypt, and Eleazar the son of Aaron.",
+        "May the blessing of our Lord's holy journey into Egypt sanctify our homes, and may the prayers of the Prophet Habakkuk and Abba Abkuelta preserve our souls in faith forever. Amen."
+      ],
+      "am": [
+        "በዚህች ታላቅና የተቀደሰች የበዓል ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን፣ አምላካችንና መድኃኒታችን ኢየሱስ ክርስቶስ ከጨካኙ ከሄሮድስ ሰይፍ ሲሸሽ፣ ከእናቱ ከቅድስት ድንግል ማርያም፣ ከአረጋዊው ዮሴፍና ከሰሎሜ ጋር ወደ ግብፅ ምድር በስደት የገባበትን ታላቅ መታሰቢያ ታከብራለች።",
+        "የመድኃኒታችን ቅዱሳን እግሮች የግብፅን አፈር በረገጡ ጊዜ ‘ልጄን ከግብፅ ጠራሁት’ የሚለው የነቢያት ቃል ተፈጸመ፤ ነቢዩ ኢሳይያስ ‘እነሆ እግዚአብሔር በፈጣን ደመና ተቀምጦ ወደ ግብፅ ይመጣል፤ የግብፅም ጣዖታት በፊቱ ይንቀጠቀጣሉ’ ያለው ትንቢት እውን ሆነ። ቅዱሱ ቤተሰብ በደረሰበት ቦታ ሁሉ ጣዖታት ተሰባበሩ፤ ከደረቅ ድንጋይም የጣፈጠ ውኃ ፈለቀ፤ ምድረ ግብፅም የቅዱሳን መነኰሳት መፍለቂያ ሆነች።",
+        "በዚህችም ቀን የአምላክን መገለጥ አስቀድሞ የተነበየው፣ ለነቢዩ ዳንኤልም በአንበሶች ጉድጓድ ምግብ ያደረሰው ነቢዩ ዕንባቆም አረፈ። እንዲሁም በላዕላይ ግብፅ ስለ ክርስቶስ ስም የተጋደለው ቀሲስ አባ አብቍልታና የአሮን ልጅ ሊቀ ካህናት አልዓዛር በዚህች ዕለት ይታሰባሉ።",
+        "የጌታችን የኢየሱስ ክርስቶስ ወደ ግብፅ የመግባቱ በረከት አገራችንንና ቤተ ክርስቲያናችንን ይቀድስልን፤ የነቢዩ ዕንባቆምና የአባ አብቍልታ ጸሎት ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Matthew 2:15",
+        "verse": "and was there until the death of Herod; that it might be fulfilled which was spoken by the Lord through the prophet, saying, “Out of Egypt I called my son.”"
+      },
+      "am": {
+        "reference": "ማቴ. 2:15",
+        "verse": "ወደ ግብጽ ሄደ፥ ሄሮድስም እስኪሞት ድረስ በዚያ ኖረ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-25",
+    "month": 9,
+    "day": 25,
+    "date": {
+      "en": "Ginbot 25",
+      "am": "ግንቦት 25"
+    },
+    "title": {
+      "en": "Repose of Saint Salome the Midwife, Martyrdom of Saint Cotylus of Antinoe, and Saint Heroda",
+      "am": "የእመቤታችን አገልጋይ የቅድስት ሰሎሜ ዕረፍት፣ የእንዴናው ሐኪም የቅዱስ ኮጦሎስ ሰማዕትነት እና የቅዱስ ኄሮዳ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Salome the Midwife, Kin of our Lady the Virgin Mary, Witness of the Nativity",
+        "Saint Cotylus (Kotlos) the Physician of Antinoe, Crowned Martyr",
+        "Saint Heroda the Martyr of Sebastia",
+        "Planting of Joseph's Staff by our Lord at Bisos (Matariyah)"
+      ],
+      "am": [
+        "የእመቤታችን የቅድስት ድንግል ማርያም ዘመድና የልደቱ ምስክር ቅድስት ሰሎሜ",
+        "የእንዴናው አገር ሐኪም የከበረ ሰማዕት ቅዱስ ኮጦሎስ",
+        "የስብስጣው ሰማዕት ቅዱስ አባ ኄሮዳ",
+        "ጌታችን የዮሴፍን በትር በቢሶስ (ማኅፀነ ማርያም) ተክሎ ዕፀ በለሳን ያበቀለበት መታሰቢያ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Mercurius the Martyr",
+        "St. Thecla the Protomartyr",
+        "Abune Habib"
+      ],
+      "am": [
+        "ቅዱስ መርቆሬዎስ ሰማዕት",
+        "ቅድስት ቴክላ",
+        "አቡነ ሐቢብ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed departure of Saint Salome, kin of our Lady the Virgin Mary, who was privileged to witness the immaculate Nativity of Christ in the cave of Bethlehem. We also celebrate the glorious martyrdom of Saint Cotylus the physician, and Saint Heroda.",
+        "Saint Salome accompanied the Mother of God to Bethlehem and into the land of Egypt during the Flight. In Bethlehem, having initially doubted the virginal birth, her hand withered as with fire; but touching the swaddling clothes of the infant Savior, she was immediately healed and confessed Christ as true God. She ministered faithfully to the Holy Family through years of exile, living in continuous prayer and devotion until her peaceful repose.",
+        "On this day also, Saint Cotylus, a physician of Antinoe, offered his life for Christ. Healing the sick freely without silver and comforting the poor, he refused to burn incense to idols under the persecutor Arianus, rejoicing when subjected to the rack and beheading. Furthermore, we remember how our Lord planted pieces of Joseph's staff at Bisos, causing fragrant balsam trees to flourish.",
+        "Through the devoted service of Saint Salome, the courage of Saint Cotylus the physician, and the prayers of Saint Heroda, may our Lord Jesus Christ grant healing to our bodies and salvation to our souls forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን በቤተልሔም ዋሻ የክርስቶስን ድንቅ ልደት በዓይኗ ያየችውንና በስደት ወቅት ያገለገለችውን የእመቤታችንን ዘመድ ቅድስት ሰሎሜን በክብር ታስባለች። ደግሞም የእንዴናውን ሐኪም ቅዱስ ኮጦሎስንና ሰማዕቱን አባ ኄሮዳን በጸሎት ታከብራለች።",
+        "ቅድስት ሰሎሜ ከእመቤታችንና ከጻድቁ ዮሴፍ ጋር ወደ ቤተልሔምና ወደ ግብፅ ምድር ተጉዛ ቅዱሱን ቤተሰብ አገለገለች። በቤተልሔም ሳለች የድንግልናዋን ነገር በልቧ በመጠራጠሯ እጇ ብትደርቅም፣ ሕፃኑን ጌታ በነካች ጊዜ ወዲያውኑ ድና ‘ይህ ሕፃን እውነተኛ አምላክ ነው’ ብላ ታመነች። በስደት ዘመን ሁሉ በታማኝነት ካገለገለች በኋላ በሰላም አረፈች።",
+        "በዚህችም ቀን ድሆችን በነጻ የሚያክመው የእንዴናው ሐኪም ቅዱስ ኮጦሎስ ስለ ክርስቶስ ስም ሰማዕት ሆነ፤ እርሱም በከሃዲው መኰንን ፊት ለጣዖት አንሠዋም በማለት አንገቱን ለሰይፍ ሰጠ። እንዲሁም ጌታችን በቢሶስ ቦታ የዮሴፍን በትር ተክሎ መዓዛው ያማረ ዕፀ በለሳን እንዲበቅል ያደረገበት ድንቅ ተአምራት በዚህች ዕለት ይታሰባል።",
+        "የቅድስት ሰሎሜ ታማኝ አገልጋይነትና ቅዱስ ጸሎት፣ የሰማዕቱ የቅዱስ ኮጦሎስ የሃይማኖት ጽናትና የአባ ኄሮዳ በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Matthew 27:56",
+        "verse": "Among them were Mary Magdalene, Mary the mother of James and Joses, and the mother of the sons of Zebedee."
+      },
+      "am": {
+        "reference": "ማቴ. 27:56",
+        "verse": "ከነርሱም መግደላዊት ማርያምና የያዕቆብና የዮሳ እናት ማርያም የዘብዴዎስም የልጆቹ እናት ነበሩ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-26",
+    "month": 9,
+    "day": 26,
+    "date": {
+      "en": "Ginbot 26",
+      "am": "ግንቦት 26"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Thomas the Apostle (Didymus) in India, and Saint Alphaeus",
+      "am": "የሐዋርያው የቅዱስ ቶማስ (ዲዲሞስ) በህንድ አገር ሰማዕትነት እና የቅዱስ አልፋውስ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Thomas the Apostle, Called Didymus (the Twin), Apostle and Martyr of India",
+        "Saints Alphaeus, Zacharias the Anchorite, Lucius, and Saint Arsonya the Martyrs"
+      ],
+      "am": [
+        "ዲዲሞስ የተባለው ከዐሥራ ሁለቱ ሐዋርያት አንዱ በህንድ አገር የተጋደለው ቅዱስ ቶማስ ሐዋርያና ሰማዕት",
+        "ቅዱሳን አልፋውስ፣ ዘካርያስ ባሕታዊው፣ ሉክዮስና ቅድስት አርሶንያ ሰማዕታት"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. Thomas the Apostle",
+        "Abune Habte Maryam",
+        "St. Hosea the Prophet"
+      ],
+      "am": [
+        "ቅዱስ ቶማስ ሐዋርያ",
+        "አቡነ ሀብተ ማርያም",
+        "ቅዱስ ሆሴዕ ነቢይ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of Saint Thomas the Apostle, called Didymus (the Twin), who carried the light of the Gospel to the farthest lands of India and sealed his witness with his blood. We also remember the martyrs Alphaeus, Zacharias the anchorite, and Saint Arsonya.",
+        "Saint Thomas was numbered among the Twelve Apostles of our Savior. When our risen Lord appeared on the eighth day after Pascha, Thomas touched the prints of the nails and the pierced side of Christ, crying out: 'My Lord and my God!' Receiving the Holy Spirit at Pentecost, he traveled east into Parthia and India, building churches, healing the sick, and shattering demonic idols through the Name of Jesus.",
+        "Preaching the virtue of chastity and the kingdom of heaven in southern India, he converted Queen Tertia and numerous royal nobles. The pagan king and idol priests, inflamed with fury at the loss of their worshippers, commanded soldiers to pierce the holy apostle through with spears, granting him the victorious crown of martyrdom.",
+        "Through the apostolic labors, confession, and martyrdom of Saint Thomas the Apostle, may our Lord deliver our souls from doubt and confirm us in the true Orthodox faith forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን የወንጌልን ብርሃን ወደ ሩቅ የህንድ አገር ያደረሰውንና ደሙን ያፈሰሰውን ከዐሥራ ሁለቱ ሐዋርያት አንዱ የሆነውን የታላቁን ሐዋርያ የቅዱስ ቶማስን (ዲዲሞስ) ሰማዕትነት ታከብራለች። ደግሞም ቅዱሳን አልፋውስን፣ ዘካርያስንና ቅድስት አርሶንያን በጸሎት ታስባለች።",
+        "ቅዱስ ቶማስ በትንሣኤው ሳምንት የጌታችንን የችንካር ምልክቶች ዳስሶ ‘ጌታዬና አምላኬ!’ ብሎ የታመነ ታማኝ ሐዋርያ ነበረ። በበዓለ ኀምሳ መንፈስ ቅዱስን ከተቀበለ በኋላ ወደ ህንድ አገር ተጓዘ፤ በዚያም በጌታ በኢየሱስ ክርስቶስ ስም ድንቅ ተአምራትን አደረገ፤ ድውያንን ፈወሰ፤ ጣዖታትን አፍርሶ ብዙዎችን ወደ እውነተኛው እምነት አምጥቶ አጠመቀ።",
+        "በደቡብ ህንድ አገር ሳለ የንጽሕናንና የሰማያዊት መንግሥትን ትምህርት በማስተማሩ ንግሥቲቱንና ብዙ የንጉሥ መኳንንትን ወደ ክርስትና መለሰ። የጣዖት ካህናትና ከሃዲው ንጉሥ ተቆጥተው ወታደሮቻቸውን ላኩ፤ ሐዋርያውንም በጦር ወግተው ገደሉት፤ እርሱም የሰማዕትነትን አክሊል በታላቅ ክብር ተቀበለ።",
+        "የሐዋርያውና የሰማዕቱ የቅዱስ ቶማስ ጸሎትና ሐዋርያዊ እምነት፣ እንዲሁም የቅዱሳን ሰማዕታት ሁሉ በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "John 20:29",
+        "verse": "Jesus said to him, “Because you have seen me, you have believed. Blessed are those who have not seen, and have believed.”"
+      },
+      "am": {
+        "reference": "ዮሐ. 20:29",
+        "verse": "ኢየሱስም ፦ ስላየኸኝ አምነሃል፤ ሳያዩ የሚያምኑ ብፁዓን ናቸው አለው።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-27",
+    "month": 9,
+    "day": 27,
+    "date": {
+      "en": "Ginbot 27",
+      "am": "ግንቦት 27"
+    },
+    "title": {
+      "en": "Repose of Pope John XXX of Alexandria, and the Second Repose of Righteous Lazarus Bishop of Cyprus",
+      "am": "የ፴ኛው የእስክንድርያ ሊቀ ጳጳሳት የአባ ዮሐንስ ዕረፍት እና የጌታችን ወዳጅ የጻድቁ አልዓዛር ሁለተኛ ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Abba John (Youhanna) XXX, 30th Pope and Patriarch of Alexandria",
+        "Righteous Lazarus of Bethany, Friend of Christ, Bishop of Kition in Cyprus (Second Repose)"
+      ],
+      "am": [
+        "፴ኛው የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ዮሐንስ",
+        "በአራተኛው ቀን ከመቃብር የተነሣውና በቆጵሮስ ኤጲስቆጶስ ሆኖ ያገለገለው የጌታችን ወዳጅ ጻድቁ አልዓዛር (ሁለተኛ ዕረፍት)"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Medhane Alem (Savior of the World)",
+        "St. Victor the Martyr",
+        "Abba John the Hermit"
+      ],
+      "am": [
+        "መድኃኔ ዓለም",
+        "ቅዱስ ፊቅጦር ሰማዕት",
+        "አባ ዮሐንስ ገዳማዊ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the blessed falling asleep of our holy father Abba John, thirtieth Pope and Patriarch of Alexandria. We also celebrate the second peaceful departure of the righteous Lazarus of Bethany, the beloved friend of Christ whom our Savior raised from the dead after four days in the tomb.",
+        "Righteous Lazarus, brother of Mary and Martha, was delivered from the jaws of corruption when the Lord cried at his sepulcher: 'Lazarus, come forth!' Fleeing the persecution of the chief priests who sought to kill him, Lazarus journeyed to Cyprus, where the Holy Apostles Barnabas and Paul consecrated him first Bishop of Kition (Larnaca).",
+        "For thirty years Lazarus shepherded his flock with austere sobriety, tears, and pastoral tenderness, never laughing after his resurrection except with solemn reverence at the vanity of human greed. Having guided thousands to faith and established churches across Cyprus, he finished his course at sixty years of age and was laid to rest in Larnaca.",
+        "Through the prayers of the righteous Lazarus, friend of Christ, and the pastoral blessings of Patriarch John of Alexandria, may our Savior grant us resurrection from spiritual death and life everlasting. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ሠላሳኛውን የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ዮሐንስን በክብር ታስባለች። ደግሞም ጌታችን ከአራት ቀን መቃብር ያስነሣውንና በኋላም በቆጵሮስ ደሴት ኤጲስቆጶስ ሆኖ ያገለገለውን የጌታን ወዳጅ የጻድቁን አልዓዛርን ሁለተኛ ዕረፍት በታላቅ ደስታ ታከብራለች።",
+        "ቅዱስ አልዓዛር የማርያምና የማርታ ወንድም ሲሆን፣ ጌታችን በመቃብሩ ላይ ‘አልዓዛር ሆይ፣ ወደ ውጭ ና!’ ብሎ በጠራው ጊዜ ከሞት የተነሣ ታማኝ ወዳጅ ነበረ። ሊገድሉት ከፈለጉት ከአይሁድ አለቆች ሸሽቶ ወደ ቆጵሮስ ደሴት ሄደ፤ በዚያም ሐዋርያት ጳውሎስና በርናባስ የኪቲዮን (ላርናካ) የመጀመሪያ ኤጲስቆጶስ አድርገው ሾሙት።",
+        "ለሠላሳ ዓመታት መንጋውን በትሕትናና በጾም፣ በዕንባና በፍቅር ጠበቀ፤ ከትንሣኤውም በኋላ የዓለምን ከንቱነት እያሰበ ሁልጊዜ በረቂቅ ፍርሃት እግዚአብሔርን ያገለግል ነበር። በስድሳ ዓመቱ መልካም አገልግሎቱን ፈጽሞ በሰላም አረፈ፤ በዚያም በክብር ተቀበረ።",
+        "የጌታችን ወዳጅ የጻድቁ የቅዱስ አልዓዛር ትንሣኤና ጸሎት፣ የፓትርያርክ አባ ዮሐንስ እረኝነትና በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "John 11:25",
+        "verse": "Jesus said to her, “I am the resurrection and the life. He who believes in me will still live, even if he dies."
+      },
+      "am": {
+        "reference": "ዮሐ. 11:25",
+        "verse": "ኢየሱስም ፦ ትንሣኤና ሕይወት እኔ ነኝ፤ የሚያምንብኝ ቢሞት እንኳ ሕያው ይሆናል፤"
+      }
+    }
+  },
+  {
+    "id": "ginbot-28",
+    "month": 9,
+    "day": 28,
+    "date": {
+      "en": "Ginbot 28",
+      "am": "ግንቦት 28"
+    },
+    "title": {
+      "en": "Martyrdom of Saint Cyril and His Forty-Five Sons, Commemoration of Patriarchs Abraham, Isaac, and Jacob, and Saint Amette Christos",
+      "am": "የቅዱስ ጌርሎስና የአርባ አምስቱ ልጆቹ ሰማዕትነት፣ የአበው የአብርሃም፣ ይስሐቅና ያዕቆብ መታሰቢያ እና የቅድስት አመተ ክርስቶስ ዕረፍት"
+    },
+    "annual_feasts": {
+      "en": [
+        "Saint Cyril (Kerlos) and His Forty-Five Sons, Glorious Martyrs for Christ",
+        "The Holy Patriarchs Abraham, Isaac, and Jacob, Forefathers of the Faith",
+        "Saint Amette Christos the Ascetic Nun, and Abba Macarius of Tabenna",
+        "Arrival of the Holy Relics of Saint Epiphanius in Cyprus"
+      ],
+      "am": [
+        "ስለ ክርስቶስ የተጋደሉ የከበሩ ሰማዕታት ቅዱስ ጌርሎስና አርባ አምስቱ ልጆቹ",
+        "የእምነት አባቶች የሆኑት ቅዱሳን አበው አብርሃም፣ ይስሐቅና ያዕቆብ",
+        "ዓለምን ንቃ የተጋደለች ቅድስት አመተ ክርስቶስና የደብረ ተበናው አባ መቃርስ",
+        "የቅዱስ ኤጲፋንዮስ የከበረ ሥጋው ወደ ቆጵሮስ የደረሰበት መታሰቢያ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Emmanuel",
+        "Abraham Isaac and Jacob",
+        "Abba Theodore of Debre Minas"
+      ],
+      "am": [
+        "አማኑኤል",
+        "አብርሃም ይስሐቅ ያዕቆብ",
+        "አባ ቴዎድሮስ ዘደብረ ሚናስ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church commemorates the glorious martyrdom of Saint Cyril and his forty-five sons, who offered their lives together for our Lord Jesus Christ. We also celebrate the sacred memory of the holy Patriarchs Abraham, Isaac, and Jacob, the ascetic struggles of Saint Amette Christos, and the translation of the relics of Saint Epiphanius to Cyprus.",
+        "Saint Cyril and his forty-five spiritual sons stood united before pagan persecutors, refusing to deny the Holy Trinity or bow to lifeless idols. Encouraging one another in holy love, the father and his children endured cruel scourgings and bodily lacerations before receiving the victor's crown together, entering heaven as a radiant company of martyrs.",
+        "On this day also, the Church honors the three righteous Patriarchs—Abraham, Isaac, and Jacob—unto whom God gave the eternal covenant of blessing, prefiguring the redemption of all nations. We likewise remember the devout nun Saint Amette Christos who subdued the flesh through fasting and tears, Abba Macarius of Tabenna, and the reception of the relics of Saint Epiphanius in Cyprus.",
+        "Through the martyrdom of Saint Cyril and his sons, the faith of Abraham, Isaac, and Jacob, and the prayers of Saint Amette Christos, may the Lord grant mercy and peace to His people forever. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን በአንድነት ስለ ክርስቶስ ስም የተጋደሉትን የከበረ ሰማዕት ቅዱስ ጌርሎስንና አርባ አምስቱን ልጆቹን ታከብራለች። ደግሞም የታላላቆቹን የሃይማኖት አባቶች የአብርሃምን፣ የይስሐቅንና የያዕቆብን መታሰቢያ፣ የተጋዳዪቱን ቅድስት አመተ ክርስቶስን ዕረፍት፣ እንዲሁም የቅዱስ ኤጲፋንዮስ ሥጋ ወደ ቆጵሮስ የደረሰበትን በዓል ታስባለች።",
+        "ቅዱስ ጌርሎስና አርባ አምስቱ መንፈሳዊ ልጆቹ በከሃዲያን ፊት በአንድ ልብ ቆመው በክርስቶስ መሰከሩ፤ ለጣዖታት አንሠዋም በማለታቸውም ታላቅ ሥቃይን በጽናት ታገሡ። አባቱ ልጆቹን፣ ልጆቹም አባታቸውን እያበረታቱ አንገታቸውን ለሰይፍ ሰጡና በአንድነት ወደ ሰማያዊው ክብር በደስታ ገቡ።",
+        "በዚህችም ቀን እግዚአብሔር የዘላለም ቃል ኪዳን የገባላቸው ሦስቱ አበው አብርሃም፣ ይስሐቅና ያዕቆብ ይታሰባሉ። እንዲሁም ዓለምን ንቃ በጾምና በጸሎት የተጋደለችው ቅድስት አመተ ክርስቶስ፣ የደብረ ተበናው አባ መቃርስ፣ እና የታላቁ የቅዱስ ኤጲፋንዮስ የከበረ ሥጋው ወደ ቆጵሮስ ደርሶ ያረፈበት ታላቅ መታሰቢያ ሆነ።",
+        "የቅዱስ ጌርሎስና የልጆቹ ሰማዕትነት፣ የአበው የአብርሃም፣ የይስሐቅና የያዕቆብ እምነትና በረከት ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "Hebrews 11:13",
+        "verse": "These all died in faith, not having received the promises, but having seen them and embraced them from afar, and having confessed that they were strangers and pilgrims on the earth."
+      },
+      "am": {
+        "reference": "ዕብ. 11:13",
+        "verse": "እነዚህ ሁሉ አምነው ሞቱ፥ የተሰጣቸውን የተስፋ ቃል አላገኙምና፤ ዳሩ ግን ከሩቅ ሆነው አዩትና ተሳለሙት፥ በምድሪቱም እንግዳዎችና መጻተኛዎች እንዲሆኑ ታመኑ።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-29",
+    "month": 9,
+    "day": 29,
+    "date": {
+      "en": "Ginbot 29",
+      "am": "ግንቦት 29"
+    },
+    "title": {
+      "en": "Nativity of our Lord Jesus Christ, Repose of Abba Simon of Antioch, and Nine Saints Abba Afse and Abba Guba",
+      "am": "የጌታችን የኢየሱስ ክርስቶስ የልደቱ ወርሃዊ መታሰቢያ፣ የአንጾኪያው አባ ስምዖን ዕረፍት እና ከተስዓቱ ቅዱሳን የአባ አፍጼና የአባ ጉባ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Monthly Memorial of the Holy Nativity of our Lord, God, and Savior Jesus Christ in Bethlehem",
+        "Abba Simon, Holy Ascetic of the Monastery of Antioch",
+        "Abba Afse and Abba Guba, Two of the Illustrious Nine Saints of Ethiopia",
+        "Abba Isaac the Monk, and Emperor Alexander Son of Philip"
+      ],
+      "am": [
+        "ክብር ባለቤት ጌታችን መድኃኒታችን ኢየሱስ ክርስቶስ በቤተልሔም የተወለደበት ወርሃዊ መታሰቢያ",
+        "የአንጾኪያ ገዳም አባት የከበረ አባ ስምዖን",
+        "ከተስዓቱ ቅዱሳን መካከል የሆኑት አባ አፍጼና አባ ጉባ",
+        "መነኰሱ አባ ይስሐቅና የፊልጶስ ልጅ ንጉሥ እስክንድር"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "Baale Wold (Birth of Christ)",
+        "St. Arsema",
+        "Saints Peter and Paul"
+      ],
+      "am": [
+        "በዓለ ወልድ",
+        "ቅድስት አርሴማ",
+        "ቅዱስ ጴጥሮስ ወጳውሎስ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day the holy Church celebrates the monthly festival of the Holy Nativity of our Lord, God, and Savior Jesus Christ, who took flesh of the Virgin Mary in Bethlehem to enlighten those sitting in darkness. We also commemorate the blessed departure of Abba Simon of Antioch, and two of the venerable Nine Saints of Ethiopia, Abba Afse and Abba Guba.",
+        "The holy Incarnation of the Word remains the fountain of our peace and joy. Born in a humble manger in Bethlehem of Judea, the Creator clothed Himself in poverty to enrich us with celestial grace, inviting all generation to adore the mystery of God manifest in the flesh, as proclaimed by angels to the vigilant shepherds.",
+        "On this day also, the Ethiopian Church honors Abba Afse and Abba Guba, holy fathers who arrived from the Roman Empire in the fifth century to illuminate Ethiopia. Abba Afse established his monastery at Yeha beside the ancient Sabaean temple, while Abba Guba retreated to meditative solitude, spreading Orthodox learning, monastic discipline, and the translation of the scriptures into Ge'ez.",
+        "Through the mystery of the Nativity of Christ, and the apostolic prayers of Abba Afse and Abba Guba of the Nine Saints, may the Lord preserve Ethiopia and His Church throughout all ages. Amen."
+      ],
+      "am": [
+        "በዚህች ዕለት ቅድስት ቤተ ክርስቲያን ጌታችን፣ አምላካችንና መድኃኒታችን ኢየሱስ ክርስቶስ በጨለማ ለነበርን ብርሃንን ያበራልን ዘንድ በቤተልሔም ከቅድስት ድንግል ማርያም በሥጋ የተወለደበትን ወርሃዊ በዓል ታከብራለች። ደግሞም የአንጾኪያውን አባ ስምዖንን፣ እንዲሁም ከተስዓቱ ቅዱሳን መካከል አባ አፍጼንና አባ ጉባን በጸሎት ታስባለች።",
+        "የአምላክ ሰው መሆን የሰላማችንና የደስታችን ሁሉ መሠረት ነው። በቤተልሔም ግርግም በትሕትና ተኝቶ ሳለ፣ የሰማይና የምድር ፈጣሪ እኛን በሰማያዊ ሀብት ያከብረን ዘንድ በድህነት ተገለጠ፤ መላእክትም ለእረኞች የምሥራች እንደተናገሩ ፍጥረታት ሁሉ ዛሬም እርሱን ያመሰግናሉ።",
+        "በዚህችም ቀን በ፭ኛው መቶ ክፍለ ዘመን ወደ ኢትዮጵያ መጥተው ወንጌልን ካስፋፉት ከተስዓቱ ቅዱሳን መካከል አባ አፍጼና አባ ጉባ ይታሰባሉ። አባ አፍጼ በይሐ ታላቅ ገዳም መሥርቶ ያስተማረ ሲሆን፣ አባ ጉባም በጸሎትና በብሕትውና ተወስኖ መጻሕፍትን ወደ ግዕዝ ቋንቋ በመተርጎም ምድረ ኢትዮጵያን በብርሃን አበሩ።",
+        "የጌታችን የኢየሱስ ክርስቶስ የልደቱ ሰላምና በረከት፣ የጻድቃኑ የአባ አፍጼና የአባ ጉባ ሐዋርያዊ ጸሎት አገራችንን ይጠብቅልን፤ ከሁላችን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "John 1:14",
+        "verse": "The Word became flesh, and lived among us. We saw his glory, such glory as of the one and only Son of the Father, full of grace and truth."
+      },
+      "am": {
+        "reference": "ዮሐ. 1:14",
+        "verse": "ቃልም ሥጋ ሆነ፤ ጸጋንና እውነትንም ተመልቶ በእኛ ዐደረ፥ አንድ ልጅም ከአባቱ ዘንድ እንዳለው ክብር የሆነው ክብሩን አየን።"
+      }
+    }
+  },
+  {
+    "id": "ginbot-30",
+    "month": 9,
+    "day": 30,
+    "date": {
+      "en": "Ginbot 30",
+      "am": "ግንቦት 30"
+    },
+    "title": {
+      "en": "Repose of Pope Michael IV of Alexandria, Saint Sisticorus the Apostle, and Saint Arwa",
+      "am": "የ፷፰ኛው የእስክንድርያ ሊቀ ጳጳሳት የአባ ሚካኤል ዕረፍት፣ የሐዋርያው ቅዱስ ቆሮስ እና የቅድስት አርዋ መታሰቢያ"
+    },
+    "annual_feasts": {
+      "en": [
+        "Abba Michael IV, 68th Pope and Patriarch of Alexandria, Humble and Pure Ascetic",
+        "Saint Sisticorus (Coros) the Apostle, One of the Seventy-two Disciples",
+        "Saint Arwa the Ascetic Virgin, Conqueror of the Flesh",
+        "Saint Dimadis the Martyr, and Conclusion of the Month of Ginbot"
+      ],
+      "am": [
+        "፷፰ኛው የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ሚካኤል",
+        "ከሰባ ሁለቱ አርድእት አንዱ የሆነው ሐዋርያው ቅዱስ ቆሮስ",
+        "ሥጋዋን ድል ያደረገች ተጋዳይ ድንግል ቅድስት አርዋ",
+        "ቅዱስ ዲማዲስ ሰማዕትና የተባረከው የግንቦት ወር ንባብ ፍጻሜ"
+      ]
+    },
+    "monthly_feasts": {
+      "en": [
+        "St. John the Baptist",
+        "St. Mark the Evangelist",
+        "St. Gregory the Wonderworker"
+      ],
+      "am": [
+        "ቅዱስ ዮሐንስ መጥምቅ",
+        "ማርቆስ ወንጌላዊ",
+        "ቅዱስ ጎርጎርዮስ መንክራዊ"
+      ]
+    },
+    "story": {
+      "en": [
+        "On this day, closing the blessed month of Ginbot, the holy Church commemorates the falling asleep of Abba Michael IV, sixty-eighth Pope and Patriarch of Alexandria. We also celebrate the blessed departure of Saint Sisticorus the Apostle, one of the Seventy-two disciples, Saint Arwa the ascetic virgin, and Saint Dimadis the martyr.",
+        "Abba Michael IV was chosen from the wilderness of Saint Macarius for his profound meekness, tears, and ascetic holiness. Sitting upon the throne of Saint Mark, he governed the Church with apostolic diligence, defending the Orthodox flock, feeding the hungry during seasons of scarcity, and refusing all worldly pomp until he finished his course in peace.",
+        "On this day also departed the holy Apostle Sisticorus, who received the Holy Spirit at Pentecost, traveled through pagan lands proclaiming salvation in Christ, and established sanctuaries before resting in the Lord. We likewise remember the devout virgin Saint Arwa, who conquered every bodily lust through lifelong prayer and fasting, and Saint Dimadis the martyr.",
+        "Through the pastoral prayers of Patriarch Michael IV, the apostolic blessings of Saint Sisticorus, and the purity of Saint Arwa, may our Lord preserve us in the true faith throughout all our days. Amen."
+      ],
+      "am": [
+        "በዚህች የተባረከው የግንቦት ወር በሚፈጸምባት ዕለት ቅድስት ቤተ ክርስቲያን ስድሳ ስምንተኛውን የእስክንድርያ ሊቀ ጳጳሳት ቅዱስ አባ ሚካኤልን ዕረፍት ታከብራለች። ደግሞም ከሰባ ሁለቱ አርድእት አንዱ የሆነውን የሐዋርያው የቅዱስ ቆሮስን ዕረፍት፣ የተጋዳዪቱን ድንግል ቅድስት አርዋን፣ እንዲሁም ሰማዕቱን ቅዱስ ዲማዲስን በጸሎት ታስባለች።",
+        "ፓትርያርክ አባ ሚካኤል በገዳመ አስቄጥስ በታላቅ ትሕትናና በዕንባ ይኖር የነበረ ቅዱስ አባት ነበረ። ወደ ሊቀ ጵጵስናው መንበር በተመረጠ ጊዜ መንጋውን በመልካም እረኝነት ጠበቀ፤ በችግርና በራብ ወራት ለድሆችና ለችግረኞች ምግብን በማከፋፈል የክርስቶስን ፍቅር በተግባር አሳየ፤ ዘመኑንም በሰላም ፈጽሞ ወደ ጌታ ሔደ።",
+        "በዚህችም ቀን በበዓለ ኀምሳ የመንፈስ ቅዱስን ጸጋ ተቀብሎ በአሕዛብ መካከል ወንጌልን የሰበከውና አብያተ ክርስቲያናትን ያነጸው ሐዋርያው ቅዱስ ቆሮስ አረፈ። እንዲሁም የሥጋ ፈቃዷን በጾምና በጸሎት ድል አድርጋ እግዚአብሔርን ደስ ያሰኘችው ቅድስት አርዋና ሰማዕቱ ቅዱስ ዲማዲስ ይታሰባሉ።",
+        "የፓትርያርክ አባ ሚካኤል አባታዊ እረኝነት፣ የሐዋርያው የቅዱስ ቆሮስ ጸሎትና የቅድስት አርዋ ንጽሕና ከሁላችን ከምእመናን ጋር ለዘላለም ጸንቶ ይኑር። አሜን።"
+      ]
+    },
+    "scripture": {
+      "en": {
+        "reference": "2 Timothy 4:7",
+        "verse": "I have fought the good fight. I have finished the course. I have kept the faith."
+      },
+      "am": {
+        "reference": "2ጢሞ. 4:7",
+        "verse": "መልካሙን ገድል ተጋድያለሁ፥ ሩጫውን ጨርሻለሁ፥ ሃይማኖትን ጠብቄያለሁ፤"
+      }
+    }
   }
 ]
