@@ -8,7 +8,7 @@ import {
   getWeekdayFromJDN, 
   type EthiopianDate 
 } from './lib/ethiopianCalendar'
-import { synaxariumData } from './data/synaxariumData'
+import { synaxariumData } from './lib/synaxariumData'
 import type { SynaxariumEntry } from './lib/types'
 import { 
   currentTheme, 

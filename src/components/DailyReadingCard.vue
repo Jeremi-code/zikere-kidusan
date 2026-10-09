@@ -2,13 +2,12 @@
 import { computed } from 'vue'
 import type { SynaxariumEntry } from '../lib/types'
 import { currentLanguage, currentFontSize } from '../lib/preferences'
-import { BookOpen } from 'lucide-vue-next'
 import EthiopianCross from './EthiopianCross.vue'
 import HaragDivider from './HaragDivider.vue'
 
 const props = defineProps<{
   entry?: SynaxariumEntry
-  dateLabel: string
+  dateLabel?: string
 }>()
 
 const fontSizeClass = computed(() => {
@@ -36,11 +35,16 @@ const displaySubtitle = computed(() => {
 
 const displayStory = computed(() => {
   if (!props.entry) return ''
-  return currentLanguage.value === 'en' && props.entry.storyEn ? props.entry.storyEn : props.entry.story
+  const val = currentLanguage.value === 'en' && props.entry.storyEn ? props.entry.storyEn : props.entry.story
+  if (!val) return ''
+  if (Array.isArray(val)) {
+    return (val as string[]).filter(Boolean).join('\n\n')
+  }
+  return String(val)
 })
 
 const storyDropCap = computed(() => {
-  const story = displayStory.value.trim()
+  const story = (displayStory.value || '').trim()
   if (!story) return { initial: '', rest: '' }
   return {
     initial: story.charAt(0),
@@ -75,26 +79,6 @@ const displayMonthlyFeasts = computed(() => {
 
 <template>
   <div v-if="entry" class="space-y-4 sm:space-y-5">
-    <section class="hero-spotlight rounded-3xl p-5 sm:p-7 relative overflow-hidden shadow-lg border-2 transition-all">
-      <div class="relative z-10 space-y-3.5">
-        <div class="flex items-center">
-          <div class="hero-pill-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-md shadow-2xs font-ethiopic-serif">
-            <EthiopianCross variant="lalibela" :size="14" />
-            <span>{{ dateLabel }}</span>
-          </div>
-        </div>
-
-        <div class="space-y-1.5 pt-1">
-          <h2 class="hero-title text-xl sm:text-3xl font-bold font-ethiopic-serif leading-snug tracking-tight">
-            {{ displayTitle }}
-          </h2>
-          <p v-if="displaySubtitle" class="hero-subtitle text-xs sm:text-sm font-medium font-ethiopic-serif italic">
-            — {{ displaySubtitle }} —
-          </p>
-        </div>
-      </div>
-    </section>
-
     <div v-if="displayAnnualFeasts.length || displayMonthlyFeasts.length" class="space-y-4 sm:space-y-5">
       <section 
         v-if="displayAnnualFeasts.length" 
@@ -149,13 +133,27 @@ const displayMonthlyFeasts = computed(() => {
       </section>
     </div>
 
-    <article class="reading-folio rounded-3xl p-5 sm:p-7 manuscript-card border-2 transition-all space-y-4">
-      <div class="pb-3 border-b folio-header-border">
-        <h3 class="text-sm font-bold font-ethiopic-serif rubric-text flex items-center gap-1.5">
-          <BookOpen class="w-4 h-4" />
-          <span>{{ currentLanguage === 'am' ? 'ዜና ቅዱሳን (መጽሐፈ ስንክሳር)' : 'Lives of the Saints (Synaxarium)' }}</span>
-        </h3>
-      </div>
+    <article class="reading-folio rounded-3xl p-5 sm:p-8 manuscript-card border-2 transition-all space-y-5">
+      <header class="space-y-3 text-center pb-4 border-b folio-header-border">
+        <div class="flex items-center justify-center gap-2 text-amber-800 dark:text-amber-400 opacity-80">
+          <EthiopianCross variant="lalibela" :size="16" />
+          <span class="text-xs font-semibold tracking-wider font-ethiopic-serif">
+            {{ currentLanguage === 'am' ? 'መጽሐፈ ስንክሳር' : 'The Synaxarium' }}
+          </span>
+          <EthiopianCross variant="lalibela" :size="16" />
+        </div>
+
+        <div class="space-y-1.5 max-w-xl mx-auto">
+          <h2 class="text-xl sm:text-3xl font-bold font-ethiopic-serif leading-snug tracking-tight folio-title">
+            {{ displayTitle }}
+          </h2>
+          <p v-if="displaySubtitle" class="text-xs sm:text-sm font-medium font-ethiopic-serif italic folio-subtitle">
+            — {{ displaySubtitle }} —
+          </p>
+        </div>
+
+        <HaragDivider variant="compact" />
+      </header>
 
       <div class="font-ethiopic-serif story-text whitespace-pre-line text-justify leading-loose" :class="fontSizeClass">
         <span class="float-left text-4xl sm:text-5xl font-bold rubric-text mr-2.5 leading-none font-ethiopic-serif">
@@ -182,24 +180,12 @@ const displayMonthlyFeasts = computed(() => {
 </template>
 
 <style scoped>
-.hero-spotlight {
-  background: var(--bg-hero) !important;
-  border-color: var(--border-hero) !important;
+.folio-title {
   color: var(--text-primary) !important;
 }
 
-.hero-title {
-  color: var(--text-primary) !important;
-}
-
-.hero-subtitle {
+.folio-subtitle {
   color: var(--text-secondary) !important;
-}
-
-.hero-pill-badge {
-  background-color: var(--badge-bg) !important;
-  border-color: var(--badge-border) !important;
-  color: var(--badge-text) !important;
 }
 
 .reading-folio {
