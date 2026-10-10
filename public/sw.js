@@ -1,9 +1,9 @@
-const CACHE_NAME = 'synaxarium-v2'
+const CACHE_NAME = 'synaxarium-v1.0.0'
 const STATIC_ASSETS = [
   '/',
-  'index.html',
-  'manifest.json',
-  'favicon.svg'
+  '/index.html',
+  '/manifest.json',
+  '/favicon.svg'
 ]
 
 self.addEventListener('install', (event) => {
@@ -27,6 +27,26 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
 
+  const url = new URL(event.request.url)
+  const isNavigation = event.request.mode === 'navigate' || event.request.destination === 'document'
+
+  if (isNavigation || url.pathname === '/' || url.pathname === '/index.html') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone()
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy))
+          }
+          return networkResponse
+        })
+        .catch(() => {
+          return caches.match(event.request).then((cached) => cached || caches.match('/'))
+        })
+    )
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
@@ -41,8 +61,6 @@ self.addEventListener('fetch', (event) => {
           cache.put(event.request, responseToCache)
         })
         return networkResponse
-      }).catch(() => {
-        return caches.match('/')
       })
     })
   )
