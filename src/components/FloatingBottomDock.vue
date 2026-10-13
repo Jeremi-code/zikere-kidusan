@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Bookmark, Share2, Check, Globe, Settings, Sparkles, Search } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { Search } from 'lucide-vue-next'
 
 defineProps<{
   isBookmarked: boolean
@@ -8,107 +9,274 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'toggle-bookmark'): void
-  (e: 'toggle-language'): void
-  (e: 'share'): void
-  (e: 'open-settings'): void
-  (e: 'open-search'): void
   (e: 'jump-today'): void
+  (e: 'open-calendar'): void
+  (e: 'open-bookmarks'): void
+  (e: 'open-search'): void
+  (e: 'open-settings'): void
 }>()
+
+const activeTab = ref(0)
+const isSmall = ref(false)
+const isSearchActive = ref(false)
+
+function selectTab(i: number) {
+  isSmall.value = false
+  isSearchActive.value = false
+  activeTab.value = i
+
+  if (i === 0) {
+    emit('jump-today')
+  } else if (i === 1) {
+    emit('open-calendar')
+  } else if (i === 2) {
+    emit('open-bookmarks')
+  }
+}
+
+function handleTabClick(i: number) {
+  if (isSmall.value) {
+    isSmall.value = false
+    return
+  }
+  selectTab(i)
+}
+
+function toggleSearch() {
+  isSearchActive.value = !isSearchActive.value
+  emit('open-search')
+}
+
+let lastScroll = 0
+function onScroll() {
+  const y = window.scrollY || document.documentElement.scrollTop
+  if (Math.abs(y - lastScroll) < 6) return
+  isSmall.value = y > lastScroll && y > 48
+  lastScroll = y
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
-  <div class="fixed bottom-3 sm:bottom-6 inset-x-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none">
-    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-2 rounded-2xl floating-dock backdrop-blur-2xl border-2 transition-all max-w-fit">
-      <button
-        @click="emit('jump-today')"
-        class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold floating-dock-btn active:scale-95 transition-all cursor-pointer font-ethiopic-serif"
-        title="ወደ ዛሬ ቀን (Jump to Today)"
-      >
-        <Sparkles class="w-4 h-4 text-amber-600" />
-        <span class="font-bold">ዛሬ</span>
-      </button>
+  <nav
+    class="fixed left-3.5 right-3.5 bottom-[max(14px,env(safe-area-inset-bottom))] z-40 max-w-md mx-auto flex items-end justify-between gap-2.5 pointer-events-none"
+    aria-label="ዋና"
+  >
+    <div
+      class="glass capsule pointer-events-auto"
+      :class="{ small: isSmall, off: isSearchActive }"
+      @click="isSmall = false"
+    >
+      <span
+        class="pill"
+        :style="{
+          transform: `translateX(${activeTab * 100}%)`,
+          opacity: isSmall || isSearchActive ? 0 : 1
+        }"
+      ></span>
 
-      <div class="w-px h-5 floating-dock-divider mx-0.5"></div>
+      <div class="tabs">
+        <button
+          class="tab"
+          :class="{ on: activeTab === 0 && !isSearchActive }"
+          @click="handleTabClick(0)"
+          aria-label="ዛሬ"
+        >
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M6 9h12" />
+            <path d="M10 3h4M10 21h4M6 7.5v3M18 7.5v3" />
+          </svg>
+          <span class="text-[10px] font-medium font-ethiopic-serif">ዛሬ</span>
+        </button>
 
-      <button
-        @click="emit('open-search')"
-        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
-        title="ፈልግ (Search Readings)"
-      >
-        <Search class="w-4 h-4" />
-      </button>
+        <button
+          class="tab"
+          :class="{ on: activeTab === 1 && !isSearchActive }"
+          @click="handleTabClick(1)"
+          aria-label="ቀን መቁጠሪያ"
+        >
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 10a7 7 0 0 1 14 0v9a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z" />
+            <g fill="currentColor" stroke="none">
+              <circle cx="9" cy="12.2" r="0.78" />
+              <circle cx="9" cy="15" r="0.78" />
+              <circle cx="9" cy="17.8" r="0.78" />
+              <circle cx="12" cy="12.2" r="0.78" />
+              <circle cx="12" cy="15" r="1.2" />
+              <circle cx="12" cy="17.8" r="0.78" />
+              <circle cx="15" cy="12.2" r="0.78" />
+              <circle cx="15" cy="15" r="0.78" />
+              <circle cx="15" cy="17.8" r="0.78" />
+            </g>
+          </svg>
+          <span class="text-[10px] font-medium font-ethiopic-serif">ቀን መቁጠሪያ</span>
+        </button>
 
-      <button
-        @click="emit('toggle-language')"
-        class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer font-ethiopic-sans active:scale-95 language-pill shadow-2xs"
-        :title="currentLanguage === 'am' ? 'Switch to English' : 'ወደ አማርኛ ቀይር'"
-      >
-        <Globe class="w-4 h-4 text-current opacity-85" />
-        <span class="tracking-wide">{{ currentLanguage === 'am' ? 'English' : 'አማርኛ' }}</span>
-      </button>
+        <button
+          class="tab"
+          :class="{ on: activeTab === 2 && !isSearchActive }"
+          @click="handleTabClick(2)"
+          aria-label="የተቀመጡ"
+        >
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="3.5" width="13.5" height="15.5" rx="1.8" />
+            <path d="M8.2 3.5V19M13.35 7.3v7.4M11.1 9.7h4.5" />
+            <path d="M13.6 19h2.6v2.9l-1.3-1-1.3 1z" />
+          </svg>
+          <span class="text-[10px] font-medium font-ethiopic-serif">የተቀመጡ</span>
+        </button>
+      </div>
+    </div>
 
-      <button
-        @click="emit('toggle-bookmark')"
-        class="p-2 rounded-xl transition-all cursor-pointer active:scale-95"
-        :class="isBookmarked 
-          ? 'text-amber-700 bg-amber-200/80 font-bold shadow-2xs' 
-          : 'floating-dock-btn'"
-        :title="isBookmarked ? 'ዕልባት አስወግድ (Remove Bookmark)' : 'ዕልባት ያድርጉ (Save Bookmark)'"
-      >
-        <Bookmark class="w-4 h-4" :class="{ 'fill-current': isBookmarked }" />
-      </button>
-
-      <button
-        @click="emit('share')"
-        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
-        title="አጋራ ወይም ቅዳ (Share / Copy)"
-      >
-        <Check v-if="isCopied" class="w-4 h-4 text-emerald-600" />
-        <Share2 v-else class="w-4 h-4" />
-      </button>
-
-      <div class="w-px h-5 floating-dock-divider mx-0.5"></div>
-
-      <button
-        @click="emit('open-settings')"
-        class="p-2 rounded-xl floating-dock-btn active:scale-95 transition-all cursor-pointer"
-        title="ማስተካከያ (Settings)"
-      >
-        <Settings class="w-4 h-4" />
-      </button>
-    </nav>
-  </div>
+    <button
+      class="glass search pointer-events-auto"
+      :class="{ on: isSearchActive }"
+      @click="toggleSearch"
+      aria-label="ፍለጋ"
+    >
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="10.5" cy="10.5" r="6.3" />
+        <path d="M15.1 15.1l3.2 3.2" />
+        <g fill="currentColor" stroke="none">
+          <circle cx="10.5" cy="7.6" r="0.68" />
+          <circle cx="10.5" cy="13.4" r="0.68" />
+          <circle cx="7.6" cy="10.5" r="0.68" />
+          <circle cx="13.4" cy="10.5" r="0.68" />
+          <circle cx="10.5" cy="10.5" r="1.05" />
+          <path d="M19.6 17.9l1.7 1.7-1.7 1.7-1.7-1.7z" />
+        </g>
+      </svg>
+    </button>
+  </nav>
 </template>
 
 <style scoped>
-.floating-dock {
-  background-color: var(--dock-bg) !important;
-  border: 1.5px solid var(--dock-border) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+.glass {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bg) 62%, transparent);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  transform: translateZ(0);
 }
 
-.floating-dock-btn {
-  color: var(--dock-btn) !important;
+.glass::before,
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
-.floating-dock-btn:hover {
-  background-color: var(--dock-btn-hover) !important;
-  color: var(--gold-accent) !important;
+.glass::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, var(--sheen)) 0%, transparent 50%, rgba(255, 255, 255, calc(var(--sheen) / 3)) 100%);
 }
 
-.floating-dock-divider {
-  background-color: var(--dock-divider) !important;
+.glass::after {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, var(--rim)), inset 0 -1px 1px rgba(255, 255, 255, calc(var(--rim) / 3));
 }
 
-.language-pill {
-  background-color: var(--pill-bg) !important;
-  color: var(--pill-text) !important;
-  border: 1.5px solid var(--pill-border) !important;
+.capsule {
+  height: 62px;
+  width: 100%;
+  max-width: calc(100% - 72px);
+  padding: 4px;
+  transition: max-width 0.5s var(--ease-spring);
 }
 
-.language-pill:hover {
-  filter: brightness(0.95);
+.capsule.small {
+  max-width: 62px;
+}
+
+.pill {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 52px;
+  width: calc((100% - 8px) / 3);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--rubric) 13%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, var(--rim));
+  transition: transform 0.42s var(--ease-spring), opacity 0.3s ease;
+}
+
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+}
+
+.tab {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--text-3);
+  transition: color 0.2s, opacity 0.2s;
+  background: none;
+  border: none;
+}
+
+.tab.on {
+  color: var(--text);
+}
+
+.capsule.small .tab:not(.on) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.capsule.small .tab.on {
+  position: absolute;
+  inset: 0;
+}
+
+.capsule.small .tab span {
+  display: none;
+}
+
+.search {
+  width: 62px;
+  height: 62px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--text-2);
+  transition: transform 0.2s;
+  border: 1px solid var(--glass-border);
+}
+
+.search:active {
+  transform: scale(0.9);
+}
+
+.ic {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.25s var(--ease-spring);
+}
+
+.on > .ic,
+.search.on .ic {
+  color: var(--rubric);
+}
+
+.tab:active .ic {
+  transform: scale(0.88);
 }
 </style>
-
