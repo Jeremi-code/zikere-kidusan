@@ -105,13 +105,26 @@ function gregorianToJDN(year: number, month: number, day: number): number {
   return day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045
 }
 
-function jdnToEthiopian(jdn: number): { year: number; month: number; day: number } {
+export function jdnToEthiopian(jdn: number): { 
+  year: number; 
+  month: number; 
+  day: number; 
+  monthNameAm: string; 
+  monthNameEn: string;
+} {
   const r = (jdn - 1723856) % 1461
   const n = (r % 365) + 365 * Math.floor(r / 1460)
   const year = 4 * Math.floor((jdn - 1723856) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460)
   const month = Math.floor(n / 30) + 1
   const day = (n % 30) + 1
-  return { year, month, day }
+  const monthInfo = ETHIOPIAN_MONTHS[month - 1] || ETHIOPIAN_MONTHS[0]
+  return { 
+    year, 
+    month, 
+    day, 
+    monthNameAm: monthInfo.nameAm, 
+    monthNameEn: monthInfo.nameEn 
+  }
 }
 
 export function ethiopianToJDN(year: number, month: number, day: number): number {

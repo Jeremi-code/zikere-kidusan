@@ -78,6 +78,7 @@ export function applyThemeToDocument(theme: AppTheme) {
   const root = document.documentElement
   root.classList.remove('theme-light', 'theme-sepia', 'theme-dark', 'dark')
   root.classList.add(`theme-${theme}`)
+  root.dataset.theme = theme === 'dark' ? 'dark' : 'light'
   if (theme === 'dark') {
     root.classList.add('dark')
   }
