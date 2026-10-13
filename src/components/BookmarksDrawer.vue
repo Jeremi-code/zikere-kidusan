@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { bookmarks, toggleBookmarkItem } from '../lib/preferences'
 import { X, Bookmark, Trash2 } from 'lucide-vue-next'
-import EthiopianCross from './EthiopianCross.vue'
+import ZikereLogo from './ZikereLogo.vue'
 
 defineProps<{
   isOpen: boolean
@@ -19,66 +19,289 @@ function handleSelect(item: { month: number; day: number }) {
 </script>
 
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 overflow-hidden bg-black/60 backdrop-blur-xs flex justify-end">
-    <div 
-      class="reading-folio w-full max-w-sm h-full shadow-2xl flex flex-col border-l-2 border-amber-800/30 animate-in slide-in-from-right duration-200 manuscript-card"
-      @click.stop
-    >
-      <div class="p-4 bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-50 flex items-center justify-between border-b border-amber-700/50">
-        <div class="flex items-center gap-2">
-          <EthiopianCross variant="lalibela" :size="20" class="text-amber-300" />
-          <h2 class="text-base font-bold font-ethiopic-serif text-amber-100">የተቀመጡ ንባቦች (Bookmarks)</h2>
-        </div>
-        <button 
-          @click="emit('close')"
-          class="p-1.5 rounded-xl hover:bg-amber-800 text-amber-200 transition-colors cursor-pointer"
+  <Teleport to="body">
+    <Transition name="drawer">
+      <div
+        v-if="isOpen"
+        class="drawer-backdrop"
+        @click="emit('close')"
+      >
+        <aside
+          class="drawer-panel"
+          @click.stop
         >
-          <X class="w-5 h-5" />
-        </button>
-      </div>
-
-      <div class="flex-1 overflow-y-auto p-4 space-y-2.5">
-        <div v-if="bookmarks.length === 0" class="py-20 text-center text-stone-400 font-ethiopic-serif">
-          <Bookmark class="w-12 h-12 mx-auto mb-3 opacity-30 text-amber-800" />
-          <p class="text-sm font-semibold text-stone-600 dark:text-stone-300">ምንም የተቀመጠ ንባብ የለም</p>
-          <p class="text-xs text-stone-400 mt-1">በንባቡ ገጽ ላይ የዕልባት ምልክቱን ተጭነው ያስቀምጡ</p>
-        </div>
-
-        <div
-          v-for="item in bookmarks"
-          :key="item.id"
-          class="p-3.5 rounded-2xl border border-amber-200/70 dark:border-stone-800 hover:border-amber-400 hover:bg-amber-100/30 dark:hover:bg-stone-800/60 transition-all flex items-start justify-between gap-2.5 group manuscript-card"
-        >
-          <button
-            @click="handleSelect(item)"
-            class="flex-1 text-left cursor-pointer font-ethiopic-serif"
-          >
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-800/50">
-                {{ item.dateLabel }}
-              </span>
+          <!-- Header -->
+          <header class="drawer-header">
+            <div class="brand-box">
+              <ZikereLogo :size="24" />
+              <div>
+                <h2 class="title">የተቀመጡ ንባቦች</h2>
+                <span class="sub">Bookmarks</span>
+              </div>
             </div>
-            <h4 class="text-sm font-bold text-stone-900 dark:text-stone-100 mt-1.5 line-clamp-1 group-hover:text-amber-900 dark:group-hover:text-amber-300">
-              {{ item.title }}
-            </h4>
-            <p v-if="item.titleEn" class="text-xs text-stone-500 dark:text-stone-400 line-clamp-1 mt-0.5 font-latin-body">
-              {{ item.titleEn }}
-            </p>
-          </button>
+            <button
+              @click="emit('close')"
+              class="close-btn"
+              aria-label="ዝጋ (Close)"
+            >
+              <X class="w-5 h-5" />
+            </button>
+          </header>
 
-          <button
-            @click="toggleBookmarkItem(item)"
-            class="p-1.5 rounded-xl text-stone-600 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-amber-950/60 transition-colors cursor-pointer"
-            title="አስወግድ (Remove)"
-          >
-            <Trash2 class="w-4 h-4" />
-          </button>
-        </div>
-      </div>
+          <!-- Bookmarks List -->
+          <div class="drawer-content">
+            <div v-if="bookmarks.length === 0" class="empty-box">
+              <Bookmark class="empty-icon" />
+              <p class="empty-text">ምንም የተቀመጠ ንባብ የለም</p>
+              <p class="empty-sub">በቀኑ ንባብ ላይ የዕልባት ምልክቱን ተጭነው ያስቀምጡ</p>
+            </div>
 
-      <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-xs text-stone-800 dark:text-stone-200 text-center font-ethiopic-serif font-bold">
-        {{ bookmarks.length }} የተቀመጡ ቀናት
+            <div
+              v-for="item in bookmarks"
+              :key="item.id"
+              class="bookmark-card"
+            >
+              <button
+                @click="handleSelect(item)"
+                class="card-click"
+              >
+                <div class="card-chip">
+                  <span>{{ item.dateLabel }}</span>
+                </div>
+                <h4 class="card-title">
+                  {{ item.title }}
+                </h4>
+                <p v-if="item.titleEn" class="card-sub">
+                  {{ item.titleEn }}
+                </p>
+              </button>
+
+              <button
+                @click="toggleBookmarkItem(item)"
+                class="delete-btn"
+                title="አስወግድ (Remove)"
+              >
+                <Trash2 class="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="drawer-footer">
+            {{ bookmarks.length }} የተቀመጡ ቀናት
+          </footer>
+        </aside>
       </div>
-    </div>
-  </div>
+    </Transition>
+  </Teleport>
 </template>
+
+<style scoped>
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.drawer-panel {
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border-left: 1px solid var(--line);
+  box-shadow: -14px 0 38px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-header {
+  padding: 24px 22px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.sub {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.close-btn:hover {
+  background: var(--line);
+  color: var(--text);
+}
+
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.empty-box {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.empty-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 12px;
+  opacity: 0.35;
+  color: var(--rubric);
+}
+
+.empty-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.empty-sub {
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--text-3);
+}
+
+.bookmark-card {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bookmark-card:hover {
+  border-color: var(--accent);
+}
+
+.card-click {
+  flex: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rubric);
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-title:hover {
+  color: var(--rubric);
+}
+
+.card-sub {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-btn {
+  padding: 8px;
+  border-radius: 10px;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+  margin-top: 2px;
+}
+
+.delete-btn:hover {
+  color: var(--rubric);
+  background: var(--line);
+}
+
+.drawer-footer {
+  padding: 16px 22px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+/* ═══ Transitions ═══ */
+.drawer-enter-active,
+.drawer-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-enter-active .drawer-panel,
+.drawer-leave-active .drawer-panel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-enter-from,
+.drawer-leave-to {
+  opacity: 0;
+}
+
+.drawer-enter-from .drawer-panel,
+.drawer-leave-to .drawer-panel {
+  transform: translateX(100%);
+}
+</style>

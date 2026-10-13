@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { ETHIOPIAN_MONTHS, numberToGeez, type EthiopianDate, getTodayEthiopian } from '../lib/ethiopianCalendar'
 import { X, RotateCcw } from 'lucide-vue-next'
-import EthiopianCross from './EthiopianCross.vue'
+import ZikereLogo from './ZikereLogo.vue'
 
 const props = defineProps<{
   isOpen: boolean
@@ -37,92 +37,299 @@ function jumpToToday() {
 </script>
 
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xs">
-    <div 
-      class="reading-folio rounded-3xl shadow-2xl border-2 max-w-lg w-full overflow-hidden flex flex-col max-h-[90vh] manuscript-card"
-      @click.stop
-    >
-      <div class="bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-50 px-5 py-3.5 flex items-center justify-between border-b border-amber-700/50">
-        <div class="flex items-center gap-2">
-          <EthiopianCross variant="lalibela" :size="20" class="text-amber-300" />
-          <h2 class="text-base sm:text-lg font-bold font-ethiopic-serif text-amber-100">ቀን ይምረጡ (Select Date)</h2>
-        </div>
-        <button 
-          @click="emit('close')"
-          class="p-1.5 rounded-xl hover:bg-amber-800/80 text-amber-200 transition-colors cursor-pointer"
-        >
-          <X class="w-5 h-5" />
-        </button>
-      </div>
-
-      <div class="p-4 sm:p-5 overflow-y-auto space-y-5">
-        <div>
-          <label class="block text-xs font-bold text-amber-950 dark:text-amber-200 mb-2 font-ethiopic-serif">
-            ወራት (Months)
-          </label>
-          <div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 font-ethiopic-serif">
-            <button
-              v-for="m in ETHIOPIAN_MONTHS"
-              :key="m.id"
-              @click="selectedMonth = m.id"
-              class="px-2 py-2 text-xs font-semibold rounded-2xl border transition-all text-center flex flex-col items-center justify-center cursor-pointer"
-              :class="selectedMonth === m.id 
-                ? 'bg-amber-900 text-amber-100 border-amber-700 shadow-xs ring-2 ring-amber-500/50' 
-                : 'bg-amber-100/30 text-stone-800 border-amber-300/40 hover:bg-amber-100/70 dark:bg-stone-900/60 dark:text-stone-200 dark:border-stone-800'"
-            >
-              <span>{{ m.nameAm }}</span>
-              <span class="text-[10px] opacity-75 font-normal font-latin-display">{{ m.nameEn }}</span>
+  <Teleport to="body">
+    <Transition name="picker">
+      <div v-if="isOpen" class="picker-backdrop" @click="emit('close')">
+        <div class="picker-panel" @click.stop>
+          <header class="picker-header">
+            <div class="brand-row">
+              <ZikereLogo :size="24" />
+              <div>
+                <h2 class="title">ቀን ይምረጡ</h2>
+                <span class="sub">Select Date</span>
+              </div>
+            </div>
+            <button @click="emit('close')" class="close-btn" aria-label="Close">
+              <X class="w-5 h-5" />
             </button>
-          </div>
-        </div>
+          </header>
 
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <label class="text-xs font-bold text-amber-950 dark:text-amber-200 font-ethiopic-serif">
-              ቀናት (Days in {{ currentMonthInfo.nameAm }})
-            </label>
-            <span class="text-xs text-stone-500 font-latin-display">
-              {{ currentMonthInfo.nameEn }} (1 - {{ daysInSelectedMonth }})
-            </span>
+          <div class="picker-body">
+            <!-- Month selector -->
+            <div>
+              <span class="section-label">ወር (Month)</span>
+              <div class="month-grid">
+                <button
+                  v-for="m in ETHIOPIAN_MONTHS"
+                  :key="m.id"
+                  @click="selectedMonth = m.id"
+                  class="month-btn"
+                  :class="{ active: selectedMonth === m.id }"
+                >
+                  <span class="m-am">{{ m.nameAm }}</span>
+                  <span class="m-en">{{ m.nameEn }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Day selector -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="section-label">{{ currentMonthInfo.nameAm }} — ቀናት</span>
+                <span class="text-xs text-[var(--text-3)] font-latin-body">{{ daysInSelectedMonth }} days</span>
+              </div>
+              <div class="days-grid">
+                <button
+                  v-for="d in daysInSelectedMonth"
+                  :key="d"
+                  @click="pickDay(d)"
+                  class="day-btn"
+                  :class="{
+                    active: selectedMonth === currentDate.month && d === currentDate.day
+                  }"
+                >
+                  <span class="d-geez">{{ numberToGeez(d) }}</span>
+                  <span class="d-num">{{ d }}</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div class="grid grid-cols-5 sm:grid-cols-6 gap-1.5 font-ethiopic-serif">
-            <button
-              v-for="d in daysInSelectedMonth"
-              :key="d"
-              @click="pickDay(d)"
-              class="py-2.5 px-1 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer"
-              :class="currentDate.month === selectedMonth && currentDate.day === d
-                ? 'bg-amber-900 text-amber-100 border-amber-700 shadow-sm font-bold ring-2 ring-amber-400' 
-                : 'bg-amber-100/30 text-stone-800 border-amber-300/40 hover:bg-amber-100/60 active:scale-95 dark:bg-stone-900/50 dark:text-stone-200 dark:border-stone-800'"
-            >
-              <span class="text-base font-bold" :class="currentDate.month === selectedMonth && currentDate.day === d ? 'text-amber-200' : 'text-amber-950 dark:text-amber-300'">
-                {{ numberToGeez(d) }}
-              </span>
-              <span class="text-[10px] opacity-70 font-latin-display">
-                {{ d }}
-              </span>
+          <footer class="picker-footer">
+            <button @click="jumpToToday" class="today-btn">
+              <RotateCcw class="w-3.5 h-3.5" />
+              <span>ወደ ዛሬ ተመለስ (Today)</span>
             </button>
-          </div>
+          </footer>
         </div>
       </div>
-
-      <div class="px-5 py-3 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 flex items-center justify-between">
-        <button
-          @click="jumpToToday"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-amber-950 dark:text-amber-200 bg-amber-100 dark:bg-amber-950 hover:bg-amber-200 transition-colors border border-amber-300/80 dark:border-amber-700 cursor-pointer font-ethiopic-serif"
-        >
-          <RotateCcw class="w-3.5 h-3.5" />
-          <span>የዛሬ ቀን (Today)</span>
-        </button>
-
-        <button
-          @click="emit('close')"
-          class="px-4 py-1.5 rounded-xl text-xs font-bold text-stone-800 dark:text-stone-200 hover:bg-amber-100/70 dark:hover:bg-amber-950/60 transition-colors cursor-pointer font-ethiopic-serif"
-        >
-          ዝጋ (Close)
-        </button>
-      </div>
-    </div>
-  </div>
+    </Transition>
+  </Teleport>
 </template>
+
+<style scoped>
+.picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.picker-panel {
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-header {
+  padding: 22px 24px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sub {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.close-btn:hover {
+  background: var(--line);
+  color: var(--text);
+}
+
+.picker-body {
+  padding: 22px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.month-btn {
+  padding: 10px 6px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.month-btn:hover {
+  border-color: var(--accent);
+}
+
+.month-btn.active {
+  background: color-mix(in oklab, var(--rubric) 12%, var(--surface));
+  border-color: var(--rubric);
+  color: var(--rubric);
+  font-weight: 700;
+}
+
+.m-am {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.m-en {
+  font-size: 9.5px;
+  opacity: 0.75;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.day-btn {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.day-btn:hover {
+  border-color: var(--accent);
+}
+
+.day-btn.active {
+  background: var(--rubric);
+  border-color: var(--rubric);
+  color: #fff;
+  font-weight: 700;
+}
+
+.d-geez {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.d-num {
+  font-size: 9.5px;
+  opacity: 0.7;
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.picker-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  display: flex;
+  justify-content: center;
+}
+
+.today-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.today-btn:hover {
+  border-color: var(--rubric);
+  color: var(--rubric);
+}
+
+/* ═══ Transitions ═══ */
+.picker-enter-active,
+.picker-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.picker-enter-active .picker-panel,
+.picker-leave-active .picker-panel {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.picker-enter-from,
+.picker-leave-to {
+  opacity: 0;
+}
+
+.picker-enter-from .picker-panel,
+.picker-leave-to .picker-panel {
+  transform: scale(0.95) translateY(8px);
+}
+</style>
