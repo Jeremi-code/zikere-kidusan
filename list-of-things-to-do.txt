@@ -1,0 +1,9 @@
+- [x] change the name of the app to Zikere Kidusan (ዝክረ ቅዱሳን)
+- [x] remove 1 minute reading chip
+- [x] test the ui with the real data (integrated synaxariumData.json with real bilingual stories, scriptures, and feasts)
+- finding better theme for the modal 
+- [x] search commeoration in amharic or english is in uppercase (resolved: switched Cinzel all-caps font to Cormorant Garamond) 
+- the font is still weird
+- [x] scrape the rest of the data
+- [x] share functionality
+- ui adjustments
