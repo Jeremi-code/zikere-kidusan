@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Separator Splash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="/fonts/Menbere-Variable.ttf" as="font" type="font/ttf" crossorigin />
+<style>
+  /* Menbere (Aleme Tadesse, SIL OFL) for Ge'ez; Outfit for Latin. Menbere is limited to the
+     Ethiopic blocks, so one stack renders mixed Amharic/English lines correctly. */
+  @font-face {
+    font-family: 'Menbere'; src: url('/fonts/Menbere-Variable.ttf') format('truetype');
+    font-weight: 100 700; font-display: block;
+    unicode-range: U+1200-139F, U+2D80-2DDF, U+AB00-AB2F, U+1E7E0-1E7FF;
+  }
+  /*
+   * Splash for mark 01, "The Separator" ፨
+   *
+   * A scribe closes each saint's commemoration with nine dots before beginning the next.
+   * The splash is that gesture, played once, and the dots then become the calendar:
+   *
+   * The whole thing is ~1s. A splash is a threshold, not a show.
+   *
+   *   0.00s  the red centre is inked first, the holy name, as rubric
+   *   0.07s  four inner dots, then four outer, 22ms apart, each soaking into the page
+   *   0.12s  ዝክረ ቅዱሳን is written syllable by syllable
+   *   0.50s  exit: the nine dots fly down and become the day markers of the one-line
+   *          calendar, left to right. The red centre lands on today, and the outer two
+   *          land on the peeking days at the edges (the line carries on). The home page
+   *          assembles around them.
+   *   1.05s  hand-off: the flying dots are swapped for the real markers
+   *
+   * ?theme=light|dark forces a theme (default follows the system).
+   * ?embed hides the controls.  ?hold stops before the exit.
+   */
+  :root {
+    --bg: #f5ecdb; --bg-edge: #e6d6b8; --surface: #fffdf8; --line: rgba(120, 82, 34, .14);
+    --ink: #1b130b; --text: #1b130b; --text-2: #5e4a36; --text-3: #8b765e;
+    --accent: #9c6a1f; --rubric: #c0322a; 
+    --numeral: linear-gradient(175deg, #c48a35, #8a5418);
+    --bleed-op: .16; --grain-op: .22; --rule-op: .035;
+    --font: 'Menbere', 'Outfit', system-ui, sans-serif;
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+    --ease-io: cubic-bezier(.65, 0, .35, 1);
+    --ease-drop: cubic-bezier(.34, 1.4, .64, 1);
+    --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+    --glass-border: rgba(120, 82, 34, .12); --glass-shadow: rgba(40, 24, 6, .16); --sheen: .5; --rim: .7;
+  }
+  :root[data-theme="dark"] {
+    --bg: #110c07; --bg-edge: #050403; --surface: #1a130c; --line: rgba(217, 165, 74, .14);
+    --ink: #d9a54a; --text: #efe4cf; --text-2: #bfa988; --text-3: #85715a;
+    --accent: #e2b25a; --rubric: #e0493d; 
+    --numeral: linear-gradient(175deg, #fff1c4 -30%, #d9a54a 30%, #9c6a1f);
+    --bleed-op: .32; --grain-op: .12; --rule-op: 0;
+    --glass-border: rgba(255, 255, 255, .08); --glass-shadow: rgba(0, 0, 0, .5); --sheen: .07; --rim: .12;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); }
+  body { overflow: hidden; font-family: var(--font); color: var(--text); -webkit-font-smoothing: antialiased; }
+  button { font: inherit; color: inherit; background: none; border: 0; }
+
+  .run { position: fixed; inset: 0; background: var(--bg); }
+  /* Shared vellum grain: under both the splash and the home page, so nothing pops at hand-off. */
+  .run::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    opacity: var(--grain-op); mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .32  0 0 0 0 .16  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-theme="dark"] .run::before { mix-blend-mode: screen; }
+
+  /* ═══ Splash layer ═══════════════════════════════════════════ */
+  .veil {
+    position: absolute; inset: 0; z-index: 2;
+    background: radial-gradient(120% 80% at 50% 42%, var(--bg) 40%, var(--bg-edge) 100%);
+    transition: opacity .35s ease .05s;
+  }
+  /* the faint ruling scribes prick into a quire */
+  .veil::after {
+    content: ''; position: absolute; inset: 0; opacity: var(--rule-op);
+    background: repeating-linear-gradient(transparent 0 33px, var(--ink) 33px 34px);
+    mask: linear-gradient(90deg, transparent 6%, #000 14% 86%, transparent 94%);
+  }
+  .brand { position: absolute; left: 0; right: 0; top: calc(50% + 40px); z-index: 3; text-align: center; transition: opacity .18s ease; }
+  .word { font-weight: 700; font-size: 34px; line-height: 1.15; letter-spacing: .05em; white-space: pre; color: var(--ink); }
+  .word span {
+    display: inline-block; opacity: 0; filter: blur(5px); transform: translateY(4px);
+    animation: write .28s var(--ease-out) forwards; animation-delay: calc(.12s + var(--i) * 26ms);
+  }
+  .latin {
+    margin-top: 10px; font: 600 11px/1 var(--font); letter-spacing: .5em; text-indent: .5em;
+    text-transform: uppercase; color: var(--text-3); opacity: 0; animation: fade .3s .28s ease-out forwards;
+  }
+
+  /* The nine dots live in their own fixed layer so they can fly anywhere on the page. */
+  .dots { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+  .slot { position: absolute; transition: transform .42s var(--ease-io), opacity .42s var(--ease-io); transition-delay: var(--fly-d, 0s); }
+  .ink, .bleed { position: absolute; inset: 0; border-radius: 50%; background: var(--ink); }
+  .slot.red .ink, .slot.red .bleed { background: var(--rubric); }
+  .ink { opacity: 0; transform: scale(.2); animation: drop .3s var(--ease-drop) forwards; animation-delay: var(--d); }
+  .bleed { opacity: 0; filter: blur(5px); animation: soak .6s var(--ease-out) forwards; animation-delay: var(--d); }
+
+  /* ═══ Home layer ═════════════════════════════════════════════ */
+  .home { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+  .scroll { position: absolute; inset: 0; overflow-y: auto; padding: 54px 20px 120px; scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+  .rv { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .45s var(--ease-out); transition-delay: var(--rd, 0s); }
+  .is-exit .rv { opacity: 1; transform: none; }
+
+  .statusbar { position: absolute; top: 0; left: 0; right: 0; height: 46px; padding: 0 28px; z-index: 5; display: flex; align-items: center; justify-content: space-between; font: 600 14px var(--font); color: var(--text); }
+  .embed-only { display: none; }
+  .embed .embed-only { display: flex; }
+
+  .h-top { display: flex; align-items: center; justify-content: space-between; }
+  .h-brand { display: flex; align-items: center; gap: 10px; font: 700 17px var(--font); letter-spacing: .03em; }
+  .h-brand svg { width: 24px; height: 24px; }
+
+  .h-hero { margin-top: 26px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: end; }
+  .h-day { font: 500 88px/.82 var(--font); background: var(--numeral); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .h-wd { font: 600 13px var(--font); color: var(--rubric); letter-spacing: .08em; }
+  .h-mo { font: 700 25px/1.15 var(--font); margin-top: 2px; }
+  .h-gr { font: 500 12.5px var(--font); color: var(--text-3); margin-top: 6px; }
+
+  /* The one-line calendar: nine columns, full-bleed. The outer two peek in at the edges. */
+  .strip { margin: 22px -20px 0; padding: 12px 0 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .strip-row { display: grid; grid-template-columns: repeat(9, calc(100vw / 8.4)); justify-content: center; }
+  .day { display: grid; justify-items: center; gap: 4px; }
+  .day .wd { font: 500 10.5px var(--font); color: var(--text-3); }
+  .day .n { font: 600 17px var(--font); color: var(--text-2); }
+  .day.peek .wd, .day.peek .n { opacity: .3; }
+  .day.today .wd { color: var(--rubric); }
+  .day.today .n { color: var(--text); }
+  .mk { width: 6px; height: 6px; margin-top: 3px; border-radius: 50%; background: var(--ink); visibility: hidden; }
+  .day.peek .mk { opacity: .3; }
+  .day.today .mk { width: 8px; height: 8px; margin-top: 2px; background: var(--rubric); }
+  .is-landed .mk { visibility: visible; }
+  .is-landed .dots { display: none; }
+
+  .h-label { margin: 26px 0 10px; display: flex; align-items: center; gap: 10px; font: 600 11.5px var(--font); color: var(--accent); letter-spacing: .14em; }
+  .h-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .h-list { list-style: none; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); padding: 4px 18px; }
+  .h-list li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; align-items: baseline; padding: 12px 0; font: 500 15.5px/1.45 var(--font); border-bottom: 1px solid var(--line); }
+  .h-list li:last-child { border-bottom: 0; }
+  .h-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; transform: translateY(-2px); background: var(--rubric); }
+  .h-list small { display: block; font: 500 11.5px var(--font); color: var(--text-3); margin-top: 1px; }
+  .h-read { margin-top: 34px; }
+  .h-read .k { text-align: center; font: 600 11px var(--font); letter-spacing: .2em; color: var(--accent); }
+  .h-read h2 { text-align: center; font: 700 24px/1.35 var(--font); margin-top: 8px; }
+  .h-read p { margin-top: 16px; font: 400 17px/1.95 var(--font); }
+  .h-read p:first-of-type::first-letter { color: var(--rubric); font-weight: 700; }
+
+  /* ── Tab bar: iOS 26 Liquid Glass, after anquar's BottomNav ──────────
+     A glass capsule of tabs with a pill that springs to the chosen tab (stretching on its way), and
+     Search in a glass circle of its own beside it. Scrolling down shrinks the capsule to the tab you're
+     on; scrolling up, or a tap, opens it again. */
+  .nav {
+    position: absolute; left: 14px; right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); z-index: 3;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; pointer-events: none;
+    transform: translateY(110px); transition: transform .45s var(--ease-out) var(--rd, 0s);
+  }
+  .is-exit .nav { transform: none; }
+  .glass {
+    position: relative; overflow: hidden; pointer-events: auto; border-radius: 999px;
+    background: color-mix(in oklab, var(--bg) 62%, transparent);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%);
+    transform: translateZ(0);
+  }
+  .glass::before, .glass::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+  .glass::before { background: linear-gradient(135deg, rgba(255, 255, 255, var(--sheen)) 0%, transparent 50%, rgba(255, 255, 255, calc(var(--sheen) / 3)) 100%); }
+  .glass::after { box-shadow: inset 0 1px 1px rgba(255, 255, 255, var(--rim)), inset 0 -1px 1px rgba(255, 255, 255, calc(var(--rim) / 3)); }
+
+  .capsule { height: 62px; width: 100%; max-width: calc(100% - 72px); padding: 4px; transition: max-width .5s var(--ease-spring); }
+  .capsule.small { max-width: 62px; }
+  .pill {
+    position: absolute; top: 4px; left: 4px; height: 52px; width: calc((100% - 8px) / 3); border-radius: 999px;
+    background: color-mix(in oklab, var(--rubric) 13%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, var(--rim));
+    transition: transform .42s var(--ease-spring), opacity .3s ease;
+  }
+  .capsule.small .pill, .capsule.off .pill { opacity: 0; }
+  .tabs { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); height: 100%; }
+  .tab {
+    display: grid; place-items: center; align-content: center; gap: 2px; border-radius: 999px; cursor: pointer;
+    font: 500 10px var(--font); color: var(--text-3); transition: color .2s, opacity .2s;
+  }
+  .tab.on { color: var(--text); }
+  .capsule.small .tab:not(.on) { opacity: 0; pointer-events: none; }
+  .capsule.small .tab.on { position: absolute; inset: 0; }
+  .capsule.small .tab span { display: none; }
+  .search { width: 62px; height: 62px; flex: none; display: grid; place-items: center; cursor: pointer; color: var(--text-2); transition: transform .2s; }
+  .search:active { transform: scale(.9); }
+
+  .ic { width: 23px; height: 23px; transition: transform .25s var(--ease-spring); }
+  .ic .acc { fill: none; }
+  .on > .ic, .search.on .ic { color: var(--rubric); }
+  .on > .ic .acc, .search.on .ic .acc { fill: currentColor; }
+  .tab:active .ic { transform: scale(.88); }
+
+  /* ═══ Exit choreography ══════════════════════════════════════ */
+  .is-exit .brand { opacity: 0 !important; animation: none; }
+  .is-exit .word span { animation: none; opacity: 1; filter: none; transform: none; }
+  .is-exit .veil { opacity: 0; }
+  /* The splash layers are only paint: once it's done they must never catch a tap or a scroll. */
+  .veil, .brand { pointer-events: none; }
+  .is-exit .bleed { animation: none; opacity: 0; }
+
+  @keyframes drop { 0% { opacity: 0; transform: scale(.2); } 55% { opacity: 1; transform: scale(1.14); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes soak { 0% { opacity: 0; transform: scale(.5); } 25% { opacity: var(--bleed-op); } 100% { opacity: 0; transform: scale(2.1); } }
+  @keyframes write { to { opacity: 1; filter: blur(0); transform: none; } }
+  @keyframes fade { to { opacity: 1; } }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0s !important; transition-duration: 1ms !important; transition-delay: 0s !important; }
+    .bleed { display: none; }
+  }
+
+  .controls { position: fixed; top: 12px; right: 12px; z-index: 10; display: flex; gap: 6px; }
+  .controls button {
+    font: 600 10.5px var(--font); letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+    color: var(--text-3); border: 1px solid currentColor; border-radius: 999px; padding: 6px 12px; opacity: .75;
+  }
+  .embed .controls { display: none; }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="replay()">Replay</button>
+</div>
+
+<template id="tpl">
+  <div class="run">
+    <!-- Home: already laid out underneath, so the dots have real targets to fly to. -->
+    <main class="home">
+      <div class="statusbar embed-only"><span>9:41</span><span>●●●</span></div>
+      <div class="scroll">
+        <header class="h-top rv" style="--rd:.2s">
+          <div class="h-brand"><svg viewBox="0 0 512 512" class="js-mini"></svg>ዝክረ ቅዱሳን</div>
+        </header>
+
+        <section class="h-hero rv" style="--rd:.12s">
+          <div class="h-day js-day"></div>
+          <div>
+            <div class="h-wd js-wd"></div>
+            <div class="h-mo js-mo"></div>
+            <div class="h-gr js-gr"></div>
+          </div>
+        </section>
+
+        <nav class="strip" aria-label="ሳምንት"><div class="strip-row js-strip"></div></nav>
+
+        <div class="h-label rv" style="--rd:.28s">ዓመታዊ በዓላት · ፫</div>
+        <ul class="h-list rv" style="--rd:.31s">
+          <li><div>የቅዱስ ሳዊሮስ ወደ ግብጽ መፍለስ<small>St. Severus flees to Egypt</small></div></li>
+          <li><div>አባ ማትያስ ዘደብረ ሊባኖስ<small>Abba Matthias of Debre Libanos</small></div></li>
+          <li><div>ቅዱስ ሕርያቆስና ቅድስት ቴክላ ሰማዕት<small>SS. Cyriacus &amp; Thecla, martyrs</small></div></li>
+        </ul>
+        <div class="h-label rv" style="--rd:.34s">ወርኃዊ በዓላት · ፬</div>
+        <ul class="h-list rv" style="--rd:.37s">
+          <li><div>ቅዱስ ዑራኤል ሊቀ መላእክት</div></li>
+          <li><div>ቅዱስ ቴዎድሮስ ሰማዕት</div></li>
+        </ul>
+
+        <article class="h-read rv" style="--rd:.4s">
+          <div class="k">መጽሐፈ ስንክሳር</div>
+          <h2>የቅዱስ ሳዊሮስ ወደ ግብጽ መፍለስ</h2>
+          <p>በዚህች ዕለት ቤተ ክርስቲያን የአንጾኪያው ሊቀ ጳጳሳት የቅዱስ ሳዊሮስን ወደ ግብጽ መሰደድ ታስባለች፤ እንዲሁም የደብረ ሊባኖሱን አባ ማትያስን፣ ቅዱስ ሕርያቆስንና ሰማዕቷን ቅድስት ቴክላን ታስባለች።</p>
+          <p>የኬልቄዶንን እምነት በተቀበለው በንጉሥ ዮስጥያኖስ ዘመን፣ ንግሥቲቱ የቀናችውን ኦርቶዶክሳዊት ሃይማኖት ትከተልና አባ ሳዊሮስን ታከብር ነበር። ንጉሡ ሊቀ ጳጳሳቱን በሰውር ሊገድለው እንዳሰበ ባወቀች ጊዜ ከአንጾኪያ ወጥቶ እንዲሸሽ ለመነችው።</p>
+          <p>ሳዊሮስ ስለ ክርስቶስ ለመሞት ዝግጁ የነበረ ቢሆንም፣ በምእመናን ልመና ወደ ግብጽ ተሰደደ። በዚያም በብዙ ገዳማት እየተዘዋወረ ምእመናንን በትምህርቱ አጸናቸው።</p>
+        </article>
+      </div>
+
+      <nav class="nav" style="--rd:.3s" aria-label="ዋና">
+        <div class="glass capsule js-capsule">
+          <span class="pill js-pill"></span>
+          <div class="tabs">
+            <button class="tab on" aria-current="page" aria-label="ዛሬ"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 9h12"/><path d="M10 3h4M10 21h4M6 7.5v3M18 7.5v3"/></svg><span>ዛሬ</span></button>
+            <button class="tab" aria-label="ቀን መቁጠሪያ"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10a7 7 0 0 1 14 0v9a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z"/><g fill="currentColor" stroke="none"><circle cx="9" cy="12.2" r="0.78"/><circle cx="9" cy="15" r="0.78"/><circle cx="9" cy="17.8" r="0.78"/><circle cx="12" cy="12.2" r="0.78"/><circle cx="12" cy="15" r="1.2"/><circle cx="12" cy="17.8" r="0.78"/><circle cx="15" cy="12.2" r="0.78"/><circle cx="15" cy="15" r="0.78"/><circle cx="15" cy="17.8" r="0.78"/></g></svg><span>ቀን መቁጠሪያ</span></button>
+            <button class="tab" aria-label="የተቀመጡ"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="13.5" height="15.5" rx="1.8"/><path d="M8.2 3.5V19M13.35 7.3v7.4M11.1 9.7h4.5"/><g class="acc"><path d="M13.6 19h2.6v2.9l-1.3-1-1.3 1z"/></g></svg><span>የተቀመጡ</span></button>
+          </div>
+        </div>
+        <button class="glass search js-search" aria-label="ፍለጋ"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.3"/><path d="M15.1 15.1l3.2 3.2"/><g fill="currentColor" stroke="none"><circle cx="10.5" cy="7.6" r="0.68"/><circle cx="10.5" cy="13.4" r="0.68"/><circle cx="7.6" cy="10.5" r="0.68"/><circle cx="13.4" cy="10.5" r="0.68"/><circle cx="10.5" cy="10.5" r="1.05"/><path d="M19.6 17.9l1.7 1.7-1.7 1.7-1.7-1.7z"/></g></svg></button>
+      </nav>
+    </main>
+
+    <!-- Splash -->
+    <div class="veil"></div>
+    <div class="brand" aria-hidden="true">
+      <div class="word"></div>
+      <div class="latin">Zikere · Kidusan</div>
+    </div>
+    <div class="dots"></div>
+  </div>
+</template>
+
+<script>
+  const params = new URLSearchParams(location.search)
+  if (params.has('embed')) document.documentElement.classList.add('embed')
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  function setTheme(t) { document.documentElement.dataset.theme = t }
+  setTheme(params.get('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+
+  // ── Ethiopian date (same rules as src/lib/ethiopianCalendar.ts) ──────────
+  const MONTHS = ['መስከረም', 'ጥቅምት', 'ኅዳር', 'ታኅሣሥ', 'ጥር', 'የካቲት', 'መጋቢት', 'ሚያዝያ', 'ግንቦት', 'ሰኔ', 'ሐምሌ', 'ነሐሴ', 'ጳጉሜን']
+  const WEEKDAYS = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ']
+  const WEEKDAYS_SHORT = ['እሑድ', 'ሰኞ', 'ማክሰ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ']
+  function toEthiopian(d) {
+    const jdn = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5) + 2440588
+    const r = (jdn - 1723856) % 1461
+    const n = (r % 365) + 365 * Math.floor(r / 1460)
+    const year = 4 * Math.floor((jdn - 1723856) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460)
+    return { year, month: Math.floor(n / 30) + 1, day: (n % 30) + 1, weekday: d.getDay() }
+  }
+  function geez(num) {
+    const ones = ['', '፩', '፪', '፫', '፬', '፭', '፮', '፯', '፰', '፱']
+    const tens = ['', '፲', '፳', '፴', '፵', '፶', '፷', '፸', '፹', '፺']
+    if (num < 100) return tens[Math.floor(num / 10)] + ones[num % 10]
+    const hi = Math.floor(num / 100), lo = num % 100
+    return (hi > 1 ? geez(hi) : '') + '፻' + (lo ? geez(lo) : '')
+  }
+
+  // ── The mark: nine dots as a cross (geometry matches build-concepts.ts) ──
+  // [dx, dy, r] on the 512 grid, inking delay (s), and which calendar day (-4..4) the dot becomes.
+  const DOTS = [
+    { dx: 0, dy: 0, r: 30, d: 0, day: 0, red: true },
+    { dx: 0, dy: -80, r: 26, d: 0.07, day: -1 }, { dx: 80, dy: 0, r: 26, d: 0.092, day: 1 },
+    { dx: 0, dy: 80, r: 26, d: 0.114, day: 2 }, { dx: -80, dy: 0, r: 26, d: 0.136, day: -2 },
+    { dx: 0, dy: -156, r: 22, d: 0.158, day: -3 }, { dx: 156, dy: 0, r: 22, d: 0.18, day: 3 },
+    { dx: 0, dy: 156, r: 22, d: 0.202, day: 4 }, { dx: -156, dy: 0, r: 22, d: 0.224, day: -4 },
+  ]
+  const MARK_PX = 148
+
+  function miniMark(svg) {
+    svg.innerHTML = DOTS.map((p) =>
+      `<circle cx="${256 + p.dx}" cy="${256 + p.dy}" r="${p.r}" fill="var(${p.red ? '--rubric' : '--ink'})"/>`).join('')
+  }
+
+  function build(run) {
+    const today = new Date()
+    const e = toEthiopian(today)
+
+    // Splash text
+    const word = run.querySelector('.word')
+    ;[...'ዝክረ ቅዱሳን'].forEach((ch, i) => {
+      const s = document.createElement('span')
+      s.textContent = ch
+      s.style.setProperty('--i', i)
+      word.appendChild(s)
+    })
+
+    // Home: hero
+    run.querySelector('.js-day').textContent = geez(e.day)
+    run.querySelector('.js-wd').textContent = WEEKDAYS[e.weekday]
+    run.querySelector('.js-mo').textContent = `${MONTHS[e.month - 1]} ${geez(e.year)}`
+    run.querySelector('.js-gr').textContent = today.toLocaleDateString('en-GB', { weekday: 'long' }) + ' · ' +
+      today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+    miniMark(run.querySelector('.js-mini'))
+
+    // Home: the one-line calendar, today in the middle
+    const strip = run.querySelector('.js-strip')
+    for (let k = -4; k <= 4; k++) {
+      const d = new Date(today); d.setDate(today.getDate() + k)
+      const de = toEthiopian(d)
+      const col = document.createElement('div')
+      col.className = 'day' + (k === 0 ? ' today' : '') + (Math.abs(k) === 4 ? ' peek' : '')
+      col.dataset.k = k
+      col.innerHTML = `<span class="wd rv" style="--rd:${0.22 + Math.abs(k) * 0.015}s">${WEEKDAYS_SHORT[de.weekday]}</span>` +
+        `<span class="n rv" style="--rd:${0.24 + Math.abs(k) * 0.015}s">${geez(de.day)}</span><span class="mk"></span>`
+      strip.appendChild(col)
+    }
+
+    // The nine dots, positioned over the splash
+    const layer = run.querySelector('.dots')
+    const k = MARK_PX / 512
+    const cx = innerWidth / 2, cy = innerHeight / 2 - 52
+    for (const p of DOTS) {
+      const size = p.r * 2 * k
+      const slot = document.createElement('div')
+      slot.className = 'slot' + (p.red ? ' red' : '')
+      Object.assign(slot.style, { width: size + 'px', height: size + 'px', left: cx + p.dx * k - size / 2 + 'px', top: cy + p.dy * k - size / 2 + 'px' })
+      slot.style.setProperty('--d', p.d + 's')
+      // Land left to right, so the calendar line is "written" like a line of Ge'ez.
+      slot.style.setProperty('--fly-d', (0.02 + (p.day + 4) * 0.014) + 's')
+      slot.innerHTML = '<span class="bleed"></span><span class="ink"></span>'
+      slot.dataset.day = p.day
+      layer.appendChild(slot)
+    }
+  }
+
+  // ── Tab bar behaviour (after anquar's BottomNav) ─────────────────────────
+  const SHRINK_AFTER_PX = 48
+  function setupNav(run) {
+    const capsule = run.querySelector('.js-capsule'), pill = run.querySelector('.js-pill')
+    const search = run.querySelector('.js-search'), tabs = [...run.querySelectorAll('.tab')]
+    const scroller = run.querySelector('.scroll')
+    let index = 0
+
+    function select(i) {
+      capsule.classList.remove('small', 'off')
+      search.classList.remove('on')
+      tabs.forEach((t, n) => {
+        t.classList.toggle('on', n === i)
+        n === i ? t.setAttribute('aria-current', 'page') : t.removeAttribute('aria-current')
+      })
+      if (i !== index && !REDUCED) {
+        // It stretches on its way, as the glass does.
+        pill.animate([{ scale: '1 1' }, { scale: '1.16 1', offset: 0.45 }, { scale: '1 1' }], { duration: 420, easing: 'ease-out' })
+      }
+      pill.style.transform = `translateX(${i * 100}%)`
+      index = i
+    }
+    tabs.forEach((t, i) => t.addEventListener('click', (e) => {
+      // A tap on the shrunk bar only opens it again.
+      if (capsule.classList.contains('small')) { e.stopPropagation(); capsule.classList.remove('small'); return }
+      select(i)
+    }))
+    capsule.addEventListener('click', () => capsule.classList.remove('small'))
+    search.addEventListener('click', () => {
+      const on = !search.classList.contains('on')
+      search.classList.toggle('on', on)
+      capsule.classList.toggle('off', on)
+      tabs.forEach((t, n) => t.classList.toggle('on', !on && n === index))
+    })
+
+    let last = 0
+    scroller.addEventListener('scroll', () => {
+      const y = scroller.scrollTop
+      if (Math.abs(y - last) < 6) return
+      capsule.classList.toggle('small', y > last && y > SHRINK_AFTER_PX)
+      last = y
+    }, { passive: true })
+  }
+
+  // FLIP each dot onto its calendar marker.
+  function fly(run) {
+    for (const slot of run.querySelectorAll('.slot')) {
+      const mk = run.querySelector(`.day[data-k="${slot.dataset.day}"] .mk`)
+      const a = slot.getBoundingClientRect(), b = mk.getBoundingClientRect()
+      const tx = b.left + b.width / 2 - (a.left + a.width / 2)
+      const ty = b.top + b.height / 2 - (a.top + a.height / 2)
+      slot.style.transform = `translate(${tx}px, ${ty}px) scale(${b.width / a.width})`
+      if (Math.abs(+slot.dataset.day) === 4) slot.style.opacity = '.3'
+    }
+  }
+
+  let timers = []
+  function replay() {
+    timers.forEach(clearTimeout); timers = []
+    document.querySelector('.run')?.remove()
+    const run = document.getElementById('tpl').content.firstElementChild.cloneNode(true)
+    document.body.appendChild(run)
+    build(run)
+    setupNav(run)
+    if (params.has('hold')) return
+    const exitAt = REDUCED ? 0 : 500
+    timers.push(setTimeout(() => { run.classList.add('is-exit'); fly(run) }, exitAt))
+    // last dot: .02s + 8 × .014s stagger + .42s flight ≈ .55s
+    timers.push(setTimeout(() => run.classList.add('is-landed'), exitAt + (REDUCED ? 50 : 560)))
+  }
+  window.addEventListener('message', (ev) => {
+    if (ev.data === 'replay') replay()
+    if (ev.data?.theme) setTheme(ev.data.theme)
+  })
+  // Start only once Menbere and Outfit are in, so the wordmark never swaps mid-animation.
+  Promise.all([document.fonts.load("700 34px Menbere", 'ዝክረ'), document.fonts.load('500 12px Outfit')])
+    .catch(() => {}).then(replay)
+</script>
+</body>
+</html>
