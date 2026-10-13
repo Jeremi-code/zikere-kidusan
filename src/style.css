@@ -460,15 +460,62 @@ button {
   color: var(--text);
 }
 
+.verse {
+  margin-top: 20px;
+  padding-left: 14px;
+  border-left: 2px solid var(--rubric);
+  font: 300 16px/1.75 var(--font);
+  color: var(--text-2);
+}
+
+.verse cite {
+  display: block;
+  margin-top: 4px;
+  font: 600 12px var(--font);
+  font-style: normal;
+  color: var(--rubric);
+  letter-spacing: .04em;
+}
+
+.sep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin: 24px 0;
+}
+
+.sep i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: .55;
+}
+
+.sep i.r {
+  background: var(--rubric);
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+}
+
 .h-read p {
   margin-top: 16px;
-  font: 400 17px/1.95 var(--font);
+  font: 400 17.5px/1.95 var(--font);
   color: var(--text);
 }
 
 .h-read p:first-of-type::first-letter {
   color: var(--rubric);
   font-weight: 700;
+}
+
+.blessing {
+  margin-top: 22px;
+  text-align: center;
+  font: 500 15.5px/1.8 var(--font);
+  color: var(--rubric);
 }
 
 /* ═══ Liquid Glass Navigation Dock ═══ */

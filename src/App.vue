@@ -246,31 +246,37 @@ onMounted(() => {
         </nav>
 
         <template v-if="currentReading">
-          <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.28s">
+          <article class="h-read rv" style="--rd:.28s">
+            <div class="k">መጽሐፈ ስንክሳር</div>
+            <h2>{{ currentReading.title }}</h2>
+
+            <blockquote v-if="currentReading.scripture" class="verse">
+              {{ currentReading.scripture.verse }}
+              <cite>{{ currentReading.scripture.reference }}</cite>
+            </blockquote>
+
+            <p v-for="(para, idx) in readingStoryParagraphs" :key="idx">
+              {{ para }}
+            </p>
+          </article>
+
+          <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.34s">
             ዓመታዊ በዓላት · {{ numberToGeez(currentReading.annualFeasts.length) }}
           </div>
-          <ul v-if="currentReading.annualFeasts?.length" class="h-list rv" style="--rd:.31s">
+          <ul v-if="currentReading.annualFeasts?.length" class="h-list rv" style="--rd:.37s">
             <li v-for="(f, i) in currentReading.annualFeasts" :key="i">
               <div>{{ f }}<small v-if="currentReading.annualFeastsEn?.[i]">{{ currentReading.annualFeastsEn[i] }}</small></div>
             </li>
           </ul>
 
-          <div v-if="currentReading.monthlyFeasts?.length" class="h-label rv" style="--rd:.34s">
+          <div v-if="currentReading.monthlyFeasts?.length" class="h-label rv" style="--rd:.4s">
             ወርኃዊ በዓላት · {{ numberToGeez(currentReading.monthlyFeasts.length) }}
           </div>
-          <ul v-if="currentReading.monthlyFeasts?.length" class="h-list monthly rv" style="--rd:.37s">
+          <ul v-if="currentReading.monthlyFeasts?.length" class="h-list monthly rv" style="--rd:.43s">
             <li v-for="(f, i) in currentReading.monthlyFeasts" :key="i">
               <div>{{ f }}<small v-if="currentReading.monthlyFeastsEn?.[i]">{{ currentReading.monthlyFeastsEn[i] }}</small></div>
             </li>
           </ul>
-
-          <article class="h-read rv" style="--rd:.4s">
-            <div class="k">መጽሐፈ ስንክሳር</div>
-            <h2>{{ currentReading.title }}</h2>
-            <p v-for="(para, idx) in readingStoryParagraphs" :key="idx">
-              {{ para }}
-            </p>
-          </article>
         </template>
         <template v-else>
           <div class="py-12 text-center text-[var(--text-3)] rv">
