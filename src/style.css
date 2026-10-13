@@ -210,8 +210,15 @@ button {
   position: absolute;
   inset: 0;
   overflow-y: auto;
-  padding: 54px 20px 120px;
   scrollbar-width: none;
+}
+
+.scroll-content {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 54px 20px 120px;
+  min-height: 100%;
 }
 
 .scroll::-webkit-scrollbar {
@@ -310,14 +317,8 @@ button {
 
 .strip-row {
   display: grid;
-  grid-template-columns: repeat(9, calc(100vw / 8.4));
+  grid-template-columns: repeat(9, min(calc(100vw / 8.4), calc(480px / 9)));
   justify-content: center;
-}
-
-@media (min-width: 600px) {
-  .strip-row {
-    grid-template-columns: repeat(9, calc(560px / 9));
-  }
 }
 
 .day {

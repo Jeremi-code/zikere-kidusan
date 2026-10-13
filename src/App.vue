@@ -190,7 +190,7 @@ onMounted(() => {
     <!-- Home Layer -->
     <main class="home">
       <div ref="scroller" class="scroll" @scroll="handleScroll">
-        <div class="max-w-lg mx-auto w-full px-3 sm:px-6">
+        <div class="scroll-content">
           <header class="h-top rv" style="--rd:.2s">
           <div class="h-brand">
             <svg viewBox="0 0 512 512" class="w-6 h-6">
