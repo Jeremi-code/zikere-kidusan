@@ -16,13 +16,12 @@ function handleSelect(item: BookmarkItem) {
 <template>
   <div class="bookmarks-page rv" style="--rd:.1s">
     <header class="page-header">
-      <div class="header-top">
-        <span class="header-tag">የግል ምርጫዎች</span>
+      <div class="header-main">
+        <h1 class="page-title">የተቀመጡ ንባቦች</h1>
         <span v-if="bookmarks.length > 0" class="header-count">
           {{ numberToGeez(bookmarks.length) }} ቀናት
         </span>
       </div>
-      <h1 class="page-title">የተቀመጡ ንባቦች</h1>
       <p class="page-sub">ለተመስጦና ለጸሎት ያስቀመጧቸው የዕለት ንባባት ስብስብ</p>
     </header>
 
@@ -83,19 +82,11 @@ function handleSelect(item: BookmarkItem) {
   border-bottom: 1px solid var(--line);
 }
 
-.header-top {
+.header-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.header-tag {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
+  gap: 12px;
 }
 
 .header-count {
