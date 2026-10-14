@@ -22,31 +22,71 @@ function getMonthNameAm(monthNum: number): string {
   return ETHIOPIAN_MONTHS[monthNum - 1]?.nameAm || ''
 }
 
-const filteredResults = computed(() => {
+interface SearchResultItem {
+  entry: SynaxariumEntry
+  matchedFeast?: string
+  feastType?: 'annual' | 'monthly'
+  secondaryText?: string
+}
+
+const filteredResults = computed<SearchResultItem[]>(() => {
   const q = searchQuery.value.trim().toLowerCase()
   if (!q) return []
 
-  return props.allReadings.filter((entry) => {
+  const results: SearchResultItem[] = []
+
+  for (const entry of props.allReadings) {
+    const matchedAnnual = entry.annualFeasts?.find((f) => f.toLowerCase().includes(q)) ||
+                          entry.annualFeastsEn?.find((f) => f.toLowerCase().includes(q))
+    const matchedMonthly = entry.monthlyFeasts?.find((f) => f.toLowerCase().includes(q)) ||
+                           entry.monthlyFeastsEn?.find((f) => f.toLowerCase().includes(q))
+
     const titleMatch = entry.title?.toLowerCase().includes(q) || entry.titleEn?.toLowerCase().includes(q)
     const storyMatch = entry.story?.toLowerCase().includes(q) || entry.storyEn?.toLowerCase().includes(q)
-    const annualMatch = entry.annualFeasts?.some((f) => f.toLowerCase().includes(q)) || 
-                        entry.annualFeastsEn?.some((f) => f.toLowerCase().includes(q))
-    const monthlyMatch = entry.monthlyFeasts?.some((f) => f.toLowerCase().includes(q)) || 
-                         entry.monthlyFeastsEn?.some((f) => f.toLowerCase().includes(q))
     const scriptureMatch = entry.scripture?.verse?.toLowerCase().includes(q) ||
                            entry.scriptureEn?.verse?.toLowerCase().includes(q) ||
                            entry.scripture?.reference?.toLowerCase().includes(q) ||
                            entry.scriptureEn?.reference?.toLowerCase().includes(q)
 
     if (searchFilter.value === 'annual') {
-      return annualMatch
-    }
-    if (searchFilter.value === 'monthly') {
-      return monthlyMatch
+      if (!matchedAnnual) continue
+      results.push({
+        entry,
+        matchedFeast: matchedAnnual,
+        feastType: 'annual',
+        secondaryText: entry.title !== matchedAnnual ? entry.title : undefined
+      })
+    } else if (searchFilter.value === 'monthly') {
+      if (!matchedMonthly) continue
+      results.push({
+        entry,
+        matchedFeast: matchedMonthly,
+        feastType: 'monthly',
+        secondaryText: entry.title
+      })
+    } else {
+      if (!matchedAnnual && !matchedMonthly && !titleMatch && !storyMatch && !scriptureMatch) {
+        continue
+      }
+      
+      const matchedFeast = matchedAnnual || matchedMonthly
+      const feastType = matchedAnnual ? 'annual' : (matchedMonthly ? 'monthly' : undefined)
+      const secondaryText = matchedFeast 
+        ? (entry.title !== matchedFeast ? entry.title : undefined)
+        : entry.title
+
+      results.push({
+        entry,
+        matchedFeast,
+        feastType,
+        secondaryText
+      })
     }
 
-    return titleMatch || storyMatch || annualMatch || monthlyMatch || scriptureMatch
-  }).slice(0, 40)
+    if (results.length >= 40) break
+  }
+
+  return results
 })
 
 function handleSelect(entry: SynaxariumEntry) {
@@ -141,31 +181,34 @@ function clearQuery() {
             </div>
 
             <button
-              v-for="entry in filteredResults"
-              :key="entry.id"
-              @click="handleSelect(entry)"
+              v-for="item in filteredResults"
+              :key="item.entry.id + (item.matchedFeast || '')"
+              @click="handleSelect(item.entry)"
               class="result-item"
             >
               <div class="date-badge">
-                <span class="badge-month">{{ getMonthNameAm(entry.month) }}</span>
-                <span class="badge-day">{{ numberToGeez(entry.day) }}</span>
+                <span class="badge-month">{{ getMonthNameAm(item.entry.month) }}</span>
+                <span class="badge-day">{{ numberToGeez(item.entry.day) }}</span>
               </div>
 
               <div class="entry-details">
                 <div class="entry-meta">
                   <span class="entry-chip">
-                    {{ getMonthNameAm(entry.month) }} {{ numberToGeez(entry.day) }} ({{ entry.day }})
+                    {{ getMonthNameAm(item.entry.month) }} {{ numberToGeez(item.entry.day) }} ({{ item.entry.day }})
                   </span>
-                  <span v-if="entry.annualFeasts?.length" class="feast-pill">
-                    {{ entry.annualFeasts.length }} በዓላት
+                  <span v-if="item.feastType === 'monthly'" class="feast-pill monthly">
+                    ወርኃዊ በዓል
+                  </span>
+                  <span v-else-if="item.feastType === 'annual'" class="feast-pill annual">
+                    ዓመታዊ በዓል
+                  </span>
+                  <span v-else-if="item.entry.annualFeasts?.length" class="feast-pill">
+                    {{ item.entry.annualFeasts.length }} በዓላት
                   </span>
                 </div>
-                <h4 class="entry-title">{{ entry.title }}</h4>
-                <p 
-                  v-if="searchFilter === 'monthly' ? entry.monthlyFeasts?.length : entry.annualFeasts?.length" 
-                  class="entry-feasts"
-                >
-                  {{ (searchFilter === 'monthly' ? entry.monthlyFeasts : entry.annualFeasts).join(', ') }}
+                <h4 class="entry-title">{{ item.matchedFeast || item.entry.title }}</h4>
+                <p v-if="item.secondaryText" class="entry-feasts">
+                  {{ item.secondaryText }}
                 </p>
               </div>
             </button>
@@ -455,11 +498,23 @@ function clearQuery() {
 .feast-pill {
   font-size: 9.5px;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 999px;
   background: var(--bg);
   border: 1px solid var(--line);
   color: var(--text-3);
+}
+
+.feast-pill.annual {
+  border-color: var(--rubric);
+  color: var(--rubric);
+  background: color-mix(in oklab, var(--rubric) 10%, var(--bg));
+}
+
+.feast-pill.monthly {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 10%, var(--bg));
 }
 
 .entry-title {
