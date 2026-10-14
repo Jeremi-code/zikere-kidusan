@@ -5,6 +5,7 @@ import {
   numberToGeez, 
   ethiopianToJDN, 
   jdnToEthiopian, 
+  jdnToGregorian,
   getWeekdayFromJDN,
   type EthiopianDate 
 } from './lib/ethiopianCalendar'
@@ -55,9 +56,11 @@ const DOTS = [
 const titleLetters = [...'ዝክረ ቅዱሳን']
 
 const gregorianDateString = computed(() => {
-  const d = new Date()
-  return d.toLocaleDateString('en-GB', { weekday: 'long' }) + ' · ' +
-    d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  const jdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
+  const g = jdnToGregorian(jdn)
+  const d = new Date(Date.UTC(g.year, g.month - 1, g.day))
+  return d.toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' }) + ' · ' +
+    d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
 })
 
 const calendarDays = computed(() => {
