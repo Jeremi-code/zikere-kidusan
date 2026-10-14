@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { currentTheme, currentFontSize, type AppTheme, type FontSize } from '../lib/preferences'
-import { Sun, Moon, Type, Sparkles, Info } from 'lucide-vue-next'
+import { Sun, Moon, Type, Sparkles } from 'lucide-vue-next'
 
 const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
   { id: 'light', label: 'የብርሃን ብራና', sub: 'Light Vellum', icon: Sun },
@@ -69,29 +69,6 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleClass: string
               <span class="font-sub">{{ f.sub }}</span>
             </div>
           </button>
-        </div>
-      </section>
-
-      <section class="preview-box">
-        <div class="preview-header">የቅድመ እይታ መስኮት</div>
-        <div class="preview-content">
-          <p class="preview-blessing">በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ አሜን።</p>
-          <p class="preview-body">
-            መጽሐፈ ስንክሳር ዘወርኃ መስከረም። በዚችም ዕለት የቅዱሳን ጻድቃንና ሰማዕታት የገድላቸውና የዕረፍታቸው መታሰቢያ ይደረጋል፤ በረከታቸው ከእኛ ጋር ትኑር።
-          </p>
-        </div>
-      </section>
-
-      <section class="about-card">
-        <div class="about-icon">
-          <Info class="w-5 h-5" />
-        </div>
-        <div class="about-text">
-          <h3>ስለ ዝክረ ቅዱሳን</h3>
-          <p>
-            የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን የዕለት ንባባት መጽሐፈ ስንክሳር ዲጂታል መድረክ። 
-            ያለ በይነመረብ (Offline) ሙሉ አገልግሎት ይሰጣል።
-          </p>
         </div>
       </section>
     </div>
@@ -287,71 +264,5 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleClass: string
   font-size: 10.5px;
   color: var(--text-3);
   margin-top: 1px;
-}
-
-.preview-box {
-  padding: 22px;
-  border-radius: 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
-
-.preview-header {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.preview-content {
-  font-family: var(--font-ethiopic-serif, serif);
-}
-
-.preview-blessing {
-  color: var(--rubric);
-  font-weight: 700;
-  margin-bottom: 8px;
-  font-size: 14.5px;
-}
-
-.preview-body {
-  color: var(--text);
-  line-height: 1.85;
-}
-
-.about-card {
-  display: flex;
-  gap: 16px;
-  padding: 20px;
-  border-radius: 20px;
-  background: color-mix(in oklab, var(--surface) 60%, transparent);
-  border: 1px solid var(--line);
-}
-
-.about-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--surface);
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.about-text h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0 0 4px;
-}
-
-.about-text p {
-  font-size: 12.5px;
-  line-height: 1.65;
-  color: var(--text-3);
-  margin: 0;
 }
 </style>
