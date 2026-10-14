@@ -12,6 +12,7 @@ import { synaxariumData } from './lib/synaxariumData'
 import type { SynaxariumEntry } from './lib/types'
 import { 
   currentTheme, 
+  currentLanguage,
   applyThemeToDocument,
   isBookmarked,
   toggleBookmarkItem
@@ -86,9 +87,18 @@ const currentReading = computed(() => {
   )
 })
 
+const displayTitle = computed(() => {
+  if (!currentReading.value) return ''
+  return currentLanguage.value === 'en' && currentReading.value.titleEn
+    ? currentReading.value.titleEn
+    : currentReading.value.title
+})
+
 const storyParagraphs = computed(() => {
   if (!currentReading.value) return []
-  const val = currentReading.value.story
+  const val = currentLanguage.value === 'en' && currentReading.value.storyEn
+    ? currentReading.value.storyEn
+    : currentReading.value.story
   if (!val) return []
   const text = Array.isArray(val) ? val.filter(Boolean).join('\n\n') : String(val)
   return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
@@ -102,6 +112,28 @@ const storyBodyParagraphs = computed(() => {
 const storyBlessing = computed(() => {
   if (storyParagraphs.value.length <= 1) return ''
   return storyParagraphs.value[storyParagraphs.value.length - 1]
+})
+
+const displayScripture = computed(() => {
+  if (!currentReading.value) return undefined
+  if (currentLanguage.value === 'en') {
+    return currentReading.value.scriptureEn || currentReading.value.scripture
+  }
+  return currentReading.value.scripture || currentReading.value.scriptureEn
+})
+
+const displayAnnualFeasts = computed(() => {
+  if (!currentReading.value) return []
+  return (currentLanguage.value === 'en' && currentReading.value.annualFeastsEn?.length
+    ? currentReading.value.annualFeastsEn
+    : currentReading.value.annualFeasts) || []
+})
+
+const displayMonthlyFeasts = computed(() => {
+  if (!currentReading.value) return []
+  return (currentLanguage.value === 'en' && currentReading.value.monthlyFeastsEn?.length
+    ? currentReading.value.monthlyFeastsEn
+    : currentReading.value.monthlyFeasts) || []
 })
 
 function handleSelectDate({ year, month, day }: { year?: number; month: number; day: number }) {
@@ -288,24 +320,24 @@ onMounted(() => {
           <template v-if="currentReading">
             <article class="h-read rv" style="--rd:.28s">
               <div class="h-read-header">
-                <div class="k">መጽሐፈ ስንክሳር</div>
+                <div class="k">{{ currentLanguage === 'am' ? 'መጽሐፈ ስንክሳር' : 'THE SYNAXARIUM' }}</div>
                 <button
                   type="button"
                   class="h-bookmark-btn"
                   :class="{ active: isCurrentSaved }"
                   @click="toggleCurrentReadingBookmark"
-                  :title="isCurrentSaved ? 'ከዕልባት አስወግድ' : 'በዕልባት አስቀምጥ'"
+                  :title="isCurrentSaved ? (currentLanguage === 'am' ? 'ከዕልባት አስወግድ' : 'Remove bookmark') : (currentLanguage === 'am' ? 'በዕልባት አስቀምጥ' : 'Bookmark')"
                   aria-label="ዕልባት"
                 >
                   <Bookmark class="w-3.5 h-3.5" :fill="isCurrentSaved ? 'currentColor' : 'none'" />
-                  <span>{{ isCurrentSaved ? 'ተቀምጧል' : 'አስቀምጥ' }}</span>
+                  <span>{{ isCurrentSaved ? (currentLanguage === 'am' ? 'ተቀምጧል' : 'Saved') : (currentLanguage === 'am' ? 'አስቀምጥ' : 'Save') }}</span>
                 </button>
               </div>
-              <h2>{{ currentReading.title }}</h2>
+              <h2>{{ displayTitle }}</h2>
 
-              <blockquote v-if="currentReading.scripture" class="verse">
-                {{ currentReading.scripture.verse }}
-                <cite>{{ currentReading.scripture.reference }}</cite>
+              <blockquote v-if="displayScripture" class="verse">
+                {{ displayScripture.verse }}
+                <cite>{{ displayScripture.reference }}</cite>
               </blockquote>
 
               <p 
@@ -324,21 +356,21 @@ onMounted(() => {
               </template>
             </article>
 
-            <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.34s">
-              ዓመታዊ በዓላት · {{ numberToGeez(currentReading.annualFeasts.length) }}
+            <div v-if="displayAnnualFeasts.length" class="h-label rv" style="--rd:.34s">
+              {{ currentLanguage === 'am' ? `ዓመታዊ በዓላት · ${numberToGeez(displayAnnualFeasts.length)}` : `Annual Feasts · ${displayAnnualFeasts.length}` }}
             </div>
-            <ul v-if="currentReading.annualFeasts?.length" class="h-list rv" style="--rd:.37s">
-              <li v-for="(f, i) in currentReading.annualFeasts" :key="i">
-                <div>{{ f }}<small v-if="currentReading.annualFeastsEn?.[i]">{{ currentReading.annualFeastsEn[i] }}</small></div>
+            <ul v-if="displayAnnualFeasts.length" class="h-list rv" style="--rd:.37s">
+              <li v-for="(f, i) in displayAnnualFeasts" :key="i">
+                <div>{{ f }}<small v-if="currentLanguage === 'am' && currentReading.annualFeastsEn?.[i]">{{ currentReading.annualFeastsEn[i] }}</small></div>
               </li>
             </ul>
 
-            <div v-if="currentReading.monthlyFeasts?.length" class="h-label rv" style="--rd:.4s">
-              ወርኃዊ በዓላት · {{ numberToGeez(currentReading.monthlyFeasts.length) }}
+            <div v-if="displayMonthlyFeasts.length" class="h-label rv" style="--rd:.4s">
+              {{ currentLanguage === 'am' ? `ወርኃዊ በዓላት · ${numberToGeez(displayMonthlyFeasts.length)}` : `Monthly Feasts · ${displayMonthlyFeasts.length}` }}
             </div>
-            <ul v-if="currentReading.monthlyFeasts?.length" class="h-list monthly rv" style="--rd:.43s">
-              <li v-for="(f, i) in currentReading.monthlyFeasts" :key="i">
-                <div>{{ f }}<small v-if="currentReading.monthlyFeastsEn?.[i]">{{ currentReading.monthlyFeastsEn[i] }}</small></div>
+            <ul v-if="displayMonthlyFeasts.length" class="h-list monthly rv" style="--rd:.43s">
+              <li v-for="(f, i) in displayMonthlyFeasts" :key="i">
+                <div>{{ f }}<small v-if="currentLanguage === 'am' && currentReading.monthlyFeastsEn?.[i]">{{ currentReading.monthlyFeastsEn[i] }}</small></div>
               </li>
             </ul>
           </template>

@@ -1,10 +1,22 @@
 <script setup lang="ts">
-import { currentTheme, currentFontSize, type AppTheme, type FontSize } from '../lib/preferences'
+import { 
+  currentTheme, 
+  currentFontSize, 
+  currentLanguage,
+  type AppTheme, 
+  type FontSize,
+  type SupportedLanguage
+} from '../lib/preferences'
 import { Sun, Moon, ExternalLink } from 'lucide-vue-next'
 
 const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
   { id: 'light', label: 'የብርሃን ብራና', sub: 'Light Vellum', icon: Sun },
   { id: 'dark', label: 'የማሕሌት ሌሊት', sub: 'Monastic Dark', icon: Moon }
+]
+
+const languages: { id: SupportedLanguage; label: string; sub: string; symbol: string }[] = [
+  { id: 'am', label: 'አማርኛ', sub: 'ግዕዝ / Amharic', symbol: 'አማ' },
+  { id: 'en', label: 'English', sub: 'English Translation', symbol: 'EN' }
 ]
 
 const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string }[] = [
@@ -50,6 +62,33 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
               </div>
               <div class="theme-icon-wrap">
                 <component :is="t.icon" class="w-4 h-4" />
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="h-label">ቋንቋ · LANGUAGE</div>
+        <div class="lang-grid">
+          <button
+            v-for="l in languages"
+            :key="l.id"
+            type="button"
+            class="lang-card"
+            :class="{ active: currentLanguage === l.id }"
+            @click="currentLanguage = l.id"
+          >
+            <div class="lang-symbol-box" :class="l.id">
+              <span class="lang-symbol">{{ l.symbol }}</span>
+            </div>
+            <div class="lang-card-body">
+              <div class="lang-meta">
+                <span class="lang-name">{{ l.label }}</span>
+                <span class="lang-sub">{{ l.sub }}</span>
+              </div>
+              <div class="lang-indicator">
+                <span class="indicator-dot"></span>
               </div>
             </div>
           </button>
@@ -164,13 +203,15 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
   flex-direction: column;
 }
 
-.theme-grid {
+.theme-grid,
+.lang-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
-.theme-card {
+.theme-card,
+.lang-card {
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -183,12 +224,14 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.theme-card:hover {
+.theme-card:hover,
+.lang-card:hover {
   border-color: var(--accent);
   transform: translateY(-1px);
 }
 
-.theme-card.active {
+.theme-card.active,
+.lang-card.active {
   border-color: var(--rubric);
   background: color-mix(in oklab, var(--rubric) 6%, var(--surface));
   box-shadow: 0 4px 16px color-mix(in oklab, var(--rubric) 12%, transparent);
@@ -240,23 +283,48 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
   width: 60%;
 }
 
-.theme-card-body {
+.lang-symbol-box {
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.lang-symbol {
+  font: 700 16px var(--font);
+  color: var(--text);
+  letter-spacing: .04em;
+}
+
+.lang-card.active .lang-symbol {
+  color: var(--rubric);
+}
+
+.theme-card-body,
+.lang-card-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.theme-meta {
+.theme-meta,
+.lang-meta {
   display: flex;
   flex-direction: column;
 }
 
-.theme-name {
+.theme-name,
+.lang-name {
   font: 600 13px var(--font);
   color: var(--text);
 }
 
-.theme-sub {
+.theme-sub,
+.lang-sub {
   font: 400 10.5px var(--font);
   color: var(--text-3);
   margin-top: 1px;
@@ -276,6 +344,33 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
 .theme-card.active .theme-icon-wrap {
   color: var(--rubric);
   border-color: color-mix(in oklab, var(--rubric) 25%, transparent);
+}
+
+.lang-indicator {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--line);
+  background: var(--bg);
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.lang-card.active .lang-indicator {
+  border-color: var(--rubric);
+}
+
+.lang-card.active .indicator-dot {
+  background: var(--rubric);
+  transform: scale(1.1);
 }
 
 .font-grid {

@@ -1,5 +1,6 @@
 import { ref, watch } from 'vue'
 import type { SupportedLanguage } from './types'
+export type { SupportedLanguage }
 
 export type AppTheme = 'light' | 'sepia' | 'dark'
 export type FontSize = 'sm' | 'base' | 'lg' | 'xl'
