@@ -442,15 +442,77 @@ button {
   margin-top: 1px;
 }
 
+:root {
+  --reading-font-size: 17.5px;
+  --reading-line-height: 1.95;
+  --reading-drop-size: 58px;
+}
+
+:root[data-font-size="sm"] {
+  --reading-font-size: 15.5px;
+  --reading-line-height: 1.9;
+  --reading-drop-size: 50px;
+}
+
+:root[data-font-size="base"] {
+  --reading-font-size: 17.5px;
+  --reading-line-height: 1.95;
+  --reading-drop-size: 58px;
+}
+
+:root[data-font-size="lg"] {
+  --reading-font-size: 19.5px;
+  --reading-line-height: 2.0;
+  --reading-drop-size: 64px;
+}
+
+:root[data-font-size="xl"] {
+  --reading-font-size: 22px;
+  --reading-line-height: 2.05;
+  --reading-drop-size: 72px;
+}
+
 .h-read {
   margin-top: 34px;
 }
 
+.h-read-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .h-read .k {
-  text-align: center;
+  text-align: left;
   font: 600 11px var(--font);
   letter-spacing: .2em;
   color: var(--accent);
+}
+
+.h-bookmark-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-3);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.h-bookmark-btn:hover {
+  color: var(--rubric);
+  border-color: var(--rubric);
+}
+
+.h-bookmark-btn.active {
+  color: var(--rubric);
+  border-color: var(--rubric);
+  background: color-mix(in oklab, var(--rubric) 10%, var(--surface));
 }
 
 .h-read h2 {
@@ -502,13 +564,19 @@ button {
 
 .h-read p {
   margin-top: 16px;
-  font: 400 17.5px/1.95 var(--font);
+  font-size: var(--reading-font-size);
+  line-height: var(--reading-line-height);
+  font-family: var(--font);
+  font-weight: 400;
   color: var(--text);
 }
 
 .h-read p.drop::first-letter {
   float: left;
-  font: 700 58px/0.82 var(--font);
+  font-size: var(--reading-drop-size);
+  line-height: 0.82;
+  font-family: var(--font);
+  font-weight: 700;
   color: var(--rubric);
   margin: 6px 10px 0 0;
 }
@@ -517,7 +585,10 @@ button {
 .h-read .blessing {
   margin-top: 22px;
   text-align: center;
-  font: 500 16px/1.85 var(--font);
+  font-size: calc(var(--reading-font-size) - 1.5px);
+  line-height: var(--reading-line-height);
+  font-family: var(--font);
+  font-weight: 500;
   color: var(--rubric) !important;
 }
 

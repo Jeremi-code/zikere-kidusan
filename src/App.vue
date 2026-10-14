@@ -12,20 +12,21 @@ import { synaxariumData } from './lib/synaxariumData'
 import type { SynaxariumEntry } from './lib/types'
 import { 
   currentTheme, 
-  applyThemeToDocument 
+  applyThemeToDocument,
+  isBookmarked,
+  toggleBookmarkItem
 } from './lib/preferences'
+import { Bookmark } from 'lucide-vue-next'
 import EthiopianDatePicker from './components/EthiopianDatePicker.vue'
 import SearchModal from './components/SearchModal.vue'
-import BookmarksDrawer from './components/BookmarksDrawer.vue'
-import SettingsModal from './components/SettingsModal.vue'
+import BookmarksView from './components/BookmarksView.vue'
+import SettingsView from './components/SettingsView.vue'
 
 const allReadings = synaxariumData as SynaxariumEntry[]
 const currentDate = ref<EthiopianDate>(getTodayEthiopian())
 
 const isDatePickerOpen = ref(false)
 const isSearchOpen = ref(false)
-const isBookmarksOpen = ref(false)
-const isSettingsOpen = ref(false)
 
 const activeTabIndex = ref(0)
 const isCapsuleSmall = ref(false)
@@ -148,19 +149,54 @@ function flyDots() {
   })
 }
 
+const isCurrentSaved = computed(() => {
+  return isBookmarked(currentDate.value.month, currentDate.value.day)
+})
+
+function toggleCurrentReadingBookmark() {
+  if (!currentReading.value) return
+  toggleBookmarkItem({
+    id: `${currentDate.value.month}_${currentDate.value.day}`,
+    month: currentDate.value.month,
+    day: currentDate.value.day,
+    year: currentDate.value.year,
+    title: currentReading.value.title,
+    titleEn: currentReading.value.titleEn,
+    dateLabel: `${currentDate.value.monthName} ${currentDate.value.geezDay}`
+  })
+}
+
 function handleTabClick(idx: number) {
   if (isCapsuleSmall.value) {
     isCapsuleSmall.value = false
     return
   }
   isSearchActive.value = false
-  activeTabIndex.value = idx
-  if (idx === 0) {
+  if (activeTabIndex.value === idx && idx === 0) {
     currentDate.value = getTodayEthiopian()
-  } else if (idx === 1) {
-    isBookmarksOpen.value = true
-  } else if (idx === 2) {
-    isSettingsOpen.value = true
+  } else {
+    activeTabIndex.value = idx
+  }
+  if (scroller.value) {
+    scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
+function handleSelectBookmark(date: { month: number; day: number; year?: number }) {
+  handleSelectDate(date)
+  activeTabIndex.value = 0
+  if (scroller.value) {
+    scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
+function handleSelectFromSearch(date: { month: number; day: number; year?: number }) {
+  handleSelectDate(date)
+  activeTabIndex.value = 0
+  isSearchOpen.value = false
+  isSearchActive.value = false
+  if (scroller.value) {
+    scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 
@@ -217,85 +253,111 @@ onMounted(() => {
           </div>
         </header>
 
-        <section 
-          class="h-hero rv cursor-pointer hover:opacity-90 transition-opacity" 
-          style="--rd:.12s"
-          @click="isDatePickerOpen = true"
-          title="የቀን መቁጠሪያ ይክፈቱ (Open Calendar)"
-        >
-          <div class="h-day">{{ currentDate.geezDay }}</div>
-          <div>
-            <div class="h-wd">{{ currentDate.weekdayNameAm }}</div>
-            <div class="h-mo">{{ currentDate.monthName }} {{ currentDate.geezYear }}</div>
-            <div class="h-gr">{{ gregorianDateString }}</div>
-          </div>
-        </section>
+        <template v-if="activeTabIndex === 0">
+          <section 
+            class="h-hero rv cursor-pointer hover:opacity-90 transition-opacity" 
+            style="--rd:.12s"
+            @click="isDatePickerOpen = true"
+            title="የቀን መቁጠሪያ ይክፈቱ (Open Calendar)"
+          >
+            <div class="h-day">{{ currentDate.geezDay }}</div>
+            <div>
+              <div class="h-wd">{{ currentDate.weekdayNameAm }}</div>
+              <div class="h-mo">{{ currentDate.monthName }} {{ currentDate.geezYear }}</div>
+              <div class="h-gr">{{ gregorianDateString }}</div>
+            </div>
+          </section>
 
-        <nav class="strip" aria-label="ሳምንት">
-          <div ref="stripRow" class="strip-row">
-            <button
-              v-for="d in calendarDays"
-              :key="d.k"
-              :data-k="d.k"
-              class="day"
-              :class="{ today: d.isToday, peek: d.isPeek }"
-              @click="handlePickDay(d.k)"
-            >
-              <span class="wd rv" :style="{ '--rd': `${0.22 + Math.abs(d.k) * 0.015}s` }">{{ d.weekdayShort }}</span>
-              <span class="n rv" :style="{ '--rd': `${0.24 + Math.abs(d.k) * 0.015}s` }">{{ d.geezDay }}</span>
-              <span class="mk"></span>
-            </button>
-          </div>
-        </nav>
+          <nav class="strip" aria-label="ሳምንት">
+            <div ref="stripRow" class="strip-row">
+              <button
+                v-for="d in calendarDays"
+                :key="d.k"
+                :data-k="d.k"
+                class="day"
+                :class="{ today: d.isToday, peek: d.isPeek }"
+                @click="handlePickDay(d.k)"
+              >
+                <span class="wd rv" :style="{ '--rd': `${0.22 + Math.abs(d.k) * 0.015}s` }">{{ d.weekdayShort }}</span>
+                <span class="n rv" :style="{ '--rd': `${0.24 + Math.abs(d.k) * 0.015}s` }">{{ d.geezDay }}</span>
+                <span class="mk"></span>
+              </button>
+            </div>
+          </nav>
 
-        <template v-if="currentReading">
-          <article class="h-read rv" style="--rd:.28s">
-            <div class="k">መጽሐፈ ስንክሳር</div>
-            <h2>{{ currentReading.title }}</h2>
-
-            <blockquote v-if="currentReading.scripture" class="verse">
-              {{ currentReading.scripture.verse }}
-              <cite>{{ currentReading.scripture.reference }}</cite>
-            </blockquote>
-
-            <p 
-              v-for="(para, idx) in storyBodyParagraphs" 
-              :key="idx"
-              :class="{ drop: idx === 0 }"
-            >
-              {{ para }}
-            </p>
-
-            <template v-if="storyBlessing">
-              <div class="sep">
-                <i></i><i></i><i class="r"></i><i></i><i></i>
+          <template v-if="currentReading">
+            <article class="h-read rv" style="--rd:.28s">
+              <div class="h-read-header">
+                <div class="k">መጽሐፈ ስንክሳር</div>
+                <button
+                  type="button"
+                  class="h-bookmark-btn"
+                  :class="{ active: isCurrentSaved }"
+                  @click="toggleCurrentReadingBookmark"
+                  :title="isCurrentSaved ? 'ከዕልባት አስወግድ' : 'በዕልባት አስቀምጥ'"
+                  aria-label="ዕልባት"
+                >
+                  <Bookmark class="w-3.5 h-3.5" :fill="isCurrentSaved ? 'currentColor' : 'none'" />
+                  <span>{{ isCurrentSaved ? 'ተቀምጧል' : 'አስቀምጥ' }}</span>
+                </button>
               </div>
-              <p class="blessing">{{ storyBlessing }}</p>
-            </template>
-          </article>
+              <h2>{{ currentReading.title }}</h2>
 
-          <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.34s">
-            ዓመታዊ በዓላት · {{ numberToGeez(currentReading.annualFeasts.length) }}
-          </div>
-          <ul v-if="currentReading.annualFeasts?.length" class="h-list rv" style="--rd:.37s">
-            <li v-for="(f, i) in currentReading.annualFeasts" :key="i">
-              <div>{{ f }}<small v-if="currentReading.annualFeastsEn?.[i]">{{ currentReading.annualFeastsEn[i] }}</small></div>
-            </li>
-          </ul>
+              <blockquote v-if="currentReading.scripture" class="verse">
+                {{ currentReading.scripture.verse }}
+                <cite>{{ currentReading.scripture.reference }}</cite>
+              </blockquote>
 
-          <div v-if="currentReading.monthlyFeasts?.length" class="h-label rv" style="--rd:.4s">
-            ወርኃዊ በዓላት · {{ numberToGeez(currentReading.monthlyFeasts.length) }}
-          </div>
-          <ul v-if="currentReading.monthlyFeasts?.length" class="h-list monthly rv" style="--rd:.43s">
-            <li v-for="(f, i) in currentReading.monthlyFeasts" :key="i">
-              <div>{{ f }}<small v-if="currentReading.monthlyFeastsEn?.[i]">{{ currentReading.monthlyFeastsEn[i] }}</small></div>
-            </li>
-          </ul>
+              <p 
+                v-for="(para, idx) in storyBodyParagraphs" 
+                :key="idx"
+                :class="{ drop: idx === 0 }"
+              >
+                {{ para }}
+              </p>
+
+              <template v-if="storyBlessing">
+                <div class="sep">
+                  <i></i><i></i><i class="r"></i><i></i><i></i>
+                </div>
+                <p class="blessing">{{ storyBlessing }}</p>
+              </template>
+            </article>
+
+            <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.34s">
+              ዓመታዊ በዓላት · {{ numberToGeez(currentReading.annualFeasts.length) }}
+            </div>
+            <ul v-if="currentReading.annualFeasts?.length" class="h-list rv" style="--rd:.37s">
+              <li v-for="(f, i) in currentReading.annualFeasts" :key="i">
+                <div>{{ f }}<small v-if="currentReading.annualFeastsEn?.[i]">{{ currentReading.annualFeastsEn[i] }}</small></div>
+              </li>
+            </ul>
+
+            <div v-if="currentReading.monthlyFeasts?.length" class="h-label rv" style="--rd:.4s">
+              ወርኃዊ በዓላት · {{ numberToGeez(currentReading.monthlyFeasts.length) }}
+            </div>
+            <ul v-if="currentReading.monthlyFeasts?.length" class="h-list monthly rv" style="--rd:.43s">
+              <li v-for="(f, i) in currentReading.monthlyFeasts" :key="i">
+                <div>{{ f }}<small v-if="currentReading.monthlyFeastsEn?.[i]">{{ currentReading.monthlyFeastsEn[i] }}</small></div>
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <div class="py-12 text-center text-[var(--text-3)] rv">
+              የዚህ ዕለት ንባብ አልተገኘም።
+            </div>
+          </template>
         </template>
-        <template v-else>
-          <div class="py-12 text-center text-[var(--text-3)] rv">
-            የዚህ ዕለት ንባብ አልተገኘም።
-          </div>
+
+        <template v-else-if="activeTabIndex === 1">
+          <BookmarksView
+            @select="handleSelectBookmark"
+            @go-to-today="handleTabClick(0)"
+          />
+        </template>
+
+        <template v-else-if="activeTabIndex === 2">
+          <SettingsView />
         </template>
         </div>
       </div>
@@ -421,18 +483,7 @@ onMounted(() => {
       :is-open="isSearchOpen"
       :all-readings="allReadings"
       @close="isSearchOpen = false; isSearchActive = false"
-      @select="handleSelectDate"
-    />
-
-    <BookmarksDrawer
-      :is-open="isBookmarksOpen"
-      @close="isBookmarksOpen = false"
-      @select="handleSelectDate"
-    />
-
-    <SettingsModal
-      :is-open="isSettingsOpen"
-      @close="isSettingsOpen = false"
+      @select="handleSelectFromSearch"
     />
   </div>
 </template>

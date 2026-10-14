@@ -8,6 +8,7 @@ export interface BookmarkItem {
   id: string
   month: number
   day: number
+  year?: number
   title: string
   titleEn?: string
   dateLabel: string
@@ -64,7 +65,8 @@ watch(currentTheme, (val) => {
 
 watch(currentFontSize, (val) => {
   localStorage.setItem(FONT_SIZE_KEY, val)
-})
+  applyFontSizeToDocument(val)
+}, { immediate: true })
 
 watch(currentLanguage, (val) => {
   localStorage.setItem(LANG_KEY, val)
@@ -82,6 +84,10 @@ export function applyThemeToDocument(theme: AppTheme) {
   if (theme === 'dark') {
     root.classList.add('dark')
   }
+}
+
+export function applyFontSizeToDocument(fontSize: FontSize) {
+  document.documentElement.dataset.fontSize = fontSize
 }
 
 export function isBookmarked(month: number, day: number): boolean {
