@@ -215,13 +215,6 @@ onMounted(() => {
             </svg>
             <span>ዝክረ ቅዱሳን</span>
           </div>
-          <button 
-            @click="isDatePickerOpen = true" 
-            class="text-xs font-semibold text-[var(--accent)] hover:underline cursor-pointer flex items-center gap-1 font-latin-body"
-            title="ቀን መቁጠሪያ (Calendar)"
-          >
-            <span>ቀን ቀይር ›</span>
-          </button>
         </header>
 
         <section 
