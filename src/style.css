@@ -513,11 +513,12 @@ button {
   margin: 6px 10px 0 0;
 }
 
-.blessing {
+.blessing,
+.h-read .blessing {
   margin-top: 22px;
   text-align: center;
-  font: 500 15.5px/1.8 var(--font);
-  color: var(--rubric);
+  font: 500 16px/1.85 var(--font);
+  color: var(--rubric) !important;
 }
 
 /* ═══ Liquid Glass Navigation Dock ═══ */
