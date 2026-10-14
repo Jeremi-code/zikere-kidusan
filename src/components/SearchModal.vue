@@ -65,7 +65,8 @@ const filteredResults = computed<SearchResultItem[]>(() => {
         secondaryText: entry.title
       })
     } else {
-      if (!matchedAnnual && !matchedMonthly && !titleMatch && !storyMatch && !scriptureMatch) {
+      // In "All", match against feasts or main title (not hidden body text)
+      if (!matchedAnnual && !matchedMonthly && !titleMatch) {
         continue
       }
       
@@ -73,7 +74,7 @@ const filteredResults = computed<SearchResultItem[]>(() => {
       const feastType = matchedAnnual ? 'annual' : (matchedMonthly ? 'monthly' : undefined)
       const secondaryText = matchedFeast 
         ? (entry.title !== matchedFeast ? entry.title : undefined)
-        : entry.title
+        : undefined
 
       results.push({
         entry,
