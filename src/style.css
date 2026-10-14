@@ -506,9 +506,11 @@ button {
   color: var(--text);
 }
 
-.h-read p:first-of-type::first-letter {
+.h-read p.drop::first-letter {
+  float: left;
+  font: 700 58px/0.82 var(--font);
   color: var(--rubric);
-  font-weight: 700;
+  margin: 6px 10px 0 0;
 }
 
 .blessing {

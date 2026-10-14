@@ -85,12 +85,22 @@ const currentReading = computed(() => {
   )
 })
 
-const readingStoryParagraphs = computed(() => {
+const storyParagraphs = computed(() => {
   if (!currentReading.value) return []
   const val = currentReading.value.story
   if (!val) return []
   const text = Array.isArray(val) ? val.filter(Boolean).join('\n\n') : String(val)
   return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+})
+
+const storyBodyParagraphs = computed(() => {
+  if (storyParagraphs.value.length <= 1) return storyParagraphs.value
+  return storyParagraphs.value.slice(0, -1)
+})
+
+const storyBlessing = computed(() => {
+  if (storyParagraphs.value.length <= 1) return ''
+  return storyParagraphs.value[storyParagraphs.value.length - 1]
 })
 
 function handleSelectDate({ year, month, day }: { year?: number; month: number; day: number }) {
@@ -255,9 +265,20 @@ onMounted(() => {
               <cite>{{ currentReading.scripture.reference }}</cite>
             </blockquote>
 
-            <p v-for="(para, idx) in readingStoryParagraphs" :key="idx">
+            <p 
+              v-for="(para, idx) in storyBodyParagraphs" 
+              :key="idx"
+              :class="{ drop: idx === 0 }"
+            >
               {{ para }}
             </p>
+
+            <template v-if="storyBlessing">
+              <div class="sep">
+                <i></i><i></i><i class="r"></i><i></i><i></i>
+              </div>
+              <p class="blessing">{{ storyBlessing }}</p>
+            </template>
           </article>
 
           <div v-if="currentReading.annualFeasts?.length" class="h-label rv" style="--rd:.34s">
