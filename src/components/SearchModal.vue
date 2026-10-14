@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import type { SynaxariumEntry } from '../lib/types'
 import { ETHIOPIAN_MONTHS, numberToGeez } from '../lib/ethiopianCalendar'
 import { Search, X } from 'lucide-vue-next'
-import EthiopianCross from './EthiopianCross.vue'
+import ZikereLogo from './ZikereLogo.vue'
 
 const props = defineProps<{
   isOpen: boolean
@@ -20,10 +20,6 @@ const searchFilter = ref<'all' | 'annual' | 'monthly'>('all')
 
 function getMonthNameAm(monthNum: number): string {
   return ETHIOPIAN_MONTHS[monthNum - 1]?.nameAm || ''
-}
-
-function getMonthNameEn(monthNum: number): string {
-  return ETHIOPIAN_MONTHS[monthNum - 1]?.nameEn || ''
 }
 
 const filteredResults = computed(() => {
@@ -57,117 +53,476 @@ function handleSelect(entry: SynaxariumEntry) {
   emit('select', { month: entry.month, day: entry.day })
   emit('close')
 }
+
+function clearQuery() {
+  searchQuery.value = ''
+}
 </script>
 
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 bg-black/70 backdrop-blur-xs pt-8 sm:pt-14">
-    <div 
-      class="reading-folio rounded-3xl shadow-2xl border-2 max-w-xl w-full overflow-hidden flex flex-col max-h-[82vh] manuscript-card"
-      @click.stop
-    >
-      <div class="p-4 border-b border-amber-900/10 dark:border-amber-800/20 bg-amber-50/50 dark:bg-stone-900/60 flex items-center gap-3">
-        <div class="relative flex-1">
-          <Search class="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-800/60 dark:text-amber-400/60" />
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="ፈልግ (ቅዱሳን፣ በዓላት፣ ስንክሳር)..."
-            class="w-full pl-11 pr-4 py-2.5 rounded-2xl border border-amber-300/80 dark:border-stone-700 focus:outline-hidden focus:border-amber-700 focus:ring-2 focus:ring-amber-500/20 text-sm reading-folio text-stone-900 dark:text-stone-100 font-ethiopic-serif"
-            autofocus
-          />
-        </div>
+  <Teleport to="body">
+    <Transition name="search">
+      <div v-if="isOpen" class="search-backdrop" @click="emit('close')">
+        <div class="search-panel" @click.stop>
+          <header class="search-header">
+            <div class="brand-row">
+              <ZikereLogo :size="24" />
+              <div>
+                <h2 class="title">ፍለጋ</h2>
+                <span class="sub">Search Synaxarium</span>
+              </div>
+            </div>
+            <button @click="emit('close')" class="close-btn" aria-label="Close">
+              <X class="w-5 h-5" />
+            </button>
+          </header>
 
-        <button 
-          @click="emit('close')"
-          class="p-2 rounded-xl text-stone-500 hover:bg-stone-200/80 dark:hover:bg-stone-800 transition-colors cursor-pointer"
-        >
-          <X class="w-5 h-5" />
-        </button>
-      </div>
+          <div class="search-input-wrap">
+            <div class="input-box">
+              <Search class="search-ic" />
+              <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="የቅዱሳን ስም፣ በዓል ወይም ቃል ይፈልጉ..."
+                class="search-input"
+                autofocus
+              />
+              <button 
+                v-if="searchQuery" 
+                @click="clearQuery" 
+                class="clear-btn"
+                title="አጽዳ (Clear)"
+              >
+                <X class="w-4 h-4" />
+              </button>
+            </div>
 
-      <div class="px-4 py-2.5 bg-amber-100/40 dark:bg-stone-900/80 border-b border-amber-900/10 dark:border-amber-800/20 flex items-center justify-between text-xs font-ethiopic-serif">
-        <div class="flex items-center gap-1.5">
-          <button
-            @click="searchFilter = 'all'"
-            class="px-3 py-1 rounded-xl font-semibold transition-all cursor-pointer"
-            :class="searchFilter === 'all' 
-              ? 'bg-amber-900 text-amber-100 shadow-xs' 
-              : 'text-stone-700 dark:text-stone-300 hover:bg-amber-200/60 dark:hover:bg-stone-800'"
-          >
-            ሁሉም (All)
-          </button>
-          <button
-            @click="searchFilter = 'annual'"
-            class="px-3 py-1 rounded-xl font-semibold transition-all cursor-pointer"
-            :class="searchFilter === 'annual' 
-              ? 'bg-amber-900 text-amber-100 shadow-xs' 
-              : 'text-stone-700 dark:text-stone-300 hover:bg-amber-200/60 dark:hover:bg-stone-800'"
-          >
-            ዓመታዊ ብቻ (Annual)
-          </button>
-          <button
-            @click="searchFilter = 'monthly'"
-            class="px-3 py-1 rounded-xl font-semibold transition-all cursor-pointer"
-            :class="searchFilter === 'monthly' 
-              ? 'bg-amber-900 text-amber-100 shadow-xs' 
-              : 'text-stone-700 dark:text-stone-300 hover:bg-amber-200/60 dark:hover:bg-stone-800'"
-          >
-            ወርሃዊ ብቻ (Monthly)
-          </button>
-        </div>
+            <div class="filter-tabs">
+              <div class="tab-group">
+                <button
+                  @click="searchFilter = 'all'"
+                  class="filter-btn"
+                  :class="{ active: searchFilter === 'all' }"
+                >
+                  ሁሉም (All)
+                </button>
+                <button
+                  @click="searchFilter = 'annual'"
+                  class="filter-btn"
+                  :class="{ active: searchFilter === 'annual' }"
+                >
+                  ዓመታዊ (Annual)
+                </button>
+                <button
+                  @click="searchFilter = 'monthly'"
+                  class="filter-btn"
+                  :class="{ active: searchFilter === 'monthly' }"
+                >
+                  ወርኃዊ (Monthly)
+                </button>
+              </div>
 
-        <span v-if="searchQuery" class="text-stone-500 text-xs font-ethiopic-sans">
-          {{ filteredResults.length }} ውጤቶች
-        </span>
-      </div>
-
-      <div class="p-3 overflow-y-auto flex-1 space-y-1.5 divide-y divide-amber-900/5 dark:divide-stone-800">
-        <div v-if="!searchQuery" class="py-14 text-center text-stone-400 font-ethiopic-serif">
-          <EthiopianCross variant="lalibela" :size="32" class="mx-auto mb-3 opacity-30 text-amber-800" />
-          <p class="text-sm font-semibold text-stone-600 dark:text-stone-400">የቅዱሳን ስም፣ ገድል ወይም በዓል ጽፈው ይፈልጉ</p>
-          <p class="text-xs text-stone-400 mt-1 font-latin-body">Search commemorations in Amharic or English</p>
-        </div>
-
-        <div v-else-if="filteredResults.length === 0" class="py-14 text-center text-stone-400 font-ethiopic-serif">
-          <p class="text-sm">ምንም አልተገኘም (No results found)</p>
-          <p class="text-xs text-stone-400 mt-1 font-latin-body">Try a different name or spelling</p>
-        </div>
-
-        <button
-          v-for="entry in filteredResults"
-          :key="entry.id"
-          @click="handleSelect(entry)"
-          class="w-full text-left p-3 rounded-2xl hover:bg-amber-50/80 dark:hover:bg-stone-800/60 transition-all flex items-start gap-3 group pt-3 cursor-pointer"
-        >
-          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-stone-800 text-amber-950 dark:text-amber-200 border border-amber-300/80 dark:border-amber-700/40 flex flex-col items-center justify-center shrink-0 shadow-2xs font-ethiopic-serif">
-            <span class="text-[11px] font-bold">{{ getMonthNameAm(entry.month) }}</span>
-            <span class="text-xs font-bold text-amber-900 dark:text-amber-400">{{ numberToGeez(entry.day) }}</span>
-          </div>
-
-          <div class="flex-1 min-w-0 font-ethiopic-serif">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-100/80 dark:bg-amber-950/80 text-amber-900 dark:text-amber-200 font-bold border border-amber-200 dark:border-amber-800/50">
-                {{ getMonthNameAm(entry.month) }} {{ numberToGeez(entry.day) }} ({{ entry.day }})
+              <span v-if="searchQuery" class="results-count">
+                {{ filteredResults.length }} ውጤቶች
               </span>
             </div>
-            <h4 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 mt-1 truncate group-hover:text-amber-900 dark:group-hover:text-amber-300">
-              {{ entry.title }}
-            </h4>
-            <p v-if="searchFilter === 'monthly' ? (entry.monthlyFeasts && entry.monthlyFeasts.length) : (entry.annualFeasts && entry.annualFeasts.length)" class="text-xs text-stone-500 dark:text-stone-400 mt-0.5 truncate">
-              {{ (searchFilter === 'monthly' ? entry.monthlyFeasts : entry.annualFeasts).join(', ') }}
-            </p>
           </div>
-        </button>
-      </div>
 
-      <div class="p-3.5 reading-folio border-t border-amber-900/10 dark:border-amber-800/20 text-right">
-        <button
-          @click="emit('close')"
-          class="px-4 py-1.5 rounded-xl text-xs font-bold text-stone-800 dark:text-stone-200 hover:bg-amber-100/70 dark:hover:bg-amber-950/60 transition-colors cursor-pointer font-ethiopic-serif"
-        >
-          ዝጋ (Close)
-        </button>
+          <div class="search-results">
+            <div v-if="!searchQuery" class="state-empty">
+              <div class="empty-mark">፨</div>
+              <p class="state-title">የቅዱሳን ስም፣ ገድል ወይም በዓል ጽፈው ይፈልጉ</p>
+              <p class="state-sub">Search commemorations by name, feast, or text</p>
+            </div>
+
+            <div v-else-if="filteredResults.length === 0" class="state-empty">
+              <p class="state-title">ምንም ውጤት አልተገኘም</p>
+              <p class="state-sub">የተለየ አጻጻፍ ወይም ቃል ይሞክሩ (No commemorations found)</p>
+            </div>
+
+            <button
+              v-for="entry in filteredResults"
+              :key="entry.id"
+              @click="handleSelect(entry)"
+              class="result-item"
+            >
+              <div class="date-badge">
+                <span class="badge-month">{{ getMonthNameAm(entry.month) }}</span>
+                <span class="badge-day">{{ numberToGeez(entry.day) }}</span>
+              </div>
+
+              <div class="entry-details">
+                <div class="entry-meta">
+                  <span class="entry-chip">
+                    {{ getMonthNameAm(entry.month) }} {{ numberToGeez(entry.day) }} ({{ entry.day }})
+                  </span>
+                  <span v-if="entry.annualFeasts?.length" class="feast-pill">
+                    {{ entry.annualFeasts.length }} በዓላት
+                  </span>
+                </div>
+                <h4 class="entry-title">{{ entry.title }}</h4>
+                <p 
+                  v-if="searchFilter === 'monthly' ? entry.monthlyFeasts?.length : entry.annualFeasts?.length" 
+                  class="entry-feasts"
+                >
+                  {{ (searchFilter === 'monthly' ? entry.monthlyFeasts : entry.annualFeasts).join(', ') }}
+                </p>
+              </div>
+            </button>
+          </div>
+
+          <footer class="search-footer">
+            <button @click="emit('close')" class="done-btn">
+              ዝጋ (Close)
+            </button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </div>
+    </Transition>
+  </Teleport>
 </template>
+
+<style scoped>
+.search-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.search-panel {
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-header {
+  padding: 22px 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sub {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.close-btn:hover {
+  background: var(--line);
+  color: var(--text);
+}
+
+.search-input-wrap {
+  padding: 16px 22px 14px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--surface) 60%, var(--bg));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-ic {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 38px 12px 42px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: 500 15px/1.4 var(--font);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 15%, transparent);
+}
+
+.search-input::placeholder {
+  color: var(--text-3);
+  opacity: 0.8;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+  cursor: pointer;
+  background: var(--line);
+}
+
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tab-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-3);
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: color-mix(in oklab, var(--rubric) 12%, var(--surface));
+  border-color: var(--rubric);
+  color: var(--rubric);
+}
+
+.results-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.search-results {
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.state-empty {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.empty-mark {
+  font-size: 32px;
+  color: var(--rubric);
+  opacity: 0.45;
+  margin-bottom: 8px;
+}
+
+.state-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.state-sub {
+  font-size: 11.5px;
+  margin-top: 4px;
+  color: var(--text-3);
+}
+
+.result-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.result-item:hover {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+}
+
+.date-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-month {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--rubric);
+}
+
+.badge-day {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 1px;
+}
+
+.entry-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.entry-chip {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.feast-pill {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text-3);
+}
+
+.entry-title {
+  margin-top: 4px;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entry-feasts {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  text-align: right;
+}
+
+.done-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.done-btn:hover {
+  border-color: var(--rubric);
+  color: var(--rubric);
+}
+
+/* ═══ Transitions ═══ */
+.search-enter-active,
+.search-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.search-enter-active .search-panel,
+.search-leave-active .search-panel {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-enter-from,
+.search-leave-to {
+  opacity: 0;
+}
+
+.search-enter-from .search-panel,
+.search-leave-to .search-panel {
+  transform: scale(0.95) translateY(8px);
+}
+</style>
