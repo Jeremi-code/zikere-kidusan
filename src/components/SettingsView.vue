@@ -18,7 +18,6 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleClass: string
 <template>
   <div class="settings-page rv" style="--rd:.1s">
     <header class="page-header">
-      <div class="header-tag">የመተግበሪያ ቅንብሮች</div>
       <h1 class="page-title">የአነባበብ ማስተካከያ</h1>
       <p class="page-sub">ለዓይን ምቹ የሆነ የንባብ ገጽታና የፊደላት መጠን ምርጫዎች</p>
     </header>
@@ -84,15 +83,6 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleClass: string
   margin-bottom: 28px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
-}
-
-.header-tag {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
 }
 
 .page-title {
