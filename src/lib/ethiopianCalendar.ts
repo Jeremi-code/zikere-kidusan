@@ -6,7 +6,6 @@ export interface EthiopianDate {
   monthNameEn: string
   geezDay: string
   geezYear: string
-  formatted: string
   weekdayNameAm?: string
   weekdayNameEn?: string
   weekdayShortAm?: string
@@ -170,7 +169,6 @@ export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
     monthNameEn: monthInfo.nameEn,
     geezDay,
     geezYear,
-    formatted: `${monthInfo.nameAm} ${geezDay} (${day}) ቀን ${year} ዓ.ም`,
     weekdayNameAm: weekday.nameAm,
     weekdayNameEn: weekday.nameEn,
     weekdayShortAm: weekday.shortAm,

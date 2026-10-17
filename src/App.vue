@@ -18,6 +18,7 @@ import {
   isBookmarked,
   toggleBookmarkItem
 } from './lib/preferences'
+import { t, pick, formatNumber, monthName, formatGregorian, BRAND } from './lib/i18n'
 import { Bookmark } from 'lucide-vue-next'
 import EthiopianDatePicker from './components/EthiopianDatePicker.vue'
 import SearchModal from './components/SearchModal.vue'
@@ -53,14 +54,12 @@ const DOTS = [
   { dx: -156, dy: 0, r: 22, d: 0.224, day: -4 },
 ]
 
-const titleLetters = [...'ዝክረ ቅዱሳን']
+const titleLetters = [...BRAND.am]
 
 const gregorianDateString = computed(() => {
   const jdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
   const g = jdnToGregorian(jdn)
-  const d = new Date(Date.UTC(g.year, g.month - 1, g.day))
-  return d.toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' }) + ' · ' +
-    d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+  return formatGregorian(new Date(Date.UTC(g.year, g.month - 1, g.day)))
 })
 
 const calendarDays = computed(() => {
@@ -75,8 +74,8 @@ const calendarDays = computed(() => {
       year: eth.year,
       month: eth.month,
       day: eth.day,
-      geezDay: numberToGeez(eth.day),
-      weekdayShort: wd.shortAm,
+      displayDay: formatNumber(eth.day),
+      weekdayShort: pick(wd.shortAm, wd.shortEn),
       isToday: k === 0,
       isPeek: Math.abs(k) === 4
     })
@@ -92,16 +91,12 @@ const currentReading = computed(() => {
 
 const displayTitle = computed(() => {
   if (!currentReading.value) return ''
-  return currentLanguage.value === 'en' && currentReading.value.titleEn
-    ? currentReading.value.titleEn
-    : currentReading.value.title
+  return pick(currentReading.value.title, currentReading.value.titleEn)
 })
 
 const storyParagraphs = computed(() => {
   if (!currentReading.value) return []
-  const val = currentLanguage.value === 'en' && currentReading.value.storyEn
-    ? currentReading.value.storyEn
-    : currentReading.value.story
+  const val = pick(currentReading.value.story, currentReading.value.storyEn)
   if (!val) return []
   const text = Array.isArray(val) ? val.filter(Boolean).join('\n\n') : String(val)
   return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
@@ -152,7 +147,6 @@ function handleSelectDate({ year, month, day }: { year?: number; month: number; 
     monthNameEn: eth.monthNameEn,
     geezDay: numberToGeez(eth.day),
     geezYear: numberToGeez(eth.year),
-    formatted: `${eth.monthNameAm} ${numberToGeez(eth.day)} ቀን ${eth.year} ዓ.ም`,
     weekdayNameAm: wd.nameAm,
     weekdayNameEn: wd.nameEn,
     weekdayShortAm: wd.shortAm,
@@ -196,8 +190,7 @@ function toggleCurrentReadingBookmark() {
     day: currentDate.value.day,
     year: currentDate.value.year,
     title: currentReading.value.title,
-    titleEn: currentReading.value.titleEn,
-    dateLabel: `${currentDate.value.monthName} ${currentDate.value.geezDay}`
+    titleEn: currentReading.value.titleEn
   })
 }
 
@@ -284,7 +277,7 @@ onMounted(() => {
                 :fill="p.red ? 'var(--rubric)' : 'var(--ink)'"
               />
             </svg>
-            <span>ዝክረ ቅዱሳን</span>
+            <span>{{ t('app.name') }}</span>
           </div>
         </header>
 
@@ -293,17 +286,17 @@ onMounted(() => {
             class="h-hero rv cursor-pointer hover:opacity-90 transition-opacity" 
             style="--rd:.12s"
             @click="isDatePickerOpen = true"
-            title="የቀን መቁጠሪያ ይክፈቱ (Open Calendar)"
+            :title="t('reading.openCalendar')"
           >
-            <div class="h-day">{{ currentDate.geezDay }}</div>
+            <div class="h-day">{{ formatNumber(currentDate.day) }}</div>
             <div>
-              <div class="h-wd">{{ currentDate.weekdayNameAm }}</div>
-              <div class="h-mo">{{ currentDate.monthName }} {{ currentDate.geezYear }}</div>
+              <div class="h-wd">{{ pick(currentDate.weekdayNameAm, currentDate.weekdayNameEn) }}</div>
+              <div class="h-mo">{{ monthName(currentDate.month) }} {{ formatNumber(currentDate.year) }}</div>
               <div class="h-gr">{{ gregorianDateString }}</div>
             </div>
           </section>
 
-          <nav class="strip" aria-label="ሳምንት">
+          <nav class="strip" :aria-label="t('nav.week')">
             <div ref="stripRow" class="strip-row">
               <button
                 v-for="d in calendarDays"
@@ -314,7 +307,7 @@ onMounted(() => {
                 @click="handlePickDay(d.k)"
               >
                 <span class="wd rv" :style="{ '--rd': `${0.22 + Math.abs(d.k) * 0.015}s` }">{{ d.weekdayShort }}</span>
-                <span class="n rv" :style="{ '--rd': `${0.24 + Math.abs(d.k) * 0.015}s` }">{{ d.geezDay }}</span>
+                <span class="n rv" :style="{ '--rd': `${0.24 + Math.abs(d.k) * 0.015}s` }">{{ d.displayDay }}</span>
                 <span class="mk"></span>
               </button>
             </div>
@@ -323,17 +316,17 @@ onMounted(() => {
           <template v-if="currentReading">
             <article class="h-read rv" style="--rd:.28s">
               <div class="h-read-header">
-                <div class="k">{{ currentLanguage === 'am' ? 'መጽሐፈ ስንክሳር' : 'THE SYNAXARIUM' }}</div>
+                <div class="k">{{ t('reading.kicker') }}</div>
                 <button
                   type="button"
                   class="h-bookmark-btn"
                   :class="{ active: isCurrentSaved }"
                   @click="toggleCurrentReadingBookmark"
-                  :title="isCurrentSaved ? (currentLanguage === 'am' ? 'ከዕልባት አስወግድ' : 'Remove bookmark') : (currentLanguage === 'am' ? 'በዕልባት አስቀምጥ' : 'Bookmark')"
-                  aria-label="ዕልባት"
+                  :title="isCurrentSaved ? t('reading.removeBookmark') : t('reading.addBookmark')"
+                  :aria-label="t('reading.bookmark')"
                 >
                   <Bookmark class="w-3.5 h-3.5" :fill="isCurrentSaved ? 'currentColor' : 'none'" />
-                  <span>{{ isCurrentSaved ? (currentLanguage === 'am' ? 'ተቀምጧል' : 'Saved') : (currentLanguage === 'am' ? 'አስቀምጥ' : 'Save') }}</span>
+                  <span>{{ isCurrentSaved ? t('reading.saved') : t('reading.save') }}</span>
                 </button>
               </div>
               <h2>{{ displayTitle }}</h2>
@@ -360,7 +353,7 @@ onMounted(() => {
             </article>
 
             <div v-if="displayAnnualFeasts.length" class="h-label rv" style="--rd:.34s">
-              {{ currentLanguage === 'am' ? `ዓመታዊ በዓላት · ${numberToGeez(displayAnnualFeasts.length)}` : `Annual Feasts · ${displayAnnualFeasts.length}` }}
+              {{ t('reading.annualFeasts', { n: formatNumber(displayAnnualFeasts.length) }) }}
             </div>
             <ul v-if="displayAnnualFeasts.length" class="h-list rv" style="--rd:.37s">
               <li v-for="(f, i) in displayAnnualFeasts" :key="i">
@@ -369,7 +362,7 @@ onMounted(() => {
             </ul>
 
             <div v-if="displayMonthlyFeasts.length" class="h-label rv" style="--rd:.4s">
-              {{ currentLanguage === 'am' ? `ወርኃዊ በዓላት · ${numberToGeez(displayMonthlyFeasts.length)}` : `Monthly Feasts · ${displayMonthlyFeasts.length}` }}
+              {{ t('reading.monthlyFeasts', { n: formatNumber(displayMonthlyFeasts.length) }) }}
             </div>
             <ul v-if="displayMonthlyFeasts.length" class="h-list monthly rv" style="--rd:.43s">
               <li v-for="(f, i) in displayMonthlyFeasts" :key="i">
@@ -379,7 +372,7 @@ onMounted(() => {
           </template>
           <template v-else>
             <div class="py-12 text-center text-[var(--text-3)] rv">
-              የዚህ ዕለት ንባብ አልተገኘም።
+              {{ t('reading.notFound') }}
             </div>
           </template>
         </template>
@@ -398,7 +391,7 @@ onMounted(() => {
       </div>
 
       <!-- Navigation Dock -->
-      <nav class="nav" style="--rd:.3s" aria-label="ዋና">
+      <nav class="nav" style="--rd:.3s" :aria-label="t('nav.main')">
         <div
           class="glass capsule"
           :class="{ small: isCapsuleSmall, off: isSearchActive }"
@@ -416,38 +409,38 @@ onMounted(() => {
               class="tab"
               :class="{ on: activeTabIndex === 0 && !isSearchActive }"
               @click="handleTabClick(0)"
-              aria-label="ዛሬ"
+              :aria-label="t('nav.today')"
             >
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3v18M6 9h12" />
                 <path d="M10 3h4M10 21h4M6 7.5v3M18 7.5v3" />
               </svg>
-              <span>ዛሬ</span>
+              <span>{{ t('nav.today') }}</span>
             </button>
             <button
               class="tab"
               :class="{ on: activeTabIndex === 1 && !isSearchActive }"
               @click="handleTabClick(1)"
-              aria-label="የተቀመጡ"
+              :aria-label="t('nav.saved')"
             >
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="5" y="3.5" width="13.5" height="15.5" rx="1.8" />
                 <path d="M8.2 3.5V19M13.35 7.3v7.4M11.1 9.7h4.5" />
                 <g class="acc"><path d="M13.6 19h2.6v2.9l-1.3-1-1.3 1z" /></g>
               </svg>
-              <span>የተቀመጡ</span>
+              <span>{{ t('nav.saved') }}</span>
             </button>
             <button
               class="tab"
               :class="{ on: activeTabIndex === 2 && !isSearchActive }"
               @click="handleTabClick(2)"
-              aria-label="ቅንብር"
+              :aria-label="t('nav.settings')"
             >
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3" />
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
               </svg>
-              <span>ቅንብር</span>
+              <span>{{ t('nav.settings') }}</span>
             </button>
           </div>
         </div>
@@ -455,7 +448,7 @@ onMounted(() => {
           class="glass search"
           :class="{ on: isSearchActive }"
           @click="toggleSearch"
-          aria-label="ፍለጋ"
+          :aria-label="t('nav.search')"
         >
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="10.5" cy="10.5" r="6.3" />
@@ -483,7 +476,7 @@ onMounted(() => {
           :style="{ '--i': idx }"
         >{{ ch }}</span>
       </div>
-      <div class="latin">Zikere · Kidusan</div>
+      <div class="latin">{{ BRAND.en.split(' ').join(' · ') }}</div>
     </div>
     <div ref="dotsLayer" class="dots">
       <div
