@@ -59,9 +59,6 @@ function handleSelect(item: BookmarkItem) {
           class="card-main"
           @click="handleSelect(item)"
         >
-          <div class="card-lead">
-            <span class="lead-dot"></span>
-          </div>
           <div class="card-body">
             <div class="card-meta">
               <span class="date-chip">{{ monthName(item.month) }} {{ formatNumber(item.day) }}</span>
@@ -245,21 +242,6 @@ function handleSelect(item: BookmarkItem) {
   padding: 0;
   cursor: pointer;
   min-width: 0;
-}
-
-.card-lead {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.lead-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--rubric);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--rubric) 18%, transparent);
 }
 
 .card-body {

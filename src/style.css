@@ -407,10 +407,6 @@ button {
 }
 
 .h-list li {
-  display: grid;
-  grid-template-columns: 14px 1fr;
-  gap: 10px;
-  align-items: baseline;
   padding: 12px 0;
   font: 500 15.5px/1.45 var(--font);
   border-bottom: 1px solid var(--line);
@@ -419,20 +415,6 @@ button {
 
 .h-list li:last-child {
   border-bottom: 0;
-}
-
-.h-list li::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  transform: translateY(-2px);
-  background: var(--rubric);
-}
-
-.h-list.monthly li::before {
-  background: var(--ink);
-  opacity: 0.6;
 }
 
 .h-list small {
