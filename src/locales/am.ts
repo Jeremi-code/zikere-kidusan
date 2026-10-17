@@ -6,7 +6,7 @@ export default {
 
   'nav.main': 'ዋና',
   'nav.week': 'ሳምንት',
-  'nav.today': 'ዛሬ',
+  'nav.reading': 'ንባብ',
   'nav.saved': 'የተቀመጡ',
   'nav.settings': 'ቅንብር',
   'nav.search': 'ፍለጋ',

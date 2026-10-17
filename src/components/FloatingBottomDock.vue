@@ -87,13 +87,13 @@ onUnmounted(() => {
           class="tab"
           :class="{ on: activeTab === 0 && !isSearchActive }"
           @click="handleTabClick(0)"
-          aria-label="ዛሬ"
+          aria-label="ንባብ"
         >
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v18M6 9h12" />
             <path d="M10 3h4M10 21h4M6 7.5v3M18 7.5v3" />
           </svg>
-          <span class="text-[10px] font-medium font-ethiopic-serif">ዛሬ</span>
+          <span class="text-[10px] font-medium font-ethiopic-serif">ንባብ</span>
         </button>
 
         <button

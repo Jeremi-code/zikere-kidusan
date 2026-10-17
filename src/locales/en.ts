@@ -8,7 +8,7 @@ export default {
 
   'nav.main': 'Main',
   'nav.week': 'Week',
-  'nav.today': 'Today',
+  'nav.reading': 'Reading',
   'nav.saved': 'Saved',
   'nav.settings': 'Settings',
   'nav.search': 'Search',
