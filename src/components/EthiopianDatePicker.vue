@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { ETHIOPIAN_MONTHS, numberToGeez, type EthiopianDate, getTodayEthiopian } from '../lib/ethiopianCalendar'
 import { X, RotateCcw } from 'lucide-vue-next'
 import ZikereLogo from './ZikereLogo.vue'
+import { t, pick, formatNumber, monthName } from '../lib/i18n'
 
 const props = defineProps<{
   isOpen: boolean
@@ -45,11 +46,11 @@ function jumpToToday() {
             <div class="brand-row">
               <ZikereLogo :size="24" />
               <div>
-                <h2 class="title">ቀን ይምረጡ</h2>
-                <span class="sub">Select Date</span>
+                <h2 class="title">{{ t('picker.title') }}</h2>
+                <span class="sub">{{ t('picker.subtitle') }}</span>
               </div>
             </div>
-            <button @click="emit('close')" class="close-btn" aria-label="Close">
+            <button @click="emit('close')" class="close-btn" :aria-label="t('common.close')">
               <X class="w-5 h-5" />
             </button>
           </header>
@@ -57,7 +58,7 @@ function jumpToToday() {
           <div class="picker-body">
             <!-- Month selector -->
             <div>
-              <span class="section-label">ወር (Month)</span>
+              <span class="section-label">{{ t('picker.month') }}</span>
               <div class="month-grid">
                 <button
                   v-for="m in ETHIOPIAN_MONTHS"
@@ -66,8 +67,8 @@ function jumpToToday() {
                   class="month-btn"
                   :class="{ active: selectedMonth === m.id }"
                 >
-                  <span class="m-am">{{ m.nameAm }}</span>
-                  <span class="m-en">{{ m.nameEn }}</span>
+                  <span class="m-am">{{ pick(m.nameAm, m.nameEn) }}</span>
+                  <span class="m-en">{{ pick(m.nameEn, m.nameAm) }}</span>
                 </button>
               </div>
             </div>
@@ -75,8 +76,8 @@ function jumpToToday() {
             <!-- Day selector -->
             <div>
               <div class="flex items-center justify-between mb-2">
-                <span class="section-label">{{ currentMonthInfo.nameAm }} — ቀናት</span>
-                <span class="text-xs text-[var(--text-3)] font-latin-body">{{ daysInSelectedMonth }} days</span>
+                <span class="section-label">{{ t('picker.days', { month: monthName(selectedMonth) }) }}</span>
+                <span class="text-xs text-[var(--text-3)] font-latin-body">{{ t('picker.dayCount', { n: daysInSelectedMonth }) }}</span>
               </div>
               <div class="days-grid">
                 <button
@@ -88,8 +89,8 @@ function jumpToToday() {
                     active: selectedMonth === currentDate.month && d === currentDate.day
                   }"
                 >
-                  <span class="d-geez">{{ numberToGeez(d) }}</span>
-                  <span class="d-num">{{ d }}</span>
+                  <span class="d-geez">{{ formatNumber(d) }}</span>
+                  <span class="d-num">{{ pick(String(d), numberToGeez(d)) }}</span>
                 </button>
               </div>
             </div>
@@ -98,7 +99,7 @@ function jumpToToday() {
           <footer class="picker-footer">
             <button @click="jumpToToday" class="today-btn">
               <RotateCcw class="w-3.5 h-3.5" />
-              <span>ወደ ዛሬ ተመለስ (Today)</span>
+              <span>{{ t('picker.today') }}</span>
             </button>
           </footer>
         </div>
