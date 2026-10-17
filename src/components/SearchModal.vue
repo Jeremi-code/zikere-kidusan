@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import type { SynaxariumEntry } from '../lib/types'
-import { ETHIOPIAN_MONTHS, numberToGeez } from '../lib/ethiopianCalendar'
+import { t, pick, formatNumber, monthName } from '../lib/i18n'
 import { Search, X } from 'lucide-vue-next'
 import ZikereLogo from './ZikereLogo.vue'
 
@@ -18,15 +18,19 @@ const emit = defineEmits<{
 const searchQuery = ref('')
 const searchFilter = ref<'all' | 'annual' | 'monthly'>('all')
 
-function getMonthNameAm(monthNum: number): string {
-  return ETHIOPIAN_MONTHS[monthNum - 1]?.nameAm || ''
-}
-
 interface SearchResultItem {
   entry: SynaxariumEntry
   matchedFeast?: string
   feastType?: 'annual' | 'monthly'
   secondaryText?: string
+}
+
+// Matches a feast in either language, but returns it in the display language.
+function findFeast(q: string, amList: string[] = [], enList: string[] = []): string | undefined {
+  let idx = amList.findIndex((f) => f.toLowerCase().includes(q))
+  if (idx < 0) idx = enList.findIndex((f) => f.toLowerCase().includes(q))
+  if (idx < 0) return undefined
+  return pick(amList[idx] ?? enList[idx], enList[idx])
 }
 
 const filteredResults = computed<SearchResultItem[]>(() => {
@@ -36,10 +40,9 @@ const filteredResults = computed<SearchResultItem[]>(() => {
   const results: SearchResultItem[] = []
 
   for (const entry of props.allReadings) {
-    const matchedAnnual = entry.annualFeasts?.find((f) => f.toLowerCase().includes(q)) ||
-                          entry.annualFeastsEn?.find((f) => f.toLowerCase().includes(q))
-    const matchedMonthly = entry.monthlyFeasts?.find((f) => f.toLowerCase().includes(q)) ||
-                           entry.monthlyFeastsEn?.find((f) => f.toLowerCase().includes(q))
+    const title = pick(entry.title, entry.titleEn)
+    const matchedAnnual = findFeast(q, entry.annualFeasts, entry.annualFeastsEn)
+    const matchedMonthly = findFeast(q, entry.monthlyFeasts, entry.monthlyFeastsEn)
 
     const titleMatch = entry.title?.toLowerCase().includes(q) || entry.titleEn?.toLowerCase().includes(q)
     const storyMatch = entry.story?.toLowerCase().includes(q) || entry.storyEn?.toLowerCase().includes(q)
@@ -54,7 +57,7 @@ const filteredResults = computed<SearchResultItem[]>(() => {
         entry,
         matchedFeast: matchedAnnual,
         feastType: 'annual',
-        secondaryText: entry.title !== matchedAnnual ? entry.title : undefined
+        secondaryText: title !== matchedAnnual ? title : undefined
       })
     } else if (searchFilter.value === 'monthly') {
       if (!matchedMonthly) continue
@@ -62,7 +65,7 @@ const filteredResults = computed<SearchResultItem[]>(() => {
         entry,
         matchedFeast: matchedMonthly,
         feastType: 'monthly',
-        secondaryText: entry.title
+        secondaryText: title
       })
     } else {
       // In "All", match against feasts or main title (not hidden body text)
@@ -73,7 +76,7 @@ const filteredResults = computed<SearchResultItem[]>(() => {
       const matchedFeast = matchedAnnual || matchedMonthly
       const feastType = matchedAnnual ? 'annual' : (matchedMonthly ? 'monthly' : undefined)
       const secondaryText = matchedFeast 
-        ? (entry.title !== matchedFeast ? entry.title : undefined)
+        ? (title !== matchedFeast ? title : undefined)
         : undefined
 
       results.push({
@@ -109,11 +112,11 @@ function clearQuery() {
             <div class="brand-row">
               <ZikereLogo :size="24" />
               <div>
-                <h2 class="title">ፍለጋ</h2>
-                <span class="sub">Search Synaxarium</span>
+                <h2 class="title">{{ t('search.title') }}</h2>
+                <span class="sub">{{ t('search.subtitle') }}</span>
               </div>
             </div>
-            <button @click="emit('close')" class="close-btn" aria-label="Close">
+            <button @click="emit('close')" class="close-btn" :aria-label="t('common.close')">
               <X class="w-5 h-5" />
             </button>
           </header>
@@ -124,7 +127,7 @@ function clearQuery() {
               <input
                 v-model="searchQuery"
                 type="text"
-                placeholder="የቅዱሳን ስም፣ በዓል ወይም ቃል ይፈልጉ..."
+                :placeholder="t('search.placeholder')"
                 class="search-input"
                 autofocus
               />
@@ -132,7 +135,8 @@ function clearQuery() {
                 v-if="searchQuery" 
                 @click="clearQuery" 
                 class="clear-btn"
-                title="አጽዳ (Clear)"
+                :title="t('common.clear')"
+                :aria-label="t('common.clear')"
               >
                 <X class="w-4 h-4" />
               </button>
@@ -145,26 +149,26 @@ function clearQuery() {
                   class="filter-btn"
                   :class="{ active: searchFilter === 'all' }"
                 >
-                  ሁሉም (All)
+                  {{ t('search.filterAll') }}
                 </button>
                 <button
                   @click="searchFilter = 'annual'"
                   class="filter-btn"
                   :class="{ active: searchFilter === 'annual' }"
                 >
-                  ዓመታዊ (Annual)
+                  {{ t('search.filterAnnual') }}
                 </button>
                 <button
                   @click="searchFilter = 'monthly'"
                   class="filter-btn"
                   :class="{ active: searchFilter === 'monthly' }"
                 >
-                  ወርኃዊ (Monthly)
+                  {{ t('search.filterMonthly') }}
                 </button>
               </div>
 
               <span v-if="searchQuery" class="results-count">
-                {{ filteredResults.length }} ውጤቶች
+                {{ t('search.results', { n: filteredResults.length }) }}
               </span>
             </div>
           </div>
@@ -172,13 +176,13 @@ function clearQuery() {
           <div class="search-results">
             <div v-if="!searchQuery" class="state-empty">
               <div class="empty-mark">፨</div>
-              <p class="state-title">የቅዱሳን ስም፣ ገድል ወይም በዓል ጽፈው ይፈልጉ</p>
-              <p class="state-sub">Search commemorations by name, feast, or text</p>
+              <p class="state-title">{{ t('search.promptTitle') }}</p>
+              <p class="state-sub">{{ t('search.promptSub') }}</p>
             </div>
 
             <div v-else-if="filteredResults.length === 0" class="state-empty">
-              <p class="state-title">ምንም ውጤት አልተገኘም</p>
-              <p class="state-sub">የተለየ አጻጻፍ ወይም ቃል ይሞክሩ (No commemorations found)</p>
+              <p class="state-title">{{ t('search.noResultsTitle') }}</p>
+              <p class="state-sub">{{ t('search.noResultsSub') }}</p>
             </div>
 
             <button
@@ -188,26 +192,26 @@ function clearQuery() {
               class="result-item"
             >
               <div class="date-badge">
-                <span class="badge-month">{{ getMonthNameAm(item.entry.month) }}</span>
-                <span class="badge-day">{{ numberToGeez(item.entry.day) }}</span>
+                <span class="badge-month">{{ monthName(item.entry.month) }}</span>
+                <span class="badge-day">{{ formatNumber(item.entry.day) }}</span>
               </div>
 
               <div class="entry-details">
                 <div class="entry-meta">
                   <span class="entry-chip">
-                    {{ getMonthNameAm(item.entry.month) }} {{ numberToGeez(item.entry.day) }} ({{ item.entry.day }})
+                    {{ monthName(item.entry.month) }} {{ formatNumber(item.entry.day) }}<template v-if="formatNumber(item.entry.day) !== String(item.entry.day)"> ({{ item.entry.day }})</template>
                   </span>
                   <span v-if="item.feastType === 'monthly'" class="feast-pill monthly">
-                    ወርኃዊ በዓል
+                    {{ t('search.monthlyFeast') }}
                   </span>
                   <span v-else-if="item.feastType === 'annual'" class="feast-pill annual">
-                    ዓመታዊ በዓል
+                    {{ t('search.annualFeast') }}
                   </span>
                   <span v-else-if="item.entry.annualFeasts?.length" class="feast-pill">
-                    {{ item.entry.annualFeasts.length }} በዓላት
+                    {{ t('search.feastCount', { n: item.entry.annualFeasts.length }) }}
                   </span>
                 </div>
-                <h4 class="entry-title">{{ item.matchedFeast || item.entry.title }}</h4>
+                <h4 class="entry-title">{{ item.matchedFeast || pick(item.entry.title, item.entry.titleEn) }}</h4>
                 <p v-if="item.secondaryText" class="entry-feasts">
                   {{ item.secondaryText }}
                 </p>
@@ -217,7 +221,7 @@ function clearQuery() {
 
           <footer class="search-footer">
             <button @click="emit('close')" class="done-btn">
-              ዝጋ (Close)
+              {{ t('common.close') }}
             </button>
           </footer>
         </div>

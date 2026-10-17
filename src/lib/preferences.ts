@@ -12,7 +12,8 @@ export interface BookmarkItem {
   year?: number
   title: string
   titleEn?: string
-  dateLabel: string
+  /** Legacy: older saves stored an Amharic label; the label is now derived from month/day. */
+  dateLabel?: string
   savedAt: number
 }
 
