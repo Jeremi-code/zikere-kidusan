@@ -23,6 +23,8 @@
           if (theme === 'dark') {
             root.classList.add('dark');
           }
+          var lang = localStorage.getItem('synaxarium_language');
+          if (lang === 'en' || lang === 'am') root.lang = lang;
         } catch (e) {}
       })();
     </script>
