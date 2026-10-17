@@ -7,31 +7,33 @@ import {
   type FontSize,
   type SupportedLanguage
 } from '../lib/preferences'
+import { t, type MessageKey } from '../lib/i18n'
 import { Sun, Moon, ExternalLink } from 'lucide-vue-next'
 
-const themes: { id: AppTheme; label: string; sub: string; icon: any }[] = [
-  { id: 'light', label: 'የብርሃን ብራና', sub: 'Light Vellum', icon: Sun },
-  { id: 'dark', label: 'የማሕሌት ሌሊት', sub: 'Monastic Dark', icon: Moon }
+const themes: { id: AppTheme; label: MessageKey; sub: MessageKey; icon: any }[] = [
+  { id: 'light', label: 'settings.themeLight', sub: 'settings.themeLightSub', icon: Sun },
+  { id: 'dark', label: 'settings.themeDark', sub: 'settings.themeDarkSub', icon: Moon }
 ]
 
-const languages: { id: SupportedLanguage; label: string; sub: string; symbol: string }[] = [
-  { id: 'am', label: 'አማርኛ', sub: 'ግዕዝ / Amharic', symbol: 'አማ' },
-  { id: 'en', label: 'English', sub: 'English Translation', symbol: 'EN' }
+// Language names stay in their own script so each is recognisable from the other language.
+const languages: { id: SupportedLanguage; label: string; sub: MessageKey; symbol: string }[] = [
+  { id: 'am', label: 'አማርኛ', sub: 'settings.langAmSub', symbol: 'አማ' },
+  { id: 'en', label: 'English', sub: 'settings.langEnSub', symbol: 'EN' }
 ]
 
-const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string }[] = [
-  { id: 'sm', label: 'ትንሽ', sub: 'Small', sampleSize: '14px' },
-  { id: 'base', label: 'መደበኛ', sub: 'Medium', sampleSize: '17px' },
-  { id: 'lg', label: 'ትልቅ', sub: 'Large', sampleSize: '20px' },
-  { id: 'xl', label: 'በጣም ትልቅ', sub: 'XL', sampleSize: '23px' }
+const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: string }[] = [
+  { id: 'sm', label: 'settings.fontSm', sub: 'S', sampleSize: '14px' },
+  { id: 'base', label: 'settings.fontBase', sub: 'M', sampleSize: '17px' },
+  { id: 'lg', label: 'settings.fontLg', sub: 'L', sampleSize: '20px' },
+  { id: 'xl', label: 'settings.fontXl', sub: 'XL', sampleSize: '23px' }
 ]
 </script>
 
 <template>
   <div class="settings-page rv" style="--rd:.1s">
     <header class="page-header">
-      <div class="k">የአነባበብ ምርጫዎች</div>
-      <h2 class="page-title">ቅንብር</h2>
+      <div class="k">{{ t('settings.kicker') }}</div>
+      <h2 class="page-title">{{ t('settings.title') }}</h2>
     </header>
 
     <div class="sep">
@@ -40,28 +42,28 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
 
     <div class="settings-sections">
       <section class="settings-group">
-        <div class="h-label">ገጽታ · THEME</div>
+        <div class="h-label">{{ t('settings.theme') }}</div>
         <div class="theme-grid">
           <button
-            v-for="t in themes"
-            :key="t.id"
+            v-for="theme in themes"
+            :key="theme.id"
             type="button"
             class="theme-card"
-            :class="{ active: currentTheme === t.id }"
-            @click="currentTheme = t.id"
+            :class="{ active: currentTheme === theme.id }"
+            @click="currentTheme = theme.id"
           >
-            <div class="theme-sample-box" :class="t.id">
+            <div class="theme-sample-box" :class="theme.id">
               <span class="sample-rubric"></span>
               <span class="sample-line"></span>
               <span class="sample-line sample-short"></span>
             </div>
             <div class="theme-card-body">
               <div class="theme-meta">
-                <span class="theme-name">{{ t.label }}</span>
-                <span class="theme-sub">{{ t.sub }}</span>
+                <span class="theme-name">{{ t(theme.label) }}</span>
+                <span class="theme-sub">{{ t(theme.sub) }}</span>
               </div>
               <div class="theme-icon-wrap">
-                <component :is="t.icon" class="w-4 h-4" />
+                <component :is="theme.icon" class="w-4 h-4" />
               </div>
             </div>
           </button>
@@ -69,7 +71,7 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
       </section>
 
       <section class="settings-group">
-        <div class="h-label">ቋንቋ · LANGUAGE</div>
+        <div class="h-label">{{ t('settings.language') }}</div>
         <div class="lang-grid">
           <button
             v-for="l in languages"
@@ -85,7 +87,7 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
             <div class="lang-card-body">
               <div class="lang-meta">
                 <span class="lang-name">{{ l.label }}</span>
-                <span class="lang-sub">{{ l.sub }}</span>
+                <span class="lang-sub">{{ t(l.sub) }}</span>
               </div>
               <div class="lang-indicator">
                 <span class="indicator-dot"></span>
@@ -96,7 +98,7 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
       </section>
 
       <section class="settings-group">
-        <div class="h-label">የፊደል መጠን · TYPOGRAPHY</div>
+        <div class="h-label">{{ t('settings.textSize') }}</div>
         <div class="font-grid">
           <button
             v-for="f in fontSizes"
@@ -106,21 +108,21 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
             :class="{ active: currentFontSize === f.id }"
             @click="currentFontSize = f.id"
           >
-            <span class="font-letter" :style="{ fontSize: f.sampleSize }">ሀ</span>
-            <span class="font-name">{{ f.label }}</span>
+            <span class="font-letter" :style="{ fontSize: f.sampleSize }">{{ t('settings.fontSample') }}</span>
+            <span class="font-name">{{ t(f.label) }}</span>
             <span class="font-sub">{{ f.sub }}</span>
           </button>
         </div>
       </section>
 
       <section class="settings-group">
-        <div class="h-label">ምስጋናና ምንጭ · CREDIT</div>
+        <div class="h-label">{{ t('settings.credit') }}</div>
         <div class="credit-card">
           <div class="credit-header">
-            <span class="credit-k">የትረካና የጽሑፍ ምንጭ</span>
-            <h3 class="credit-title">ዲ/ን ዮርዳኖስ አበበ</h3>
+            <span class="credit-k">{{ t('settings.creditKicker') }}</span>
+            <h3 class="credit-title">{{ t('settings.creditName') }}</h3>
             <p class="credit-desc">
-              የዝክረ ቅዱሳን ዕለታዊ ንባባት፣ የቅዱሳን ታሪክ እና መንፈሳዊ ትምህርቶች ምንጭ
+              {{ t('settings.creditDesc') }}
             </p>
           </div>
           <a
@@ -135,7 +137,7 @@ const fontSizes: { id: FontSize; label: string; sub: string; sampleSize: string 
               </svg>
             </div>
             <div class="telegram-info">
-              <span class="telegram-label">ኦፊሴላዊ የቴሌግራም ቻናል</span>
+              <span class="telegram-label">{{ t('settings.telegram') }}</span>
               <span class="telegram-handle">@zikrekidusan23</span>
             </div>
             <ExternalLink class="w-4 h-4 telegram-arrow" />
