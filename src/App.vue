@@ -152,7 +152,6 @@ function handleSelectDate({ year, month, day }: { year?: number; month: number; 
     monthNameEn: eth.monthNameEn,
     geezDay: numberToGeez(eth.day),
     geezYear: numberToGeez(eth.year),
-    formatted: `${eth.monthNameAm} ${numberToGeez(eth.day)} ቀን ${eth.year} ዓ.ም`,
     weekdayNameAm: wd.nameAm,
     weekdayNameEn: wd.nameEn,
     weekdayShortAm: wd.shortAm,
