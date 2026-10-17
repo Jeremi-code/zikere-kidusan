@@ -190,8 +190,7 @@ function toggleCurrentReadingBookmark() {
     day: currentDate.value.day,
     year: currentDate.value.year,
     title: currentReading.value.title,
-    titleEn: currentReading.value.titleEn,
-    dateLabel: `${currentDate.value.monthName} ${currentDate.value.geezDay}`
+    titleEn: currentReading.value.titleEn
   })
 }
 

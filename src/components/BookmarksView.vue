@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { bookmarks, toggleBookmarkItem, type BookmarkItem } from '../lib/preferences'
-import { numberToGeez } from '../lib/ethiopianCalendar'
+import { t, pick, formatNumber, monthName } from '../lib/i18n'
 import { Trash2, BookOpen } from 'lucide-vue-next'
 
 const emit = defineEmits<{
@@ -16,11 +16,11 @@ function handleSelect(item: BookmarkItem) {
 <template>
   <div class="bookmarks-page rv" style="--rd:.1s">
     <header class="page-header">
-      <div class="k">የተመረጡ ንባባት</div>
+      <div class="k">{{ t('bookmarks.kicker') }}</div>
       <div class="header-main">
-        <h2 class="page-title">የተቀመጡ</h2>
+        <h2 class="page-title">{{ t('bookmarks.title') }}</h2>
         <span v-if="bookmarks.length > 0" class="header-count">
-          {{ numberToGeez(bookmarks.length) }} ቀናት
+          {{ t('bookmarks.count', { n: formatNumber(bookmarks.length) }) }}
         </span>
       </div>
     </header>
@@ -37,14 +37,14 @@ function handleSelect(item: BookmarkItem) {
           <circle cx="12" cy="12" r="8" stroke-dasharray="1 3" />
         </svg>
       </div>
-      <p class="empty-verse">«ዝክረ ጻድቅ ለበረከት ይኩን»</p>
-      <h3 class="empty-title">ምንም የተቀመጠ ንባብ የለም</h3>
+      <p class="empty-verse">{{ t('bookmarks.emptyVerse') }}</p>
+      <h3 class="empty-title">{{ t('bookmarks.emptyTitle') }}</h3>
       <p class="empty-desc">
-        በዕለቱ ንባብ ላይ «አስቀምጥ» የሚለውን ምልክት በመጫን የሚወዷቸውን የቅዱሳን ታሪኮች እዚህ ማግኘት ይችላሉ።
+        {{ t('bookmarks.emptyDesc') }}
       </p>
       <button class="action-btn" @click="emit('goToToday')">
         <BookOpen class="w-4 h-4" />
-        <span>ወደ ዛሬ ንባብ ተመለስ</span>
+        <span>{{ t('bookmarks.backToToday') }}</span>
       </button>
     </div>
 
@@ -64,10 +64,10 @@ function handleSelect(item: BookmarkItem) {
           </div>
           <div class="card-body">
             <div class="card-meta">
-              <span class="date-chip">{{ item.dateLabel }}</span>
+              <span class="date-chip">{{ monthName(item.month) }} {{ formatNumber(item.day) }}</span>
             </div>
-            <h3 class="card-title">{{ item.title }}</h3>
-            <p v-if="item.titleEn" class="card-sub">{{ item.titleEn }}</p>
+            <h3 class="card-title">{{ pick(item.title, item.titleEn) }}</h3>
+            <p v-if="item.titleEn" class="card-sub">{{ pick(item.titleEn, item.title) }}</p>
           </div>
           <span class="read-chevron" aria-hidden="true">›</span>
         </button>
@@ -75,8 +75,8 @@ function handleSelect(item: BookmarkItem) {
         <button
           type="button"
           class="remove-btn"
-          title="ከዕልባት አስወግድ"
-          aria-label="ከዕልባት አስወግድ"
+          :title="t('reading.removeBookmark')"
+          :aria-label="t('reading.removeBookmark')"
           @click="toggleBookmarkItem(item)"
         >
           <Trash2 class="w-4 h-4" />
