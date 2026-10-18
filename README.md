@@ -18,16 +18,6 @@ Rooted in ancient Ethiopian manuscript illumination (*ብራና / Biranna*) and 
   - Daily liturgical scripture reading with chapter and verse citations.
   - Comprehensive annual and monthly feast rosters (*ዓመታዊና ወርሃዊ በዓላት*) for each day.
 
-- **📅 Authentic Ethiopian Calendar (ባሕረ ሐሳብ)**
-  - Exact calendar conversion between Julian/Gregorian and the Ethiopian solar calendar (12 months of 30 days + Pagumen 13th month).
-  - Ge'ez numerals representation for dates and years.
-  - Interactive Ethiopian Date Picker modal allowing direct navigation across any Ethiopian year, month, and day.
-
-- **📜 Kinetic Day Strip Navigation**
-  - Smooth, physics-modeled horizontal scrolling and swipe gesture navigation.
-  - Real-time proximity illumination: as days slide into view, the active day elevates in scale with cinnabar rubric red accents.
-  - Automatic synchronization with the daily reading content.
-
 - **🎨 Sacred Manuscript Aesthetics & Typography**
   - Designed around ancient Ethiopian codex principles, incorporating dual-color rubrication (*ቀይ ቀለም* reserved for holy names, incipits, and feast markers).
   - Dedicated Ethiopic calligraphy font (*Menbere*) paired with the classical Latin companion *Cormorant Garamond*.
