@@ -313,36 +313,47 @@ button {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.strip.is-dragging {
+  cursor: grabbing;
 }
 
 .strip-row {
-  display: grid;
-  grid-template-columns: repeat(9, min(calc(100vw / 8.4), calc(480px / 9)));
+  display: flex;
   justify-content: center;
+  align-items: center;
+  will-change: transform;
 }
 
 .day {
+  flex: 0 0 min(calc(100vw / 8.4), calc(480px / 9));
+  width: min(calc(100vw / 8.4), calc(480px / 9));
   display: grid;
   justify-items: center;
   gap: 4px;
   cursor: pointer;
   background: none;
   border: none;
+  padding: 0;
 }
 
 .day .wd {
   font: 500 10.5px var(--font);
-  color: var(--text-3);
+  color: color-mix(in oklab, var(--rubric) calc(var(--t, 0) * 100%), var(--text-3));
+  transition: color 0.12s ease;
 }
 
 .day .n {
   font: 600 17px var(--font);
-  color: var(--text-2);
-}
-
-.day.peek .wd,
-.day.peek .n {
-  opacity: .3;
+  color: color-mix(in oklab, var(--text) calc(var(--t, 0) * 100%), var(--text-2));
+  transform: scale(calc(1 + var(--t, 0) * 0.16));
+  transition: color 0.12s ease, transform 0.12s ease;
 }
 
 .day.today .wd {
@@ -358,12 +369,19 @@ button {
   height: 6px;
   margin-top: 3px;
   border-radius: 50%;
-  background: var(--ink);
+  background: color-mix(in oklab, var(--rubric) calc(var(--t, 0) * 100%), var(--ink));
+  transform: scale(calc(1 + var(--t, 0) * 0.33));
   visibility: hidden;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.day.peek .wd,
+.day.peek .n {
+  opacity: .32;
 }
 
 .day.peek .mk {
-  opacity: .3;
+  opacity: .32;
 }
 
 .day.today .mk {

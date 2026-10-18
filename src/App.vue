@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, nextTick, watch, onUnmounted } from 'vue'
 import { 
   getTodayEthiopian, 
   numberToGeez, 
@@ -39,6 +39,7 @@ const isExit = ref(false)
 const isLanded = ref(false)
 
 const scroller = ref<HTMLElement | null>(null)
+const stripRef = ref<HTMLElement | null>(null)
 const stripRow = ref<HTMLElement | null>(null)
 const dotsLayer = ref<HTMLElement | null>(null)
 
@@ -62,10 +63,12 @@ const gregorianDateString = computed(() => {
   return formatGregorian(new Date(Date.UTC(g.year, g.month - 1, g.day)))
 })
 
+const STRIP_SPAN = 8
+
 const calendarDays = computed(() => {
   const curJdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
   const list = []
-  for (let k = -4; k <= 4; k++) {
+  for (let k = -STRIP_SPAN; k <= STRIP_SPAN; k++) {
     const jdn = curJdn + k
     const eth = jdnToEthiopian(jdn)
     const wd = getWeekdayFromJDN(jdn)
@@ -77,7 +80,7 @@ const calendarDays = computed(() => {
       displayDay: formatNumber(eth.day),
       weekdayShort: pick(wd.shortAm, wd.shortEn),
       isToday: k === 0,
-      isPeek: Math.abs(k) === 4
+      isPeek: Math.abs(k) >= 4
     })
   }
   return list
@@ -154,12 +157,184 @@ function handleSelectDate({ year, month, day }: { year?: number; month: number; 
   }
 }
 
-function handlePickDay(k: number) {
-  const curJdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
-  const targetJdn = curJdn + k
-  const eth = jdnToEthiopian(targetJdn)
-  handleSelectDate({ year: eth.year, month: eth.month, day: eth.day })
+let currentStripX = 0
+let stripAnimFrame = 0
+let isStripAnimating = false
+let wasJustDragging = false
+
+let startState: {
+  x: number
+  y: number
+  base: number
+  pointerId: number
+  isDragging: boolean
+} | null = null
+
+let velocitySamples: { x: number; t: number }[] = []
+
+function getColWidth() {
+  const first = stripRow.value?.firstElementChild as HTMLElement | null
+  return first ? first.getBoundingClientRect().width : 44
 }
+
+function updateDayProximities(currentX: number) {
+  if (!stripRow.value) return
+  stripRow.value.style.transform = `translate3d(${currentX}px, 0, 0)`
+  const colWidth = getColWidth()
+  const children = stripRow.value.children
+  for (let i = 0; i < children.length; i++) {
+    const el = children[i] as HTMLElement
+    const kVal = Number(el.dataset.k || 0)
+    const distFromCenter = Math.abs(kVal * colWidth + currentX) / colWidth
+    const tVal = Math.max(0, 1 - distFromCenter)
+    el.style.setProperty('--t', tVal.toFixed(3))
+  }
+}
+
+function settleTo(k: number, durationMs = 280) {
+  cancelAnimationFrame(stripAnimFrame)
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (isReduced) {
+    if (k !== 0) {
+      const curJdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
+      const eth = jdnToEthiopian(curJdn + k)
+      handleSelectDate({ year: eth.year, month: eth.month, day: eth.day })
+    }
+    currentStripX = 0
+    updateDayProximities(0)
+    return
+  }
+
+  isStripAnimating = true
+  const fromX = currentStripX
+  const colWidth = getColWidth()
+  const toX = -k * colWidth
+  const startTime = performance.now()
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
+
+  const step = (now: number) => {
+    const elapsed = now - startTime
+    const progress = Math.min(1, elapsed / durationMs)
+    currentStripX = fromX + (toX - fromX) * easeOutQuart(progress)
+    updateDayProximities(currentStripX)
+
+    if (progress < 1) {
+      stripAnimFrame = requestAnimationFrame(step)
+    } else {
+      if (k !== 0) {
+        const curJdn = ethiopianToJDN(currentDate.value.year, currentDate.value.month, currentDate.value.day)
+        const eth = jdnToEthiopian(curJdn + k)
+        handleSelectDate({ year: eth.year, month: eth.month, day: eth.day })
+        nextTick(() => {
+          currentStripX = 0
+          updateDayProximities(0)
+          isStripAnimating = false
+        })
+      } else {
+        currentStripX = 0
+        updateDayProximities(0)
+        isStripAnimating = false
+      }
+    }
+  }
+
+  stripAnimFrame = requestAnimationFrame(step)
+}
+
+function handlePickDay(k: number) {
+  if (wasJustDragging) return
+  if (isStripAnimating || k === 0) return
+  settleTo(k, Math.min(360, 210 + Math.abs(k) * 30))
+}
+
+function handleStripPointerDown(e: PointerEvent) {
+  if (e.button !== 0 && e.pointerType === 'mouse') return
+  cancelAnimationFrame(stripAnimFrame)
+  isStripAnimating = false
+  startState = {
+    x: e.clientX,
+    y: e.clientY,
+    base: currentStripX,
+    pointerId: e.pointerId,
+    isDragging: false
+  }
+  velocitySamples = [{ x: currentStripX, t: e.timeStamp }]
+}
+
+function handleStripPointerMove(e: PointerEvent) {
+  if (!startState) return
+  const dx = e.clientX - startState.x
+  const dy = e.clientY - startState.y
+
+  if (!startState.isDragging) {
+    if (Math.abs(dx) < 6) return
+    if (Math.abs(dy) > Math.abs(dx)) {
+      startState = null
+      return
+    }
+    startState.isDragging = true
+    if (stripRef.value) {
+      stripRef.value.setPointerCapture(startState.pointerId)
+      stripRef.value.classList.add('is-dragging')
+    }
+  }
+
+  currentStripX = startState.base + dx
+  updateDayProximities(currentStripX)
+
+  velocitySamples.push({ x: currentStripX, t: e.timeStamp })
+  if (velocitySamples.length > 5) velocitySamples.shift()
+}
+
+function handleStripPointerEnd(e: PointerEvent) {
+  if (!startState) return
+  const wasDragging = startState.isDragging
+  const pointerId = startState.pointerId
+  startState = null
+
+  if (stripRef.value) {
+    stripRef.value.classList.remove('is-dragging')
+    try {
+      if (stripRef.value.hasPointerCapture(pointerId)) {
+        stripRef.value.releasePointerCapture(pointerId)
+      }
+    } catch {}
+  }
+
+  if (!wasDragging) return
+
+  wasJustDragging = true
+  setTimeout(() => {
+    wasJustDragging = false
+  }, 100)
+
+  const colWidth = getColWidth()
+  const firstSample = velocitySamples[0]
+  const lastSample = velocitySamples[velocitySamples.length - 1]
+  const velocity = firstSample && lastSample && lastSample.t > firstSample.t
+    ? (lastSample.x - firstSample.x) / (lastSample.t - firstSample.t)
+    : 0
+
+  const projectedX = currentStripX + velocity * 140
+  const targetK = Math.max(-5, Math.min(5, Math.round(-projectedX / colWidth)))
+  settleTo(targetK, Math.min(360, 210 + Math.abs(targetK) * 30))
+}
+
+function handleWindowResize() {
+  if (!isStripAnimating) {
+    updateDayProximities(currentStripX)
+  }
+}
+
+watch(
+  () => [currentDate.value.year, currentDate.value.month, currentDate.value.day],
+  () => {
+    if (!isStripAnimating) {
+      currentStripX = 0
+      nextTick(() => updateDayProximities(0))
+    }
+  }
+)
 
 function flyDots() {
   if (!dotsLayer.value || !stripRow.value) return
@@ -243,6 +418,7 @@ function handleScroll() {
 }
 
 onMounted(() => {
+  window.addEventListener('resize', handleWindowResize)
   applyThemeToDocument(currentTheme.value)
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -255,7 +431,13 @@ onMounted(() => {
 
   setTimeout(() => {
     isLanded.value = true
+    nextTick(() => updateDayProximities(0))
   }, exitAt + (reduced ? 50 : 560))
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleWindowResize)
+  cancelAnimationFrame(stripAnimFrame)
 })
 </script>
 
@@ -296,7 +478,15 @@ onMounted(() => {
             </div>
           </section>
 
-          <nav class="strip" :aria-label="t('nav.week')">
+          <nav
+            ref="stripRef"
+            class="strip"
+            :aria-label="t('nav.week')"
+            @pointerdown="handleStripPointerDown"
+            @pointermove="handleStripPointerMove"
+            @pointerup="handleStripPointerEnd"
+            @pointercancel="handleStripPointerEnd"
+          >
             <div ref="stripRow" class="strip-row">
               <button
                 v-for="d in calendarDays"
@@ -304,6 +494,7 @@ onMounted(() => {
                 :data-k="d.k"
                 class="day"
                 :class="{ today: d.isToday, peek: d.isPeek }"
+                :style="{ '--t': d.isToday ? '1' : '0' }"
                 @click="handlePickDay(d.k)"
               >
                 <span class="wd rv" :style="{ '--rd': `${0.22 + Math.abs(d.k) * 0.015}s` }">{{ d.weekdayShort }}</span>
