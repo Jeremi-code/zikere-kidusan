@@ -4056,7 +4056,10 @@
         "reference": "ያዕ. 1:1-4",
         "verse": "የእግዚአብሔርና የጌታ የኢየሱስ ክርስቶስ ባሪያ ያዕቆብ፤ ለተበተኑ ለአሥራ ሁለቱ ወገኖች፤ ሰላም ለእናንተ ይሁን። ወንድሞቼ ሆይ! የእምነታችሁ መፈተን ትዕግስትን እንዲያደርግላችሁ አውቃችሁ ልዩ ልዩ ፈተና ሲደርስባችሁ እንደ ሙሉ ደስታ ቁጠሩት። ትዕግስትም ምንም የሚጐድላችሁ ሳይኖር ፍጹማንና ምሉዓን ትሆኑ ዘንድ ሥራውን ይፈጽም።"
       }
-    }
+    },
+    "id": "tikimt-26",
+    "month": 2,
+    "day": 26
   },
   {
     "date": {
@@ -4122,7 +4125,10 @@
         "reference": "ኢሳ. 53:4-5",
         "verse": "በእውነት ደዌአችንን ተቀበለ ሕማማችንንም ተሸክሟል፤ እኛ ግን እንደ ተመታ በእግዚአብሔርም እንደ ተቀሠፈ እንደ ተቸገረም ቆጠርነው። እርሱ ግን ስለ መተላለፋችን ቈሰለ፥ ስለ በደላችንም ደቀቀ፤ የደኅንነታችንም ተግሣጽ በእርሱ ላይ ነበረ፥ በእርሱም ቁስል እኛ ተፈወስን።"
       }
-    }
+    },
+    "id": "tikimt-27",
+    "month": 2,
+    "day": 27
   },
   {
     "date": {
@@ -4184,7 +4190,10 @@
         "reference": "1ዼጥ. 3:13-15",
         "verse": "በጐንም ለማድረግ ብትቀኑ የሚያስጨንቃችሁ ማን ነው? ነገር ግን ስለ ጽድቅ እንኳ መከራን ብትቀበሉ ብጹዓን ናችሁ። ማስፈራራታቸውንም አትፍሩ አትናወጡም፤ ዳሩ ግን ጌታን እርሱም ክርስቶስን በልባችሁ ቀድሱት።"
       }
-    }
+    },
+    "id": "tikimt-28",
+    "month": 2,
+    "day": 28
   },
   {
     "date": {
@@ -4250,7 +4259,10 @@
         "reference": "1ቆሮ. 9:24-25",
         "verse": "በእሽቅድምድም ሥፍራ የሚሮጡት ሁሉ እንዲሮጡ፥ ነገር ግን አንዱ ብቻ ዋጋውን እንዲቀበል አታውቁምን? እንዲሁም ታገኙ ዘንድ ሩጡ። የሚታገልም ሁሉ በነገር ሁሉ ሰውነቱን ይገዛል፤ እነዚያም የሚጠፋውን አክሊል ሊያገኙ ነው፥ እኛ ግን የማይጠፋውን።"
       }
-    }
+    },
+    "id": "tikimt-29",
+    "month": 2,
+    "day": 29
   },
   {
     "date": {
@@ -4314,7 +4326,10 @@
         "reference": "ሐዋ. 12:12-15",
         "verse": "እጅግ ሰዎች ተከማችተው ይጸልዩበት ወደ ነበረው ማርቆስ ወደ ተባለው ወደ ዮሐንስ እናት ወደ ማርያም ቤት መጣ። ጴጥሮስም የደጁን መዝጊያ ባንኳኳ ጊዜ ሮዴ የሚሏት አንዲት አገልጋይ ትሰማ ዘንድ ቀረበች፤ የጴጥሮስ ድምፅ መሆኑንም ባወቀች ጊዜ ከደስታዋ የተነሣ ደጁን አልከፈተችም፥ ነገር ግን ወደ ውስጥ ሮጣ ጴጥሮስ በደጅ ፊት ቆሞ እንዳለ አወራች።"
       }
-    }
+    },
+    "id": "tikimt-30",
+    "month": 2,
+    "day": 30
   },
   {
     "id": "hidar-1",
@@ -22913,55 +22928,61 @@
       "am": "የተባረከው ሐዋርያው ቅዱስ ዑቲኮስ"
     },
     "annual_feasts": {
-      "en": [
-        "Blessed Eutychius the Apostle",
-        "St. Besoy the Priest, Brother of Abba Hor",
-        "Saints Pachomius and Serapion"
-      ],
       "am": [
-        "የተባረከው ቅዱስ ዑቲኮስ ሐዋርያ",
-        "የአባ ሖር ወንድም ቅዱስ ብሶይ ካህን",
-        "ቅዱሳን አባ ጳኩሚስና ሰራብዮን"
+        "ወርኀ ጳጉሜን (መጀመሪያ ቀን)",
+        "ቅዱስ ዑቲኮስ ሐዋርያ",
+        "ቅዱስ ዮሐንስ መጥምቅ",
+        "አባ ብሶይ ቀሲስ"
+      ],
+      "en": [
+        "Beginning of the Blessed Month of Pagumen",
+        "St. Eutychus the Apostle",
+        "St. John the Baptist",
+        "Abba Besoi the Priest"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "Nativity of the Virgin Mary",
-        "Archangel Raguel",
-        "St. Elijah the Prophet",
-        "St. Eutychus the Apostle"
-      ],
       "am": [
-        "ልደታ ለማርያም ድንግል",
+        "ቅዱስ ዮሐንስ መጥምቅ",
+        "ቅዱስ ጳውሎስ ሐዋርያ",
+        "ቅዱስ ጴጥሮስ ሊቀ ሐዋርያት",
         "ቅዱስ ራጉኤል ሊቀ መላእክት",
-        "ቅዱስ ኤልያስ ነቢይ",
-        "ቅዱስ ኡቲኮስ ሐዋርያ"
+        "አቡነ በርሶማ ጻድቅ",
+        "ቅዱስ ኤልያስ ነቢይ"
+      ],
+      "en": [
+        "St. John the Baptist",
+        "St. Paul the Apostle",
+        "St. Peter Chief of Apostles",
+        "Archangel Raguel",
+        "Abune Barsoma the Righteous",
+        "Prophet Elijah"
       ]
     },
     "story": {
-      "en": [
-        "On this day the Church commemorates Blessed Eutychius the Apostle, who was a disciple of St. John the Evangelist, the holy priest St. Besoy, brother of Abba Hor, and Saints Pachomius and Serapion.",
-        "Blessed Eutychius faithfully served St. John the Evangelist and obeyed him with great devotion. Later, with John’s blessing, he went with the Apostle Paul to proclaim the holy Gospel. He preached the name of our Lord Jesus Christ among the Gentiles and the Greeks, bringing many souls to the knowledge of the truth and baptizing them into the household of God. Eutychius destroyed the temples of idols and erected holy churches in their place. For the sake of the faith, he endured bitter persecutions, long imprisonments and cruel scourgings from the unbelievers, yet an angel of God brought him heavenly food to sustain him in his dark cell. When his persecutors cast him into blazing fire, the flames could not harm him, and when they threw him to ravenous lions, the beasts became gentle as sheep before him. At last he traveled to Constantinople under the guidance of the angel, where he finished his earthly course in good old age and departed in peace to the Lord.",
-        "St. Besoy was an honorable and devout priest from Antioch, chosen for his sacred ministry on account of his noble character, deep knowledge and unwavering Orthodox faith. When his brother Abba Hor and their mother Diodora traveled to Alexandria and received the crown of martyrdom, Besoy resolved to journey there to venerate their sacred relics. He distributed all his worldly wealth among the poor, taking only three loaves of bread and a palm-wood staff for his journey. Upon arriving in Alexandria, believers guided him to the bodies of his family, where he wept bitterly at his earthly separation from them. Besoy then presented himself boldly before the governor, confessing our Lord Jesus Christ and identifying himself as the brother of Abba Hor. Enraged, the governor ordered a massive stone pillar to be placed upon his chest, and under this heavy weight the holy priest yielded up his soul to God. Though the governor sought to consume the bodies of Besoy, his family and eighty-eight fellow martyrs with fire, the flames left them untouched. Believers secretly carried the holy relics by ship to Ablasi, placing them in an honorable shrine where numerous healings and wonders were wrought through their prayers.",
-        "We also commemorate Saints Pachomius and Serapion, who faithfully labored in holiness and pleased God throughout their lives.",
-        "May the prayers and intercessions of Blessed Eutychius, St. Besoy, Abba Hor, and all the holy martyrs and righteous fathers be with us all. Amen."
-      ],
       "am": [
-        "በዚህች ዕለት ቤተ ክርስቲያን የወንጌላዊው የቅዱስ ዮሐንስ ረድእ የሆነውን የተባረከውን ሐዋርያ ቅዱስ ዑቲኮስን፣ የአባ ሖር ወንድም የሆነውን ቅዱስ ካህን አባ ብሶይን፣ እንዲሁም ቅዱሳን አባ ጳኩሚስንና ሰራብዮንን ታስባለች።",
-        "የተባረከው ዑቲኮስ ወንጌላዊውን ቅዱስ ዮሐንስን በታላቅ ትጋት አገለገለው፤ ፈቃዱንም ፈጸመ። ከዚያም በዮሐንስ መልካም ፈቃድ ቅዱስ ወንጌልን ለማስተማር ከሐዋርያው ጳውሎስ ጋር ተጓዘ። በአሕዛብና በግሪኮች መካከል የጌታችንን የኢየሱስ ክርስቶስን ክቡር ስም ሰበከ፤ እጅግ በርካታ ሰዎችንም ወደ እውነት እውቀት መርቶ በክርስትና ጥምቀት አጠመቃቸው። የጣዖታትን ማደሪያዎች አፈራርሶ በቦታቸው ቅዱሳት አብያተ ክርስቲያናትን አንጾ አቆመ። ስለ ቅዱስ ሃይማኖቱም ከአላውያን ዘንድ መራራ መከራዎችን፣ ረጅም እሥራትንና ጽኑ ግርፋቶችን ተቀበለ፤ ሆኖም የእግዚአብሔር መልአክ በጨለማው እስር ቤት ድንቅ ምግብ እያመጣ ያበረታው ነበር። አሳዳጆቹ ወደሚነድደው እሳት በጣሉት ጊዜ ነበልባሉ ፈጽሞ አልነካውም፤ ወደ ተራቡ አንበሶችም በጣሉት ጊዜ አራዊቱ በፊቱ እንደ የዋህ በጎች ሆኑለት። በመጨረሻም በመልአኩ መሪነት ወደ ቍስጥንጥንያ ከተማ ተጓዘ፤ በዚያም ተጋድሎውን ፈጽሞ በበጎ ሽምግልና በሰላም ወደ ወደደው ጌታ አረፈ።",
-        "ቅዱስ ብሶይ በመልካም ጠባዩ፣ በጥልቅ እውቀቱና በጸና ኦርቶዶክሳዊ ሃይማኖቱ ምክንያት ለቅስና አገልግሎት የተመረጠ ከአንፆኪያ የመጣ ክቡር ካህን ነበር። ወንድሙ አባ ሖርና እናታቸው ዲዮድራ ወደ እስክንድርያ ሄደው የሰማዕትነትን አክሊል በተቀበሉ ጊዜ፣ ብሶይ የተቀደሰ ሥጋቸውን ለማየትና ለመባረክ ወደዚያ ለመጓዝ ወሰነ። ያለውን ገንዘብ ሁሉ ለድሆች መጽውቶ፣ ሦስት እንጀራዎችንና በእጁ የሚመረኮዝባትን የዘንባባ ዘንግ ብቻ ይዞ መንገዱን ጀመረ። እስክንድርያም በደረሰ ጊዜ ምእመናን ቤተሰቦቹ ወዳሉበት መርተው አደረሱት፤ በዚያም በሥጋ ስለ መለያየታቸው ምርር ብሎ አለቀሰ። ከዚያም ያለ ፍርሃት በአገረ ገዥው ፊት ቆሞ ጌታችንን ኢየሱስ ክርስቶስን መሰከረ፤ እርሱም የአባ ሖር ወንድም መሆኑን ገለጠለት። አገረ ገዥውም እጅግ ተቈጥቶ በሆዱ ላይ ከባድ የድንጋይ ምሰሶ እንዲያኖሩበት አዘዘ፤ ቅዱሱ ካህንም በዚያች ቅጽበት ነፍሱን በእግዚአብሔር እጅ ሰጠ። ገዥው የብሶይን፣ የቤተሰቦቹንና የሰማንያ ስምንቱን ቅዱሳን ሰማዕታት ሥጋ በእሳት ለማቃጠል ቢሞክርም፣ ነበልባሉ ፈጽሞ አልነካቸውም። ምእመናንም የተቀደሰ ሥጋቸውን በመርከብ ወደ አብስላሲ በክብር ወስደው በመልካም ስፍራ አኖሩት፤ በዚያም በጸሎታቸው ብዙ ድንቅ ፈውሶችና ተአምራት ተገለጡ።",
-        "በዚህች ዕለት ደግሞ በሕይወታቸው ሁሉ በቅድስና ተጋድለው እግዚአብሔርን ደስ ያሰኙትን ቅዱሳን አባ ጳኩሚስንና ሰራብዮንን እናስባለን።",
-        "የተባረከው የሐዋርያው ቅዱስ ዑቲኮስ፣ የቅዱስ ብሶይ፣ የአባ ሖር እንዲሁም የቅዱሳን ሰማዕታትና የጻድቃን አባቶች ሁሉ ጸሎትና ምልጃ ከሁላችን ጋር ይሁን። አሜን።"
+        "በዚህች ዕለት ቤተ ክርስቲያን የተባረከውን ወርኀ ጳጉሜን በታላቅ ምስጋናና በንስሐ ጸሎት ትጀምራለች። እግዚአብሔር አምላክ አዝማናትንና ወራትን የፈጠረው ለሰው ልጆች ጥቅም ሲሆን፣ ወርኀ ጳጉሜን ደግሞ ከአሮጌው ዓመት ወደ አዲሱ ዓመት የምንሸጋገርባት፣ ስለ ኃጢአታችን ንስሐ የምንገባባትና የመጨረሻውን የፍርድ ቀን የምናስብባት ልዩ የታረቀች ወር ናት።",
+        "በዚችም ቀን ከሰባ ሁለቱ አርድእት አንዱ የሆነው ሐዋርያው ቅዱስ ዑቲኮስ ያረፈበት መታሰቢያ ይከበራል። ቅዱስ ዑቲኮስ የወንጌላዊው የቅዱስ ዮሐንስና የቅዱስ ጳውሎስ ደቀ መዝሙር ሲሆን፣ በሰማርያና በብዙ አሕጉራት ወንጌልን በታላቅ ቅናት ሰብኳል። ጣዖታትን አፍርሶ አብያተ ክርስቲያናትን አንጿል።",
+        "ከሃዲው ንጉሥ በብረት አልጋ ላይ አስኝቶ በእሳት ቢያቃጥለውና በዱር አራዊት ፊት ቢጥለውም፣ እግዚአብሔር በተአምራት አድኖታል። በመጨረሻም ወንጌልን በጽናት አስተምሮ በሰላም ዐረፈ።",
+        "በዚችም ዕለት የነቢያት ማጠቃለያና የሰማዕታት አለቃ የቅዱስ ዮሐንስ መጥምቅ እንዲሁም የግብጹ ካህን አባ ብሶይ ያረፉበት መታሰቢያ ይከበራል።",
+        "የወርኀ ጳጉሜን በረከት፣ የሐዋርያው ቅዱስ ዑቲኮስና የመጥምቁ ዮሐንስ ጸሎት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this day, the Church commences the blessed month of Pagumen with fervent thanksgiving, vigil, and penitential supplication. God in His inscrutable wisdom created times and seasons for the spiritual salvation of humanity; Pagumen stands as a sacred bridge between the old and the new year, calling believers to heartfelt repentance and contemplation of the eternal Judgment.",
+        "On this day also, the Church commemorates Saint Eutychus the Apostle, one of the Seventy Disciples. A dedicated disciple of Saint John the Theologian and Saint Paul, he proclaimed the Gospel with holy zeal across Samaria and gentile lands, pulling down pagan temples and erecting sanctuaries of Christ.",
+        "Though pagan magistrates cast him upon red-hot iron grates and threw him before ferocious wild beasts, God preserved him unharmed. Having faithfully completed his apostolic ministry, he fell asleep peacefully in the Lord.",
+        "Commemorated also on this day are Saint John the Baptist, the seal of the prophets, and Abba Besoi the righteous priest of Egypt.",
+        "May the spiritual blessings of the month of Pagumen, and the prayers of Saint Eutychus and Saint John the Baptist be with us all. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Philippians 1:21",
-        "verse": "For to me to live is Christ, and to die is gain."
-      },
       "am": {
-        "reference": "ፊል. 1:21",
-        "verse": "ለእኔ ሕይወት ክርስቶስ ፥ ሞትም ጥቅም ነውና።"
+        "reference": "ማቴ. 11:11",
+        "verse": "እውነት እላችኋለሁ፥ ከሴቶች ከተወለዱት መካከል ከመጥምቁ ዮሐንስ የሚበልጥ አልተነሣም፤ በመንግሥተ ሰማያት ግን ከሁሉ የሚያንሰው ይበልጠዋል።"
+      },
+      "en": {
+        "reference": "Matthew 11:11",
+        "verse": "Verily I say unto you, Among them that are born of women there hath not risen a greater than John the Baptist: notwithstanding he that is least in the kingdom of heaven is greater than he."
       }
     }
   },
@@ -22978,51 +22999,49 @@
       "am": "ቅዱስ ቲቶ ሐዋርያ"
     },
     "annual_feasts": {
-      "en": [
-        "St. Titus the Apostle"
-      ],
       "am": [
-        "ቅዱስ ቲቶ ሐዋርያ"
+        "ቅዱስ ቲቶ ሐዋርያ (ኤጲስ ቆጶስ ዘቀርጤስ)"
+      ],
+      "en": [
+        "St. Titus the Apostle (Bishop of Crete)"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "Archangel Uriel",
-        "St. Theodore the Martyr",
-        "Abba Paul the First Hermit",
-        "Abba John the Righteous"
-      ],
       "am": [
-        "ቅዱስ ዑራኤል ሊቀ መላእክት",
-        "ቅዱስ ቴዎድሮስ ሰማዕት",
-        "አባ ጳውሊ ቀዳሜ ገዳማውያን",
-        "አባ ዮሐንስ ጻድቅ"
+        "ቅዱስ ታዴዎስ ሐዋርያ",
+        "ቅዱስ ዮሐንስ መጥምቅ",
+        "አባ አባዲርና ቅድስት ኢራኢ"
+      ],
+      "en": [
+        "St. Thaddaeus the Apostle",
+        "St. John the Baptist",
+        "Abba Abadir and St. Irai"
       ]
     },
     "story": {
-      "en": [
-        "On this day the Church commemorates the holy Apostle Titus, the beloved disciple of St. Paul who addressed one of his pastoral epistles to him.",
-        "Titus was born on the island of Crete, born into an honorable Greek family, and was the nephew of the governor of the island. From his youth he was educated in Greek philosophy, rhetoric and learning, becoming a man of deep understanding, sincere character and practical charity toward the needy. One night he heard a voice in a vision saying to him: “Titus, labor for the salvation of your soul, for this present world is of no profit to you.” Awaking in wonder and trembling, he kept these words in his heart. Soon afterward, reports of the wondrous miracles and life-giving teachings of our Lord Jesus Christ reached Crete. Wanting to discover whether these accounts were true or mere deception, the governor chose Titus on account of his discernment and sent him to Jerusalem to investigate the matter with the greatest care.",
-        "When Titus arrived in the land of Judea, he witnessed the divine deeds and glorious miracles performed by our Lord, and he listened to His sacred, life-giving words. Recognizing at once the infinite contrast between the pagan philosophy of the Greeks and the divine truth of the Gospel, he perceived the vanity of idolatry and believed with his whole heart in Christ. He sent word back to his uncle the governor confirming that everything spoken concerning the Savior was the living truth. The Lord numbered Titus among His seventy-two disciples, and after Christ’s ascension he received the grace of the Holy Spirit with the Apostles in the Upper Room of Zion, setting forth with them to proclaim the Gospel.",
-        "When Paul was called to the apostleship, Titus became his faithful companion, journeying with him through numerous cities and enduring trials for the faith. Following Paul’s martyrdom in the city of Rome, Titus returned to his homeland of Crete. There he built a church, established dioceses, and ordained priests and deacons for the neighboring towns. Having faithfully accomplished his apostolic fight and guided many into the haven of salvation, he departed in peace to God Whom he loved.",
-        "May the prayers and apostolic blessings of St. Titus be with us all. Amen."
-      ],
       "am": [
-        "በዚህች ዕለት ቤተ ክርስቲያን ሐዋርያው ቅዱስ ጳውሎስ አንዱን መልእክቱን የጻፈለት የተወደደ ደቀ መዝሙሩ የሆነውን ቅዱስ ሐዋርያ ቲቶን ታስባለች።",
-        "ቅዱስ ቲቶ በቀርጤስ ደሴት ከከበሩ የግሪክ ወገኖች ተወለደ፤ እርሱም የደሴቲቱ አገረ ገዥ የእህት ልጅ ነበር። ከታናሽነቱ ጀምሮ የግሪኮችን ፍልስፍናና ጥበብ ተምሮ ጥልቅ ማስተዋል ያለው፣ ጠባዩ ቅንና ለተቸገሩት የሚራራ ደግ ሰው ሆነ። በአንዲት ሌሊትም «ቲቶ ሆይ፣ ይህ ዓለም አንዳች አይጠቅምህምና ስለ ነፍስህ መዳን ተጋደል» የሚል ቃል በሕልሙ አየ። እርሱም በመደነቅና በፍርሃት ከእንቅልፉ ነቅቶ ይህን ቃል በልቡ አኖረው። ከዚያም ብዙም ሳይቆይ የጌታችን የኢየሱስ ክርስቶስ ድንቅ ተአምራትና ሕይወት ሰጪ ትምህርት ወሬ በቀርጤስ ተሰማ። አገረ ገዥውም ይህ ነገር እውነት መሆኑን ወይም የተንኮል ሥራ መሆኑን ያውቅ ዘንድ፣ በቲቶ ጥበብ ተማምኖ ጉዳዩን በጥልቅ ይመረምር ዘንድ ወደ ኢየሩሳሌም ላከው።",
-        "ቲቶ ወደ ይሁዳ ምድር በደረሰ ጊዜ ጌታችን የሠራቸውን መለኮታዊ ሥራዎችና ድንቅ ተአምራቱን በአይኑ ተመለከተ፤ ሕይወት የሚሰጠውንም የተቀደሰ ቃሉን አደመጠ። በግሪኮች ከንቱ ፍልስፍናና በወንጌል መለኮታዊ እውነት መካከል ያለውን ታላቅ ልዩነት ወዲያው አስተዋለ፤ የጣዖታት አምልኮ ከንቱ መሆኑንም ተረድቶ በሙሉ ልቡ በክርስቶስ አመነ። ወደ አጎቱ ወደ አገረ ገዥውም መልእክት ልኮ ስለ መድኃኒታችን የተነገረው ነገር ሁሉ ሕያው እውነት መሆኑን መሰከረ። ጌታችንም ቲቶን ከሰባ ሁለቱ አርድዕት አንዱ አድርጎ ቈጠረው፤ ከጌታ ዕርገት በኋላም በጽዮን አዳራሽ ከሐዋርያት ጋር የመንፈስ ቅዱስን ጸጋ ተቀብሎ ከእነርሱ ጋር ወንጌልን ለማስተማር ወጣ።",
-        "ቅዱስ ጳውሎስ ለሐዋርያነት በተጠራ ጊዜ፣ ቲቶ ታማኝ አጋሩ ሆኖ በብዙ አገሮችና ከተሞች አብሮት ተጓዘ፤ ስለ ሃይማኖትም መከራዎችን ታገሠ። ቅዱስ ጳውሎስ በሮሜ ከተማ በሰማዕትነት ካረፈ በኋላ፣ ቲቶ ወደ ትውልድ አገሩ ወደ ቀርጤስ ተመለሰ። በዚያም ቤተ ክርስቲያንን አንጾ፣ ለአካባቢው ከተሞች ቀሳውስትንና ዲያቆናትን ሾመላቸው። ሐዋርያዊ አገልግሎቱንና ተጋድሎውን በታማኝነት ፈጽሞ ብዙዎችን ወደ ድነት ወደብ ከመራ በኋላ፣ ወደ ወደደው ወደ እግዚአብሔር በሰላም አረፈ።",
-        "የቅዱስ ሐዋርያው ቲቶ ጸሎትና ሐዋርያዊ በረከት ከሁላችን ጋር ይሁን። አሜን።"
+        "በዚህች ዕለት ቤተ ክርስቲያን ከሰባ ሁለቱ አርድእት አንዱ የሆነውን የሐዋርያውን የቅዱስ ቲቶን ዓመታዊ መታሰቢያ ታከብራለች። ቅዱስ ቲቶ በቀርጤስ ደሴት ከከበሩ የግሪክ ነገሥታት ወገን የተወለደና የደሴቲቱ አገረ ገዥ የወንድም ልጅ ነበር፤ በዘመኑ የነበረውን የግሪክ ፍልስፍናና ጥበብ ጠንቅቆ ተምሮ ነበር።",
+        "ገና በወጣትነቱ በሕልሙ 'የገዛ ነፍስህን ታድን ዘንድ የዕብራውያንን መጻሕፍት አንብብ' የሚል ሰማያዊ ድምፅ ሰማ። የነቢዩ ኢሳይያስን ትንቢት ባነበበ ጊዜ ልቡ በመንፈሳዊ ፍቅር ተነክቶ፣ ጌታችን በይሁዳ ምድር እያስተማረ ድንቅ ተአምራትን ሲያደርግ ለመስማት ወደ ኢየሩሳሌም ተጓዘ።",
+        "ቅዱስ ቲቶ ጌታችን የሠራቸውን መለኮታዊ ሥራዎች፣ ሞቱንና ትንሣኤውን በዓይኑ አይቶ አመነ፤ ከሰባ ሁለቱ አርድእት አንዱ ሆኖ ተቆጠረ። በበዓለ ኀምሳም የመንፈስ ቅዱስን ጸጋ ተቀበለ።",
+        "ሐዋርያው ቅዱስ ጳውሎስ ቲቶን 'የእምነት ልጄ' እያለ ይጠራው ነበር፤ በቀርጤስ ደሴት ላይ ኤጲስ ቆጶስ አድርጎ ሾመው። ቅዱስ ቲቶ ጣዖታትን አፍርሶ ብዙ አብያተ ክርስቲያናትን አነጸ፤ መንጋውን በሐዋርያዊ ቅናት ከጠበቀ በኋላ በዚች ዕለት በሰላም ዐረፈ።",
+        "የሐዋርያው የቅዱስ ቲቶ ጸሎትና በረከት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this day, the Church commemorates the Holy Apostle Saint Titus, one of the Seventy Disciples. Born into nobility on the island of Crete, he was the nephew of the proconsul and was profoundly educated in Greek philosophy and classical letters.",
+        "In his youth, a heavenly voice warned him in a dream: 'Titus, depart hence and save thy soul, for the philosophy of the Greeks profiteth nothing!' Opening the prophecies of Isaiah, his heart was illuminated, and he journeyed to Jerusalem where he witnessed our Lord's preaching, miracles, Crucifixion, and glorious Resurrection.",
+        "Believing with all his heart, Titus was numbered among the Seventy Disciples and received the grace of the Holy Spirit on Pentecost.",
+        "The Apostle Paul loved him as his own true son in the faith and consecrated him Bishop of Crete. Titus laboured tirelessly, overthrowing idolatry, ordaining priests, and shepherding the flock in holiness until he fell asleep peacefully at an advanced age.",
+        "May the prayers and apostolic blessings of Saint Titus be with us all. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Colossians 3:2",
-        "verse": "Set your mind on the things that are above, not on the things that are on the earth."
-      },
       "am": {
-        "reference": "ቆላ. 3:2",
-        "verse": "በላይ ያለውን ዐስቡ እንጂ በምድር ያለውን አይደለም።"
+        "reference": "ቲቶ 2:11-13",
+        "verse": "ሰዎችን ሁሉ የሚያድን የእግዚአብሔር ጸጋ ተገልጦአልና፤ ይህም ጸጋ፥ ኃጢአተኝነትንና ዓለማዊን ምኞት ክደን፥ የተባረከውን ተስፋችንን እርሱም የታላቁን የአምላካችንንና የመድኃኒታችንን የኢየሱስ ክርስቶስን ክብር መገለጥ እየጠበቅን፥ በአሁኑ ዘመን በራሳችን በመግዛትና በጽድቅ እግዚአብሔርንም በመምሰል እንድንኖር ያስተምረናል።"
+      },
+      "en": {
+        "reference": "Titus 2:11-13",
+        "verse": "For the grace of God that bringeth salvation hath appeared to all men, Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world; Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ."
       }
     }
   },
@@ -23039,57 +23058,59 @@
       "am": "ቅዱስ ሩፋኤል ሊቀ መላእክትና መልከጼዴቅ"
     },
     "annual_feasts": {
-      "en": [
-        "Archangel Raphael (Consecration of his Church)",
-        "Righteous Melchizedek, King of Salem",
-        "St. Serapion the Ascetic",
-        "Righteous King Zara Ya’aqob of Ethiopia"
-      ],
       "am": [
+        "ርኅወተ ሰማይ (የሰማይ መከፈት)",
         "ቅዱስ ሩፋኤል ሊቀ መላእክት (ተዝካረ ቅዳሴ ቤቱ)",
-        "ጻድቁ መልከጼዴቅ ንጉሠ ሳሌም",
-        "ቅዱስ ሰራብዮን ባሕታዊ",
-        "ጻድቁ ንጉሥ ዘርዐ ያዕቆብ"
+        "ጻድቁ መልከ ጼዴቅ ንጉሠ ሳሌም",
+        "ጻድቁ ንጉሥ ዘርዐ ያዕቆብ",
+        "ቅዱስ ሰራብዮን ባሕታዊ"
+      ],
+      "en": [
+        "Rihwete Semay (The Opening of the Heavens)",
+        "Archangel Raphael (Consecration of his Church)",
+        "Righteous Melchizedek King of Salem",
+        "Righteous King Zara Ya'aqob of Ethiopia",
+        "St. Serapion the Ascetic"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "Presentation of the Virgin Mary",
-        "Saints Joachim and Anna",
-        "St. Zena Markos",
-        "St. Cyril the Pillar of Faith"
-      ],
       "am": [
         "በዓታ ለማርያም ድንግል",
-        "ቅዱሳን ኢያቄም ወሐና",
-        "ቅዱስ ዜና ማርቆስ",
-        "ቅዱስ ቄርሎስ ዓምደ ሃይማኖት"
+        "አባ ሊባኖስ ዘደብረ ዳሞ",
+        "አቡነ ዜና ማርቆስ",
+        "ቅዱስ ቄርሎስ ሊቀ ጳጳሳት"
+      ],
+      "en": [
+        "Entrance of Mary into the Temple",
+        "Abba Libanos of Debre Damo",
+        "Abune Zena Markos",
+        "St. Cyril Patriarch of Alexandria"
       ]
     },
     "story": {
-      "en": [
-        "On this day the Church celebrates the feast of the glorious Archangel Raphael, the consecration of his church outside Alexandria, the commemoration of the righteous Melchizedek, King of Salem, the departure of the devout St. Serapion, and the memory of the righteous Ethiopian King Zara Ya’aqob.",
-        "Archangel Raphael is the third of the glorious and vigilant archangels, renowned for healing, mercy and gladness. In the days of Archbishop Theophilus of Alexandria, a devout woman from Rome brought an icon of Raphael and gold to build him a church on an island. When the faithful gathered at its consecration, a violent tremor shook the foundations, for Satan stirred up a monstrous whale beneath the sand upon which the structure had been unwittingly erected. As the people cried out in fear, Archangel Raphael descended from heaven and drove his holy spear into the sea monster, commanding it in God’s name to remain motionless. In another holy revelation granted to the Apostles on the Mount of Olives, Raphael declared that the Lord appointed him over twenty-three heavenly hosts, giving joy to repentant sinners and carrying charitable souls to heavenly Jerusalem.",
-        "On this day the Church also remembers the righteous Melchizedek, priest of the Most High God and prophetic archetype of the eternal priesthood of Christ. Guided by an angel, Shem and Melchizedek carried the body of father Adam in secret to Golgotha, the center of the earth where the Savior would one day redeem mankind. Clothed in skins and fed by angels, Melchizedek ministered before the altar of twelve stones, offering bread and wine that prefigured the Holy Eucharist. When our father Abraham returned victorious over the allied kings, Melchizedek brought forth bread and wine to bless him, and Abraham reverently presented him tithes of all his spoil.",
-        "We also commemorate the ascetic St. Serapion and King Zara Ya’aqob of Ethiopia. Serapion gave up all worldly possessions, sold himself into servitude among pagans to instruct them in the Christian faith, and ended his holy life in Rome after laboring in continuous fasting and prayer. King Zara Ya’aqob ruled Ethiopia with great wisdom and devotion, writing sacred books, establishing liturgical order across the realm, and defending the true Orthodox faith until he departed in peace.",
-        "May the intercessions of Archangel Raphael, the prayers of righteous Melchizedek, St. Serapion, and King Zara Ya’aqob be with us all. Amen."
-      ],
       "am": [
-        "በዚህች ዕለት ቤተ ክርስቲያን የከበረው የመላእክት አለቃ የቅዱስ ሩፋኤልን በዓል፣ ከእስክንድርያ ውጭ የታነጸችውን የቤተ ክርስቲያኑን ቅዳሴ፣ የሳሌሙን ንጉሥ የጻድቁ መልከጼዴቅን መታሰቢያ፣ የተጋዳዩን የቅዱስ ሰራብዮንን እረፍትና የጻድቁን የኢትዮጵያ ንጉሥ ዘርዐ ያዕቆብን መታሰቢያ በክብር ታከብራለች።",
-        "ቅዱስ ሩፋኤል በፈውስ፣ በምሕረትና ደስታን በማብሠር የሚታወቅ ከከበሩትና ነቁዓን ከሆኑት ሊቃነ መላእክት ሦስተኛው ነው። በእስክንድርያው ሊቀ ጳጳሳት በአባ ቴዎፍሎስ ዘመን፣ ከአንዲት ከሮሜ ከተማ ከመጣች ደግ ሴት በተገኘ ወርቅና የቅዱስ ሩፋኤል ሥዕል አማካኝነት ከከተማዋ ውጭ ባለች ደሴት ላይ ቤተ ክርስቲያን ተሠራለት። በቅዳሴው ዕለት ምእመናን በውስጡ ተሰብስበው ሳሉ ሕንጻው በድንገት ተናወጠ፤ ምክንያቱም ሕንጻው ሳያውቁ በላዩ ላይ በተሠራበት አሸዋ ሥር የተኛውን ግዙፍ አንበሪ ሰይጣን ስላንቀሳቀሰው ነበር። ሕዝቡም በፍርሃት ወደ እግዚአብሔር ሲጮኹ፣ ሊቀ መላእክት ሩፋኤል ከሰማይ ወርዶ የተቀደሰ ጦሩን በባሕሩ አውሬ ላይ ቸከለበት፤ በእግዚአብሔርም ትእዛዝ ሳይንቀሳቀስ እንዲጸና አደረገው። በተጨማሪም በደብረ ዘይት ለሐዋርያት በተገለጠው ምሥጢር፣ ቅዱስ ሩፋኤል በሃያ ሦስቱ የመላእክት ነገድ ላይ እንደ ተሾመ፣ ለንስሐ አድራጊዎች ምሕረትን እንደሚያሰጥና ለተቸገሩት በጎ ያደረጉትን ነፍሳት ወደ ሰማያዊት ኢየሩሳሌም እንደሚያደርስ መሰከረ።",
-        "በዚህች ዕለት ደግሞ ቤተ ክርስቲያን የልዑል እግዚአብሔር ካህንና የክርስቶስ ዘላለማዊ ክህነት ምሳሌ የሆነውን ጻድቁን መልከጼዴቅን ታስባለች። ሤምና መልከጼዴቅ በመልአኩ መሪነት የአባታችን የአዳምን ሥጋ በምስጢር ተሸክመው መድኃኒታችን የሰውን ልጅ ወደሚያድንበት ወደ ምድር ማዕከል ወደ ቀራንዮ አደረሱት። መልከጼዴቅ የቆዳ ልብስ ለብሶ በመላእክት እየተመገበ፣ የሐዲስ ኪዳን ቁርባን ምሳሌ የሆነውን ኅብስትና ወይን በዐሥራ ሁለቱ ድንጋዮች መሠዊያ ላይ እያቀረበ አገለገለ። አባታችን አብርሃም ነገሥታቱን ድል አድርጎ በተመለሰ ጊዜ፣ መልከጼዴቅ ኅብስትና ወይን አውጥቶ ባረከው፤ አብርሃምም ካገኘው ምርኮ ሁሉ አሥራቱን በክብር ሰጠው።",
-        "በተጨማሪም ባሕታዊውን ቅዱስ ሰራብዮንንና የኢትዮጵያውን ንጉሥ ዘርዐ ያዕቆብን እናስባለን። ቅዱስ ሰራብዮን የዚህን ዓለም ሀብት ሁሉ ንቆ፣ አረማውያንን በክርስትና ሃይማኖት ለማስተማር ራሱን በባርነት ሸጦ አገለገላቸው፤ ከዚያም በጾምና በጸሎት እየተጋደለ በሮሜ ከተማ በቅድስና አረፈ። ንጉሥ ዘርዐ ያዕቆብም ኢትዮጵያን በጥልቅ ጥበብና እግዚአብሔርን በመፍራት መራ፤ ቅዱሳት መጻሕፍትን ጻፈ፣ በመንግሥቱ ሁሉ የተዋቡ የሥርዓት ደንቦችን አቆመ፣ የቀናችውን የኦርቶዶክስ ሃይማኖትንም እስከ እረፍቱ ድረስ በጽናት አጸና።",
-        "የሊቀ መላእክት የቅዱስ ሩፋኤል ምልጃ፣ የጻድቁ መልከጼዴቅ፣ የቅዱስ ሰራብዮንና የንጉሥ ዘርዐ ያዕቆብ ጸሎት ከሁላችን ጋር ይሁን። አሜን።"
+        "በዚህች ዕለት ቤተ ክርስቲያን 'ርኅወተ ሰማይ' (የሰማይ መከፈት) የሚባለውን ታላቅ የበረከት ቀን በደስታ ታከብራለች። እመቤታችን ለአፄ ናዖድ እንደ ነገረቻቸው፣ በዚህች ዕለት የሰዎች ጸሎትና ልመና ሁሉ ያለ ከልካይ ወደ እግዚአብሔር ዙፋን ያርጋል፤ የእግዚአብሔር የምሕረት መዝገብ ይከፈታል፤ በቅዱስ ሩፋኤል አማላጅነት ለዓመት የሚበቃ ምሕረት ይገኛል። አባቶቻችንም በዚህች ሌሊት 365 አቡነ ዘበሰማያትን ሲጸልዩ ያድራሉ።",
+        "እንዲሁም በዚህች ዕለት ከሰባቱ ሊቃነ መላእክት ሦስተኛ የሆነው የከበረው ሊቀ መላእክት የቅዱስ ሩፋኤል ዓመታዊ በዓልና በእስክንድርያ ደሴት ላይ የታነጸችው ቤተ ክርስቲያኑ የከበረችበት መታሰቢያ ይከበራል። ቅዱስ ሩፋኤል ፈዋሽና አስደሳች መልአክ ሲሆን፣ በጦቢት ቤት ተገልጦ ድንቅ ተአምራትን አድርጓል።",
+        "በዚችም ቀን የልዑል እግዚአብሔር ካህንና የሰላም ንጉሥ የነበረው፣ ለአብርሃም ኅብስትና ወይንን ያቀረበው ጻድቁ መልከ ጼዴቅ ይታሰባል። እርሱም የክርስቶስ ዘላለማዊ ክህነት ምሳሌ ነው።",
+        "በተጨማሪም የኢትዮጵያ ንጉሥ ጻድቁ ዘርዐ ያዕቆብና ባሕታዊው ቅዱስ ሰራብዮን ያረፉበት መታሰቢያ ይከበራል። አፄ ዘርዐ ያዕቆብ አብያተ ክርስቲያናትን ያነጸና እመቤታችንን በብዙ ድርሳናት ያመሰገነ ታላቅ ንጉሥ ነው።",
+        "የቅዱስ ሩፋኤል ምልጃ፣ የጻድቁ መልከ ጼዴቅና የንጉሥ ዘርዐ ያዕቆብ ጸሎት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this day, the Church joyously celebrates 'Rihwete Semay' (The Opening of the Heavens). As our Lady revealed to Emperor Na'od, on this blessed day the prayers and supplications of humanity ascend unhindered to the Throne of God; the treasury of divine mercy is unlocked, and through the intercession of Archangel Raphael, bountiful forgiveness is granted for the entire year. The faithful spend this night reciting 365 times the Lord's Prayer.",
+        "Commemorated also on this day is the glorification of the Holy Archangel Raphael, third among the seven archangels, and the consecration of his historic sanctuary outside Alexandria. Raphael is the angel of healing and heavenly joy, who guided young Tobias and wrought marvelous cures.",
+        "On this day also, the Church commemorates the righteous Melchizedek, King of Salem and priest of the Most High God, who brought forth bread and wine to Abraham, prefiguring the eternal priesthood of our Lord Jesus Christ.",
+        "Furthermore, the righteous Emperor Zara Ya'aqob of Ethiopia and Saint Serapion the ascetic entered into rest. Emperor Zara Ya'aqob was an illustrious defender of the Orthodox faith and renowned author of liturgical praises of the Mother of God.",
+        "May the intercession of Archangel Raphael, and the prayers of righteous Melchizedek and King Zara Ya'aqob be with us all. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Hebrews 1:14",
-        "verse": "Aren’t they all serving spirits, sent out to do service for the sake of those who will inherit salvation?"
-      },
       "am": {
-        "reference": "ዕብ. 1:14",
-        "verse": "ከቶ ለማን ብሏል? ሁሉ መዳንን ይወርሱ ዘንድ ስላላቸው ለማገዝ የሚላኩ የሚያገለግሉም መናፍስት አይደሉምን?"
+        "reference": "ዮሐ. 1:51",
+        "verse": "እውነት እውነት እላችኋለሁ፥ ሰማይ ሲከፈት የእግዚአብሔርም መላእክት በሰው ልጅ ላይ ሲወጡና ሲወርዱ ታያላችሁ አለው።"
+      },
+      "en": {
+        "reference": "John 1:51",
+        "verse": "And he saith unto him, Verily, verily, I say unto you, Hereafter ye shall see heaven open, and the angels of God ascending and descending upon the Son of man."
       }
     }
   },
@@ -23106,51 +23127,51 @@
       "am": "የአባ ባይሞንና የቅዱስ ሊባርዮስ ዘሮሜ ዕረፍት"
     },
     "annual_feasts": {
-      "en": [
-        "Abba Poemen the Desert Father",
-        "St. Liberius Archbishop of Rome"
-      ],
       "am": [
-        "አባ ባይሞን ገዳማዊ",
+        "አባ ባይሞን (ጴሜን) ገዳማዊ",
         "ቅዱስ ሊባርዮስ ሊቀ ጳጳሳት ዘሮሜ"
+      ],
+      "en": [
+        "Abba Poemen (Baymon) the Desert Father",
+        "St. Liberius Pope of Rome"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "St. John the Evangelist",
-        "St. Andrew the Apostle",
-        "St. Sophia and her Daughters"
-      ],
       "am": [
         "ቅዱስ ዮሐንስ ወንጌላዊ",
-        "ቅዱስ እንድርያስ ሐዋርያ",
-        "ቅድስት ሶፍያ ወአዋልዳ"
+        "አቡነ መልከ ጼዴቅ ዘጋራዕልታ",
+        "ቅዱስ እንድርያስ ሐዋርያ"
+      ],
+      "en": [
+        "St. John the Evangelist",
+        "Abune Melchizedek of Gara'elta",
+        "St. Andrew the Apostle"
       ]
     },
     "story": {
-      "en": [
-        "On this day the Church commemorates the departure of the desert ascetic Abba Poemen, and the repose of St. Liberius, Archbishop of Rome.",
-        "Abba Poemen was born in Egypt and had six brothers: John, Job, Joseph, Basil, Jacob, and Abraham. Together, all seven brothers renounced worldly life and embraced monasticism in remote wilderness, choosing to bear Christ’s humble yoke. John was the oldest among them, but Poemen was endowed with extraordinary spiritual wisdom. When their elderly mother traveled to the desert longing to see them before her death, the brothers remained focused on eternal salvation and sent word asking her to patiently await their joyful reunion in heaven, which she accepted with faith.",
-        "Poemen became an anchor of comfort and guidance for both elders and young novices in the wilderness of Scetis. Whenever brethren struggled with demonic temptations, inner doubt, or spiritual distress, his gentle counsel restored their souls. He taught that one must never despair over a falling brother, but instead lighten his heavy burden and help him rise. When asked how to treat sinners, he replied that a struggling person needs twice as much love and compassion, just as the sick require urgent medicine. He spent his days in fasting, humble labor, and pure prayer until he departed in peace at a venerable old age.",
-        "On this day also, St. Liberius, Archbishop of Rome, went to his rest. Appointed during the turbulent reign of the Arian emperor Constantius, Liberius steadfastly defended the true Orthodox faith. When Constantius expelled St. Athanasius of Alexandria and St. Paul of Constantinople, Liberius received the exiled bishops with deep reverence and interceded with Emperor Constans to restore them. Later, after Constans died, the emperor pressured Liberius to condemn Athanasius and commune with Arians; when Liberius boldly refused, he was banished into exile. The clergy and monastic leaders of Rome eventually petitioned for his return. Restored to his archiepiscopal throne, he continued guiding his flock, defending the Creed of Nicaea, and refuting heresy until his peaceful departure.",
-        "May the prayers and blessings of Abba Poemen and St. Liberius be with us all. Amen."
-      ],
       "am": [
-        "በዚህች ዕለት ቤተ ክርስቲያን የበረሃውን ተጋዳይ የአባ ባይሞንን ዕረፍትና የሮሜውን ሊቀ ጳጳሳት የቅዱስ ሊባርዮስን መታሰቢያ ታስባለች።",
-        "አባ ባይሞን በግብጽ ምድር ተወለደ፤ እርሱም ዮሐንስ፣ ኢዮብ፣ ዮሴፍ፣ ባስልዮስ፣ ያዕቆብና አብርሃም የሚባሉ ስድስት ወንድሞች ነበሩት። ሰባቱም ወንድማማቾች ዓለምንና ክብሯን ንቀው የክርስቶስን ቀንበር ለመሸከም ወደ ገዳም ሔዱ። ከእነርሱ መካከል ዮሐንስ በዕድሜ ታላቅ ቢሆንም ባይሞን በመንፈሳዊ ዕውቀትና በጥበብ የላቀ ነበረ። አረጋዊት እናታቸው ከሞቷ በፊት ልጆቿን ለማየት ወደ በረሃ በመጣች ጊዜ፣ በሰማያዊ ሕይወት እንዲገናኙ በእምነት እንድትጠባበቅ መልእክት ላኩላት፤ እርሷም ይህን ተረድታ በሰላም ተመለሰች።",
-        "አባ ባይሞን በአስቄጥስ ገዳም ለሚኖሩ አረጋውያንና ወጣቶች መነኰሳት የጽናና የመጽናናት ወደብ ሆነ። ወንድሞች በፈተና፣ በሃይማኖት ጥርጥር ወይም በጭንቀት ሲያዙ ወደ እርሱ ይመጡ ነበር፤ እርሱም በፍቅር አጽናንቶ ከመንፈሳዊ ድካማቸው ያድናቸው ነበር። የተሰናከለን ወንድም ተስፋ ከማስቆረጥ ይልቅ ሸክሙን በማቅለል እንዲነሣ መርዳት እንደሚገባ አስተማረ። ደካማ ወንድምን እንዴት መያዝ እንዳለበት በተጠየቀም ጊዜ፣ የታመመ ሰው መድኃኒት እንደሚሻ ሁሉ በድካም የወደቀው እጥፍ ፍቅርና እንክብካቤ እንደሚያስፈልገው ተናገረ። እርሱም በጾምና በጸሎት ተጋድሎውን ፈጽሞ በጥሩ እርጅና በሰላም አረፈ።",
-        "በዚህችም ዕለት የሮሜው ሊቀ ጳጳሳት ቅዱስ ሊባርዮስ አረፈ። በአርዮሳዊው ንጉሥ በሁለተኛው ቈስጠንጢኖስ ዘመን የተሾመው ሊባርዮስ የቀናች ሃይማኖትን በጽናት ተከላከለ። ንጉሡ ሐዋርያዊውን ቅዱስ አትናቴዎስንና የቊስጥንጥንያውን ጳውሎስን ካሳደዳቸው በኋላ ሊባርዮስ በክብር ተቀብሎ ወደ መንበረ ክብራቸው እንዲመለሱ ደገፋቸው። በኋላም ንጉሡ አትናቴዎስን እንዲያወግዝና አርዮሳውያንን እንዲቀበል ሲያስገድደው ፈጽሞ እምቢ ስላለ ወደ ሩቅ አገር አጋዘው። የሮሜ ካህናትና የገዳማት መሪዎች ባቀረቡት ልመና ወደ መንበሩ ተመልሶ ሕዝቡን በኦርቶዶክሳዊት ሃይማኖት እያጸና ኖረ፤ ተጋድሎውንም ፈጽሞ በሰላም አረፈ።",
+        "በዚህች ዕለት ቤተ ክርስቲያን የታላቁን የበረሃ አባት የአባ ባይሞንን (ጴሜንን) እና የሮሜውን ሊቀ ጳጳሳት የቅዱስ ሊባርዮስን ዓመታዊ መታሰቢያ ታከብራለች። አባ ባይሞን በ4ኛው መቶ ክፍለ ዘመን በግብጽ የተወለደ ሲሆን፣ ሰባቱ ወንድማማቾች (አብርሃም፣ ያዕቆብ፣ ዮሴፍ፣ ኢዮብ፣ ዮሐንስ፣ ባስልዮስና ባይሞን) በደጓ እናታቸው በቅድስና አደጉ።",
+        "ሰባቱም ወንድማማቾች በአንድ ልብ ሆነው ዓለምን ንቀው ወደ ገዳመ አስቄጥስ በመሔድ መንኩሰው በታላቅ ተጋድሎ ኖሩ። አባ ባይሞን በመንፈሳዊ ጥበቡና በማይጠገቡ ምክሮቹ የመነኮሳት ሁሉ አባትና መሪ ሆነ፤ 'የአበው ምክር' (አረጋዊ መንፈሳዊ) በተባለው መጽሐፍ ውስጥ ብዙዎቹ ትምህርቶች የእርሱ ናቸው።",
+        "አባ ባይሞን ማንንም የማይፈርድ፣ ለደካሞች የሚራራ፣ ፍጹም ትሁትና ሰላማዊ አባት ነበር። ወንድሞች በፈተና ሲወድቁ በፍቅርና በትዕግሥት ያጽናናቸው ነበር። በተጋድሎ ዘመኑን ፈጽሞ በዚች ዕለት በሰላም ዐረፈ።",
+        "በዚችም ቀን የሮሜው ሊቀ ጳጳሳት ቅዱስ ሊባርዮስ አረፈ። እርሱም ከአርዮሳውያን ጋር ሳይተባበር የቅዱስ አትናቴዎስን ኦርቶዶክሳዊት ሃይማኖት በጽናት በመከላከል ወደ ስደት ተሰዶ ታላቅ ተጋድሎን ፈጽሟል።",
         "የአባ ባይሞንና የቅዱስ ሊባርዮስ ጸሎትና በረከት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this day, the Church commemorates the venerable desert father Abba Poemen (Baymon) and Pope Saint Liberius of Rome. Born in Egypt in the fourth century, Poemen was one of seven brothers (Abraham, Jacob, Joseph, Job, John, Basil, and Poemen) reared in spotless piety by their devout mother.",
+        "United in heart, all seven brothers abandoned the vanity of the world and embraced the monastic life in Scetis. Abba Poemen shone as a beacon of discernment and spiritual fatherhood, whose wise maxims form the core of the Apophthegmata Patrum (Sayings of the Desert Fathers).",
+        "Renowned for never judging his neighbor, Abba Poemen displayed boundless compassion toward the weak and afflicted, gently restoring fallen souls with tears of love. Having fought the good fight, he departed peacefully to Christ.",
+        "On this day also, Pope Saint Liberius of Rome entered into rest. Liberius stood unshaken in defense of Saint Athanasius and orthodox Nicene theology, suffering bitter imperial exile rather than compromising the apostolic faith.",
+        "May the prayers and blessings of Abba Poemen and Saint Liberius be with us all. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Hebrews 11:38",
-        "verse": "of whom the world was not worthy—wandering in deserts, mountains, caves, and the holes of the earth."
-      },
       "am": {
-        "reference": "ዕብ. 11:38",
-        "verse": "ዓለም አልተገባቸውምና በምድረ በዳና በተራራ፥ በዋሻና በምድር ጕድጓድ ተቅበዘበዙ።"
+        "reference": "1ጴጥ. 1:22",
+        "verse": "ለእውነት እየታዘዛችሁ ግብዝነት ለሌለው ለወንድማማች መዋደድ ነፍሳችሁን አንጽታችሁ እርስ በርሳችሁ ከልባችሁ አጥብቃችሁ ተዋደዱ።"
+      },
+      "en": {
+        "reference": "1 Peter 1:22",
+        "verse": "Seeing ye have purified your souls in obeying the truth through the Spirit unto unfeigned love of the brethren, see that ye love one another with a pure heart fervently."
       }
     }
   },
@@ -23167,57 +23188,57 @@
       "am": "የአባ ያዕቆብ፣ የነቢዩ አሞጽ እና የአባ በርሱማ ዕረፍት"
     },
     "annual_feasts": {
-      "en": [
-        "Abba Jacob Bishop of Cairo",
-        "Amos the Prophet",
-        "Abba Barsuma the Naked",
-        "Abba Magder"
-      ],
       "am": [
-        "አባ ያዕቆብ ኤጲስ ቆጶስ ዘምስር",
+        "አባ በርሶማ ዕራቁቱ",
         "ቅዱስ አሞጽ ነቢይ",
-        "አባ በርሱማ ዕራቁቱ",
-        "አባ መግደር"
+        "አባ ያዕቆብ ኤጲስ ቆጶስ ዘምስር",
+        "አባ መግደር ገዳማዊ"
+      ],
+      "en": [
+        "Abba Barsoma the Naked (Ascetic)",
+        "Prophet Amos",
+        "Abba Jacob Bishop of Cairo",
+        "Abba Magder the Hermit"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "St. Peter Chief of Apostles",
-        "Abune Gebre Menfes Kidus",
-        "St. John Chrysostom",
-        "St. Philip the Apostle"
-      ],
       "am": [
         "ቅዱስ ጴጥሮስ ሊቀ ሐዋርያት",
         "አቡነ ገብረ መንፈስ ቅዱስ",
         "ቅዱስ ዮሐንስ አፈወርቅ",
         "ቅዱስ ፊልጶስ ሐዋርያ"
+      ],
+      "en": [
+        "St. Peter Chief of Apostles",
+        "Abune Gebre Menfes Kidus",
+        "St. John Chrysostom",
+        "St. Philip the Apostle"
       ]
     },
     "story": {
-      "en": [
-        "On this day the Church commemorates the departure of the virgin bishop Abba Jacob of Cairo, the holy prophet Amos, the great ascetic Abba Barsuma the Naked, and Abba Magder.",
-        "Abba Jacob longed from his early youth for the angelic life of monasticism. Leaving his home, he entered the desert of Scetis and lived in the cell of St. John the Short, laboring for years in severe ascetic struggle. Appointed archdeacon of the sanctuary of St. John, his holiness and wisdom became widely celebrated, and by divine guidance he was consecrated Bishop of Cairo. Upon ascending the episcopal throne, he multiplied his fasts, prayers, and pastoral vigils, preaching tirelessly and explaining the Scriptures. When his earthly course drew to an end, he summoned his flock and priests, exhorting them to guard the Orthodox faith and celebrate the Divine Mysteries with purity and holy awe, before falling asleep in peace.",
-        "We also remember the righteous Amos, one of the Twelve Minor Prophets, who prophesied in the days of Uzziah and Jeroboam. He boldly reproved the sins and injustices of the rulers and people, warning that formal sacrifices cannot replace righteousness. Amos prophesied concerning the Passion of Christ, the sun growing dark at midday, and the scattering of the unrepentant people among the nations. Having fearlessly declared the word of God, he was slain by those who rejected his rebuke and attained the crown of the prophets.",
-        "Likewise on this day, Abba Barsuma the Naked went to his rest. Born into an affluent Christian family in Cairo, he renounced all inheritance after his parents died and gave himself completely to God. Emulating the patient endurance of Job, he lived outdoors without worldly clothing, suffering scorching summer heat and winter cold while praying unceasingly on dry ground. He later moved to the church of St. Mercurius, where he dwelt for decades in extraordinary prayer and tamed a fierce dragon lurking in an underground cave through the sign of the Holy Cross. He comforted countless souls troubled by trials and demonic afflictions until his peaceful departure. We also remember the righteous Abba Magder.",
-        "May the prayers and blessings of Abba Jacob, the prophet Amos, Abba Barsuma, and Abba Magder be with us all. Amen."
-      ],
       "am": [
-        "በዚህች ዕለት ቤተ ክርስቲያን የንጹሑን የግብጽ ኤጲስ ቆጶስ የአባ ያዕቆብን፣ የቅዱስ ነቢዩ አሞጽን፣ የታላቁን ተጋዳይ የአባ በርሱማንና የአባ መግደርን ዕረፍት ታስባለች።",
-        "አባ ያዕቆብ ገና በወጣትነቱ የመላእክትን አርአያ የሆነውን የምንኵስና ሕይወት ወደደ። ከተማውን ትቶ ወደ አስቄጥስ በረሃ በመሔድ በአባ ዮሐንስ ሐጺር በዓት ውስጥ ብዙ ዓመታት በጽኑ ተጋድሎ ኖረ። በአባ ዮሐንስ ቤተ ክርስቲያን ሊቀ ዲያቆናት ሆኖ ከተሾመ በኋላ የቅድስናውና የትሩፋቱ ዜና በመሰማቱ በእግዚአብሔር ፈቃድ የግብጽ ኤጲስ ቆጶስ ሆኖ ተሾመ። በመንበሩ ላይ ከተቀመጠም በኋላ የቀድሞ ተጋድሎውን ሳያጎድል ጾምን፣ ጸሎትንና የቅዱሳት መጻሕፍትን ትምህርት አበዛ። ዕረፍቱ በደረሰ ጊዜ መንጋዎቹንና ካህናቱን ሰብስቦ በቀናች ሃይማኖት እንዲጸኑ፣ ቅዱስ ቍርባንንም በፍርሃትና በንጽሕና እንዲያቀርቡ አሳስቦ በሰላም አረፈ።",
-        "በኦዝያንና በኢዮአስ ዘመን ትንቢት የተናገረውን ከዐሥራ ሁለቱ ደቂቀ ነቢያት አንዱ የሆነውን ጻድቁን አሞጽንም እናስባለን። የሕዝቡንና የነገሥታቱን በደል ያለ ፍርሃት ገሠጸ፤ እውነተኛ ጽድቅ የሌለበትን መሥዋዕት እግዚአብሔር እንደማይቀበለውም አስጠነቀቀ። አሞጽ ስለ ጌታችን መከራ፣ በቀትር ጊዜ ስለ ፀሐይ መጨለምና ወገኖቹ በዓለም ሕዝቦች መካከል ስለሚበተኑበት ሁኔታ ትንቢት ተናገረ። የእግዚአብሔርን ቃል በጽናት ሲመሰክር ተግሣጹን ባልወደዱ ሰዎች እጅ ተገድሎ የነቢያትን አክሊል ተቀበለ።",
-        "እንዲሁም በዚህች ዕለት ዕራቁቱን የኖረው ታላቁ አባት አባ በርሱማ አረፈ። በግብጽ ምድር በሀብታም ክርስቲያን ቤተሰብ ውስጥ የተወለደው በርሱማ፣ ወላጆቹ ካረፉ በኋላ ዓለምን ንቆ ራሱን ለእግዚአብሔር አቀረበ። እንደ ጻድቁ ኢዮብ ያለ ዓለማዊ ልብስ በሜዳ ላይ ተቀምጦ የበጋውን ሐሩርና የክረምቱን ብርድ እየታገሠ ሌሊትና ቀን በጸሎት ተጋደለ። በኋላም ወደ ቅዱስ መርቆሬዎስ ቤተ ክርስቲያን ሔዶ በዋሻ ውስጥ የነበረውን አስፈሪ ዘንዶ በመስቀል ምልክት አገራው፤ ብዙ ዓመታት በጾምና በጸሎት ኖረ። በመከራ የተጨነቁትንና በፈተና የወደቁትን ሲያጽናና ኖሮ በሰላም አረፈ። ጻድቁን አባ መግደርንም እናስባለን።",
-        "የአባ ያዕቆብ፣ የነቢዩ አሞጽ፣ የአባ በርሱማና የአባ መግደር ጸሎትና በረከት ከሁላችን ጋር ይሁን። አሜን።"
+        "በዚህች ዕለት ቤተ ክርስቲያን የታላቁን ጻድቅ የአባ በርሶማ ዕራቁቱንና የቅዱስ አሞጽ ነቢይን ዓመታዊ መታሰቢያ ታከብራለች። አባ በርሶማ በ14ኛው መቶ ክፍለ ዘመን በግብጽ በካይሮ የተወለደ ሲሆን፣ ወላጆቹ ሲያርፉ ጉልበተኛ አጎቱ ንብረቱን ሁሉ ቀማው፤ እርሱ ግን 'ስለሚጠፋ ገንዘብ ፍርድ ቤት አልሔድም' ብሎ ዓለምን ንቆ ወጣ።",
+        "'ሰው ዓለሙን ሁሉ ቢያተርፍ ነፍሱን ግን ቢያጎድል ምን ይጠቅመዋል?' እያለ ልብሱን ለድሆች ሰጥቶ በበረሃ በኮረብታዎች ውስጥ ራቁቱን ተቀመጠ። የቀኑን ሐሩርና የሌሊቱን ቁር እየታገሰ ለሃያ ዓመታት ያለማቋረጥ የዳዊትን መዝሙር እየዘመረ ጸለየ።",
+        "ከዚህም በኋላ በካይሮ ወደሚገኘው የቅዱስ መርቆሬዎስ ቤተ ክርስቲያን ገብቶ በዋሻ ውስጥ ለሠላሳ ዓመታት በጾምና በጸሎት ተጋ፤ በዚያም በጸሎቱ ብዙ ድንቅ ተአምራትን አደረገ፤ የታመሙትን ፈወሰ፤ በዚችም ዕለት በሰላም ዐረፈ።",
+        "በዚችም ቀን በኢዮአስና በዖዝያን ዘመን ትንቢት የተናገረው ከዐሥራ ሁለቱ ደቂቀ ነቢያት አንዱ የሆነው ቅዱስ አሞጽ ነቢይ እንዲሁም የካይሮው ኤጲስ ቆጶስ አባ ያዕቆብ ያረፉበት መታሰቢያ ይከበራል።",
+        "የአባ በርሶማ ዕራቁቱ፣ የቅዱስ አሞጽ ነቢይና የአባ ያዕቆብ ጸሎትና በረከት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this day, the Church commemorates the venerable ascetic Abba Barsoma the Naked and the Holy Prophet Amos. Born in Cairo in the fourteenth century, Barsoma was stripped of his paternal inheritance by a covetous uncle; refusing to litigate over perishable earthly goods, he abandoned all worldly possessions for Christ.",
+        "Meditating on the Gospel words 'For what is a man profited, if he shall gain the whole world, and lose his own soul?', he gave away his garments to the poor and lived naked in the desert caves, chanting the Psalms without ceasing while enduring scorching heat and nocturnal frost.",
+        "Later retreating to the crypt of Saint Mercurius's church in Cairo, he persevered in prayer and prostrations for thirty years, performing wondrous healings and guiding souls before falling asleep peacefully in Christ.",
+        "On this day also, the Holy Prophet Amos, one of the twelve Minor Prophets who prophesied during the reigns of Uzziah and Jeroboam, and Abba Jacob Bishop of Cairo entered into rest.",
+        "May the prayers and intercession of Abba Barsoma, Prophet Amos, and Abba Jacob be with us all. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Galatians 6:9",
-        "verse": "Let’s not be weary in doing good, for we will reap in due season, if we don’t give up."
-      },
       "am": {
-        "reference": "ገላ. 6:9",
-        "verse": "ባንዝልም በጊዜው እናጭዳለንና መልካም ሥራን ለመሥራት አንታክት።"
+        "reference": "2ጢሞ. 4:7-8",
+        "verse": "መልካሙን ገድል ተጋድያለሁ፥ ሩጫውን ጨርሻለሁ፥ ሃይማኖትን ጠብቄአለሁ፤ ወደ ፊት የጽድቅ አክሊል ተዘጋጅቶልኛል፥ ይህንም ጻድቅ ፈራጅ የሆነው ጌታ በዚያ ቀን ለእኔ ያስረክባል።"
+      },
+      "en": {
+        "reference": "2 Timothy 4:7-8",
+        "verse": "I have fought a good fight, I have finished my course, I have kept the faith: Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day."
       }
     }
   },
@@ -23234,51 +23255,53 @@
       "am": "ተፍጻሜተ ዓመት ዘግብፅ ወኢትዮጵያ"
     },
     "annual_feasts": {
-      "en": [
-        "Conclusion of the Year of Egypt and Ethiopia"
-      ],
       "am": [
-        "ተፍጻሜተ ዓመት ዘግብፅ ወኢትዮጵያ"
+        "ተፍጻሜተ ዓመት ዘግብፅ ወኢትዮጵያ (የዓመት ማጠቃለያ)",
+        "ምስጋና ለእግዚአብሔር አምላክ"
+      ],
+      "en": [
+        "Conclusion of the Year of Egypt and Ethiopia (Leap Day)",
+        "Thanksgiving unto the Almighty God"
       ]
     },
     "monthly_feasts": {
-      "en": [
-        "Holy Mount Qusqwam",
-        "St. Arsema the Virgin Martyr",
-        "St. Basil of Caesarea",
-        "St. Marina"
-      ],
       "am": [
         "ቅድስት ደብረ ቁስቋም",
         "ቅድስት አርሴማ ድንግል",
         "ቅዱስ ባስልዮስ ዘቂሣርያ",
         "ቅድስት መሪና"
+      ],
+      "en": [
+        "Holy Mount Qusqwam",
+        "St. Arsema the Virgin Martyr",
+        "St. Basil of Caesarea",
+        "St. Marina"
       ]
     },
     "story": {
-      "en": [
-        "On this blessed day, when the leap year adds a sixth day to Pagumen, the Church celebrates the conclusion of the year of Egypt, Ethiopia, and Nubia, offering solemn thanksgiving and earnest supplication before the Creator.",
-        "The holy fathers appointed this liturgical commemoration so that all Orthodox faithful might magnify our Lord Jesus Christ, who redeemed us with His precious blood. Through His abundant mercy, He has safely preserved us in soul and body, guiding us through the revolution of another year. While ancient nations perished in their sins, God in His long-suffering patience has preserved our lives, granting us precious time to wake from spiritual sluggishness, repent of our past transgressions, and rise from every fall.",
-        "Standing at the threshold of the new year, the Church calls the faithful to humble tears and prayerful renewal. We beseech the Lord to look past our countless sins, deliver our souls from the snares of Satan, and keep us steadfast in the true Orthodox faith. We pray that He grant us grace and spiritual strength to walk in righteousness throughout the days ahead, so that we may finish the coming year in holiness, peace of mind, and bodily health.",
-        "On this day of closure and hope, the faithful also offer heartfelt prayers for all departed brethren, asking the compassionate Lord to grant rest to their souls in the heavenly paradise. We pray that the Lord bless the fruits of the earth, send peace and abundance upon our nation, heal the afflicted, protect orphans and widows, and unite all believers in divine love and good works.",
-        "May the mercies of our Lord Jesus Christ, the intercession of Our Lady the Virgin Mary, and the prayers of all the holy angels, martyrs, and righteous fathers be with us all. Amen."
-      ],
       "am": [
-        "ጳጉሜን ስድስት በምትሆንበት በዚህች የተባረከች ዕለት፣ ቤተ ክርስቲያን የግብጽ፣ የኢትዮጵያና የኖባን የዓመት መፈጸሚያ እያሰበች በፈጣሪ ፊት የምስጋናና የልመና ጸሎት ታቀርባለች።",
-        "በከበረ ደሙ የዋጀንን ጌታችን ኢየሱስ ክርስቶስን ምእመናን በሙሉ እንዲያመሰግኑት ቅዱሳን አባቶቻችን ይህንን ሥርዓት ሠሩልን። በምሕረቱ ብዛት በነፍስና በሥጋ ጠብቆ፣ የዓመቱን ዑደት አጠናቆ እስከዚች ሰዓት በሰላም አድርሶናል። ቀድሞ የነበሩ አሕዛብ በኃጢአታቸው እንደ ጠፉ ሳያጠፋን፣ ከታካችነት ነቅተን ወደ ንስሐ እንድንመለስና ከወደቅንበት እንድንነሣ በእኛ ላይ በትዕግሥት ቆይቷል።",
-        "በአዲሱ ዓመት መግቢያ ላይ የቆመችው ቤተ ክርስቲያን ምእመናንን ወደ ልብ ንጽሕናና ወደ እውነተኛ ንስሐ ትጠራለች። አምላካችን በደላችንን ይቅር እንዲለን፣ ከሰይጣን ወጥመድ እንዲጠብቀንና በቀናች ሃይማኖት እንዲያጸናን እንለምነዋለን። በመጪው ዓመት በበጎ ሥራና በጽድቅ እንድንመላለስ፣ ዓመቱንም በቅድስና፣ በመንፈሳዊ ደስታና በሥጋ ጤንነት እንድንፈጽም ረድኤቱን እንዲሰጠን እንጸልያለን።",
-        "በዚህ የመሸጋገሪያና የተስፋ ቀን፣ ምእመናን ከዚህ ዓለም በሞት ለተለዩ ወንድሞች ሁሉ ልባዊ ጸሎት ያቀርባሉ፤ መሐሪው ጌታ ነፍሳቸውን በገነት እንዲያሳርፍላቸው ይማጸናሉ። እንዲሁም የምድሪቱን ፍሬ እንዲባርክ፣ በሀገራችን ሰላምንና በረከትን እንዲያበዛ፣ ሕመምተኞችን እንዲፈውስ፣ ድሆችንና አረጋውያንን እንዲጠብቅ፣ ሕዝቡንም በፍቅር አንድ እንዲያደርግ እንለምናለን።",
-        "የጌታችን የኢየሱስ ክርስቶስ ምሕረት፣ የእመቤታችን የቅድስት ድንግል ማርያም አማላጅነት፣ የቅዱሳን መላእክት፣ የሰማዕታትና የጻድቃን ሁሉ ጸሎት ከሁላችን ጋር ይሁን። አሜን።"
+        "ጳጉሜን ስድስት በምትሆንበት በዚህች የተባረከች የሠግር (የዘመነ ዮሐንስ / ሉቃስ) ዕለት፣ ቅድስት ቤተ ክርስቲያን የዓመቱን ማጠቃለያ በታላቅ ምስጋናና በንስሐ ታከብራለች። ይህች ዕለት አሮጌው ዓመት ተፈጽሞ ወደ አዲሱ ዓመት የምንሸጋገርባት ልዩ መሸጋገሪያ ናት።",
+        "በከበረ ደሙ የዋጀንንና በቸርነቱ ዓመቱን በሙሉ የጠበቀንን ጌታችንን ኢየሱስ ክርስቶስን ምእመናን በሙሉ በአንድ ልብ ያመሰግናሉ፤ 'እስከዚህ ድረስ እግዚአብሔር ረድቶናል' እያሉ ስሙን ይባርካሉ።",
+        "በአዲሱ ዓመት ዋዜማ ላይ የቆመችው ቤተ ክርስቲያን ምእመናንን ወደ ልብ ንጽሕና፣ ወደ ፍቅርና ወደ እውነተኛ ንስሐ ትጠራለች፤ ክፉውን ነገር ሁሉ ከአሮጌው ዓመት ጋር ጥለን በአዲስ ልብ እንድንጓዝ ታስተምራለች።",
+        "በዚህች የመሸጋገሪያ ዕለት ምእመናን ከዚህ ዓለም በሞት ለተለዩ ወንድሞችና እህቶች ሁሉ ልባዊ ጸሎት ያቀርባሉ፤ እግዚአብሔር ነፍሳቸውን በአብርሃም፣ በይስሐቅና በያዕቆብ ብርሃናማ አዕጻፍ እንዲያሳርፍ ይማጸናሉ።",
+        "የጌታችን የኢየሱስ ክርስቶስ ምሕረት፣ የእመቤታችን የቅድስት ድንግል ማርያም አማላጅነት፣ የቅዱሳን መላእክት፣ የጻድቃንና የሰማዕታት ሁሉ በረከት ከሁላችን ጋር ይሁን። አሜን።"
+      ],
+      "en": [
+        "On this blessed leap day (Pagumen 6), occurring once every four years in the Ethiopian liturgical calendar, the holy Church observes the solemn conclusion of the year with profound thanksgiving and penitence. This sacred day marks the final transition from the departing year to the threshold of the New Year.",
+        "The faithful unite in praising our Lord Jesus Christ, who redeemed us by His precious Blood and preserved our lives through every trial of the year, gratefully confessing: 'Hitherto hath the Lord helped us.'",
+        "Standing at the gates of the New Year, the Church calls all her children to spiritual renewal, reconciliation, unfeigned love, and true repentance, casting off all malice with the old year to walk in newness of life.",
+        "On this threshold of eternity, the faithful offer fervent prayers for all departed brethren who completed their earthly course, entreating the Lord of spirits to grant them rest in the luminous mansions of Abraham, Isaac, and Jacob.",
+        "May the boundless mercy of our Lord Jesus Christ, the intercession of our Lady the Virgin Mary, and the blessings of all holy angels, martyrs, and righteous saints remain with us forever. Amen."
       ]
     },
     "scripture": {
-      "en": {
-        "reference": "Revelation 21:5",
-        "verse": "He who sits on the throne said, “Behold, I am making all things new.” He said, “Write, for these words of God are faithful and true.”"
-      },
       "am": {
-        "reference": "ራእ. 21:5",
-        "verse": "በዙፋንም የተቀመጠው፦ እንሆ፥ ሁሉን ዐዲስ አደርጋለሁ አለ። ለኔም፦ እነዚህ ቃሎች የታመኑና እውነተኛዎች ናቸውና፥ ጻፍ አለኝ።"
+        "reference": "ራእ. 21:5-6",
+        "verse": "በዙፋኑም የተቀመጠው፦ እነሆ፥ ሁሉን አዲስ አደርጋለሁ አለ። ለእኔም፦ እነዚህ ቃሎች የታመኑና እውነተኛዎች ናቸውና ጻፍ አለኝ። እርሱም፦ ተፈጽሟል አለኝ።"
+      },
+      "en": {
+        "reference": "Revelation 21:5-6",
+        "verse": "And he that sat upon the throne said, Behold, I make all things new. And he said unto me, Write: for these words are true and faithful. And he said unto me, It is done."
       }
     }
   }
