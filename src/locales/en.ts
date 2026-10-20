@@ -78,8 +78,6 @@ export default {
   'settings.notifications': 'Notifications',
   'settings.notifEnable': 'Daily 6:00 AM Notification',
   'settings.notifEnableSub': 'Receive the daily saints commemoration notification every morning at 6:00 AM',
-  'settings.notifTest': 'Send test notification now',
-  'settings.notifSent': 'Notification sent with today’s title',
   'settings.notifNotSupported': 'Notifications not supported on this device',
   'settings.notifBlocked': 'Notifications blocked in browser',
 } satisfies Record<MessageKey, Message>

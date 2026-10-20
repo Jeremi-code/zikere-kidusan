@@ -76,8 +76,6 @@ export default {
   'settings.notifications': 'ማሳሰቢያዎች',
   'settings.notifEnable': 'የጠዋት 12:00 (6:00 AM) ማሳሰቢያ',
   'settings.notifEnableSub': 'በየቀኑ ጠዋት 12:00 ሰዓት (6:00 AM) የዕለቱ ቅዱሳን በዓል ማሳሰቢያ በስልክዎ ይደርስዎታል',
-  'settings.notifTest': 'የዕለቱን ማሳሰቢያ አሁኑኑ ሞክር',
-  'settings.notifSent': 'ማሳሰቢያ በዕለቱ ርዕስ ተልኳል',
   'settings.notifNotSupported': 'ማሳሰቢያ በዚህ መሣሪያ አይደገፍም',
   'settings.notifBlocked': 'ማሳሰቢያ በብሳውዘር ተከልክሏል',
 }

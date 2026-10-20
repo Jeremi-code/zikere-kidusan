@@ -16,19 +16,15 @@ import {
   requestNotificationPermission, 
   isNotificationsEnabled, 
   setNotificationsEnabled,
-  sendSynaxariumNotification,
   scheduleDaily6AMNotification,
   cancelDaily6AMNotification
 } from '../lib/notifications'
-import { getTodayEthiopian } from '../lib/ethiopianCalendar'
-import { synaxariumData } from '../lib/synaxariumData'
 
-const isSendingTest = ref(false)
-const testFeedback = ref('')
+const notifFeedback = ref('')
 
 async function handleToggleNotifications() {
   if (!isNotificationSupported()) {
-    testFeedback.value = t('settings.notifNotSupported')
+    notifFeedback.value = t('settings.notifNotSupported')
     return
   }
 
@@ -37,46 +33,16 @@ async function handleToggleNotifications() {
     if (perm === 'granted') {
       setNotificationsEnabled(true)
       scheduleDaily6AMNotification(currentLanguage.value)
-      testFeedback.value = ''
+      notifFeedback.value = ''
     } else {
       setNotificationsEnabled(false)
       cancelDaily6AMNotification()
-      testFeedback.value = t('settings.notifBlocked')
+      notifFeedback.value = t('settings.notifBlocked')
     }
   } else {
     setNotificationsEnabled(false)
     cancelDaily6AMNotification()
-    testFeedback.value = ''
-  }
-}
-
-async function handleTestNotification() {
-  if (!isNotificationSupported()) {
-    testFeedback.value = t('settings.notifNotSupported')
-    return
-  }
-
-  isSendingTest.value = true
-  testFeedback.value = ''
-
-  const today = getTodayEthiopian()
-  const todayEntry = synaxariumData.find(
-    (e) => e.month === today.month && e.day === today.day
-  ) || synaxariumData[0]
-
-  const sent = await sendSynaxariumNotification(todayEntry, currentLanguage.value)
-  isSendingTest.value = false
-
-  if (sent) {
-    testFeedback.value = t('settings.notifSent')
-    setTimeout(() => {
-      testFeedback.value = ''
-    }, 4000)
-  } else {
-    const perm = getNotificationPermission()
-    if (perm === 'denied') {
-      testFeedback.value = t('settings.notifBlocked')
-    }
+    notifFeedback.value = ''
   }
 }
 
@@ -210,20 +176,8 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
             </button>
           </div>
 
-          <div v-if="testFeedback" class="notif-feedback">
-            {{ testFeedback }}
-          </div>
-
-          <div class="notif-action-row">
-            <button
-              type="button"
-              class="test-notif-btn"
-              :disabled="isSendingTest"
-              @click="handleTestNotification"
-            >
-              <Bell class="w-4 h-4 mr-2" />
-              <span>{{ t('settings.notifTest') }}</span>
-            </button>
+          <div v-if="notifFeedback" class="notif-feedback">
+            {{ notifFeedback }}
           </div>
         </div>
       </section>
@@ -730,35 +684,5 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
   padding: 6px 12px;
   border-radius: 8px;
   background: color-mix(in oklab, var(--rubric) 8%, transparent);
-}
-
-.notif-action-row {
-  display: flex;
-}
-
-.test-notif-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--accent) 8%, var(--bg));
-  border: 1px solid var(--line);
-  color: var(--text);
-  font: 600 12.5px var(--font);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.test-notif-btn:hover:not(:disabled) {
-  border-color: var(--rubric);
-  background: color-mix(in oklab, var(--rubric) 8%, var(--bg));
-  color: var(--rubric);
-  transform: translateY(-1px);
-}
-
-.test-notif-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 </style>
