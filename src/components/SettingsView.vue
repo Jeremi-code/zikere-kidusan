@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { 
   currentTheme, 
   currentFontSize, 
@@ -8,7 +9,71 @@ import {
   type SupportedLanguage
 } from '../lib/preferences'
 import { t, type MessageKey } from '../lib/i18n'
-import { Sun, Moon, ExternalLink } from 'lucide-vue-next'
+import { Sun, Moon, ExternalLink, Bell, BellRing } from 'lucide-vue-next'
+import { 
+  isNotificationSupported, 
+  getNotificationPermission, 
+  requestNotificationPermission, 
+  isNotificationsEnabled, 
+  setNotificationsEnabled,
+  sendSynaxariumNotification
+} from '../lib/notifications'
+import { getTodayEthiopian } from '../lib/ethiopianCalendar'
+import { synaxariumData } from '../lib/synaxariumData'
+
+const isSendingTest = ref(false)
+const testFeedback = ref('')
+
+async function handleToggleNotifications() {
+  if (!isNotificationSupported()) {
+    testFeedback.value = t('settings.notifNotSupported')
+    return
+  }
+
+  if (!isNotificationsEnabled.value) {
+    const perm = await requestNotificationPermission()
+    if (perm === 'granted') {
+      setNotificationsEnabled(true)
+      testFeedback.value = ''
+    } else {
+      setNotificationsEnabled(false)
+      testFeedback.value = t('settings.notifBlocked')
+    }
+  } else {
+    setNotificationsEnabled(false)
+    testFeedback.value = ''
+  }
+}
+
+async function handleTestNotification() {
+  if (!isNotificationSupported()) {
+    testFeedback.value = t('settings.notifNotSupported')
+    return
+  }
+
+  isSendingTest.value = true
+  testFeedback.value = ''
+
+  const today = getTodayEthiopian()
+  const todayEntry = synaxariumData.find(
+    (e) => e.month === today.month && e.day === today.day
+  ) || synaxariumData[0]
+
+  const sent = await sendSynaxariumNotification(todayEntry, currentLanguage.value)
+  isSendingTest.value = false
+
+  if (sent) {
+    testFeedback.value = t('settings.notifSent')
+    setTimeout(() => {
+      testFeedback.value = ''
+    }, 4000)
+  } else {
+    const perm = getNotificationPermission()
+    if (perm === 'denied') {
+      testFeedback.value = t('settings.notifBlocked')
+    }
+  }
+}
 
 const themes: { id: AppTheme; label: MessageKey; sub: MessageKey; icon: any }[] = [
   { id: 'light', label: 'settings.themeLight', sub: 'settings.themeLightSub', icon: Sun },
@@ -112,6 +177,49 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
             <span class="font-name">{{ t(f.label) }}</span>
             <span class="font-sub">{{ f.sub }}</span>
           </button>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="h-label">{{ t('settings.notifications') }}</div>
+        <div class="notif-card">
+          <div class="notif-row">
+            <div class="notif-meta">
+              <div class="notif-icon-wrap" :class="{ active: isNotificationsEnabled }">
+                <component :is="isNotificationsEnabled ? BellRing : Bell" class="w-4 h-4" />
+              </div>
+              <div class="notif-text">
+                <span class="notif-title">{{ t('settings.notifEnable') }}</span>
+                <span class="notif-sub">{{ t('settings.notifEnableSub') }}</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              :aria-checked="isNotificationsEnabled"
+              class="notif-switch"
+              :class="{ enabled: isNotificationsEnabled }"
+              @click="handleToggleNotifications"
+            >
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+
+          <div v-if="testFeedback" class="notif-feedback">
+            {{ testFeedback }}
+          </div>
+
+          <div class="notif-action-row">
+            <button
+              type="button"
+              class="test-notif-btn"
+              :disabled="isSendingTest"
+              @click="handleTestNotification"
+            >
+              <Bell class="w-4 h-4 mr-2" />
+              <span>{{ t('settings.notifTest') }}</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -520,5 +628,132 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
 .telegram-link:hover .telegram-arrow {
   transform: translateX(2px) translateY(-2px);
   color: var(--text);
+}
+
+.notif-card {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  gap: 14px;
+}
+
+.notif-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.notif-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.notif-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--ink) 6%, transparent);
+  color: var(--text-2);
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-icon-wrap.active {
+  background: color-mix(in oklab, var(--rubric) 12%, transparent);
+  color: var(--rubric);
+}
+
+.notif-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.notif-title {
+  font: 600 14px var(--font);
+  color: var(--text);
+}
+
+.notif-sub {
+  font: 400 12px/1.4 var(--font);
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.notif-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+  position: relative;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 2px;
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-switch.enabled {
+  background: var(--rubric);
+}
+
+.switch-handle {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-switch.enabled .switch-handle {
+  transform: translateX(20px);
+}
+
+.notif-feedback {
+  font: 500 12px var(--font);
+  color: var(--rubric);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--rubric) 8%, transparent);
+}
+
+.notif-action-row {
+  display: flex;
+}
+
+.test-notif-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--accent) 8%, var(--bg));
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: 600 12.5px var(--font);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.test-notif-btn:hover:not(:disabled) {
+  border-color: var(--rubric);
+  background: color-mix(in oklab, var(--rubric) 8%, var(--bg));
+  color: var(--rubric);
+  transform: translateY(-1px);
+}
+
+.test-notif-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>

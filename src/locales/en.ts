@@ -75,4 +75,11 @@ export default {
   'settings.creditName': 'Deacon Yordanos Abebe',
   'settings.creditDesc': 'Source of Zikere Kidusan’s daily readings, lives of the saints and spiritual teachings',
   'settings.telegram': 'Official Telegram channel',
+  'settings.notifications': 'Notifications',
+  'settings.notifEnable': 'Daily Notifications',
+  'settings.notifEnableSub': 'Receive daily commemoration notifications',
+  'settings.notifTest': 'Send notification with today’s title',
+  'settings.notifSent': 'Notification sent',
+  'settings.notifNotSupported': 'Notifications not supported on this device',
+  'settings.notifBlocked': 'Notifications blocked in browser',
 } satisfies Record<MessageKey, Message>

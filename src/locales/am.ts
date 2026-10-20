@@ -73,4 +73,11 @@ export default {
   'settings.creditName': 'ዲ/ን ዮርዳኖስ አበበ',
   'settings.creditDesc': 'የዝክረ ቅዱሳን ዕለታዊ ንባባት፣ የቅዱሳን ታሪክ እና መንፈሳዊ ትምህርቶች ምንጭ',
   'settings.telegram': 'ኦፊሴላዊ የቴሌግራም ቻናል',
+  'settings.notifications': 'ማሳሰቢያዎች',
+  'settings.notifEnable': 'ዕለታዊ ማሳሰቢያ',
+  'settings.notifEnableSub': 'የዕለቱ የቅዱሳን በዓል ማሳሰቢያ በየቀኑ ይቀበሉ',
+  'settings.notifTest': 'ማሳሰቢያ በዕለቱ ርዕስ ላክ',
+  'settings.notifSent': 'ማሳሰቢያ ተልኳል',
+  'settings.notifNotSupported': 'ማሳሰቢያ በዚህ መሣሪያ አይደገፍም',
+  'settings.notifBlocked': 'ማሳሰቢያ በብሳውዘር ተከልክሏል',
 }
