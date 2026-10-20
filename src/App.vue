@@ -18,7 +18,7 @@ import {
   isBookmarked,
   toggleBookmarkItem
 } from './lib/preferences'
-import { checkAndNotifyToday } from './lib/notifications'
+import { scheduleDaily6AMNotification } from './lib/notifications'
 import { t, pick, formatNumber, monthName, formatGregorian, BRAND } from './lib/i18n'
 import { Bookmark } from 'lucide-vue-next'
 import EthiopianDatePicker from './components/EthiopianDatePicker.vue'
@@ -433,10 +433,12 @@ onMounted(() => {
   setTimeout(() => {
     isLanded.value = true
     nextTick(() => updateDayProximities(0))
-    if (currentReading.value) {
-      checkAndNotifyToday(currentReading.value, currentLanguage.value)
-    }
+    scheduleDaily6AMNotification(currentLanguage.value)
   }, exitAt + (reduced ? 50 : 560))
+})
+
+watch(currentLanguage, (lang) => {
+  scheduleDaily6AMNotification(lang)
 })
 
 onUnmounted(() => {

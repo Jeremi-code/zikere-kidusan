@@ -81,3 +81,28 @@ self.addEventListener('notificationclick', (event) => {
     })
   )
 })
+
+self.addEventListener('periodicsync', (event) => {
+  if (event.tag === 'synaxarium-daily-6am') {
+    const now = new Date()
+    if (now.getHours() >= 6) {
+      event.waitUntil(
+        self.registration.showNotification('ዝክረ ቅዱሳን', {
+          body: 'የዕለቱ የቅዱሳን በዓላት ንባብ ተዘጋጅቷል',
+          icon: '/favicon.svg',
+          badge: '/favicon.svg',
+          tag: 'synaxarium-daily-6am',
+          renotify: true,
+          data: { url: '/' }
+        })
+      )
+    }
+  }
+})
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SHOW_NOTIFICATION') {
+    const { title, options } = event.data
+    self.registration.showNotification(title, options)
+  }
+})

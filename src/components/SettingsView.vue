@@ -16,7 +16,9 @@ import {
   requestNotificationPermission, 
   isNotificationsEnabled, 
   setNotificationsEnabled,
-  sendSynaxariumNotification
+  sendSynaxariumNotification,
+  scheduleDaily6AMNotification,
+  cancelDaily6AMNotification
 } from '../lib/notifications'
 import { getTodayEthiopian } from '../lib/ethiopianCalendar'
 import { synaxariumData } from '../lib/synaxariumData'
@@ -34,13 +36,16 @@ async function handleToggleNotifications() {
     const perm = await requestNotificationPermission()
     if (perm === 'granted') {
       setNotificationsEnabled(true)
+      scheduleDaily6AMNotification(currentLanguage.value)
       testFeedback.value = ''
     } else {
       setNotificationsEnabled(false)
+      cancelDaily6AMNotification()
       testFeedback.value = t('settings.notifBlocked')
     }
   } else {
     setNotificationsEnabled(false)
+    cancelDaily6AMNotification()
     testFeedback.value = ''
   }
 }
