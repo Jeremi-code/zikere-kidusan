@@ -152,7 +152,7 @@ export async function sendNotificationWithTitle(
     if (granted !== 'granted') return false
   }
 
-  const notificationOptions: NotificationOptions = {
+  const notificationOptions: NotificationOptions & { renotify?: boolean } = {
     icon: '/favicon.svg',
     badge: '/favicon.svg',
     tag: 'synaxarium-daily-6am',
@@ -164,7 +164,7 @@ export async function sendNotificationWithTitle(
     try {
       const registration = await navigator.serviceWorker.getRegistration()
       if (registration?.active && 'showNotification' in registration) {
-        await registration.showNotification(title, notificationOptions)
+        await registration.showNotification(title, notificationOptions as NotificationOptions)
         return true
       }
     } catch {
@@ -172,7 +172,7 @@ export async function sendNotificationWithTitle(
   }
 
   try {
-    new Notification(title, notificationOptions)
+    new Notification(title, notificationOptions as NotificationOptions)
     return true
   } catch {
     return false
