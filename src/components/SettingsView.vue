@@ -9,18 +9,62 @@ import {
   type SupportedLanguage
 } from '../lib/preferences'
 import { t, type MessageKey } from '../lib/i18n'
-import { Sun, Moon, ExternalLink, Bell, BellRing } from 'lucide-vue-next'
+import { Sun, Moon, ExternalLink, Bell, BellRing, Clock } from 'lucide-vue-next'
 import { 
   isNotificationSupported, 
   getNotificationPermission, 
   requestNotificationPermission, 
   isNotificationsEnabled, 
   setNotificationsEnabled,
-  scheduleDaily6AMNotification,
-  cancelDaily6AMNotification
+  notificationTime,
+  setNotificationTime,
+  scheduleDailyNotification,
+  cancelDailyNotification,
+  formatTimeToEthiopian,
+  getNextScheduledNotificationDescription
 } from '../lib/notifications'
 
 const notifFeedback = ref('')
+
+const timePresets = [
+  { value: '06:00', labelAm: 'ጠዋት 12:00', labelEn: '6:00 AM' },
+  { value: '07:00', labelAm: 'ጧት 1:00', labelEn: '7:00 AM' },
+  { value: '12:00', labelAm: 'ቀትር 6:00', labelEn: '12:00 PM' },
+  { value: '18:00', labelAm: 'ምሽት 12:00', labelEn: '6:00 PM' },
+  { value: '21:00', labelAm: 'ምሽት 3:00', labelEn: '9:00 PM' }
+]
+
+function handleSelectTime(time: string) {
+  setNotificationTime(time, currentLanguage.value)
+}
+
+function handleTimeInputChange(event: Event) {
+  const target = event.target as HTMLInputElement
+  if (target && target.value) {
+    setNotificationTime(target.value, currentLanguage.value)
+  }
+}
+
+function toggleAmPm(targetPeriod: 'AM' | 'PM') {
+  const parts = notificationTime.value.split(':')
+  let hours = parseInt(parts[0] || '6', 10)
+  const minutes = parts[1] || '00'
+  
+  if (targetPeriod === 'PM' && hours < 12) {
+    hours += 12
+  } else if (targetPeriod === 'AM' && hours >= 12) {
+    hours -= 12
+  }
+  
+  const newTime = `${hours.toString().padStart(2, '0')}:${minutes}`
+  setNotificationTime(newTime, currentLanguage.value)
+}
+
+function isCurrentPm(): boolean {
+  const parts = notificationTime.value.split(':')
+  const hours = parseInt(parts[0] || '6', 10)
+  return hours >= 12
+}
 
 async function handleToggleNotifications() {
   if (!isNotificationSupported()) {
@@ -32,16 +76,16 @@ async function handleToggleNotifications() {
     const perm = await requestNotificationPermission()
     if (perm === 'granted') {
       setNotificationsEnabled(true)
-      scheduleDaily6AMNotification(currentLanguage.value)
+      scheduleDailyNotification(currentLanguage.value)
       notifFeedback.value = ''
     } else {
       setNotificationsEnabled(false)
-      cancelDaily6AMNotification()
+      cancelDailyNotification()
       notifFeedback.value = t('settings.notifBlocked')
     }
   } else {
     setNotificationsEnabled(false)
-    cancelDaily6AMNotification()
+    cancelDailyNotification()
     notifFeedback.value = ''
   }
 }
@@ -178,6 +222,68 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
 
           <div v-if="notifFeedback" class="notif-feedback">
             {{ notifFeedback }}
+          </div>
+
+          <div v-if="isNotificationsEnabled" class="notif-time-section">
+            <div class="notif-time-header">
+              <div class="notif-time-title-wrap">
+                <Clock class="w-4 h-4 text-rubric" />
+                <span class="notif-time-title">{{ t('settings.notifTime') }}</span>
+              </div>
+              <div class="notif-time-badge">
+                {{ formatTimeToEthiopian(notificationTime, currentLanguage === 'en') }}
+              </div>
+            </div>
+
+            <div class="notif-presets-grid">
+              <button
+                v-for="preset in timePresets"
+                :key="preset.value"
+                type="button"
+                class="notif-preset-chip"
+                :class="{ active: notificationTime === preset.value }"
+                @click="handleSelectTime(preset.value)"
+              >
+                <span class="preset-label">{{ currentLanguage === 'en' ? preset.labelEn : preset.labelAm }}</span>
+                <span class="preset-sub">{{ preset.value }}</span>
+              </button>
+            </div>
+
+            <div class="notif-custom-time-row">
+              <label class="notif-custom-label">
+                <span class="custom-time-text">{{ t('settings.notifCustomTime') }}</span>
+                <input
+                  type="time"
+                  class="notif-time-input"
+                  :value="notificationTime"
+                  @change="handleTimeInputChange"
+                />
+              </label>
+
+              <div class="ampm-group">
+                <button
+                  type="button"
+                  class="ampm-btn"
+                  :class="{ active: !isCurrentPm() }"
+                  @click="toggleAmPm('AM')"
+                >
+                  {{ currentLanguage === 'en' ? 'AM' : 'ጧት' }}
+                </button>
+                <button
+                  type="button"
+                  class="ampm-btn"
+                  :class="{ active: isCurrentPm() }"
+                  @click="toggleAmPm('PM')"
+                >
+                  {{ currentLanguage === 'en' ? 'PM' : 'ምሽት' }}
+                </button>
+              </div>
+            </div>
+
+            <div class="notif-schedule-status">
+              <span class="status-dot"></span>
+              <span>{{ getNextScheduledNotificationDescription(currentLanguage) }}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -684,5 +790,168 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
   padding: 6px 12px;
   border-radius: 8px;
   background: color-mix(in oklab, var(--rubric) 8%, transparent);
+}
+
+.notif-time-section {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notif-time-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notif-time-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.notif-time-title {
+  font: 600 13px var(--font);
+  color: var(--text);
+}
+
+.notif-time-badge {
+  font: 600 11.5px var(--font);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--rubric) 12%, transparent);
+  color: var(--rubric);
+  border: 1px solid color-mix(in oklab, var(--rubric) 25%, transparent);
+}
+
+.notif-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 6px;
+}
+
+.notif-preset-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 6px;
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--ink) 4%, transparent);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-preset-chip:hover {
+  border-color: var(--rubric);
+  background: color-mix(in oklab, var(--rubric) 6%, transparent);
+}
+
+.notif-preset-chip.active {
+  border-color: var(--rubric);
+  background: color-mix(in oklab, var(--rubric) 14%, transparent);
+  box-shadow: 0 0 0 1px var(--rubric);
+}
+
+.preset-label {
+  font: 600 11.5px/1.2 var(--font);
+  color: var(--text);
+}
+
+.notif-preset-chip.active .preset-label {
+  color: var(--rubric);
+}
+
+.preset-sub {
+  font: 400 10.5px/1.2 var(--font);
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.notif-custom-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.notif-custom-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.custom-time-text {
+  font: 500 12px var(--font);
+  color: var(--text-2);
+}
+
+.notif-time-input {
+  font: 600 13px var(--font);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.notif-time-input:focus {
+  border-color: var(--rubric);
+  box-shadow: 0 0 0 1px var(--rubric);
+}
+
+.ampm-group {
+  display: inline-flex;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--ink) 6%, transparent);
+  padding: 2px;
+  border: 1px solid var(--line);
+}
+
+.ampm-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-2);
+  font: 600 11.5px var(--font);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ampm-btn.active {
+  background: var(--surface);
+  color: var(--rubric);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.notif-schedule-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 12px var(--font);
+  color: var(--text-2);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--ink) 3%, transparent);
+  border: 1px dashed var(--line);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rubric);
+  display: inline-block;
+  flex-shrink: 0;
 }
 </style>

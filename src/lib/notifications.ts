@@ -4,11 +4,84 @@ import { getTodayEthiopian, ETHIOPIAN_MONTHS } from './ethiopianCalendar'
 import { synaxariumData } from './synaxariumData'
 
 const NOTIFICATION_KEY = 'synaxarium_notifications_enabled'
+const NOTIFICATION_TIME_KEY = 'synaxarium_notification_time'
 const LAST_NOTIFIED_DATE_KEY = 'synaxarium_last_notified_date'
+export const DEFAULT_NOTIFICATION_TIME = '06:00'
 
 export const isNotificationsEnabled = ref<boolean>(
   typeof window !== 'undefined' && localStorage.getItem(NOTIFICATION_KEY) === 'true'
 )
+
+export const notificationTime = ref<string>(
+  (typeof window !== 'undefined' && localStorage.getItem(NOTIFICATION_TIME_KEY)) || DEFAULT_NOTIFICATION_TIME
+)
+
+export function setNotificationTime(time: string, lang: 'am' | 'en' = 'am'): void {
+  notificationTime.value = time
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(NOTIFICATION_TIME_KEY, time)
+    localStorage.removeItem(LAST_NOTIFIED_DATE_KEY)
+  }
+  if (isNotificationsEnabled.value) {
+    scheduleDailyNotification(lang)
+  }
+}
+
+export function parseTimeString(timeStr: string): { hours: number; minutes: number } {
+  const parts = timeStr.split(':')
+  const hours = Math.max(0, Math.min(23, parseInt(parts[0] || '6', 10)))
+  const minutes = Math.max(0, Math.min(59, parseInt(parts[1] || '0', 10)))
+  return { hours, minutes }
+}
+
+export function formatTimeToEthiopian(timeStr: string, isEn: boolean = false): string {
+  const { hours, minutes } = parseTimeString(timeStr)
+  const minStr = minutes > 0 ? `:${minutes.toString().padStart(2, '0')}` : ':00'
+  
+  let ethHour = (hours + 6) % 12
+  if (ethHour === 0) ethHour = 12
+
+  const periodEn = hours >= 12 ? 'PM' : 'AM'
+  const displayH = hours % 12 === 0 ? 12 : hours % 12
+
+  if (isEn) {
+    return `${displayH}${minStr} ${periodEn} · Eth ${ethHour}${minStr}`
+  }
+
+  let periodAm = 'ጧት'
+  if (hours >= 23 || hours < 5) {
+    periodAm = 'ሌሊት'
+  } else if (hours >= 5 && hours < 7) {
+    periodAm = 'ጠዋት'
+  } else if (hours >= 7 && hours < 12) {
+    periodAm = 'ጧት'
+  } else if (hours >= 12 && hours < 13) {
+    periodAm = 'ቀትር'
+  } else if (hours >= 13 && hours < 18) {
+    periodAm = 'ከሰዓት'
+  } else {
+    periodAm = 'ምሽት'
+  }
+
+  return `${periodAm} ${ethHour}${minStr} (${displayH}${minStr} ${periodEn})`
+}
+
+export function getNextScheduledNotificationDescription(lang: 'am' | 'en' = 'am'): string {
+  const { hours, minutes } = parseTimeString(notificationTime.value)
+  const now = new Date()
+  const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0, 0)
+  
+  const todayEth = getTodayEthiopian()
+  const scheduleKey = `${todayEth.year}-${todayEth.month}-${todayEth.day}@${notificationTime.value}`
+  const lastNotified = typeof window !== 'undefined' ? localStorage.getItem(LAST_NOTIFIED_DATE_KEY) : null
+  
+  const isPast = now.getTime() >= target.getTime() && (now.getHours() !== hours || now.getMinutes() !== minutes)
+  const isToday = !isPast && lastNotified !== scheduleKey
+  const dayLabel = isToday ? (lang === 'en' ? 'Today' : 'ዛሬ') : (lang === 'en' ? 'Tomorrow' : 'ነገ')
+  
+  const timeLabel = formatTimeToEthiopian(notificationTime.value, lang === 'en')
+  return `${dayLabel} · ${timeLabel}`
+}
 
 let scheduledTimerId: ReturnType<typeof setTimeout> | null = null
 let heartbeatIntervalId: ReturnType<typeof setInterval> | null = null
@@ -39,18 +112,33 @@ export function setNotificationsEnabled(enabled: boolean): void {
   }
 }
 
-export function getMillisecondsUntilNext6AM(): number {
+export function getMillisecondsUntilNextTime(timeStr: string = notificationTime.value): number {
+  const { hours, minutes } = parseTimeString(timeStr)
   const now = new Date()
-  const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 6, 0, 0, 0)
-  if (now.getTime() >= target.getTime()) {
+  const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0, 0)
+
+  const todayEth = getTodayEthiopian()
+  const scheduleKey = `${todayEth.year}-${todayEth.month}-${todayEth.day}@${timeStr}`
+  const lastNotified = typeof window !== 'undefined' ? localStorage.getItem(LAST_NOTIFIED_DATE_KEY) : null
+
+  if (now.getHours() === hours && now.getMinutes() === minutes && lastNotified !== scheduleKey) {
+    return 1000
+  }
+
+  const isPastMinute = now.getHours() > hours || (now.getHours() === hours && now.getMinutes() > minutes)
+  if (isPastMinute || (now.getTime() >= target.getTime() && lastNotified === scheduleKey)) {
     target.setDate(target.getDate() + 1)
   }
+
   return Math.max(1000, target.getTime() - now.getTime())
 }
 
-export function isPast6AMToday(): boolean {
+export function isPastConfiguredTimeToday(timeStr: string = notificationTime.value): boolean {
+  const { hours, minutes } = parseTimeString(timeStr)
   const now = new Date()
-  return now.getHours() >= 6
+  if (now.getHours() > hours) return true
+  if (now.getHours() === hours && now.getMinutes() >= minutes) return true
+  return false
 }
 
 export async function sendNotificationWithTitle(
@@ -74,8 +162,8 @@ export async function sendNotificationWithTitle(
 
   if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
     try {
-      const registration = await navigator.serviceWorker.ready
-      if (registration && 'showNotification' in registration) {
+      const registration = await navigator.serviceWorker.getRegistration()
+      if (registration?.active && 'showNotification' in registration) {
         await registration.showNotification(title, notificationOptions)
         return true
       }
@@ -126,18 +214,18 @@ export async function sendSynaxariumNotification(
   return success
 }
 
-export async function checkAndTrigger6AMNotification(
+export async function checkAndTriggerDailyNotification(
   lang: 'am' | 'en' = 'am'
 ): Promise<boolean> {
   if (!isNotificationsEnabled.value) return false
   if (getNotificationPermission() !== 'granted') return false
-  if (!isPast6AMToday()) return false
+  if (!isPastConfiguredTimeToday()) return false
 
   const todayEth = getTodayEthiopian()
-  const todayKey = `${todayEth.year}-${todayEth.month}-${todayEth.day}`
-  const lastNotified = localStorage.getItem(LAST_NOTIFIED_DATE_KEY)
+  const scheduleKey = `${todayEth.year}-${todayEth.month}-${todayEth.day}@${notificationTime.value}`
+  const lastNotified = typeof window !== 'undefined' ? localStorage.getItem(LAST_NOTIFIED_DATE_KEY) : null
 
-  if (lastNotified === todayKey) {
+  if (lastNotified === scheduleKey) {
     return false
   }
 
@@ -146,13 +234,13 @@ export async function checkAndTrigger6AMNotification(
   ) || synaxariumData[0]
 
   const sent = await sendSynaxariumNotification(todayEntry, lang)
-  if (sent) {
-    localStorage.setItem(LAST_NOTIFIED_DATE_KEY, todayKey)
+  if (sent && typeof window !== 'undefined') {
+    localStorage.setItem(LAST_NOTIFIED_DATE_KEY, scheduleKey)
   }
   return sent
 }
 
-export function scheduleDaily6AMNotification(lang: 'am' | 'en' = 'am'): void {
+export function scheduleDailyNotification(lang: 'am' | 'en' = 'am'): void {
   if (scheduledTimerId) {
     clearTimeout(scheduledTimerId)
     scheduledTimerId = null
@@ -162,19 +250,19 @@ export function scheduleDaily6AMNotification(lang: 'am' | 'en' = 'am'): void {
     return
   }
 
-  checkAndTrigger6AMNotification(lang)
+  checkAndTriggerDailyNotification(lang)
 
-  const msUntil6AM = getMillisecondsUntilNext6AM()
+  const msUntilTarget = getMillisecondsUntilNextTime()
   scheduledTimerId = setTimeout(async () => {
-    await checkAndTrigger6AMNotification(lang)
-    scheduleDaily6AMNotification(lang)
-  }, msUntil6AM)
+    await checkAndTriggerDailyNotification(lang)
+    scheduleDailyNotification(lang)
+  }, msUntilTarget)
 
   attachLifecycleListeners(lang)
   registerPeriodicSync()
 }
 
-export function cancelDaily6AMNotification(): void {
+export function cancelDailyNotification(): void {
   if (scheduledTimerId) {
     clearTimeout(scheduledTimerId)
     scheduledTimerId = null
@@ -191,21 +279,27 @@ function attachLifecycleListeners(lang: 'am' | 'en'): void {
 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-      checkAndTrigger6AMNotification(lang)
-      scheduleDaily6AMNotification(lang)
+      checkAndTriggerDailyNotification(lang)
+      scheduleDailyNotification(lang)
     }
   })
 
   heartbeatIntervalId = setInterval(() => {
-    checkAndTrigger6AMNotification(lang)
+    checkAndTriggerDailyNotification(lang)
   }, 30 * 60 * 1000)
 }
+
+export const checkAndTrigger6AMNotification = checkAndTriggerDailyNotification
+export const scheduleDaily6AMNotification = scheduleDailyNotification
+export const cancelDaily6AMNotification = cancelDailyNotification
+export const getMillisecondsUntilNext6AM = getMillisecondsUntilNextTime
+export const isPast6AMToday = isPastConfiguredTimeToday
 
 export async function registerPeriodicSync(): Promise<void> {
   if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return
   try {
-    const registration = await navigator.serviceWorker.ready
-    if ('periodicSync' in registration) {
+    const registration = await navigator.serviceWorker.getRegistration()
+    if (registration?.active && 'periodicSync' in registration) {
       const periodicSync = (registration as any).periodicSync
       const tags = await periodicSync.getTags()
       if (!tags.includes('synaxarium-daily-6am')) {
