@@ -48,19 +48,15 @@ export function formatTimeToEthiopian(timeStr: string, isEn: boolean = false): s
     return `${displayH}${minStr} ${periodEn} · Eth ${ethHour}${minStr}`
   }
 
-  let periodAm = 'ጧት'
-  if (hours >= 23 || hours < 5) {
-    periodAm = 'ሌሊት'
-  } else if (hours >= 5 && hours < 7) {
+  let periodAm = 'ጠዋት'
+  if (hours >= 6 && hours < 12) {
     periodAm = 'ጠዋት'
-  } else if (hours >= 7 && hours < 12) {
-    periodAm = 'ጧት'
-  } else if (hours >= 12 && hours < 13) {
-    periodAm = 'ቀትር'
-  } else if (hours >= 13 && hours < 18) {
+  } else if (hours >= 12 && hours < 18) {
     periodAm = 'ከሰዓት'
-  } else {
+  } else if (hours >= 18 && hours < 24) {
     periodAm = 'ምሽት'
+  } else {
+    periodAm = 'ሌሊት'
   }
 
   return `${periodAm} ${ethHour}${minStr} (${displayH}${minStr} ${periodEn})`

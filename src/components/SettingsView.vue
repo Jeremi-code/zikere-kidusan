@@ -28,8 +28,8 @@ const notifFeedback = ref('')
 
 const timePresets = [
   { value: '06:00', labelAm: 'ጠዋት 12:00', labelEn: '6:00 AM' },
-  { value: '07:00', labelAm: 'ጧት 1:00', labelEn: '7:00 AM' },
-  { value: '12:00', labelAm: 'ቀትር 6:00', labelEn: '12:00 PM' },
+  { value: '07:00', labelAm: 'ጠዋት 1:00', labelEn: '7:00 AM' },
+  { value: '12:00', labelAm: 'ከሰዓት 6:00', labelEn: '12:00 PM' },
   { value: '18:00', labelAm: 'ምሽት 12:00', labelEn: '6:00 PM' },
   { value: '21:00', labelAm: 'ምሽት 3:00', labelEn: '9:00 PM' }
 ]
@@ -267,7 +267,7 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
                   :class="{ active: !isCurrentPm() }"
                   @click="toggleAmPm('AM')"
                 >
-                  {{ currentLanguage === 'en' ? 'AM' : 'ጧት' }}
+                  {{ currentLanguage === 'en' ? 'AM' : 'ጠዋት' }}
                 </button>
                 <button
                   type="button"
