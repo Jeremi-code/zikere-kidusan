@@ -82,4 +82,13 @@ export default {
   'settings.notifCustomTime': 'የራስዎ ሰዓት',
   'settings.notifNotSupported': 'ማሳሰቢያ በዚህ መሣሪያ አይደገፍም',
   'settings.notifBlocked': 'ማሳሰቢያ በብሳውዘር ተከልክሏል',
+  'settings.timezone': 'የሰዓት አቆጣጠር',
+  'settings.timezoneSub': 'ዕለቱ የሚቀየርበትን የሰዓት ቀጠና ይምረጡ',
+  'settings.timezoneEat': 'የኢትዮጵያ ሰዓት (UTC+3)',
+  'settings.timezoneEatSub': 'አዲስ አበባ (ቀኖናዊ የቤተክርስቲያን ሰዓት)',
+  'settings.timezoneLocal': 'የመሳሪያዎ ሰዓት',
+  'settings.timezoneLocalSub': 'አሁን ባሉበት አካባቢ ያለ ሰዓት',
+  'settings.analytics': 'የአጠቃቀም ስታቲስቲክስ',
+  'settings.analyticsSub': 'መተግበሪያውን ለማሻሻል የሚረዱ ስም-አልባ የንባብ መረጃዎች (ምንም የግል መረጃ አይሰበሰብም)',
+  'settings.analyticsEnable': 'ስም-አልባ ስታቲስቲክስ ይፍቀዱ',
 }

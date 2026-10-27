@@ -4,6 +4,7 @@ export type { SupportedLanguage }
 
 export type AppTheme = 'light' | 'sepia' | 'dark'
 export type FontSize = 'sm' | 'base' | 'lg' | 'xl'
+export type LiturgicalTimezone = 'eat' | 'local'
 
 export interface BookmarkItem {
   id: string
@@ -12,7 +13,6 @@ export interface BookmarkItem {
   year?: number
   title: string
   titleEn?: string
-  /** Legacy: older saves stored an Amharic label; the label is now derived from month/day. */
   dateLabel?: string
   savedAt: number
 }
@@ -21,6 +21,8 @@ const THEME_KEY = 'synaxarium_theme'
 const FONT_SIZE_KEY = 'synaxarium_font_size'
 const LANG_KEY = 'synaxarium_language'
 const BOOKMARKS_KEY = 'synaxarium_bookmarks'
+const ANALYTICS_KEY = 'synaxarium_analytics_enabled'
+const TIMEZONE_KEY = 'synaxarium_liturgical_timezone'
 
 function getInitialTheme(): AppTheme {
   const saved = localStorage.getItem(THEME_KEY)
@@ -55,10 +57,24 @@ function getInitialBookmarks(): BookmarkItem[] {
   }
 }
 
+function getInitialAnalytics(): boolean {
+  const saved = localStorage.getItem(ANALYTICS_KEY)
+  if (saved === 'false') return false
+  return true
+}
+
+function getInitialLiturgicalTimezone(): LiturgicalTimezone {
+  const saved = localStorage.getItem(TIMEZONE_KEY)
+  if (saved === 'eat' || saved === 'local') return saved
+  return 'eat'
+}
+
 export const currentTheme = ref<AppTheme>(getInitialTheme())
 export const currentFontSize = ref<FontSize>(getInitialFontSize())
 export const currentLanguage = ref<SupportedLanguage>(getInitialLanguage())
 export const bookmarks = ref<BookmarkItem[]>(getInitialBookmarks())
+export const isAnalyticsEnabled = ref<boolean>(getInitialAnalytics())
+export const currentLiturgicalTimezone = ref<LiturgicalTimezone>(getInitialLiturgicalTimezone())
 
 watch(currentTheme, (val) => {
   localStorage.setItem(THEME_KEY, val)
@@ -77,6 +93,14 @@ watch(currentLanguage, (val) => {
 watch(bookmarks, (val) => {
   localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(val))
 }, { deep: true })
+
+watch(isAnalyticsEnabled, (val) => {
+  localStorage.setItem(ANALYTICS_KEY, String(val))
+})
+
+watch(currentLiturgicalTimezone, (val) => {
+  localStorage.setItem(TIMEZONE_KEY, val)
+})
 
 export function applyThemeToDocument(theme: AppTheme) {
   const root = document.documentElement

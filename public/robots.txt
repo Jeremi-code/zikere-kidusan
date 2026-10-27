@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zikere-kidusan.vercel.app/sitemap.xml

@@ -4,12 +4,15 @@ import {
   currentTheme, 
   currentFontSize, 
   currentLanguage,
+  currentLiturgicalTimezone,
+  isAnalyticsEnabled,
   type AppTheme, 
   type FontSize,
-  type SupportedLanguage
+  type SupportedLanguage,
+  type LiturgicalTimezone
 } from '../lib/preferences'
 import { t, type MessageKey } from '../lib/i18n'
-import { Sun, Moon, ExternalLink, Bell, BellRing, Clock } from 'lucide-vue-next'
+import { Sun, Moon, ExternalLink, Bell, BellRing, Clock, Globe, Activity } from 'lucide-vue-next'
 import { 
   isNotificationSupported, 
   getNotificationPermission, 
@@ -106,6 +109,11 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
   { id: 'base', label: 'settings.fontBase', sub: 'M', sampleSize: '17px' },
   { id: 'lg', label: 'settings.fontLg', sub: 'L', sampleSize: '20px' },
   { id: 'xl', label: 'settings.fontXl', sub: 'XL', sampleSize: '23px' }
+]
+
+const timezones: { id: LiturgicalTimezone; label: MessageKey; sub: MessageKey }[] = [
+  { id: 'eat', label: 'settings.timezoneEat', sub: 'settings.timezoneEatSub' },
+  { id: 'local', label: 'settings.timezoneLocal', sub: 'settings.timezoneLocalSub' }
 ]
 </script>
 
@@ -284,6 +292,60 @@ const fontSizes: { id: FontSize; label: MessageKey; sub: string; sampleSize: str
               <span class="status-dot"></span>
               <span>{{ getNextScheduledNotificationDescription(currentLanguage) }}</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="h-label">{{ t('settings.timezone') }}</div>
+        <div class="lang-grid">
+          <button
+            v-for="tz in timezones"
+            :key="tz.id"
+            type="button"
+            class="lang-card"
+            :class="{ active: currentLiturgicalTimezone === tz.id }"
+            @click="currentLiturgicalTimezone = tz.id"
+          >
+            <div class="lang-symbol-box" :class="tz.id">
+              <Globe class="w-4 h-4 text-[var(--accent)]" />
+            </div>
+            <div class="lang-card-body">
+              <div class="lang-meta">
+                <span class="lang-name">{{ t(tz.label) }}</span>
+                <span class="lang-sub">{{ t(tz.sub) }}</span>
+              </div>
+              <div class="lang-indicator">
+                <span class="indicator-dot"></span>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="h-label">{{ t('settings.analytics') }}</div>
+        <div class="notif-card">
+          <div class="notif-row">
+            <div class="notif-meta">
+              <div class="notif-icon-wrap" :class="{ active: isAnalyticsEnabled }">
+                <Activity class="w-4 h-4" />
+              </div>
+              <div class="notif-text">
+                <span class="notif-title">{{ t('settings.analyticsEnable') }}</span>
+                <span class="notif-sub">{{ t('settings.analyticsSub') }}</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              :aria-checked="isAnalyticsEnabled"
+              class="notif-switch"
+              :class="{ enabled: isAnalyticsEnabled }"
+              @click="isAnalyticsEnabled = !isAnalyticsEnabled"
+            >
+              <span class="switch-handle"></span>
+            </button>
           </div>
         </div>
       </section>

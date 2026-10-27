@@ -176,8 +176,41 @@ export function gregorianToEthiopian(date: Date = new Date()): EthiopianDate {
   }
 }
 
-export function getTodayEthiopian(): EthiopianDate {
-  return gregorianToEthiopian(new Date())
+export function getDateInTimezone(timezone: 'eat' | 'local' = 'eat'): Date {
+  if (timezone === 'local') {
+    return new Date()
+  }
+  const now = new Date()
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Africa/Addis_Ababa',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: false
+  })
+  const parts = formatter.formatToParts(now)
+  let year = now.getFullYear()
+  let month = now.getMonth() + 1
+  let day = now.getDate()
+  let hour = 0
+  let minute = 0
+  let second = 0
+  for (const part of parts) {
+    if (part.type === 'year') year = Number(part.value)
+    if (part.type === 'month') month = Number(part.value)
+    if (part.type === 'day') day = Number(part.value)
+    if (part.type === 'hour') hour = Number(part.value)
+    if (part.type === 'minute') minute = Number(part.value)
+    if (part.type === 'second') second = Number(part.value)
+  }
+  return new Date(year, month - 1, day, hour, minute, second)
+}
+
+export function getTodayEthiopian(timezone: 'eat' | 'local' = 'eat'): EthiopianDate {
+  return gregorianToEthiopian(getDateInTimezone(timezone))
 }
 
 export function getSurroundingDays(

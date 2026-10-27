@@ -14,10 +14,13 @@ import type { SynaxariumEntry } from './lib/types'
 import { 
   currentTheme, 
   currentLanguage,
+  currentLiturgicalTimezone,
   applyThemeToDocument,
   isBookmarked,
   toggleBookmarkItem
 } from './lib/preferences'
+import { initAnalytics, trackEvent, trackPageView } from './lib/analytics'
+import { updateSeoMetadata } from './lib/seo'
 import { scheduleDailyNotification } from './lib/notifications'
 import { t, pick, formatNumber, monthName, formatGregorian, BRAND } from './lib/i18n'
 import { Bookmark } from 'lucide-vue-next'
@@ -26,8 +29,40 @@ import SearchModal from './components/SearchModal.vue'
 import BookmarksView from './components/BookmarksView.vue'
 import SettingsView from './components/SettingsView.vue'
 
+function getInitialDate(): EthiopianDate {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search)
+    const m = parseInt(params.get('month') || '', 10)
+    const d = parseInt(params.get('day') || '', 10)
+    const lang = params.get('lang')
+    if (lang === 'en' || lang === 'am') {
+      currentLanguage.value = lang
+    }
+    const today = getTodayEthiopian(currentLiturgicalTimezone.value)
+    if (m >= 1 && m <= 13 && d >= 1 && d <= 30) {
+      const jdn = ethiopianToJDN(today.year, m, d)
+      const eth = jdnToEthiopian(jdn)
+      const wd = getWeekdayFromJDN(jdn)
+      return {
+        year: eth.year,
+        month: eth.month,
+        day: eth.day,
+        monthName: eth.monthNameAm,
+        monthNameEn: eth.monthNameEn,
+        geezDay: numberToGeez(eth.day),
+        geezYear: numberToGeez(eth.year),
+        weekdayNameAm: wd.nameAm,
+        weekdayNameEn: wd.nameEn,
+        weekdayShortAm: wd.shortAm,
+        weekdayShortEn: wd.shortEn
+      }
+    }
+  }
+  return getTodayEthiopian(currentLiturgicalTimezone.value)
+}
+
 const allReadings = synaxariumData as SynaxariumEntry[]
-const currentDate = ref<EthiopianDate>(getTodayEthiopian())
+const currentDate = ref<EthiopianDate>(getInitialDate())
 
 const isDatePickerOpen = ref(false)
 const isSearchOpen = ref(false)
@@ -360,6 +395,7 @@ const isCurrentSaved = computed(() => {
 
 function toggleCurrentReadingBookmark() {
   if (!currentReading.value) return
+  const willSave = !isCurrentSaved.value
   toggleBookmarkItem({
     id: `${currentDate.value.month}_${currentDate.value.day}`,
     month: currentDate.value.month,
@@ -368,6 +404,47 @@ function toggleCurrentReadingBookmark() {
     title: currentReading.value.title,
     titleEn: currentReading.value.titleEn
   })
+  trackEvent('bookmark_toggled', {
+    month: currentDate.value.month,
+    day: currentDate.value.day,
+    action: willSave ? 'saved' : 'removed'
+  })
+}
+
+function syncUrlWithState() {
+  if (typeof window === 'undefined') return
+  const url = new URL(window.location.href)
+  url.searchParams.set('month', String(currentDate.value.month))
+  url.searchParams.set('day', String(currentDate.value.day))
+  if (currentLanguage.value === 'en') {
+    url.searchParams.set('lang', 'en')
+  } else {
+    url.searchParams.delete('lang')
+  }
+  window.history.replaceState({}, '', url.toString())
+}
+
+function refreshSeo() {
+  const r = currentReading.value
+  updateSeoMetadata({
+    month: currentDate.value.month,
+    day: currentDate.value.day,
+    year: currentDate.value.year,
+    titleAm: r?.title || '',
+    titleEn: r?.titleEn,
+    storyAm: r?.story,
+    storyEn: r?.storyEn,
+    scriptureVerse: displayScripture.value?.verse,
+    scriptureRef: displayScripture.value?.reference,
+    annualFeasts: r?.annualFeasts,
+    monthlyFeasts: r?.monthlyFeasts,
+    language: currentLanguage.value
+  })
+
+  trackPageView(
+    `/?month=${currentDate.value.month}&day=${currentDate.value.day}`,
+    document.title
+  )
 }
 
 function handleTabClick(idx: number) {
@@ -377,10 +454,16 @@ function handleTabClick(idx: number) {
   }
   isSearchActive.value = false
   if (activeTabIndex.value === idx && idx === 0) {
-    currentDate.value = getTodayEthiopian()
+    currentDate.value = getTodayEthiopian(currentLiturgicalTimezone.value)
+    trackEvent('date_navigated', {
+      month: currentDate.value.month,
+      day: currentDate.value.day,
+      method: 'jump_today'
+    })
   } else {
     activeTabIndex.value = idx
   }
+  trackEvent('page_view', { tab: idx })
   if (scroller.value) {
     scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -389,6 +472,7 @@ function handleTabClick(idx: number) {
 function handleSelectBookmark(date: { month: number; day: number; year?: number }) {
   handleSelectDate(date)
   activeTabIndex.value = 0
+  trackEvent('date_navigated', { month: date.month, day: date.day, method: 'bookmark' })
   if (scroller.value) {
     scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -399,6 +483,7 @@ function handleSelectFromSearch(date: { month: number; day: number; year?: numbe
   activeTabIndex.value = 0
   isSearchOpen.value = false
   isSearchActive.value = false
+  trackEvent('date_navigated', { month: date.month, day: date.day, method: 'search' })
   if (scroller.value) {
     scroller.value.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -407,6 +492,9 @@ function handleSelectFromSearch(date: { month: number; day: number; year?: numbe
 function toggleSearch() {
   isSearchActive.value = !isSearchActive.value
   isSearchOpen.value = isSearchActive.value
+  if (isSearchOpen.value) {
+    trackEvent('search_performed', { opened: true })
+  }
 }
 
 let lastScroll = 0
@@ -421,6 +509,13 @@ function handleScroll() {
 onMounted(() => {
   window.addEventListener('resize', handleWindowResize)
   applyThemeToDocument(currentTheme.value)
+  initAnalytics()
+
+  const params = new URLSearchParams(window.location.search)
+  if (params.get('q')) {
+    isSearchOpen.value = true
+    isSearchActive.value = true
+  }
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const exitAt = reduced ? 0 : 500
@@ -437,7 +532,21 @@ onMounted(() => {
   }, exitAt + (reduced ? 50 : 560))
 })
 
+watch(
+  [() => currentDate.value.month, () => currentDate.value.day, currentLanguage],
+  () => {
+    syncUrlWithState()
+    refreshSeo()
+  },
+  { immediate: true }
+)
+
+watch(currentLiturgicalTimezone, (newTz) => {
+  trackEvent('timezone_changed', { timezone: newTz })
+})
+
 watch(currentLanguage, (lang) => {
+  trackEvent('language_switched', { language: lang })
   scheduleDailyNotification(lang)
 })
 

@@ -84,4 +84,13 @@ export default {
   'settings.notifCustomTime': 'Custom Time',
   'settings.notifNotSupported': 'Notifications not supported on this device',
   'settings.notifBlocked': 'Notifications blocked in browser',
+  'settings.timezone': 'Liturgical Timezone',
+  'settings.timezoneSub': 'Select the timezone determining the active commemoration day',
+  'settings.timezoneEat': 'Ethiopian Time (UTC+3)',
+  'settings.timezoneEatSub': 'Addis Ababa (Canonical Church Time)',
+  'settings.timezoneLocal': 'Local Device Time',
+  'settings.timezoneLocalSub': 'Your current device time',
+  'settings.analytics': 'Usage Analytics',
+  'settings.analyticsSub': 'Anonymous telemetry to help improve the app (zero personal data or tracking cookies)',
+  'settings.analyticsEnable': 'Allow anonymous telemetry',
 } satisfies Record<MessageKey, Message>
